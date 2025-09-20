@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .go-term { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #ffffff; font-weight: bold; }
+      .go-id { font-family: 'Courier New', monospace; font-size: 9px; fill: #ffffff; }
+      .level1 { fill: #1e40af; }
+      .level2 { fill: #3b82f6; }
+      .level3 { fill: #60a5fa; }
+      .level4 { fill: #93c5fd; }
+      .connection { stroke: #6b7280; stroke-width: 2; }
+      .arrow { fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">Gene Ontology (GO) 层次结构示例</text>
+  
+  <!-- Root node -->
+  <rect x="350" y="50" width="100" height="40" class="level1" rx="5"/>
+  <text x="400" y="68" text-anchor="middle" class="go-term">生物学过程</text>
+  <text x="400" y="82" text-anchor="middle" class="go-id">GO:0008150</text>
+  
+  <!-- Level 2 nodes -->
+  <rect x="150" y="130" width="120" height="40" class="level2" rx="5"/>
+  <text x="210" y="148" text-anchor="middle" class="go-term">细胞过程</text>
+  <text x="210" y="162" text-anchor="middle" class="go-id">GO:0009987</text>
+  
+  <rect x="350" y="130" width="120" height="40" class="level2" rx="5"/>
+  <text x="410" y="148" text-anchor="middle" class="go-term">代谢过程</text>
+  <text x="410" y="162" text-anchor="middle" class="go-id">GO:0008152</text>
+  
+  <rect x="550" y="130" width="120" height="40" class="level2" rx="5"/>
+  <text x="610" y="148" text-anchor="middle" class="go-term">发育过程</text>
+  <text x="610" y="162" text-anchor="middle" class="go-id">GO:0032502</text>
+  
+  <!-- Connections from root to level 2 -->
+  <line x1="380" y1="90" x2="230" y2="130" class="connection"/>
+  <path d="M 225 125 L 230 130 L 235 125" class="arrow"/>
+  
+  <line x1="400" y1="90" x2="410" y2="130" class="connection"/>
+  <path d="M 405 125 L 410 130 L 415 125" class="arrow"/>
+  
+  <line x1="420" y1="90" x2="590" y2="130" class="connection"/>
+  <path d="M 585 125 L 590 130 L 595 125" class="arrow"/>
+  
+  <!-- Level 3 nodes -->
+  <rect x="50" y="210" width="120" height="40" class="level3" rx="5"/>
+  <text x="110" y="228" text-anchor="middle" class="go-term">细胞分裂</text>
+  <text x="110" y="242" text-anchor="middle" class="go-id">GO:0051301</text>
+  
+  <rect x="200" y="210" width="120" height="40" class="level3" rx="5"/>
+  <text x="260" y="228" text-anchor="middle" class="go-term">细胞死亡</text>
+  <text x="260" y="242" text-anchor="middle" class="go-id">GO:0008219</text>
+  
+  <rect x="300" y="210" width="120" height="40" class="level3" rx="5"/>
+  <text x="360" y="228" text-anchor="middle" class="go-term">蛋白质代谢</text>
+  <text x="360" y="242" text-anchor="middle" class="go-id">GO:0019538</text>
+  
+  <rect x="450" y="210" width="120" height="40" class="level3" rx="5"/>
+  <text x="510" y="228" text-anchor="middle" class="go-term">RNA代谢</text>
+  <text x="510" y="242" text-anchor="middle" class="go-id">GO:0016070</text>
+  
+  <rect x="600" y="210" width="120" height="40" class="level3" rx="5"/>
+  <text x="660" y="228" text-anchor="middle" class="go-term">器官发育</text>
+  <text x="660" y="242" text-anchor="middle" class="go-id">GO:0048513</text>
+  
+  <!-- Connections from level 2 to level 3 -->
+  <line x1="190" y1="170" x2="130" y2="210" class="connection"/>
+  <path d="M 125 205 L 130 210 L 135 205" class="arrow"/>
+  
+  <line x1="230" y1="170" x2="260" y2="210" class="connection"/>
+  <path d="M 255 205 L 260 210 L 265 205" class="arrow"/>
+  
+  <line x1="390" y1="170" x2="380" y2="210" class="connection"/>
+  <path d="M 375 205 L 380 210 L 385 205" class="arrow"/>
+  
+  <line x1="430" y1="170" x2="490" y2="210" class="connection"/>
+  <path d="M 485 205 L 490 210 L 495 205" class="arrow"/>
+  
+  <line x1="630" y1="170" x2="660" y2="210" class="connection"/>
+  <path d="M 655 205 L 660 210 L 665 205" class="arrow"/>
+  
+  <!-- Level 4 nodes (most specific) -->
+  <rect x="20" y="290" width="120" height="40" class="level4" rx="5"/>
+  <text x="80" y="308" text-anchor="middle" class="go-term">有丝分裂</text>
+  <text x="80" y="322" text-anchor="middle" class="go-id">GO:0007067</text>
+  
+  <rect x="170" y="290" width="120" height="40" class="level4" rx="5"/>
+  <text x="230" y="308" text-anchor="middle" class="go-term">减数分裂</text>
+  <text x="230" y="322" text-anchor="middle" class="go-id">GO:0007126</text>
+  
+  <rect x="270" y="290" width="120" height="40" class="level4" rx="5"/>
+  <text x="330" y="308" text-anchor="middle" class="go-term">蛋白质折叠</text>
+  <text x="330" y="322" text-anchor="middle" class="go-id">GO:0006457</text>
+  
+  <rect x="420" y="290" width="120" height="40" class="level4" rx="5"/>
+  <text x="480" y="308" text-anchor="middle" class="go-term">转录调控</text>
+  <text x="480" y="322" text-anchor="middle" class="go-id">GO:0006355</text>
+  
+  <rect x="570" y="290" width="120" height="40" class="level4" rx="5"/>
+  <text x="630" y="308" text-anchor="middle" class="go-term">心脏发育</text>
+  <text x="630" y="322" text-anchor="middle" class="go-id">GO:0007507</text>
+  
+  <!-- Connections from level 3 to level 4 -->
+  <line x1="90" y1="250" x2="100" y2="290" class="connection"/>
+  <path d="M 95 285 L 100 290 L 105 285" class="arrow"/>
+  
+  <line x1="130" y1="250" x2="210" y2="290" class="connection"/>
+  <path d="M 205 285 L 210 290 L 215 285" class="arrow"/>
+  
+  <line x1="340" y1="250" x2="350" y2="290" class="connection"/>
+  <path d="M 345 285 L 350 290 L 355 285" class="arrow"/>
+  
+  <line x1="530" y1="250" x2="460" y2="290" class="connection"/>
+  <path d="M 455 285 L 460 290 L 465 285" class="arrow"/>
+  
+  <line x1="680" y1="250" x2="650" y2="290" class="connection"/>
+  <path d="M 645 285 L 650 290 L 655 285" class="arrow"/>
+  
+  <!-- Explanation box -->
+  <rect x="50" y="370" width="700" height="100" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  <text x="400" y="395" text-anchor="middle" class="title" style="font-size: 14px;">GO层次结构特点</text>
+  
+  <text x="70" y="420" class="go-term" style="fill: #374151; font-size: 12px;">• 有向无环图 (DAG) 结构</text>
+  <text x="70" y="435" class="go-term" style="fill: #374151; font-size: 12px;">• 从通用到具体的层次关系</text>
+  <text x="70" y="450" class="go-term" style="fill: #374151; font-size: 12px;">• 子节点继承父节点的所有注释</text>
+  
+  <text x="400" y="420" class="go-term" style="fill: #374151; font-size: 12px;">• 支持多重继承关系</text>
+  <text x="400" y="435" class="go-term" style="fill: #374151; font-size: 12px;">• 便于功能富集分析</text>
+  <text x="400" y="450" class="go-term" style="fill: #374151; font-size: 12px;">• 标准化的生物学术语</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="50" width="15" height="15" class="level1"/>
+  <text x="40" y="62" class="go-term" style="fill: #374151; font-size: 10px;">根节点</text>
+  
+  <rect x="20" y="70" width="15" height="15" class="level2"/>
+  <text x="40" y="82" class="go-term" style="fill: #374151; font-size: 10px;">二级节点</text>
+  
+  <rect x="20" y="90" width="15" height="15" class="level3"/>
+  <text x="40" y="102" class="go-term" style="fill: #374151; font-size: 10px;">三级节点</text>
+  
+  <rect x="20" y="110" width="15" height="15" class="level4"/>
+  <text x="40" y="122" class="go-term" style="fill: #374151; font-size: 10px;">叶节点</text>
+</svg>

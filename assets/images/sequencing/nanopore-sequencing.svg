@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #333; }
+      .step-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .label-text { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .dna-strand { stroke: #2196F3; stroke-width: 4; fill: none; }
+      .nanopore { fill: #FF6B35; stroke: #D84315; stroke-width: 2; }
+      .membrane { fill: #E0E0E0; stroke: #333; stroke-width: 2; }
+      .current { stroke: #4CAF50; stroke-width: 3; }
+      .voltage { stroke: #FF9800; stroke-width: 2; }
+    </style>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#fafafa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title-text">Oxford Nanopore测序技术原理</text>
+  
+  <!-- 纳米孔结构 -->
+  <g transform="translate(50, 60)">
+    <text x="0" y="0" class="step-text" font-weight="bold">纳米孔测序原理</text>
+    
+    <!-- 膜结构 -->
+    <rect x="50" y="40" width="300" height="20" class="membrane"/>
+    <text x="200" y="35" text-anchor="middle" class="label-text">生物膜</text>
+    
+    <!-- 纳米孔 -->
+    <ellipse cx="200" cy="50" rx="8" ry="15" class="nanopore"/>
+    <text x="200" y="80" text-anchor="middle" class="label-text">纳米孔蛋白</text>
+    
+    <!-- 电极 -->
+    <rect x="30" y="30" width="10" height="40" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
+    <rect x="360" y="30" width="10" height="40" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
+    <text x="35" y="25" text-anchor="middle" class="label-text">电极(-)</text>
+    <text x="365" y="25" text-anchor="middle" class="label-text">电极(+)</text>
+    
+    <!-- 电压 -->
+    <path d="M 40 50 L 360 50" class="voltage" stroke-dasharray="5,5"/>
+    <text x="200" y="100" text-anchor="middle" class="label-text">施加电压 (~180mV)</text>
+    
+    <!-- DNA分子 -->
+    <path d="M 120 50 Q 150 45 180 50 Q 210 55 240 50 Q 270 45 300 50" class="dna-strand"/>
+    <text x="210" y="120" text-anchor="middle" class="label-text">DNA分子通过纳米孔</text>
+    
+    <!-- 电流检测 -->
+    <g transform="translate(80, 140)">
+      <rect x="0" y="0" width="240" height="80" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2" rx="5"/>
+      <text x="120" y="20" text-anchor="middle" class="label-text" font-weight="bold">电流信号检测</text>
+      
+      <!-- 电流波形 -->
+      <path d="M 20 40 L 40 35 L 60 45 L 80 30 L 100 50 L 120 25 L 140 40 L 160 35 L 180 45 L 200 30 L 220 40" 
+            stroke="#4CAF50" stroke-width="2" fill="none"/>
+      <text x="120" y="65" text-anchor="middle" class="label-text">电流变化对应不同碱基</text>
+    </g>
+  </g>
+  
+  <!-- 碱基识别机制 -->
+  <g transform="translate(450, 60)">
+    <text x="0" y="0" class="step-text" font-weight="bold">碱基识别机制</text>
+    
+    <!-- 不同碱基的电流阻断 -->
+    <rect x="0" y="20" width="250" height="200" fill="#f9f9f9" stroke="#ddd" stroke-width="1" rx="5"/>
+    
+    <!-- A碱基 -->
+    <g transform="translate(20, 40)">
+      <circle cx="15" cy="15" r="10" fill="#FF6B6B"/>
+      <text x="15" y="20" text-anchor="middle" class="label-text" fill="white" font-weight="bold">A</text>
+      <rect x="35" y="5" width="60" height="20" fill="#FFE5E5" stroke="#FF6B6B"/>
+      <text x="65" y="18" text-anchor="middle" class="label-text">电流: 85pA</text>
+    </g>
+    
+    <!-- T碱基 -->
+    <g transform="translate(20, 70)">
+      <circle cx="15" cy="15" r="10" fill="#4ECDC4"/>
+      <text x="15" y="20" text-anchor="middle" class="label-text" fill="white" font-weight="bold">T</text>
+      <rect x="35" y="5" width="60" height="20" fill="#E5F9F6" stroke="#4ECDC4"/>
+      <text x="65" y="18" text-anchor="middle" class="label-text">电流: 70pA</text>
+    </g>
+    
+    <!-- G碱基 -->
+    <g transform="translate(20, 100)">
+      <circle cx="15" cy="15" r="10" fill="#45B7D1"/>
+      <text x="15" y="20" text-anchor="middle" class="label-text" fill="white" font-weight="bold">G</text>
+      <rect x="35" y="5" width="60" height="20" fill="#E5F3F9" stroke="#45B7D1"/>
+      <text x="65" y="18" text-anchor="middle" class="label-text">电流: 60pA</text>
+    </g>
+    
+    <!-- C碱基 -->
+    <g transform="translate(20, 130)">
+      <circle cx="15" cy="15" r="10" fill="#F7B731"/>
+      <text x="15" y="20" text-anchor="middle" class="label-text" fill="white" font-weight="bold">C</text>
+      <rect x="35" y="5" width="60" height="20" fill="#FDF4E5" stroke="#F7B731"/>
+      <text x="65" y="18" text-anchor="middle" class="label-text">电流: 50pA</text>
+    </g>
+    
+    <text x="125" y="170" text-anchor="middle" class="label-text">不同碱基产生不同的电流阻断</text>
+    <text x="125" y="185" text-anchor="middle" class="label-text">通过机器学习算法识别碱基</text>
+  </g>
+  
+  <!-- 测序流程 -->
+  <g transform="translate(50, 320)">
+    <text x="0" y="0" class="step-text" font-weight="bold">测序流程</text>
+    
+    <!-- 步骤1：文库制备 -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="0" width="100" height="60" fill="#E3F2FD" stroke="#2196F3" stroke-width="2" rx="5"/>
+      <text x="50" y="15" text-anchor="middle" class="label-text" font-weight="bold">文库制备</text>
+      <text x="50" y="30" text-anchor="middle" class="label-text">DNA片段化</text>
+      <text x="50" y="45" text-anchor="middle" class="label-text">接头连接</text>
+      <text x="50" y="60" text-anchor="middle" class="label-text">马达蛋白结合</text>
+    </g>
+    
+    <!-- 箭头 -->
+    <path d="M 110 50 L 130 50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 步骤2：上样 -->
+    <g transform="translate(140, 20)">
+      <rect x="0" y="0" width="100" height="60" fill="#FFF3E0" stroke="#FF9800" stroke-width="2" rx="5"/>
+      <text x="50" y="15" text-anchor="middle" class="label-text" font-weight="bold">芯片上样</text>
+      <text x="50" y="30" text-anchor="middle" class="label-text">DNA加载到</text>
+      <text x="50" y="45" text-anchor="middle" class="label-text">流动池</text>
+    </g>
+    
+    <!-- 箭头 -->
+    <path d="M 250 50 L 270 50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 步骤3：实时测序 -->
+    <g transform="translate(280, 20)">
+      <rect x="0" y="0" width="100" height="60" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2" rx="5"/>
+      <text x="50" y="15" text-anchor="middle" class="label-text" font-weight="bold">实时测序</text>
+      <text x="50" y="30" text-anchor="middle" class="label-text">电流监测</text>
+      <text x="50" y="45" text-anchor="middle" class="label-text">碱基识别</text>
+    </g>
+    
+    <!-- 箭头 -->
+    <path d="M 390 50 L 410 50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 步骤4：数据输出 -->
+    <g transform="translate(420, 20)">
+      <rect x="0" y="0" width="100" height="60" fill="#F3E5F5" stroke="#9C27B0" stroke-width="2" rx="5"/>
+      <text x="50" y="15" text-anchor="middle" class="label-text" font-weight="bold">数据输出</text>
+      <text x="50" y="30" text-anchor="middle" class="label-text">FAST5格式</text>
+      <text x="50" y="45" text-anchor="middle" class="label-text">实时分析</text>
+    </g>
+  </g>
+  
+  <!-- 技术特点 -->
+  <g transform="translate(50, 420)">
+    <text x="0" y="0" class="step-text" font-weight="bold">技术特点</text>
+    
+    <rect x="0" y="10" width="200" height="140" fill="#f9f9f9" stroke="#ddd" stroke-width="1" rx="5"/>
+    
+    <text x="10" y="30" class="label-text" font-weight="bold">优势：</text>
+    <text x="10" y="45" class="label-text">• 超长读长 (>100kb)</text>
+    <text x="10" y="60" class="label-text">• 实时测序和分析</text>
+    <text x="10" y="75" class="label-text">• 便携式设备</text>
+    <text x="10" y="90" class="label-text">• 直接检测RNA/DNA</text>
+    <text x="10" y="105" class="label-text">• 表观遗传信息</text>
+    
+    <text x="10" y="125" class="label-text" font-weight="bold">挑战：</text>
+    <text x="10" y="140" class="label-text">• 错误率较高 (~5-10%)</text>
+  </g>
+  
+  <!-- 应用领域 -->
+  <g transform="translate(280, 420)">
+    <text x="0" y="0" class="step-text" font-weight="bold">主要应用</text>
+    
+    <rect x="0" y="10" width="200" height="140" fill="#f0f8ff" stroke="#4682b4" stroke-width="1" rx="5"/>
+    
+    <text x="10" y="30" class="label-text">• 基因组组装和gap填补</text>
+    <text x="10" y="45" class="label-text">• 结构变异检测</text>
+    <text x="10" y="60" text-anchor="start" class="label-text">• 直接RNA测序</text>
+    <text x="10" y="75" class="label-text">• 表观遗传学研究</text>
+    <text x="10" y="90" class="label-text">• 现场快速检测</text>
+    <text x="10" y="105" class="label-text">• 宏基因组分析</text>
+    <text x="10" y="120" class="label-text">• 病原体检测</text>
+    <text x="10" y="135" class="label-text">• 癌症研究</text>
+  </g>
+  
+  <!-- 设备类型 -->
+  <g transform="translate(520, 420)">
+    <text x="0" y="0" class="step-text" font-weight="bold">设备系列</text>
+    
+    <rect x="0" y="10" width="150" height="140" fill="#fff5f5" stroke="#ff6b6b" stroke-width="1" rx="5"/>
+    
+    <text x="10" y="30" class="label-text" font-weight="bold">MinION:</text>
+    <text x="10" y="45" class="label-text">• 便携式设备</text>
+    <text x="10" y="60" class="label-text">• USB接口</text>
+    <text x="10" y="75" class="label-text">• ~50GB产出</text>
+    
+    <text x="10" y="95" class="label-text" font-weight="bold">PromethION:</text>
+    <text x="10" y="110" class="label-text">• 高通量平台</text>
+    <text x="10" y="125" class="label-text">• ~8.5TB产出</text>
+    <text x="10" y="140" class="label-text">• 48个流动池</text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

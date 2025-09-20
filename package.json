@@ -1,0 +1,44 @@
+{
+  "name": "ngs-course-materials",
+  "version": "1.0.0",
+  "description": "高通量测序数据分析课程教学材料",
+  "main": "index.js",
+  "scripts": {
+    "build": "marp --theme templates/styles/course-theme.css --html courses/**/*.md",
+    "build-pdf": "marp --theme templates/styles/course-theme.css --pdf courses/**/*.md",
+    "serve": "marp --server --theme templates/styles/course-theme.css courses/",
+    "watch": "marp --watch --theme templates/styles/course-theme.css courses/**/*.md",
+    "validate": "node scripts/validators/validate-all.js",
+    "clean": "rm -rf courses/**/*.html courses/**/*.pdf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hnnd/ngs-for-master.git"
+  },
+  "keywords": [
+    "bioinformatics",
+    "ngs",
+    "sequencing",
+    "education",
+    "course-materials",
+    "marp",
+    "slides"
+  ],
+  "author": {
+    "name": "王运生教授",
+    "email": "wangys@hunau.edu.cn"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hnnd/ngs-for-master/issues"
+  },
+  "homepage": "https://github.com/hnnd/ngs-for-master#readme",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.4.0",
+    "@marp-team/marp-core": "^3.9.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

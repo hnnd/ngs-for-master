@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .year { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #059669; }
+      .tech { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #374151; }
+      .timeline { stroke: #6b7280; stroke-width: 3; }
+      .point { fill: #059669; }
+    </style>
+  </defs>
+  
+  <!-- Timeline line -->
+  <line x1="50" y1="150" x2="750" y2="150" class="timeline"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">转录组技术发展时间线</text>
+  
+  <!-- 1990s: Sanger sequencing -->
+  <circle cx="100" cy="150" r="8" class="point"/>
+  <text x="100" y="130" text-anchor="middle" class="year">1990s</text>
+  <text x="100" y="180" text-anchor="middle" class="tech">Sanger测序</text>
+  <text x="100" y="195" text-anchor="middle" class="tech">单基因克隆</text>
+  
+  <!-- 2000s: Microarray -->
+  <circle cx="250" cy="150" r="8" class="point"/>
+  <text x="250" y="130" text-anchor="middle" class="year">2000s</text>
+  <text x="250" y="180" text-anchor="middle" class="tech">芯片技术</text>
+  <text x="250" y="195" text-anchor="middle" class="tech">预设探针</text>
+  
+  <!-- 2008: RNA-seq -->
+  <circle cx="400" cy="150" r="8" class="point"/>
+  <text x="400" y="130" text-anchor="middle" class="year">2008</text>
+  <text x="400" y="180" text-anchor="middle" class="tech">RNA-seq</text>
+  <text x="400" y="195" text-anchor="middle" class="tech">全转录组</text>
+  
+  <!-- 2009: Single-cell -->
+  <circle cx="500" cy="150" r="8" class="point"/>
+  <text x="500" y="130" text-anchor="middle" class="year">2009</text>
+  <text x="500" y="180" text-anchor="middle" class="tech">单细胞RNA-seq</text>
+  <text x="500" y="195" text-anchor="middle" class="tech">细胞异质性</text>
+  
+  <!-- 2015: Long-read -->
+  <circle cx="600" cy="150" r="8" class="point"/>
+  <text x="600" y="130" text-anchor="middle" class="year">2015</text>
+  <text x="600" y="180" text-anchor="middle" class="tech">长读长RNA-seq</text>
+  <text x="600" y="195" text-anchor="middle" class="tech">全长转录本</text>
+  
+  <!-- 2020: Spatial -->
+  <circle cx="700" cy="150" r="8" class="point"/>
+  <text x="700" y="130" text-anchor="middle" class="year">2020</text>
+  <text x="700" y="180" text-anchor="middle" class="tech">空间转录组</text>
+  <text x="700" y="195" text-anchor="middle" class="tech">组织空间信息</text>
+</svg>

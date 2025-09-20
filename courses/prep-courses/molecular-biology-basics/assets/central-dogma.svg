@@ -1,0 +1,159 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dnaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rnaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="proteinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="3" flood-color="#34495e" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="url(#arrowGrad)"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#ecf0f1"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2c3e50">分子生物学中心法则</text>
+
+  <!-- DNA Box -->
+  <g transform="translate(80, 120)">
+    <rect width="180" height="120" rx="15" fill="url(#dnaGrad)" filter="url(#shadow)"/>
+    <text x="90" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">DNA</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ecf0f1">脱氧核糖核酸</text>
+
+    <!-- DNA sequence representation -->
+    <g transform="translate(20, 65)">
+      <rect x="0" y="0" width="140" height="30" fill="white" rx="5" opacity="0.9"/>
+      <text x="5" y="15" font-family="Courier, monospace" font-size="10" fill="#2c3e50">5'-ATCGATCG-3'</text>
+      <text x="5" y="25" font-family="Courier, monospace" font-size="10" fill="#2c3e50">3'-TAGCTAGC-5'</text>
+    </g>
+
+    <text x="90" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ecf0f1">• 遗传信息存储</text>
+  </g>
+
+  <!-- RNA Box -->
+  <g transform="translate(360, 120)">
+    <rect width="180" height="120" rx="15" fill="url(#rnaGrad)" filter="url(#shadow)"/>
+    <text x="90" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">RNA</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ecf0f1">核糖核酸</text>
+
+    <!-- RNA sequence representation -->
+    <g transform="translate(20, 65)">
+      <rect x="0" y="0" width="140" height="15" fill="white" rx="5" opacity="0.9"/>
+      <text x="5" y="12" font-family="Courier, monospace" font-size="10" fill="#2c3e50">5'-AUCGAUCG-3'</text>
+    </g>
+
+    <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ecf0f1">• 信息传递</text>
+    <text x="90" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ecf0f1">• 催化功能</text>
+  </g>
+
+  <!-- Protein Box -->
+  <g transform="translate(640, 120)">
+    <rect width="180" height="120" rx="15" fill="url(#proteinGrad)" filter="url(#shadow)"/>
+    <text x="90" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">蛋白质</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ecf0f1">Protein</text>
+
+    <!-- Protein representation -->
+    <g transform="translate(20, 65)">
+      <rect x="0" y="0" width="140" height="15" fill="white" rx="5" opacity="0.9"/>
+      <text x="5" y="12" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Met-Ile-Asp-Arg...</text>
+    </g>
+
+    <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ecf0f1">• 执行生物功能</text>
+    <text x="90" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ecf0f1">• 催化反应</text>
+  </g>
+
+  <!-- Main flow arrows -->
+  <!-- DNA to RNA (Transcription) -->
+  <path d="M 270 180 L 350 180" stroke="url(#arrowGrad)" stroke-width="6" marker-end="url(#arrowhead)"/>
+  <text x="310" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e67e22">转录</text>
+  <text x="310" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">Transcription</text>
+
+  <!-- RNA to Protein (Translation) -->
+  <path d="M 550 180 L 630 180" stroke="url(#arrowGrad)" stroke-width="6" marker-end="url(#arrowhead)"/>
+  <text x="590" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e67e22">翻译</text>
+  <text x="590" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">Translation</text>
+
+  <!-- DNA Replication (curved arrow) -->
+  <path d="M 170 120 Q 170 80 170 120" stroke="url(#arrowGrad)" stroke-width="4" marker-end="url(#arrowhead)" fill="none"/>
+  <text x="145" y="95" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e67e22">复制</text>
+  <text x="135" y="108" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Replication</text>
+
+  <!-- Extended arrows for reverse processes -->
+  <!-- Reverse Transcription -->
+  <path d="M 350 220 L 270 220" stroke="#95a5a6" stroke-width="3" marker-end="url(#reverseArrow)" stroke-dasharray="8,4"/>
+  <text x="310" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">逆转录</text>
+  <text x="310" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#95a5a6">(某些病毒)</text>
+
+  <!-- RNA Replication -->
+  <path d="M 450 120 Q 450 80 450 120" stroke="#95a5a6" stroke-width="3" marker-end="url(#reverseArrow)" fill="none" stroke-dasharray="8,4"/>
+  <text x="425" y="95" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">RNA复制</text>
+  <text x="420" y="108" font-family="Arial, sans-serif" font-size="9" fill="#95a5a6">(RNA病毒)</text>
+
+  <!-- Reverse arrow marker -->
+  <defs>
+    <marker id="reverseArrow" markerWidth="10" markerHeight="6" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#95a5a6"/>
+    </marker>
+  </defs>
+
+  <!-- Key enzymes -->
+  <g transform="translate(50, 300)">
+    <rect width="800" height="150" fill="white" stroke="#bdc3c7" stroke-width="2" rx="10" filter="url(#shadow)"/>
+    <text x="400" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">关键酶与过程</text>
+
+    <!-- DNA Replication -->
+    <g transform="translate(20, 50)">
+      <rect width="150" height="80" fill="#3498db" rx="8" opacity="0.1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2980b9">DNA复制</text>
+      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• DNA聚合酶</text>
+      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• DNA连接酶</text>
+      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 解旋酶</text>
+    </g>
+
+    <!-- Transcription -->
+    <g transform="translate(200, 50)">
+      <rect width="150" height="80" fill="#e74c3c" rx="8" opacity="0.1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c0392b">转录</text>
+      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• RNA聚合酶</text>
+      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 转录因子</text>
+      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 启动子识别</text>
+    </g>
+
+    <!-- Translation -->
+    <g transform="translate(380, 50)">
+      <rect width="150" height="80" fill="#27ae60" rx="8" opacity="0.1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e8449">翻译</text>
+      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 核糖体</text>
+      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• tRNA</text>
+      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 氨酰-tRNA合酶</text>
+    </g>
+
+    <!-- Bioinformatics Applications -->
+    <g transform="translate(560, 50)">
+      <rect width="180" height="80" fill="#9b59b6" rx="8" opacity="0.1"/>
+      <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8e44ad">生物信息学应用</text>
+      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 基因组注释</text>
+      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 转录组分析</text>
+      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 蛋白质预测</text>
+    </g>
+  </g>
+
+  <!-- Information flow direction -->
+  <text x="450" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#7f8c8d">信息流向：基因型 → 表型</text>
+</svg>

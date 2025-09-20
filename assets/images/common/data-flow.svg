@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 20px; font-weight: bold; fill: #1e3a8a; }
+      .label-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; fill: #374151; }
+      .step-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #6b7280; }
+      .data-box { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+      .process-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .storage-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title-text">生物信息学数据处理流程</text>
+  
+  <!-- 数据输入层 -->
+  <g transform="translate(50, 70)">
+    <text x="300" y="0" text-anchor="middle" class="label-text">数据输入层</text>
+    
+    <!-- 原始数据 -->
+    <rect x="0" y="20" width="120" height="60" class="data-box" rx="5"/>
+    <text x="60" y="45" text-anchor="middle" class="label-text">原始测序数据</text>
+    <text x="60" y="65" text-anchor="middle" class="step-text">FASTQ文件</text>
+    
+    <!-- 参考数据 -->
+    <rect x="150" y="20" width="120" height="60" class="data-box" rx="5"/>
+    <text x="210" y="45" text-anchor="middle" class="label-text">参考基因组</text>
+    <text x="210" y="65" text-anchor="middle" class="step-text">FASTA/GTF</text>
+    
+    <!-- 注释数据 -->
+    <rect x="300" y="20" width="120" height="60" class="data-box" rx="5"/>
+    <text x="360" y="45" text-anchor="middle" class="label-text">注释数据库</text>
+    <text x="360" y="65" text-anchor="middle" class="step-text">GO/KEGG/dbSNP</text>
+    
+    <!-- 样本信息 -->
+    <rect x="450" y="20" width="120" height="60" class="data-box" rx="5"/>
+    <text x="510" y="45" text-anchor="middle" class="label-text">样本信息</text>
+    <text x="510" y="65" text-anchor="middle" class="step-text">元数据</text>
+  </g>
+  
+  <!-- 数据处理层 -->
+  <g transform="translate(50, 170)">
+    <text x="300" y="0" text-anchor="middle" class="label-text">数据处理层</text>
+    
+    <!-- 质量控制 -->
+    <rect x="0" y="20" width="100" height="50" class="process-box" rx="5"/>
+    <text x="50" y="40" text-anchor="middle" class="step-text">质量控制</text>
+    <text x="50" y="55" text-anchor="middle" class="step-text">FastQC</text>
+    
+    <!-- 数据清洗 -->
+    <rect x="120" y="20" width="100" height="50" class="process-box" rx="5"/>
+    <text x="170" y="40" text-anchor="middle" class="step-text">数据清洗</text>
+    <text x="170" y="55" text-anchor="middle" class="step-text">Trimmomatic</text>
+    
+    <!-- 序列比对 -->
+    <rect x="240" y="20" width="100" height="50" class="process-box" rx="5"/>
+    <text x="290" y="40" text-anchor="middle" class="step-text">序列比对</text>
+    <text x="290" y="55" text-anchor="middle" class="step-text">BWA/STAR</text>
+    
+    <!-- 格式转换 -->
+    <rect x="360" y="20" width="100" height="50" class="process-box" rx="5"/>
+    <text x="410" y="40" text-anchor="middle" class="step-text">格式转换</text>
+    <text x="410" y="55" text-anchor="middle" class="step-text">SAMtools</text>
+    
+    <!-- 去重排序 -->
+    <rect x="480" y="20" width="100" height="50" class="process-box" rx="5"/>
+    <text x="530" y="40" text-anchor="middle" class="step-text">去重排序</text>
+    <text x="530" y="55" text-anchor="middle" class="step-text">Picard</text>
+  </g>
+  
+  <!-- 数据分析层 -->
+  <g transform="translate(50, 270)">
+    <text x="300" y="0" text-anchor="middle" class="label-text">数据分析层</text>
+    
+    <!-- 变异检测 -->
+    <rect x="0" y="20" width="110" height="50" class="process-box" rx="5"/>
+    <text x="55" y="40" text-anchor="middle" class="step-text">变异检测</text>
+    <text x="55" y="55" text-anchor="middle" class="step-text">GATK/VarScan</text>
+    
+    <!-- 基因定量 -->
+    <rect x="130" y="20" width="110" height="50" class="process-box" rx="5"/>
+    <text x="185" y="40" text-anchor="middle" class="step-text">基因定量</text>
+    <text x="185" y="55" text-anchor="middle" class="step-text">HTSeq/Cufflinks</text>
+    
+    <!-- 差异分析 -->
+    <rect x="260" y="20" width="110" height="50" class="process-box" rx="5"/>
+    <text x="315" y="40" text-anchor="middle" class="step-text">差异分析</text>
+    <text x="315" y="55" text-anchor="middle" class="step-text">DESeq2/edgeR</text>
+    
+    <!-- 功能注释 -->
+    <rect x="390" y="20" width="110" height="50" class="process-box" rx="5"/>
+    <text x="445" y="40" text-anchor="middle" class="step-text">功能注释</text>
+    <text x="445" y="55" text-anchor="middle" class="step-text">SnpEff/VEP</text>
+  </g>
+  
+  <!-- 数据存储层 -->
+  <g transform="translate(50, 370)">
+    <text x="300" y="0" text-anchor="middle" class="label-text">数据存储层</text>
+    
+    <!-- 中间文件 -->
+    <rect x="0" y="20" width="120" height="50" class="storage-box" rx="5"/>
+    <text x="60" y="40" text-anchor="middle" class="step-text">中间文件</text>
+    <text x="60" y="55" text-anchor="middle" class="step-text">SAM/BAM</text>
+    
+    <!-- 结果文件 -->
+    <rect x="140" y="20" width="120" height="50" class="storage-box" rx="5"/>
+    <text x="200" y="40" text-anchor="middle" class="step-text">结果文件</text>
+    <text x="200" y="55" text-anchor="middle" class="step-text">VCF/Count</text>
+    
+    <!-- 报告文件 -->
+    <rect x="280" y="20" width="120" height="50" class="storage-box" rx="5"/>
+    <text x="340" y="40" text-anchor="middle" class="step-text">分析报告</text>
+    <text x="340" y="55" text-anchor="middle" class="step-text">HTML/PDF</text>
+    
+    <!-- 数据库 -->
+    <rect x="420" y="20" width="120" height="50" class="storage-box" rx="5"/>
+    <text x="480" y="40" text-anchor="middle" class="step-text">数据库存储</text>
+    <text x="480" y="55" text-anchor="middle" class="step-text">MySQL/MongoDB</text>
+  </g>
+  
+  <!-- 数据流箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- 垂直流向箭头 -->
+  <g stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <!-- 输入到处理 -->
+    <path d="M 110 130 L 110 160"/>
+    <path d="M 210 130 L 210 160"/>
+    <path d="M 360 130 L 360 160"/>
+    <path d="M 510 130 L 510 160"/>
+    
+    <!-- 处理到分析 -->
+    <path d="M 105 220 L 105 260"/>
+    <path d="M 235 220 L 235 260"/>
+    <path d="M 365 220 L 365 260"/>
+    <path d="M 495 220 L 495 260"/>
+    
+    <!-- 分析到存储 -->
+    <path d="M 110 320 L 110 360"/>
+    <path d="M 240 320 L 240 360"/>
+    <path d="M 370 320 L 370 360"/>
+    <path d="M 500 320 L 500 360"/>
+  </g>
+  
+  <!-- 水平流向箭头 -->
+  <g stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <!-- 处理层内部流程 -->
+    <path d="M 100 195 L 115 195"/>
+    <path d="M 220 195 L 235 195"/>
+    <path d="M 340 195 L 355 195"/>
+    <path d="M 460 195 L 475 195"/>
+    
+    <!-- 分析层内部流程 -->
+    <path d="M 110 295 L 125 295"/>
+    <path d="M 240 295 L 255 295"/>
+    <path d="M 370 295 L 385 295"/>
+    
+    <!-- 存储层内部流程 -->
+    <path d="M 120 395 L 135 395"/>
+    <path d="M 260 395 L 275 395"/>
+    <path d="M 400 395 L 415 395"/>
+  </g>
+  
+  <!-- 底部说明 -->
+  <g transform="translate(50, 450)">
+    <rect x="0" y="0" width="700" height="40" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1" rx="5"/>
+    <text x="10" y="20" class="step-text" font-weight="600">数据流说明：</text>
+    <text x="100" y="20" class="step-text">数据从上到下依次经过输入、处理、分析、存储四个层次，每层内部按顺序处理</text>
+    <text x="10" y="35" class="step-text">关键特点：模块化设计、标准化接口、可扩展架构、质量控制贯穿全程</text>
+  </g>
+</svg>

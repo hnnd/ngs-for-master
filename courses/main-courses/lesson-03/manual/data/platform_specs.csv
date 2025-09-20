@@ -1,0 +1,7 @@
+Platform,Read_Length,Accuracy,Throughput_Gb,Runtime_Hours,Cost_Per_Gb,Error_Type,Applications
+Illumina_HiSeq,150,99.5,1500,72,50,Substitution,WGS;WES;RNA-seq
+Illumina_NovaSeq,150,99.9,6000,44,25,Substitution,Large_WGS;Population_studies
+Illumina_MiSeq,300,99.5,15,65,200,Substitution,Targeted_sequencing;Amplicons
+PacBio_Sequel,15000,99.0,160,20,150,InDel,Long_reads;Structural_variants
+Oxford_Nanopore,50000,95.0,150,48,100,InDel,Long_reads;Real_time
+Ion_Torrent,400,98.5,10,8,300,InDel,Targeted_panels;Clinical

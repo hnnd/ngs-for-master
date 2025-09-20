@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .dna { font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; }
+      .ref { fill: #059669; }
+      .alt { fill: #dc2626; }
+      .problem { fill: #f59e0b; }
+      .solution { fill: #10b981; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">InDel检测技术挑战</text>
+  
+  <!-- 挑战1: 比对困难 -->
+  <g transform="translate(50, 70)">
+    <text x="0" y="0" class="subtitle">1. 比对困难</text>
+
+    <!-- 参考序列 -->
+    <text x="0" y="25" class="text">参考序列:</text>
+    <text x="80" y="25" class="dna ref">ATCGATCGATCGATCG</text>
+
+    <!-- 含InDel的reads -->
+    <text x="0" y="45" class="text">Read 1:</text>
+    <text x="80" y="45" class="dna">ATCG---ATCGATCG</text>
+    <text x="220" y="45" class="text problem">(缺失比对困难)</text>
+
+    <text x="0" y="65" class="text">Read 2:</text>
+    <text x="80" y="65" class="dna">ATCGAAAATCGATCG</text>
+    <text x="220" y="65" class="text problem">(插入比对困难)</text>
+
+    <!-- 解决方案 -->
+    <rect x="0" y="85" width="380" height="45" fill="#f0fdf4" stroke="#22c55e" rx="5"/>
+    <text x="10" y="100" class="text solution" font-weight="bold">解决方案:</text>
+    <text x="10" y="115" class="text">• 局部重新比对 (Local Realignment)</text>
+    <text x="220" y="115" class="text">• 图结构比对算法</text>
+  </g>
+  
+  <!-- 挑战2: 重复序列干扰 -->
+  <g transform="translate(450, 70)">
+    <text x="0" y="0" class="subtitle">2. 重复序列干扰</text>
+
+    <!-- 重复序列区域 -->
+    <text x="0" y="25" class="text">重复区域:</text>
+    <text x="0" y="45" class="dna ref">ATATATATATATATATAT</text>
+
+    <!-- 真实InDel -->
+    <text x="0" y="65" class="text">真实变异:</text>
+    <text x="0" y="85" class="dna alt">ATATATATATATATAT</text>
+    <text x="0" y="105" class="text problem">(缺失2个AT)</text>
+
+    <!-- 比对歧义 -->
+    <text x="0" y="125" class="text problem">比对位置不确定!</text>
+
+    <!-- 解决方案 -->
+    <rect x="0" y="140" width="300" height="30" fill="#f0fdf4" stroke="#22c55e" rx="5"/>
+    <text x="10" y="155" class="text solution">解决: 左对齐标准化 + 复杂区域标记</text>
+  </g>
+  
+  <!-- 挑战3: 测序错误 -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="0" class="subtitle">3. 测序错误与假阳性</text>
+
+    <!-- 真实InDel vs 测序错误 -->
+    <text x="0" y="25" class="text">真实InDel (多个reads支持):</text>
+    <text x="0" y="45" class="dna">Read1: ATCG<tspan class="alt">---</tspan>TCGATCG</text>
+    <text x="0" y="60" class="dna">Read2: ATCG<tspan class="alt">---</tspan>TCGATCG</text>
+    <text x="0" y="75" class="dna">Read3: ATCG<tspan class="alt">---</tspan>TCGATCG</text>
+    <text x="230" y="60" class="text solution">支持度: 15/20 reads</text>
+
+    <text x="0" y="105" class="text">测序错误 (少数reads):</text>
+    <text x="0" y="125" class="dna">Read1: ATCGATCGATCG</text>
+    <text x="0" y="140" class="dna">Read2: ATCG<tspan class="problem">A</tspan>TCGATCG</text>
+    <text x="0" y="155" class="dna">Read3: ATCGATCGATCG</text>
+    <text x="230" y="140" class="text problem">支持度: 1/20 reads</text>
+
+    <!-- 质量控制 -->
+    <rect x="420" y="45" width="200" height="60" fill="#fef3c7" stroke="#f59e0b" rx="5"/>
+    <text x="430" y="65" class="text" font-weight="bold">质量控制标准:</text>
+    <text x="430" y="80" class="text">• 最小支持reads数 ≥ 3</text>
+    <text x="430" y="95" class="text">• 变异频率 ≥ 20%</text>
+  </g>
+  
+  <!-- 挑战4: 长InDel检测 -->
+  <g transform="translate(50, 430)">
+    <text x="0" y="0" class="subtitle">4. 长InDel检测限制</text>
+
+    <!-- Read长度限制 -->
+    <text x="0" y="25" class="text">Read长度: 150bp</text>
+    <rect x="0" y="35" width="150" height="15" fill="#3b82f6" stroke="#1d4ed8"/>
+    <text x="75" y="46" class="text" fill="white" font-size="10">Single Read</text>
+
+    <text x="0" y="70" class="text">长InDel: 200bp缺失</text>
+    <rect x="0" y="80" width="100" height="15" fill="#059669" stroke="#047857"/>
+    <rect x="100" y="80" width="200" height="15" fill="#dc2626" stroke="#b91c1c" stroke-dasharray="3,3"/>
+    <rect x="300" y="80" width="100" height="15" fill="#059669" stroke="#047857"/>
+    <text x="50" y="91" class="text" fill="white" font-size="9">正常区域</text>
+    <text x="200" y="91" class="text" fill="white" font-size="9">缺失区域 (200bp)</text>
+    <text x="350" y="91" class="text" fill="white" font-size="9">正常区域</text>
+
+    <text x="0" y="115" class="text problem">问题: 单个read无法跨越整个InDel</text>
+  </g>
+
+  <!-- 解决策略总结 -->
+  <g transform="translate(450, 430)">
+    <text x="0" y="0" class="subtitle">解决策略</text>
+
+    <rect x="0" y="15" width="300" height="120" fill="#f0fdf4" stroke="#22c55e" rx="5"/>
+
+    <text x="10" y="35" class="text solution" font-weight="bold">1. 长读长测序技术</text>
+    <text x="20" y="50" class="text">• PacBio: 10-15kb reads</text>
+    <text x="20" y="65" class="text">• Oxford Nanopore: >100kb reads</text>
+
+    <text x="10" y="85" class="text solution" font-weight="bold">2. 配对末端信息</text>
+    <text x="20" y="100" class="text">• 利用insert size信息</text>
+    <text x="20" y="115" class="text">• 检测异常配对模式</text>
+
+    <text x="10" y="130" class="text solution" font-weight="bold">3. 多种算法结合</text>
+  </g>
+  
+  <!-- 技术发展趋势 -->
+  <g transform="translate(50, 580)">
+    <text x="0" y="0" class="subtitle">技术发展趋势</text>
+
+    <!-- 时间轴 -->
+    <line x1="0" y1="30" x2="600" y2="30" stroke="#374151" stroke-width="2"/>
+
+    <!-- 短读长时代 -->
+    <circle cx="100" cy="30" r="8" fill="#3b82f6"/>
+    <text x="100" y="50" text-anchor="middle" class="text">2010s</text>
+    <text x="100" y="65" text-anchor="middle" class="text">短读长测序</text>
+    <text x="100" y="80" text-anchor="middle" class="text problem">InDel检测困难</text>
+
+    <!-- 长读长时代 -->
+    <circle cx="300" cy="30" r="8" fill="#059669"/>
+    <text x="300" y="50" text-anchor="middle" class="text">2015s</text>
+    <text x="300" y="65" text-anchor="middle" class="text">长读长测序</text>
+    <text x="300" y="80" text-anchor="middle" class="text solution">结构变异检测</text>
+
+    <!-- 未来 -->
+    <circle cx="500" cy="30" r="8" fill="#7c3aed"/>
+    <text x="500" y="50" text-anchor="middle" class="text">未来</text>
+    <text x="500" y="65" text-anchor="middle" class="text">多技术融合</text>
+    <text x="500" y="80" text-anchor="middle" class="text solution">精确变异检测</text>
+  </g>
+</svg>

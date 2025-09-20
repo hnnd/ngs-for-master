@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 14px; fill: #374151; }
+      .box { fill: #f3f4f6; stroke: #1e3a8a; stroke-width: 2; rx: 8; }
+      .process-box { fill: #dbeafe; stroke: #1e40af; stroke-width: 2; rx: 8; }
+      .decision-box { fill: #fef3c7; stroke: #d97706; stroke-width: 2; rx: 8; }
+      .result-box { fill: #d1fae5; stroke: #059669; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #374151; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #374151; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #6b7280; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" class="title" text-anchor="middle">&#36136;&#37327;&#25511;&#21046;&#24037;&#20316;&#27969;&#31243;</text>
+  <text x="400" y="50" class="subtitle" text-anchor="middle">Quality Control Workflow</text>
+  
+  <!-- Raw Data -->
+  <rect x="50" y="80" width="120" height="60" class="box"/>
+  <text x="110" y="105" class="text">&#21407;&#22987;&#27979;&#24207;&#25968;&#25454;</text>
+  <text x="110" y="120" class="small-text">Raw FASTQ Files</text>
+  
+  <!-- FastQC Analysis -->
+  <rect x="220" y="80" width="120" height="60" class="process-box"/>
+  <text x="280" y="105" class="text">FastQC&#20998;&#26512;</text>
+  <text x="280" y="120" class="small-text">Quality Assessment</text>
+  
+  <!-- MultiQC Report -->
+  <rect x="390" y="80" width="120" height="60" class="process-box"/>
+  <text x="450" y="105" class="text">MultiQC&#25972;&#21512;</text>
+  <text x="450" y="120" class="small-text">Report Integration</text>
+  
+  <!-- Quality Check Decision -->
+  <polygon points="580,80 650,110 580,140 510,110" class="decision-box"/>
+  <text x="580" y="105" class="text">&#36136;&#37327;&#26816;&#26597;</text>
+  <text x="580" y="120" class="small-text">Quality OK?</text>
+  
+  <!-- Data Cleaning -->
+  <rect x="220" y="200" width="120" height="60" class="process-box"/>
+  <text x="280" y="225" class="text">&#25968;&#25454;&#28165;&#27927;</text>
+  <text x="280" y="240" class="small-text">Trimmomatic</text>
+  
+  <!-- Post-cleaning QC -->
+  <rect x="390" y="200" width="120" height="60" class="process-box"/>
+  <text x="450" y="225" class="text">&#28165;&#27927;&#21518;QC</text>
+  <text x="450" y="240" class="small-text">Post-trim QC</text>
+  
+  <!-- Quality Comparison -->
+  <rect x="560" y="200" width="120" height="60" class="process-box"/>
+  <text x="620" y="225" class="text">&#36136;&#37327;&#23545;&#27604;</text>
+  <text x="620" y="240" class="small-text">Before/After</text>
+  
+  <!-- Final Decision -->
+  <polygon points="450,320 520,350 450,380 380,350" class="decision-box"/>
+  <text x="450" y="345" class="text">&#36136;&#37327;&#21512;&#26684;</text>
+  <text x="450" y="360" class="small-text">Acceptable?</text>
+  
+  <!-- Clean Data Output -->
+  <rect x="220" y="440" width="120" height="60" class="result-box"/>
+  <text x="280" y="465" class="text">&#39640;&#36136;&#37327;&#25968;&#25454;</text>
+  <text x="280" y="480" class="small-text">Clean FASTQ</text>
+  
+  <!-- Downstream Analysis -->
+  <rect x="390" y="440" width="120" height="60" class="result-box"/>
+  <text x="450" y="465" class="text">&#21518;&#32493;&#20998;&#26512;</text>
+  <text x="450" y="480" class="small-text">Alignment, etc.</text>
+  
+  <!-- Parameter Adjustment -->
+  <rect x="560" y="320" width="120" height="60" class="decision-box"/>
+  <text x="620" y="345" class="text">&#21442;&#25968;&#35843;&#25972;</text>
+  <text x="620" y="360" class="small-text">Adjust Parameters</text>
+  
+  <!-- Arrows -->
+  <line x1="170" y1="110" x2="210" y2="110" class="arrow"/>
+  <line x1="340" y1="110" x2="380" y2="110" class="arrow"/>
+  <line x1="510" y1="110" x2="500" y2="110" class="arrow"/>
+  
+  <!-- Decision arrows -->
+  <line x1="580" y1="150" x2="580" y2="180" class="arrow"/>
+  <text x="590" y="170" class="small-text">No</text>
+  
+  <line x1="650" y1="110" x2="720" y2="110" class="arrow"/>
+  <text x="685" y="105" class="small-text">Yes</text>
+  
+  <!-- Cleaning workflow -->
+  <line x1="580" y1="180" x2="280" y2="180" class="arrow"/>
+  <line x1="280" y1="180" x2="280" y2="190" class="arrow"/>
+  
+  <line x1="340" y1="230" x2="380" y2="230" class="arrow"/>
+  <line x1="510" y1="230" x2="550" y2="230" class="arrow"/>
+  
+  <line x1="620" y1="270" x2="620" y2="300" class="arrow"/>
+  <line x1="620" y1="300" x2="450" y2="300" class="arrow"/>
+  <line x1="450" y1="300" x2="450" y2="310" class="arrow"/>
+  
+  <!-- Final decision arrows -->
+  <line x1="450" y1="390" x2="450" y2="420" class="arrow"/>
+  <text x="460" y="410" class="small-text">Yes</text>
+  
+  <line x1="380" y1="350" x2="280" y2="350" class="arrow"/>
+  <line x1="280" y1="350" x2="280" y2="430" class="arrow"/>
+  
+  <line x1="340" y1="470" x2="380" y2="470" class="arrow"/>
+  
+  <!-- Parameter adjustment loop -->
+  <line x1="520" y1="350" x2="550" y2="350" class="arrow"/>
+  <text x="535" y="345" class="small-text">No</text>
+  
+  <line x1="620" y1="320" x2="620" y2="280" class="arrow"/>
+  <line x1="620" y1="280" x2="280" y2="280" class="arrow"/>
+  <line x1="280" y1="280" x2="280" y2="270" class="arrow"/>
+  
+  <!-- Quality metrics boxes -->
+  <rect x="50" y="520" width="700" height="60" class="box"/>
+  <text x="400" y="540" class="subtitle" text-anchor="middle">&#20851;&#38190;&#36136;&#37327;&#25351;&#26631; Key Quality Metrics</text>
+  <text x="120" y="560" class="small-text">Q30 > 85%</text>
+  <text x="250" y="560" class="small-text">&#20445;&#30041;&#29575; > 80%</text>
+  <text x="380" y="560" class="small-text">GC&#21547;&#37327;&#27491;&#24120;</text>
+  <text x="520" y="560" class="small-text">&#26080;&#25509;&#22836;&#27745;&#26579;</text>
+  <text x="650" y="560" class="small-text">&#26080;&#36807;&#24230;&#37325;&#22797;</text>
+</svg>

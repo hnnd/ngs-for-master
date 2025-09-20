@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; }
+      .algorithm-box { fill: #e8f4fd; stroke: #1f77b4; stroke-width: 2; }
+      .step-box { fill: #fff2cc; stroke: #d6b656; stroke-width: 1; }
+      .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">序列比对算法演进</text>
+  
+  <!-- 第一代算法 -->
+  <rect x="50" y="60" width="200" height="120" class="algorithm-box" />
+  <text x="150" y="85" text-anchor="middle" class="subtitle">第一代：动态规划</text>
+  <text x="60" y="105" class="text">• Smith-Waterman</text>
+  <text x="60" y="125" class="text">• 时间复杂度：O(mn)</text>
+  <text x="60" y="145" class="text">• 精确但速度慢</text>
+  <text x="60" y="165" class="text">• 适用于少量序列</text>
+  
+  <!-- 第二代算法 -->
+  <rect x="300" y="60" width="200" height="120" class="algorithm-box" />
+  <text x="400" y="85" text-anchor="middle" class="subtitle">第二代：哈希表</text>
+  <text x="310" y="105" class="text">• BLAST系列</text>
+  <text x="310" y="125" class="text">• 种子匹配策略</text>
+  <text x="310" y="145" class="text">• 平衡精度和速度</text>
+  <text x="310" y="165" class="text">• 适用于中等数据量</text>
+  
+  <!-- 第三代算法 -->
+  <rect x="550" y="60" width="200" height="120" class="algorithm-box" />
+  <text x="650" y="85" text-anchor="middle" class="subtitle">第三代：BWT/FM-Index</text>
+  <text x="560" y="105" class="text">• BWA, Bowtie系列</text>
+  <text x="560" y="125" class="text">• 时间复杂度：O(n)</text>
+  <text x="560" y="145" class="text">• 内存效率高</text>
+  <text x="560" y="165" class="text">• 专为高通量设计</text>
+  
+  <!-- 箭头 -->
+  <line x1="250" y1="120" x2="300" y2="120" class="arrow" />
+  <line x1="500" y1="120" x2="550" y2="120" class="arrow" />
+  
+  <!-- BWT算法详解 -->
+  <text x="400" y="230" text-anchor="middle" class="subtitle">BWT算法原理</text>
+  
+  <!-- BWT变换步骤 -->
+  <rect x="50" y="250" width="150" height="200" class="step-box" />
+  <text x="125" y="275" text-anchor="middle" class="subtitle">1. BWT变换</text>
+  <text x="60" y="295" class="small-text">原字符串: BANANA$</text>
+  <text x="60" y="315" class="small-text">循环移位:</text>
+  <text x="60" y="330" class="small-text">BANANA$</text>
+  <text x="60" y="345" class="small-text">ANANA$B</text>
+  <text x="60" y="360" class="small-text">NANA$BA</text>
+  <text x="60" y="375" class="small-text">ANA$BAN</text>
+  <text x="60" y="390" class="small-text">NA$BANA</text>
+  <text x="60" y="405" class="small-text">A$BANAN</text>
+  <text x="60" y="420" class="small-text">$BANANA</text>
+  <text x="60" y="440" class="small-text">BWT: ANNB$AA</text>
+  
+  <!-- FM-Index -->
+  <rect x="220" y="250" width="150" height="200" class="step-box" />
+  <text x="295" y="275" text-anchor="middle" class="subtitle">2. FM-Index</text>
+  <text x="230" y="295" class="small-text">BWT + 后缀数组采样</text>
+  <text x="230" y="315" class="small-text">支持快速搜索:</text>
+  <text x="230" y="335" class="small-text">• 后向搜索</text>
+  <text x="230" y="355" class="small-text">• LF映射</text>
+  <text x="230" y="375" class="small-text">• 范围缩小</text>
+  <text x="230" y="395" class="small-text">内存使用:</text>
+  <text x="230" y="415" class="small-text">~5-6倍基因组大小</text>
+  
+  <!-- 搜索算法 -->
+  <rect x="390" y="250" width="150" height="200" class="step-box" />
+  <text x="465" y="275" text-anchor="middle" class="subtitle">3. 搜索算法</text>
+  <text x="400" y="295" class="small-text">精确匹配:</text>
+  <text x="400" y="315" class="small-text">• 线性时间复杂度</text>
+  <text x="400" y="335" class="small-text">• 从右到左搜索</text>
+  <text x="400" y="355" class="small-text">近似匹配:</text>
+  <text x="400" y="375" class="small-text">• 允许错配/InDel</text>
+  <text x="400" y="395" class="small-text">• 回溯搜索</text>
+  <text x="400" y="415" class="small-text">• 剪枝优化</text>
+  
+  <!-- 应用优势 -->
+  <rect x="560" y="250" width="150" height="200" class="step-box" />
+  <text x="635" y="275" text-anchor="middle" class="subtitle">4. 应用优势</text>
+  <text x="570" y="295" class="small-text">速度优势:</text>
+  <text x="570" y="315" class="small-text">• 数百万reads/分钟</text>
+  <text x="570" y="335" class="small-text">内存优势:</text>
+  <text x="570" y="355" class="small-text">• 人类基因组~3GB</text>
+  <text x="570" y="375" class="small-text">精度优势:</text>
+  <text x="570" y="395" class="small-text">• 高质量比对结果</text>
+  <text x="570" y="415" class="small-text">• 支持各种变异</text>
+  
+  <!-- 连接箭头 -->
+  <line x1="200" y1="350" x2="220" y2="350" class="arrow" />
+  <line x1="370" y1="350" x2="390" y2="350" class="arrow" />
+  <line x1="540" y1="350" x2="560" y2="350" class="arrow" />
+  
+  <!-- 性能比较 -->
+  <text x="400" y="490" text-anchor="middle" class="subtitle">算法性能比较</text>
+  
+  <rect x="100" y="510" width="600" height="60" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+  <text x="120" y="530" class="text">算法类型</text>
+  <text x="250" y="530" class="text">时间复杂度</text>
+  <text x="350" y="530" class="text">空间复杂度</text>
+  <text x="450" y="530" class="text">适用场景</text>
+  <text x="580" y="530" class="text">代表工具</text>
+  
+  <line x1="100" y1="535" x2="700" y2="535" stroke="#dee2e6" stroke-width="1" />
+  
+  <text x="120" y="550" class="small-text">动态规划</text>
+  <text x="250" y="550" class="small-text">O(mn)</text>
+  <text x="350" y="550" class="small-text">O(mn)</text>
+  <text x="450" y="550" class="small-text">小规模精确比对</text>
+  <text x="580" y="550" class="small-text">SSEARCH</text>
+  
+  <text x="120" y="565" class="small-text">BWT/FM-Index</text>
+  <text x="250" y="565" class="small-text">O(n)</text>
+  <text x="350" y="565" class="small-text">O(n)</text>
+  <text x="450" y="565" class="small-text">高通量测序</text>
+  <text x="580" y="565" class="small-text">BWA, Bowtie2</text>
+</svg>

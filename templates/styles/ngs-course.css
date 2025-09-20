@@ -1,0 +1,421 @@
+/*
+高通量测序数据分析课程 Marp 主题样式
+作者：王运生教授
+邮箱：wangys@hunau.edu.cn
+*/
+
+/* @theme ngs-course */
+
+/* 基础样式设置 */
+@import url('https://fonts.googleapis.com/css2?family=Source+Han+Sans+CN:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* 主色调配色方案 */
+  --primary-color: #1e3a8a;      /* 深蓝色 */
+  --secondary-color: #059669;     /* 绿色 */
+  --accent-color: #dc2626;        /* 红色强调 */
+  --background-color: #ffffff;    /* 白色背景 */
+  --text-color: #1f2937;         /* 深灰色文字 */
+  --light-gray: #f3f4f6;         /* 浅灰色 */
+  --medium-gray: #6b7280;        /* 中灰色 */
+  --border-color: #d1d5db;       /* 边框颜色 */
+
+  /* 字体设置 */
+  --main-font: 'Source Han Sans CN', 'Microsoft YaHei', sans-serif;
+  --code-font: 'JetBrains Mono', 'Consolas', monospace;
+
+  /* 尺寸设置 */
+  --slide-width: 1280px;
+  --slide-height: 720px;
+  --content-padding: 60px;
+  --border-radius: 8px;
+}
+
+/* 全局样式 */
+section {
+  font-family: var(--main-font);
+  font-size: 28px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--background-color);
+  padding: var(--content-padding);
+  width: var(--slide-width);
+  height: var(--slide-height);
+  box-sizing: border-box;
+}
+
+/* 标题样式 */
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  border-bottom: 4px solid var(--secondary-color);
+  padding-bottom: 15px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 25px 0 20px 0;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin: 20px 0 15px 0;
+}
+
+/* 段落和列表样式 */
+p {
+  margin: 15px 0;
+  text-align: justify;
+}
+
+ul, ol {
+  margin: 15px 0;
+  padding-left: 40px;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* 强调文本 */
+strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+em {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* 代码样式 */
+code {
+  font-family: var(--code-font);
+  background: var(--light-gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+pre {
+  background: var(--light-gray);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+  font-family: var(--code-font);
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--text-color);
+}
+
+/* 表格样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: var(--light-gray);
+}
+
+/* 图片样式 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* 页眉页脚样式 */
+header {
+  position: absolute;
+  top: 20px;
+  left: var(--content-padding);
+  right: var(--content-padding);
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: var(--content-padding);
+  right: var(--content-padding);
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: var(--medium-gray);
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+/* 页码样式 */
+section::after {
+  position: absolute;
+  bottom: 30px;
+  right: var(--content-padding);
+  font-size: 16px;
+  color: var(--medium-gray);
+}
+
+/* 标题页样式 */
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+section.title h1 {
+  font-size: 64px;
+  color: white;
+  border: none;
+  margin-bottom: 40px;
+}
+
+section.title h2 {
+  font-size: 42px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  margin-bottom: 60px;
+}
+
+section.title p {
+  font-size: 24px;
+  margin: 10px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 目录页样式 */
+section.toc {
+  background: var(--light-gray);
+}
+
+section.toc h1 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+section.toc ol {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+section.toc ol li {
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 多列布局样式 - 通用样式 */
+.columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  background: var(--light-gray);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+}
+
+.column h2 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+/* 特定于multi-column类的样式 */
+section.multi-column .columns {
+  height: calc(100% - 150px);
+  margin: 0;
+}
+
+section.multi-column .column {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 图片展示页样式 */
+section.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.image h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+section.image img {
+  max-height: 500px;
+  max-width: 90%;
+}
+
+/* 代码展示页样式 */
+section.code pre {
+  font-size: 20px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+section.code h1 {
+  margin-bottom: 30px;
+}
+
+/* 总结页样式 */
+section.summary {
+  background: var(--light-gray);
+}
+
+section.summary h1 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+section.summary h2 {
+  color: var(--secondary-color);
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 20px;
+}
+
+/* 结束页样式 */
+section.end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+}
+
+section.end h1 {
+  font-size: 56px;
+  color: white;
+  border: none;
+  margin-bottom: 50px;
+}
+
+section.end p {
+  font-size: 24px;
+  margin: 15px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 语法高亮样式 */
+.hljs {
+  background: var(--light-gray) !important;
+}
+
+.hljs-keyword {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.hljs-string {
+  color: var(--secondary-color);
+}
+
+.hljs-comment {
+  color: var(--medium-gray);
+  font-style: italic;
+}
+
+.hljs-number {
+  color: var(--accent-color);
+}
+
+.hljs-function {
+  color: var(--primary-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  section {
+    font-size: 24px;
+    padding: 40px;
+  }
+
+  h1 { font-size: 40px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 28px; }
+
+  pre { font-size: 18px; }
+  code { font-size: 20px; }
+
+  .columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  section {
+    background: white !important;
+    color: black !important;
+  }
+
+  header, footer {
+    display: none;
+  }
+
+  .columns {
+    break-inside: avoid;
+  }
+}

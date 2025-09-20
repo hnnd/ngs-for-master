@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .step-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: white; font-weight: bold; }
+      .detail-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">变异检测工作流程</text>
+  
+  <!-- 步骤1: 原始数据 -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#3b82f6" stroke="#1d4ed8"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">原始测序数据</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">FASTQ Files</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• 双端测序reads</text>
+    <text x="0" y="95" class="detail-text">• 质量分数</text>
+    <text x="0" y="110" class="detail-text">• 接头序列</text>
+  </g>
+  
+  <!-- 箭头1 -->
+  <path d="M 170 110 L 210 110" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="190" y="105" text-anchor="middle" class="detail-text">质量控制</text>
+  
+  <!-- 步骤2: 序列比对 -->
+  <g transform="translate(220, 80)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">序列比对</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">BAM Files</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• BWA/Bowtie2比对</text>
+    <text x="0" y="95" class="detail-text">• 比对质量评估</text>
+    <text x="0" y="110" class="detail-text">• 重复序列标记</text>
+  </g>
+  
+  <!-- 箭头2 -->
+  <path d="M 340 110 L 380 110" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="360" y="105" text-anchor="middle" class="detail-text">预处理</text>
+  
+  <!-- 步骤3: 数据预处理 -->
+  <g transform="translate(390, 80)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">数据预处理</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">Clean BAM</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• BQSR质量校正</text>
+    <text x="0" y="95" class="detail-text">• InDel重新比对</text>
+    <text x="0" y="110" class="detail-text">• 重复reads标记</text>
+  </g>
+  
+  <!-- 箭头3 -->
+  <path d="M 510 110 L 550 110" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="530" y="105" text-anchor="middle" class="detail-text">变异检测</text>
+  
+  <!-- 步骤4: 变异检测 -->
+  <g transform="translate(560, 80)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#dc2626" stroke="#b91c1c"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">变异检测</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">Raw VCF</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• HaplotypeCaller</text>
+    <text x="0" y="95" class="detail-text">• SNP/InDel检测</text>
+    <text x="0" y="110" class="detail-text">• 基因型确定</text>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <path d="M 620 140 L 620 180" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 步骤5: 质量过滤 -->
+  <g transform="translate(560, 190)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#f59e0b" stroke="#d97706"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">质量过滤</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">Filtered VCF</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• VQSR软过滤</text>
+    <text x="0" y="95" class="detail-text">• 硬过滤标准</text>
+    <text x="0" y="110" class="detail-text">• 质量指标评估</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <path d="M 560 220 L 520 220" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="540" y="215" text-anchor="middle" class="detail-text">注释</text>
+  
+  <!-- 步骤6: 变异注释 -->
+  <g transform="translate(390, 190)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#10b981" stroke="#059669"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">变异注释</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">Annotated VCF</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• VEP/ANNOVAR</text>
+    <text x="0" y="95" class="detail-text">• 功能预测</text>
+    <text x="0" y="110" class="detail-text">• 人群频率</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <path d="M 390 220 L 350 220" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="370" y="215" text-anchor="middle" class="detail-text">分析</text>
+  
+  <!-- 步骤7: 结果分析 -->
+  <g transform="translate(220, 190)">
+    <rect x="0" y="0" width="120" height="60" rx="10" fill="#6366f1" stroke="#4f46e5"/>
+    <text x="60" y="25" text-anchor="middle" class="step-text">结果分析</text>
+    <text x="60" y="40" text-anchor="middle" class="step-text">Final Report</text>
+    
+    <!-- 详细信息 -->
+    <text x="0" y="80" class="detail-text">• 统计分析</text>
+    <text x="0" y="95" class="detail-text">• 可视化</text>
+    <text x="0" y="110" class="detail-text">• 生物学解读</text>
+  </g>
+  
+  <!-- 质量控制检查点 -->
+  <g transform="translate(50, 300)">
+    <text x="0" y="0" class="subtitle">关键质量控制检查点</text>
+    
+    <!-- QC1 -->
+    <circle cx="30" cy="30" r="15" fill="#ef4444"/>
+    <text x="30" y="35" text-anchor="middle" class="step-text" font-size="10">QC1</text>
+    <text x="50" y="35" class="text">原始数据质量：Q30 > 80%</text>
+    
+    <!-- QC2 -->
+    <circle cx="30" cy="60" r="15" fill="#ef4444"/>
+    <text x="30" y="65" text-anchor="middle" class="step-text" font-size="10">QC2</text>
+    <text x="50" y="65" class="text">比对质量：比对率 > 95%</text>
+    
+    <!-- QC3 -->
+    <circle cx="30" cy="90" r="15" fill="#ef4444"/>
+    <text x="30" y="95" text-anchor="middle" class="step-text" font-size="10">QC3</text>
+    <text x="50" y="95" class="text">覆盖深度：平均深度 > 20X</text>
+    
+    <!-- QC4 -->
+    <circle cx="300" cy="30" r="15" fill="#ef4444"/>
+    <text x="300" y="35" text-anchor="middle" class="step-text" font-size="10">QC4</text>
+    <text x="320" y="35" class="text">变异质量：Ti/Tv比值 2.0-2.1</text>
+    
+    <!-- QC5 -->
+    <circle cx="300" cy="60" r="15" fill="#ef4444"/>
+    <text x="300" y="65" text-anchor="middle" class="step-text" font-size="10">QC5</text>
+    <text x="320" y="65" class="text">dbSNP重叠率 > 95%</text>
+    
+    <!-- QC6 -->
+    <circle cx="300" cy="90" r="15" fill="#ef4444"/>
+    <text x="300" y="95" text-anchor="middle" class="step-text" font-size="10">QC6</text>
+    <text x="320" y="95" class="text">HWE检验 p > 1e-6</text>
+  </g>
+  
+  <!-- 工具推荐 -->
+  <g transform="translate(50, 450)">
+    <text x="0" y="0" class="subtitle">推荐工具</text>
+    
+    <rect x="0" y="15" width="700" height="100" fill="#f9fafb" stroke="#e5e7eb" rx="5"/>
+    
+    <!-- 比对工具 -->
+    <text x="20" y="35" class="text" font-weight="bold">比对:</text>
+    <text x="60" y="35" class="text">BWA-MEM, Bowtie2, STAR</text>
+    
+    <!-- 变异检测工具 -->
+    <text x="20" y="55" class="text" font-weight="bold">变异检测:</text>
+    <text x="80" y="55" class="text">GATK HaplotypeCaller, FreeBayes, VarScan</text>
+    
+    <!-- 注释工具 -->
+    <text x="20" y="75" class="text" font-weight="bold">注释:</text>
+    <text x="60" y="75" class="text">VEP, ANNOVAR, SnpEff</text>
+    
+    <!-- 可视化工具 -->
+    <text x="20" y="95" class="text" font-weight="bold">可视化:</text>
+    <text x="70" y="95" class="text">IGV, UCSC Genome Browser, JBrowse</text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+</svg>

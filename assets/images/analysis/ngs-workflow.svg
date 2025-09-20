@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 24px; font-weight: bold; fill: #1e3a8a; }
+      .label-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; fill: #374151; }
+      .step-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; fill: #6b7280; }
+      .process-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .data-box { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+      .tool-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title-text">高通量测序数据分析标准流程</text>
+  
+  <!-- 原始数据 -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="120" height="60" class="data-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">原始数据</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">FASTQ文件</text>
+  </g>
+  
+  <!-- 质量控制 -->
+  <g transform="translate(220, 70)">
+    <rect x="0" y="0" width="120" height="60" class="process-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">质量控制</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">FastQC/MultiQC</text>
+  </g>
+  
+  <!-- 数据预处理 -->
+  <g transform="translate(390, 70)">
+    <rect x="0" y="0" width="120" height="60" class="process-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">数据预处理</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">Trimmomatic</text>
+  </g>
+  
+  <!-- 清洁数据 -->
+  <g transform="translate(560, 70)">
+    <rect x="0" y="0" width="120" height="60" class="data-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">清洁数据</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">Clean FASTQ</text>
+  </g>
+  
+  <!-- 参考基因组 -->
+  <g transform="translate(50, 180)">
+    <rect x="0" y="0" width="120" height="60" class="data-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">参考基因组</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">FASTA文件</text>
+  </g>
+  
+  <!-- 序列比对 -->
+  <g transform="translate(220, 180)">
+    <rect x="0" y="0" width="120" height="60" class="process-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">序列比对</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">BWA/Bowtie2</text>
+  </g>
+  
+  <!-- 比对结果 -->
+  <g transform="translate(390, 180)">
+    <rect x="0" y="0" width="120" height="60" class="data-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">比对结果</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">SAM/BAM文件</text>
+  </g>
+  
+  <!-- 后处理 -->
+  <g transform="translate(560, 180)">
+    <rect x="0" y="0" width="120" height="60" class="process-box" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" class="label-text">后处理</text>
+    <text x="60" y="45" text-anchor="middle" class="step-text">排序/去重</text>
+  </g>
+  
+  <!-- 分支分析 -->
+  <text x="400" y="280" text-anchor="middle" class="label-text">下游分析分支</text>
+  
+  <!-- 变异检测分支 -->
+  <g transform="translate(50, 320)">
+    <rect x="0" y="0" width="200" height="250" fill="#fef2f2" stroke="#ef4444" stroke-width="2" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="label-text" fill="#dc2626">变异检测流程</text>
+    
+    <!-- 变异调用 -->
+    <rect x="20" y="40" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="60" text-anchor="middle" class="step-text">变异调用</text>
+    <text x="100" y="75" text-anchor="middle" class="step-text">GATK/FreeBayes</text>
+    
+    <!-- VCF文件 -->
+    <rect x="20" y="100" width="160" height="40" class="data-box" rx="5"/>
+    <text x="100" y="120" text-anchor="middle" class="step-text">VCF文件</text>
+    <text x="100" y="135" text-anchor="middle" class="step-text">变异位点</text>
+    
+    <!-- 变异过滤 -->
+    <rect x="20" y="160" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="180" text-anchor="middle" class="step-text">变异过滤</text>
+    <text x="100" y="195" text-anchor="middle" class="step-text">质量筛选</text>
+    
+    <!-- 变异注释 -->
+    <rect x="20" y="220" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="240" text-anchor="middle" class="step-text">变异注释</text>
+    <text x="100" y="255" text-anchor="middle" class="step-text">SnpEff/VEP</text>
+  </g>
+  
+  <!-- 转录组分析分支 -->
+  <g transform="translate(300, 320)">
+    <rect x="0" y="0" width="200" height="250" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="label-text" fill="#059669">转录组分析流程</text>
+    
+    <!-- 基因定量 -->
+    <rect x="20" y="40" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="60" text-anchor="middle" class="step-text">基因定量</text>
+    <text x="100" y="75" text-anchor="middle" class="step-text">HTSeq/featureCounts</text>
+    
+    <!-- 表达矩阵 -->
+    <rect x="20" y="100" width="160" height="40" class="data-box" rx="5"/>
+    <text x="100" y="120" text-anchor="middle" class="step-text">表达矩阵</text>
+    <text x="100" y="135" text-anchor="middle" class="step-text">Count数据</text>
+    
+    <!-- 差异分析 -->
+    <rect x="20" y="160" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="180" text-anchor="middle" class="step-text">差异分析</text>
+    <text x="100" y="195" text-anchor="middle" class="step-text">DESeq2/edgeR</text>
+    
+    <!-- 功能富集 -->
+    <rect x="20" y="220" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="240" text-anchor="middle" class="step-text">功能富集</text>
+    <text x="100" y="255" text-anchor="middle" class="step-text">GO/KEGG分析</text>
+  </g>
+  
+  <!-- 表观基因组分析分支 -->
+  <g transform="translate(550, 320)">
+    <rect x="0" y="0" width="200" height="250" fill="#fefce8" stroke="#eab308" stroke-width="2" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="label-text" fill="#ca8a04">表观基因组分析</text>
+    
+    <!-- Peak calling -->
+    <rect x="20" y="40" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="60" text-anchor="middle" class="step-text">Peak检测</text>
+    <text x="100" y="75" text-anchor="middle" class="step-text">MACS2/HOMER</text>
+    
+    <!-- Peak文件 -->
+    <rect x="20" y="100" width="160" height="40" class="data-box" rx="5"/>
+    <text x="100" y="120" text-anchor="middle" class="step-text">Peak文件</text>
+    <text x="100" y="135" text-anchor="middle" class="step-text">BED格式</text>
+    
+    <!-- 注释分析 -->
+    <rect x="20" y="160" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="180" text-anchor="middle" class="step-text">Peak注释</text>
+    <text x="100" y="195" text-anchor="middle" class="step-text">基因组区域</text>
+    
+    <!-- Motif分析 -->
+    <rect x="20" y="220" width="160" height="40" class="process-box" rx="5"/>
+    <text x="100" y="240" text-anchor="middle" class="step-text">Motif分析</text>
+    <text x="100" y="255" text-anchor="middle" class="step-text">转录因子</text>
+  </g>
+  
+  <!-- 质量控制检查点 -->
+  <g transform="translate(50, 600)">
+    <rect x="0" y="0" width="700" height="60" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" rx="10"/>
+    <text x="350" y="25" text-anchor="middle" class="label-text">质量控制检查点</text>
+    
+    <circle cx="80" cy="45" r="8" fill="#22c55e"/>
+    <text x="95" y="50" class="step-text">原始数据质量</text>
+    
+    <circle cx="220" cy="45" r="8" fill="#22c55e"/>
+    <text x="235" y="50" class="step-text">比对质量</text>
+    
+    <circle cx="350" cy="45" r="8" fill="#22c55e"/>
+    <text x="365" y="50" class="step-text">覆盖度统计</text>
+    
+    <circle cx="480" cy="45" r="8" fill="#22c55e"/>
+    <text x="495" y="50" class="step-text">结果验证</text>
+    
+    <circle cx="620" cy="45" r="8" fill="#22c55e"/>
+    <text x="635" y="50" class="step-text">生物学意义</text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- 主流程箭头 -->
+  <path d="M 170 100 L 210 100" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 340 100 L 380 100" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 510 100 L 550 100" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <path d="M 170 210 L 210 210" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 340 210 L 380 210" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 510 210 L 550 210" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- 垂直连接箭头 -->
+  <path d="M 110 130 L 110 170" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 620 130 L 620 170" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 分支箭头 -->
+  <path d="M 450 240 L 450 300" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 400 300 L 150 310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 450 300 L 400 310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 500 300 L 650 310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 工具说明 -->
+  <g transform="translate(50, 680)">
+    <text x="0" y="0" class="step-text">常用工具：</text>
+    <text x="80" y="0" class="step-text">质量控制(FastQC) | 比对(BWA/STAR) | 变异检测(GATK) | 可视化(IGV) | 统计分析(R/Python)</text>
+  </g>
+</svg>

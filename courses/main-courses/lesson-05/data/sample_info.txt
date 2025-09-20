@@ -1,0 +1,7 @@
+sample_id	condition	batch	replicate	description
+sample1	treatment	1	1	Treatment group replicate 1
+sample2	treatment	2	2	Treatment group replicate 2
+sample3	treatment	3	3	Treatment group replicate 3
+ctrl1	control	1	1	Control group replicate 1
+ctrl2	control	2	2	Control group replicate 2
+ctrl3	control	3	3	Control group replicate 3

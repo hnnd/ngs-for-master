@@ -1,0 +1,210 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="promoterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="exonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e8449;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="intronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="utrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#34495e" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#ecf0f1"/>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#2c3e50">真核基因结构与组织</text>
+
+  <!-- Main gene structure -->
+  <g transform="translate(50, 100)">
+    <!-- Gene span line -->
+    <line x1="0" y1="60" x2="900" y2="60" stroke="#34495e" stroke-width="3"/>
+
+    <!-- Promoter region -->
+    <rect x="0" y="40" width="80" height="40" fill="url(#promoterGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="40" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">启动子</text>
+    <text x="40" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">Promoter</text>
+
+    <!-- 5' UTR -->
+    <rect x="100" y="40" width="60" height="40" fill="url(#utrGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="130" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">5'UTR</text>
+
+    <!-- Exon 1 -->
+    <rect x="180" y="40" width="80" height="40" fill="url(#exonGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="220" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">外显子1</text>
+    <text x="220" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">Exon 1</text>
+
+    <!-- Intron 1 -->
+    <path d="M 280 60 Q 320 20 360 60" stroke="url(#intronGrad)" stroke-width="4" fill="none"/>
+    <text x="320" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#3498db">内含子1</text>
+    <text x="320" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#3498db">Intron 1</text>
+
+    <!-- Exon 2 -->
+    <rect x="380" y="40" width="80" height="40" fill="url(#exonGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="420" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">外显子2</text>
+    <text x="420" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">Exon 2</text>
+
+    <!-- Intron 2 -->
+    <path d="M 480 60 Q 520 20 560 60" stroke="url(#intronGrad)" stroke-width="4" fill="none"/>
+    <text x="520" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#3498db">内含子2</text>
+    <text x="520" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#3498db">Intron 2</text>
+
+    <!-- Exon 3 -->
+    <rect x="580" y="40" width="80" height="40" fill="url(#exonGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="620" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">外显子3</text>
+    <text x="620" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">Exon 3</text>
+
+    <!-- 3' UTR -->
+    <rect x="680" y="40" width="60" height="40" fill="url(#utrGrad)" filter="url(#shadow)" rx="5"/>
+    <text x="710" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">3'UTR</text>
+
+    <!-- Terminator -->
+    <rect x="760" y="40" width="80" height="40" fill="#95a5a6" filter="url(#shadow)" rx="5"/>
+    <text x="800" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">终止子</text>
+    <text x="800" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Terminator</text>
+
+    <!-- Direction arrow -->
+    <path d="M 860 60 L 890 60" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrowhead)"/>
+    <text x="875" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">5'→3'</text>
+  </g>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Mature mRNA after splicing -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">成熟mRNA (剪切后):</text>
+
+    <rect x="0" y="30" width="60" height="30" fill="url(#utrGrad)" filter="url(#shadow)" rx="3"/>
+    <text x="30" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">5'UTR</text>
+
+    <rect x="80" y="30" width="80" height="30" fill="url(#exonGrad)" filter="url(#shadow)" rx="3"/>
+    <text x="120" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">外显子1</text>
+
+    <rect x="180" y="30" width="80" height="30" fill="url(#exonGrad)" filter="url(#shadow)" rx="3"/>
+    <text x="220" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">外显子2</text>
+
+    <rect x="280" y="30" width="80" height="30" fill="url(#exonGrad)" filter="url(#shadow)" rx="3"/>
+    <text x="320" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">外显子3</text>
+
+    <rect x="380" y="30" width="60" height="30" fill="url(#utrGrad)" filter="url(#shadow)" rx="3"/>
+    <text x="410" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">3'UTR</text>
+
+    <!-- Poly-A tail -->
+    <rect x="460" y="30" width="80" height="30" fill="#9b59b6" filter="url(#shadow)" rx="3"/>
+    <text x="500" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Poly-A尾</text>
+
+    <!-- 5' cap -->
+    <circle cx="15" cy="15" r="8" fill="#e74c3c"/>
+    <text x="15" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">Cap</text>
+    <text x="45" y="19" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">5'帽子</text>
+  </g>
+
+  <!-- Alternative splicing -->
+  <g transform="translate(50, 350)">
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">选择性剪切:</text>
+
+    <!-- Alternative 1 -->
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">剪切模式1:</text>
+    <rect x="80" y="30" width="60" height="25" fill="url(#utrGrad)" rx="3"/>
+    <rect x="150" y="30" width="60" height="25" fill="url(#exonGrad)" rx="3"/>
+    <rect x="220" y="30" width="60" height="25" fill="url(#exonGrad)" rx="3"/>
+    <rect x="290" y="30" width="60" height="25" fill="url(#utrGrad)" rx="3"/>
+
+    <!-- Alternative 2 -->
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">剪切模式2:</text>
+    <rect x="80" y="65" width="60" height="25" fill="url(#utrGrad)" rx="3"/>
+    <rect x="150" y="65" width="60" height="25" fill="url(#exonGrad)" rx="3"/>
+    <rect x="220" y="65" width="60" height="25" fill="url(#exonGrad)" rx="3"/>
+    <rect x="290" y="65" width="60" height="25" fill="url(#utrGrad)" rx="3"/>
+    <!-- Skipped exon shown with dotted line -->
+    <rect x="220" y="65" width="60" height="25" fill="none" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5" rx="3"/>
+    <text x="250" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">跳跃</text>
+
+    <!-- Functional domains -->
+    <text x="450" y="45" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">→ 不同蛋白质异构体</text>
+    <text x="450" y="80" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">→ 功能域差异</text>
+  </g>
+
+  <!-- Regulatory elements -->
+  <g transform="translate(600, 320)">
+    <rect width="350" height="220" fill="white" stroke="#bdc3c7" stroke-width="2" rx="10" filter="url(#shadow)"/>
+    <text x="175" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">调控元件</text>
+
+    <!-- Promoter elements -->
+    <g transform="translate(20, 40)">
+      <rect width="140" height="40" fill="#e74c3c" rx="5" opacity="0.2"/>
+      <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c0392b">启动子元件</text>
+      <text x="10" y="30" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• TATA盒</text>
+      <text x="10" y="42" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• CAAT盒</text>
+    </g>
+
+    <!-- Enhancers -->
+    <g transform="translate(180, 40)">
+      <rect width="140" height="40" fill="#27ae60" rx="5" opacity="0.2"/>
+      <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e8449">增强子</text>
+      <text x="10" y="30" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 远程调控</text>
+      <text x="10" y="42" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 组织特异性</text>
+    </g>
+
+    <!-- Silencers -->
+    <g transform="translate(20, 100)">
+      <rect width="140" height="40" fill="#8e44ad" rx="5" opacity="0.2"/>
+      <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7d3c98">沉默子</text>
+      <text x="10" y="30" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 抑制转录</text>
+      <text x="10" y="42" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 染色质修饰</text>
+    </g>
+
+    <!-- Splice sites -->
+    <g transform="translate(180, 100)">
+      <rect width="140" height="40" fill="#3498db" rx="5" opacity="0.2"/>
+      <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2980b9">剪切位点</text>
+      <text x="10" y="30" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 5'剪切位点</text>
+      <text x="10" y="42" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 3'剪切位点</text>
+    </g>
+
+    <!-- Bioinformatics implications -->
+    <g transform="translate(20, 160)">
+      <rect width="300" height="40" fill="#f39c12" rx="5" opacity="0.2"/>
+      <text x="150" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d68910">生物信息学意义</text>
+      <text x="10" y="28" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 基因注释复杂性  • 转录本多样性  • 功能预测挑战</text>
+      <text x="10" y="40" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• RNA-seq数据解读  • 选择性剪切检测  • 调控网络分析</text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(50, 520)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">图例:</text>
+
+    <rect x="50" y="-10" width="30" height="15" fill="url(#promoterGrad)" rx="2"/>
+    <text x="85" y="2" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">启动子</text>
+
+    <rect x="140" y="-10" width="30" height="15" fill="url(#exonGrad)" rx="2"/>
+    <text x="175" y="2" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">外显子</text>
+
+    <rect x="230" y="-10" width="30" height="15" fill="url(#intronGrad)" rx="2"/>
+    <text x="265" y="2" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">内含子</text>
+
+    <rect x="320" y="-10" width="30" height="15" fill="url(#utrGrad)" rx="2"/>
+    <text x="355" y="2" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">UTR区域</text>
+
+    <rect x="420" y="-10" width="30" height="15" fill="#95a5a6" rx="2"/>
+    <text x="455" y="2" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">终止子</text>
+  </g>
+</svg>

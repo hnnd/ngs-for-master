@@ -1,0 +1,6 @@
+sample_id	condition	batch	age	gender
+sample1	control	1	45	M
+sample2	control	1	52	F
+sample3	treatment	2	38	M
+sample4	treatment	2	41	F
+sample5	treatment	2	47	M

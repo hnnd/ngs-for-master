@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; }
+      .bwa-box { fill: #e8f4fd; stroke: #1f77b4; stroke-width: 2; }
+      .bowtie-box { fill: #fff2cc; stroke: #d6b656; stroke-width: 2; }
+      .star-box { fill: #f0f8e8; stroke: #2ca02c; stroke-width: 2; }
+      .minimap-box { fill: #fdf2e9; stroke: #ff7f0e; stroke-width: 2; }
+      .header-box { fill: #f8f9fa; stroke: #6c757d; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title">主流序列比对工具比较</text>
+  
+  <!-- BWA工具 -->
+  <rect x="50" y="60" width="180" height="250" class="bwa-box" />
+  <text x="140" y="85" text-anchor="middle" class="subtitle">BWA</text>
+  
+  <text x="60" y="110" class="text">算法特点:</text>
+  <text x="60" y="125" class="small-text">• BWT + 种子扩展</text>
+  <text x="60" y="140" class="small-text">• 三种模式可选</text>
+  <text x="60" y="155" class="small-text">• 自适应参数</text>
+  
+  <text x="60" y="175" class="text">性能指标:</text>
+  <text x="60" y="190" class="small-text">• 速度: 快</text>
+  <text x="60" y="205" class="small-text">• 精度: 高</text>
+  <text x="60" y="220" class="small-text">• 内存: 中等</text>
+  
+  <text x="60" y="240" class="text">适用场景:</text>
+  <text x="60" y="255" class="small-text">• DNA重测序</text>
+  <text x="60" y="270" class="small-text">• 变异检测</text>
+  <text x="60" y="285" class="small-text">• 长reads支持</text>
+  
+  <!-- Bowtie2工具 -->
+  <rect x="250" y="60" width="180" height="250" class="bowtie-box" />
+  <text x="340" y="85" text-anchor="middle" class="subtitle">Bowtie2</text>
+  
+  <text x="260" y="110" class="text">算法特点:</text>
+  <text x="260" y="125" class="small-text">• 双向BWT索引</text>
+  <text x="260" y="140" class="small-text">• 支持gap比对</text>
+  <text x="260" y="155" class="small-text">• 丰富参数选项</text>
+  
+  <text x="260" y="175" class="text">性能指标:</text>
+  <text x="260" y="190" class="small-text">• 速度: 中等</text>
+  <text x="260" y="205" class="small-text">• 精度: 高</text>
+  <text x="260" y="220" class="small-text">• 内存: 低</text>
+  
+  <text x="260" y="240" class="text">适用场景:</text>
+  <text x="260" y="255" class="small-text">• 短reads比对</text>
+  <text x="260" y="270" class="small-text">• ChIP-seq</text>
+  <text x="260" y="285" class="small-text">• 参数调优</text>
+  
+  <!-- STAR工具 -->
+  <rect x="450" y="60" width="180" height="250" class="star-box" />
+  <text x="540" y="85" text-anchor="middle" class="subtitle">STAR</text>
+  
+  <text x="460" y="110" class="text">算法特点:</text>
+  <text x="460" y="125" class="small-text">• 后缀数组</text>
+  <text x="460" y="140" class="small-text">• 剪接感知</text>
+  <text x="460" y="155" class="small-text">• 两步比对</text>
+  
+  <text x="460" y="175" class="text">性能指标:</text>
+  <text x="460" y="190" class="small-text">• 速度: 极快</text>
+  <text x="460" y="205" class="small-text">• 精度: 高</text>
+  <text x="460" y="220" class="small-text">• 内存: 高</text>
+  
+  <text x="460" y="240" class="text">适用场景:</text>
+  <text x="460" y="255" class="small-text">• RNA-seq</text>
+  <text x="460" y="270" class="small-text">• 剪接检测</text>
+  <text x="460" y="285" class="small-text">• 转录组分析</text>
+  
+  <!-- minimap2工具 -->
+  <rect x="650" y="60" width="180" height="250" class="minimap-box" />
+  <text x="740" y="85" text-anchor="middle" class="subtitle">minimap2</text>
+  
+  <text x="660" y="110" class="text">算法特点:</text>
+  <text x="660" y="125" class="small-text">• 最小化器算法</text>
+  <text x="660" y="140" class="small-text">• 长reads优化</text>
+  <text x="660" y="155" class="small-text">• 多平台支持</text>
+  
+  <text x="660" y="175" class="text">性能指标:</text>
+  <text x="660" y="190" class="small-text">• 速度: 快</text>
+  <text x="660" y="205" class="small-text">• 精度: 中等</text>
+  <text x="660" y="220" class="small-text">• 内存: 中等</text>
+  
+  <text x="660" y="240" class="text">适用场景:</text>
+  <text x="660" y="255" class="small-text">• PacBio/Nanopore</text>
+  <text x="660" y="270" class="small-text">• 结构变异</text>
+  <text x="660" y="285" class="small-text">• 基因组组装</text>
+  
+  <!-- 性能比较表 -->
+  <text x="450" y="350" text-anchor="middle" class="subtitle">性能比较表</text>
+  
+  <!-- 表头 -->
+  <rect x="50" y="370" width="800" height="30" class="header-box" />
+  <text x="70" y="390" class="text">工具</text>
+  <text x="150" y="390" class="text">算法</text>
+  <text x="250" y="390" class="text">速度</text>
+  <text x="320" y="390" class="text">内存</text>
+  <text x="390" y="390" class="text">精度</text>
+  <text x="460" y="390" class="text">适用读长</text>
+  <text x="560" y="390" class="text">特殊功能</text>
+  <text x="700" y="390" class="text">推荐场景</text>
+  
+  <!-- BWA行 -->
+  <rect x="50" y="400" width="800" height="25" fill="#f8f9fa" stroke="#dee2e6" stroke-width="0.5" />
+  <text x="70" y="417" class="small-text">BWA-MEM</text>
+  <text x="150" y="417" class="small-text">BWT+种子</text>
+  <text x="250" y="417" class="small-text">快</text>
+  <text x="320" y="417" class="small-text">中等</text>
+  <text x="390" y="417" class="small-text">高</text>
+  <text x="460" y="417" class="small-text">70bp-1Mbp</text>
+  <text x="560" y="417" class="small-text">长reads</text>
+  <text x="700" y="417" class="small-text">WGS/WES</text>
+  
+  <!-- Bowtie2行 -->
+  <rect x="50" y="425" width="800" height="25" fill="white" stroke="#dee2e6" stroke-width="0.5" />
+  <text x="70" y="442" class="small-text">Bowtie2</text>
+  <text x="150" y="442" class="small-text">双向BWT</text>
+  <text x="250" y="442" class="small-text">中等</text>
+  <text x="320" y="442" class="small-text">低</text>
+  <text x="390" y="442" class="small-text">高</text>
+  <text x="460" y="442" class="small-text">50-500bp</text>
+  <text x="560" y="442" class="small-text">Gap感知</text>
+  <text x="700" y="442" class="small-text">ChIP-seq</text>
+  
+  <!-- STAR行 -->
+  <rect x="50" y="450" width="800" height="25" fill="#f8f9fa" stroke="#dee2e6" stroke-width="0.5" />
+  <text x="70" y="467" class="small-text">STAR</text>
+  <text x="150" y="467" class="small-text">后缀数组</text>
+  <text x="250" y="467" class="small-text">极快</text>
+  <text x="320" y="467" class="small-text">高</text>
+  <text x="390" y="467" class="small-text">高</text>
+  <text x="460" y="467" class="small-text">50-300bp</text>
+  <text x="560" y="467" class="small-text">剪接检测</text>
+  <text x="700" y="467" class="small-text">RNA-seq</text>
+  
+  <!-- minimap2行 -->
+  <rect x="50" y="475" width="800" height="25" fill="white" stroke="#dee2e6" stroke-width="0.5" />
+  <text x="70" y="492" class="small-text">minimap2</text>
+  <text x="150" y="492" class="small-text">最小化器</text>
+  <text x="250" y="492" class="small-text">快</text>
+  <text x="320" y="492" class="small-text">中等</text>
+  <text x="390" y="492" class="small-text">中等</text>
+  <text x="460" y="492" class="small-text">1kb-1Mbp</text>
+  <text x="560" y="492" class="small-text">长reads</text>
+  <text x="700" y="492" class="small-text">PacBio/ONT</text>
+  
+  <!-- 选择建议 -->
+  <text x="450" y="530" text-anchor="middle" class="subtitle">工具选择建议</text>
+  
+  <!-- DNA测序 -->
+  <rect x="50" y="550" width="180" height="120" fill="#e8f4fd" stroke="#1f77b4" stroke-width="1" />
+  <text x="140" y="570" text-anchor="middle" class="text">DNA重测序</text>
+  <text x="60" y="590" class="small-text">推荐工具:</text>
+  <text x="60" y="605" class="small-text">• BWA-MEM (首选)</text>
+  <text x="60" y="620" class="small-text">• Bowtie2 (备选)</text>
+  <text x="60" y="635" class="small-text">应用场景:</text>
+  <text x="60" y="650" class="small-text">• 变异检测</text>
+  <text x="60" y="665" class="small-text">• 全基因组测序</text>
+  
+  <!-- RNA测序 -->
+  <rect x="250" y="550" width="180" height="120" fill="#f0f8e8" stroke="#2ca02c" stroke-width="1" />
+  <text x="340" y="570" text-anchor="middle" class="text">RNA测序</text>
+  <text x="260" y="590" class="small-text">推荐工具:</text>
+  <text x="260" y="605" class="small-text">• STAR (首选)</text>
+  <text x="260" y="620" class="small-text">• HISAT2 (备选)</text>
+  <text x="260" y="635" class="small-text">应用场景:</text>
+  <text x="260" y="650" class="small-text">• 转录组分析</text>
+  <text x="260" y="665" class="small-text">• 剪接变异</text>
+  
+  <!-- ChIP测序 -->
+  <rect x="450" y="550" width="180" height="120" fill="#fff2cc" stroke="#d6b656" stroke-width="1" />
+  <text x="540" y="570" text-anchor="middle" class="text">ChIP测序</text>
+  <text x="460" y="590" class="small-text">推荐工具:</text>
+  <text x="460" y="605" class="small-text">• Bowtie2 (首选)</text>
+  <text x="460" y="620" class="small-text">• BWA-MEM (备选)</text>
+  <text x="460" y="635" class="small-text">应用场景:</text>
+  <text x="460" y="650" class="small-text">• 蛋白结合</text>
+  <text x="460" y="665" class="small-text">• 表观修饰</text>
+  
+  <!-- 长读长测序 -->
+  <rect x="650" y="550" width="180" height="120" fill="#fdf2e9" stroke="#ff7f0e" stroke-width="1" />
+  <text x="740" y="570" text-anchor="middle" class="text">长读长测序</text>
+  <text x="660" y="590" class="small-text">推荐工具:</text>
+  <text x="660" y="605" class="small-text">• minimap2 (首选)</text>
+  <text x="660" y="620" class="small-text">• NGMLR (备选)</text>
+  <text x="660" y="635" class="small-text">应用场景:</text>
+  <text x="660" y="650" class="small-text">• 结构变异</text>
+  <text x="660" y="665" class="small-text">• 基因组组装</text>
+</svg>

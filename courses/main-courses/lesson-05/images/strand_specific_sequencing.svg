@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #059669; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #374151; }
+      .dna { stroke: #6b7280; stroke-width: 3; }
+      .rna-plus { stroke: #3b82f6; stroke-width: 3; }
+      .rna-minus { stroke: #ef4444; stroke-width: 3; }
+      .arrow { fill: #374151; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">链特异性测序原理对比</text>
+  
+  <!-- Non-strand-specific section -->
+  <text x="200" y="60" text-anchor="middle" class="subtitle">非链特异性测序</text>
+  
+  <!-- DNA template -->
+  <line x1="50" y1="90" x2="350" y2="90" class="dna"/>
+  <text x="30" y="95" class="label">DNA</text>
+  <text x="360" y="95" class="label">5' → 3'</text>
+  
+  <!-- Plus strand RNA -->
+  <line x1="50" y1="120" x2="300" y2="120" class="rna-plus"/>
+  <text x="20" y="125" class="label">mRNA(+)</text>
+  <text x="310" y="125" class="label">5' → 3'</text>
+  
+  <!-- Minus strand RNA -->
+  <line x1="100" y1="150" x2="350" y2="150" class="rna-minus"/>
+  <text x="70" y="155" class="label">asRNA(-)</text>
+  <text x="360" y="155" class="label">3' ← 5'</text>
+  
+  <!-- Sequencing reads (mixed) -->
+  <rect x="80" y="180" width="40" height="8" fill="#9ca3af"/>
+  <rect x="130" y="180" width="40" height="8" fill="#9ca3af"/>
+  <rect x="180" y="180" width="40" height="8" fill="#9ca3af"/>
+  <rect x="230" y="180" width="40" height="8" fill="#9ca3af"/>
+  <text x="50" y="185" class="label">Reads</text>
+  <text x="280" y="185" class="label">无法区分来源链</text>
+  
+  <!-- Strand-specific section -->
+  <text x="600" y="60" text-anchor="middle" class="subtitle">链特异性测序</text>
+  
+  <!-- DNA template -->
+  <line x1="450" y1="90" x2="750" y2="90" class="dna"/>
+  <text x="430" y="95" class="label">DNA</text>
+  <text x="760" y="95" class="label">5' → 3'</text>
+  
+  <!-- Plus strand RNA -->
+  <line x1="450" y1="120" x2="700" y2="120" class="rna-plus"/>
+  <text x="420" y="125" class="label">mRNA(+)</text>
+  <text x="710" y="125" class="label">5' → 3'</text>
+  
+  <!-- Minus strand RNA -->
+  <line x1="500" y1="150" x2="750" y2="150" class="rna-minus"/>
+  <text x="470" y="155" class="label">asRNA(-)</text>
+  <text x="760" y="155" class="label">3' ← 5'</text>
+  
+  <!-- Sequencing reads (strand-specific) -->
+  <rect x="480" y="180" width="40" height="8" fill="#3b82f6"/>
+  <rect x="530" y="180" width="40" height="8" fill="#3b82f6"/>
+  <text x="450" y="185" class="label">Reads(+)</text>
+  
+  <rect x="580" y="190" width="40" height="8" fill="#ef4444"/>
+  <rect x="630" y="190" width="40" height="8" fill="#ef4444"/>
+  <text x="450" y="195" class="label">Reads(-)</text>
+  <text x="680" y="188" class="label">保留链信息</text>
+  
+  <!-- Comparison table -->
+  <rect x="100" y="250" width="600" height="150" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  <text x="400" y="275" text-anchor="middle" class="subtitle">技术对比</text>
+  
+  <!-- Table headers -->
+  <text x="120" y="300" class="label" style="font-weight: bold;">特征</text>
+  <text x="300" y="300" class="label" style="font-weight: bold;">非链特异性</text>
+  <text x="550" y="300" class="label" style="font-weight: bold;">链特异性</text>
+  
+  <!-- Table content -->
+  <text x="120" y="320" class="label">反义转录本检测</text>
+  <text x="300" y="320" class="label">无法准确检测</text>
+  <text x="550" y="320" class="label">准确检测</text>
+  
+  <text x="120" y="340" class="label">基因重叠区域</text>
+  <text x="300" y="340" class="label">定量不准确</text>
+  <text x="550" y="340" class="label">准确定量</text>
+  
+  <text x="120" y="360" class="label">成本</text>
+  <text x="300" y="360" class="label">较低</text>
+  <text x="550" y="360" class="label">较高</text>
+  
+  <text x="120" y="380" class="label">分析复杂度</text>
+  <text x="300" y="380" class="label">简单</text>
+  <text x="550" y="380" class="label">中等</text>
+</svg>

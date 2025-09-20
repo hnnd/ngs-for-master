@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .tool-name { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .metric { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #374151; }
+      .value { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #6b7280; }
+      .bar-hisat2 { fill: #3b82f6; }
+      .bar-star { fill: #059669; }
+      .bar-tophat { fill: #ef4444; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">RNA-seq比对工具性能比较</text>
+  
+  <!-- Tool headers -->
+  <rect x="50" y="50" width="200" height="40" class="bar-hisat2" rx="5"/>
+  <text x="150" y="75" text-anchor="middle" class="tool-name">HISAT2</text>
+  
+  <rect x="300" y="50" width="200" height="40" class="bar-star" rx="5"/>
+  <text x="400" y="75" text-anchor="middle" class="tool-name">STAR</text>
+  
+  <rect x="550" y="50" width="200" height="40" class="bar-tophat" rx="5"/>
+  <text x="650" y="75" text-anchor="middle" class="tool-name">TopHat2</text>
+  
+  <!-- Speed comparison -->
+  <text x="50" y="130" class="metric" style="font-weight: bold;">运行速度 (相对值)</text>
+  
+  <!-- HISAT2 speed bar -->
+  <rect x="50" y="140" width="180" height="20" class="bar-hisat2"/>
+  <text x="240" y="155" class="value">快 (1.0x)</text>
+  
+  <!-- STAR speed bar -->
+  <rect x="300" y="140" width="120" height="20" class="bar-star"/>
+  <text x="430" y="155" class="value">中等 (0.7x)</text>
+  
+  <!-- TopHat2 speed bar -->
+  <rect x="550" y="140" width="60" height="20" class="bar-tophat"/>
+  <text x="620" y="155" class="value">慢 (0.3x)</text>
+  
+  <!-- Memory usage -->
+  <text x="50" y="190" class="metric" style="font-weight: bold;">内存使用 (GB)</text>
+  
+  <!-- HISAT2 memory -->
+  <rect x="50" y="200" width="80" height="20" class="bar-hisat2"/>
+  <text x="140" y="215" class="value">~8 GB</text>
+  
+  <!-- STAR memory -->
+  <rect x="300" y="200" width="160" height="20" class="bar-star"/>
+  <text x="470" y="215" class="value">~32 GB</text>
+  
+  <!-- TopHat2 memory -->
+  <rect x="550" y="200" width="60" height="20" class="bar-tophat"/>
+  <text x="620" y="215" class="value">~6 GB</text>
+  
+  <!-- Accuracy -->
+  <text x="50" y="250" class="metric" style="font-weight: bold;">比对准确性</text>
+  
+  <!-- HISAT2 accuracy -->
+  <rect x="50" y="260" width="160" height="20" class="bar-hisat2"/>
+  <text x="220" y="275" class="value">高 (95%)</text>
+  
+  <!-- STAR accuracy -->
+  <rect x="300" y="260" width="180" height="20" class="bar-star"/>
+  <text x="490" y="275" class="value">很高 (97%)</text>
+  
+  <!-- TopHat2 accuracy -->
+  <rect x="550" y="260" width="140" height="20" class="bar-tophat"/>
+  <text x="700" y="275" class="value">中等 (92%)</text>
+  
+  <!-- Features comparison table -->
+  <rect x="50" y="310" width="700" height="150" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  <text x="400" y="335" text-anchor="middle" class="metric" style="font-weight: bold;">功能特性对比</text>
+  
+  <!-- Table headers -->
+  <text x="70" y="360" class="metric" style="font-weight: bold;">特性</text>
+  <text x="250" y="360" class="metric" style="font-weight: bold;">HISAT2</text>
+  <text x="400" y="360" class="metric" style="font-weight: bold;">STAR</text>
+  <text x="600" y="360" class="metric" style="font-weight: bold;">TopHat2</text>
+  
+  <!-- Feature rows -->
+  <text x="70" y="380" class="value">剪接位点检测</text>
+  <text x="250" y="380" class="value">✓ 优秀</text>
+  <text x="400" y="380" class="value">✓ 极佳</text>
+  <text x="600" y="380" class="value">✓ 良好</text>
+  
+  <text x="70" y="400" class="value">新剪接位点发现</text>
+  <text x="250" y="400" class="value">✓ 支持</text>
+  <text x="400" y="400" class="value">✓ 支持</text>
+  <text x="600" y="400" class="value">✓ 支持</text>
+  
+  <text x="70" y="420" class="value">大基因组适用性</text>
+  <text x="250" y="420" class="value">✓ 适用</text>
+  <text x="400" y="420" class="value">✓ 极佳</text>
+  <text x="600" y="420" class="value">△ 一般</text>
+  
+  <text x="70" y="440" class="value">维护状态</text>
+  <text x="250" y="440" class="value">✓ 活跃</text>
+  <text x="400" y="440" class="value">✓ 活跃</text>
+  <text x="600" y="440" class="value">✗ 停止</text>
+  
+  <!-- Recommendation -->
+  <rect x="200" y="470" width="400" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" rx="5"/>
+  <text x="400" y="487" text-anchor="middle" class="metric" style="font-weight: bold; fill: #1e40af;">推荐：HISAT2用于常规分析，STAR用于高精度需求</text>
+</svg>

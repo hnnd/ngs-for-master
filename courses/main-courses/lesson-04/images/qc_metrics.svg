@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .detail-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #6b7280; }
+      .metric-text { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: bold; }
+      .good { fill: #22c55e; }
+      .warning { fill: #f59e0b; }
+      .bad { fill: #ef4444; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">变异检测质量控制指标</text>
+  
+  <!-- Ti/Tv比值 -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="180" height="120" fill="#f0f9ff" stroke="#3b82f6" rx="8"/>
+    <text x="90" y="20" text-anchor="middle" class="subtitle">Ti/Tv比值</text>
+    <text x="90" y="35" text-anchor="middle" class="text">(转换/颠换比值)</text>
+    
+    <text x="10" y="55" class="text" font-weight="bold">全基因组:</text>
+    <text x="10" y="70" class="detail-text good">• 正常范围: 2.0-2.1</text>
+    <text x="10" y="85" class="detail-text warning">• 警告: 1.8-2.0 或 2.1-2.3</text>
+    <text x="10" y="100" class="detail-text bad">• 异常: &lt;1.8 或 &gt;2.3</text>
+    
+    <text x="10" y="120" class="text" font-weight="bold">外显子组:</text>
+    <text x="10" y="135" class="detail-text good">• 正常范围: 2.8-3.0</text>
+    
+    <!-- Ti/Tv示意图 -->
+    <g transform="translate(100, 145)">
+      <text x="0" y="0" class="detail-text">转换 (Ti):</text>
+      <text x="0" y="15" class="detail-text">A ↔ G, C ↔ T</text>
+      <text x="0" y="35" class="detail-text">颠换 (Tv):</text>
+      <text x="0" y="50" class="detail-text">A/G ↔ C/T</text>
+    </g>
+  </g>
+  
+  <!-- dbSNP重叠率 -->
+  <g transform="translate(250, 70)">
+    <rect x="0" y="0" width="180" height="120" fill="#f0fdf4" stroke="#22c55e" rx="8"/>
+    <text x="90" y="20" text-anchor="middle" class="subtitle">dbSNP重叠率</text>
+    <text x="90" y="35" text-anchor="middle" class="text">(已知变异比例)</text>
+    
+    <text x="10" y="55" class="text" font-weight="bold">质量标准:</text>
+    <text x="10" y="70" class="detail-text good">• 优秀: &gt;98%</text>
+    <text x="10" y="85" class="detail-text good">• 良好: 95-98%</text>
+    <text x="10" y="100" class="detail-text warning">• 警告: 90-95%</text>
+    <text x="10" y="115" class="detail-text bad">• 异常: &lt;90%</text>
+    
+    <text x="10" y="135" class="text" font-weight="bold">意义:</text>
+    <text x="10" y="150" class="detail-text">反映变异检测准确性</text>
+    <text x="10" y="165" class="detail-text">过多新变异可能是假阳性</text>
+  </g>
+  
+  <!-- Hardy-Weinberg平衡 -->
+  <g transform="translate(450, 70)">
+    <rect x="0" y="0" width="180" height="120" fill="#fef2f2" stroke="#ef4444" rx="8"/>
+    <text x="90" y="20" text-anchor="middle" class="subtitle">HWE检验</text>
+    <text x="90" y="35" text-anchor="middle" class="text">(Hardy-Weinberg平衡)</text>
+    
+    <text x="10" y="55" class="text" font-weight="bold">p值标准:</text>
+    <text x="10" y="70" class="detail-text good">• 正常: p &gt; 1e-6</text>
+    <text x="10" y="85" class="detail-text warning">• 警告: 1e-8 &lt; p &lt; 1e-6</text>
+    <text x="10" y="100" class="detail-text bad">• 异常: p &lt; 1e-8</text>
+    
+    <text x="10" y="120" class="text" font-weight="bold">异常原因:</text>
+    <text x="10" y="135" class="detail-text">• 技术错误</text>
+    <text x="10" y="150" class="detail-text">• 人群分层</text>
+    <text x="10" y="165" class="detail-text">• 近亲繁殖</text>
+  </g>
+  
+  <!-- 变异数量分布 -->
+  <g transform="translate(50, 280)">
+    <text x="0" y="0" class="subtitle">变异数量分布</text>
+    
+    <rect x="0" y="20" width="600" height="150" fill="#f9fafb" stroke="#e5e7eb" rx="5"/>
+    
+    <!-- 柱状图 -->
+    <g transform="translate(50, 40)">
+      <!-- SNP -->
+      <rect x="0" y="80" width="60" height="60" fill="#3b82f6"/>
+      <text x="30" y="75" text-anchor="middle" class="text">SNP</text>
+      <text x="30" y="155" text-anchor="middle" class="metric-text">4.5M</text>
+      
+      <!-- InDel -->
+      <rect x="80" y="110" width="60" height="30" fill="#22c55e"/>
+      <text x="110" y="105" text-anchor="middle" class="text">InDel</text>
+      <text x="110" y="155" text-anchor="middle" class="metric-text">0.5M</text>
+      
+      <!-- 新变异 -->
+      <rect x="160" y="130" width="60" height="10" fill="#f59e0b"/>
+      <text x="190" y="125" text-anchor="middle" class="text">新变异</text>
+      <text x="190" y="155" text-anchor="middle" class="metric-text">0.1M</text>
+      
+      <!-- 坐标轴 -->
+      <line x1="0" y1="140" x2="250" y2="140" stroke="#374151"/>
+      <line x1="0" y1="20" x2="0" y2="140" stroke="#374151"/>
+      
+      <!-- Y轴标签 -->
+      <text x="-10" y="140" text-anchor="end" class="detail-text">0</text>
+      <text x="-10" y="110" text-anchor="end" class="detail-text">1M</text>
+      <text x="-10" y="80" text-anchor="end" class="detail-text">2M</text>
+      <text x="-10" y="50" text-anchor="end" class="detail-text">3M</text>
+      <text x="-10" y="20" text-anchor="end" class="detail-text">4M+</text>
+    </g>
+    
+    <!-- 质量指标 -->
+    <g transform="translate(350, 40)">
+      <text x="0" y="0" class="text" font-weight="bold">质量指标范围:</text>
+      
+      <text x="0" y="25" class="text">SNP数量:</text>
+      <text x="80" y="25" class="detail-text good">4.0-5.0M (正常)</text>
+      
+      <text x="0" y="45" class="text">InDel数量:</text>
+      <text x="80" y="45" class="detail-text good">0.4-0.6M (正常)</text>
+      
+      <text x="0" y="65" class="text">InDel/SNP比值:</text>
+      <text x="100" y="65" class="detail-text good">0.1-0.15 (正常)</text>
+      
+      <text x="0" y="85" class="text">新变异比例:</text>
+      <text x="80" y="85" class="detail-text good">&lt;5% (正常)</text>
+      <text x="80" y="100" class="detail-text warning">5-10% (警告)</text>
+      <text x="80" y="115" class="detail-text bad">&gt;10% (异常)</text>
+    </g>
+  </g>
+  
+  <!-- 质量分数分布 -->
+  <g transform="translate(50, 460)">
+    <text x="0" y="0" class="subtitle">变异质量分数分布</text>
+    
+    <!-- 质量分数直方图 -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="80" width="500" height="100" fill="#f9fafb" stroke="#e5e7eb"/>
+      
+      <!-- 直方图条 -->
+      <rect x="20" y="160" width="30" height="10" fill="#ef4444"/>
+      <rect x="60" y="150" width="30" height="20" fill="#f59e0b"/>
+      <rect x="100" y="130" width="30" height="40" fill="#f59e0b"/>
+      <rect x="140" y="100" width="30" height="70" fill="#22c55e"/>
+      <rect x="180" y="90" width="30" height="80" fill="#22c55e"/>
+      <rect x="220" y="95" width="30" height="75" fill="#22c55e"/>
+      <rect x="260" y="110" width="30" height="60" fill="#22c55e"/>
+      <rect x="300" y="130" width="30" height="40" fill="#3b82f6"/>
+      <rect x="340" y="150" width="30" height="20" fill="#3b82f6"/>
+      <rect x="380" y="160" width="30" height="10" fill="#3b82f6"/>
+      
+      <!-- X轴标签 -->
+      <text x="35" y="185" text-anchor="middle" class="detail-text">0-10</text>
+      <text x="75" y="185" text-anchor="middle" class="detail-text">10-20</text>
+      <text x="115" y="185" text-anchor="middle" class="detail-text">20-30</text>
+      <text x="155" y="185" text-anchor="middle" class="detail-text">30-40</text>
+      <text x="195" y="185" text-anchor="middle" class="detail-text">40-50</text>
+      <text x="235" y="185" text-anchor="middle" class="detail-text">50-60</text>
+      <text x="275" y="185" text-anchor="middle" class="detail-text">60-70</text>
+      <text x="315" y="185" text-anchor="middle" class="detail-text">70-80</text>
+      <text x="355" y="185" text-anchor="middle" class="detail-text">80-90</text>
+      <text x="395" y="185" text-anchor="middle" class="detail-text">90+</text>
+      
+      <text x="250" y="205" text-anchor="middle" class="text">变异质量分数 (QUAL)</text>
+      
+      <!-- 阈值线 -->
+      <line x1="140" y1="80" x2="140" y2="180" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="145" y="75" class="text bad">QUAL=30阈值</text>
+    </g>
+    
+    <!-- 解释 -->
+    <g transform="translate(520, 40)">
+      <text x="0" y="0" class="text" font-weight="bold">质量评估:</text>
+      
+      <rect x="0" y="10" width="15" height="15" fill="#ef4444"/>
+      <text x="20" y="22" class="detail-text">QUAL &lt; 30 (低质量)</text>
+      
+      <rect x="0" y="30" width="15" height="15" fill="#f59e0b"/>
+      <text x="20" y="42" class="detail-text">30 ≤ QUAL &lt; 50 (中等)</text>
+      
+      <rect x="0" y="50" width="15" height="15" fill="#22c55e"/>
+      <text x="20" y="62" class="detail-text">50 ≤ QUAL &lt; 100 (高质量)</text>
+      
+      <rect x="0" y="70" width="15" height="15" fill="#3b82f6"/>
+      <text x="20" y="82" class="detail-text">QUAL ≥ 100 (极高质量)</text>
+      
+      <text x="0" y="110" class="text" font-weight="bold">建议:</text>
+      <text x="0" y="125" class="detail-text">• 大多数变异QUAL &gt; 30</text>
+      <text x="0" y="140" class="detail-text">• 高质量变异占比 &gt; 80%</text>
+      <text x="0" y="155" class="detail-text">• 避免过多低质量变异</text>
+    </g>
+  </g>
+</svg>

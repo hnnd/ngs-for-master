@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .step { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .desc { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #374151; }
+      .box { fill: #3b82f6; stroke: #1e40af; stroke-width: 2; rx: 8; }
+      .qc-box { fill: #059669; stroke: #047857; stroke-width: 2; rx: 8; }
+      .analysis-box { fill: #f59e0b; stroke: #d97706; stroke-width: 2; rx: 8; }
+      .result-box { fill: #ef4444; stroke: #dc2626; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #6b7280; stroke-width: 2; fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">单细胞RNA-seq分析流程</text>
+  
+  <!-- Raw data -->
+  <rect x="50" y="60" width="120" height="50" class="box"/>
+  <text x="110" y="80" text-anchor="middle" class="step">原始数据</text>
+  <text x="110" y="95" text-anchor="middle" class="step">Raw Data</text>
+  <text x="110" y="125" text-anchor="middle" class="desc">• 单细胞测序reads</text>
+  <text x="110" y="140" text-anchor="middle" class="desc">• Cell barcode + UMI</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 180 85 L 220 85" class="arrow"/>
+  <path d="M 215 80 L 220 85 L 215 90" class="arrow"/>
+  
+  <!-- Cell calling -->
+  <rect x="230" y="60" width="120" height="50" class="qc-box"/>
+  <text x="290" y="80" text-anchor="middle" class="step">细胞识别</text>
+  <text x="290" y="95" text-anchor="middle" class="step">Cell Calling</text>
+  <text x="290" y="125" text-anchor="middle" class="desc">• 区分真实细胞和空液滴</text>
+  <text x="290" y="140" text-anchor="middle" class="desc">• UMI计数阈值</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 360 85 L 400 85" class="arrow"/>
+  <path d="M 395 80 L 400 85 L 395 90" class="arrow"/>
+  
+  <!-- Gene quantification -->
+  <rect x="410" y="60" width="120" height="50" class="box"/>
+  <text x="470" y="80" text-anchor="middle" class="step">基因定量</text>
+  <text x="470" y="95" text-anchor="middle" class="step">Quantification</text>
+  <text x="470" y="125" text-anchor="middle" class="desc">• UMI去重</text>
+  <text x="470" y="140" text-anchor="middle" class="desc">• 基因表达矩阵</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 540 85 L 580 85" class="arrow"/>
+  <path d="M 575 80 L 580 85 L 575 90" class="arrow"/>
+  
+  <!-- Quality control -->
+  <rect x="590" y="60" width="120" height="50" class="qc-box"/>
+  <text x="650" y="80" text-anchor="middle" class="step">质量控制</text>
+  <text x="650" y="95" text-anchor="middle" class="step">Quality Control</text>
+  <text x="650" y="125" text-anchor="middle" class="desc">• 过滤低质量细胞</text>
+  <text x="650" y="140" text-anchor="middle" class="desc">• 去除双细胞</text>
+  
+  <!-- Arrow down -->
+  <path d="M 650 120 L 650 160" class="arrow"/>
+  <path d="M 645 155 L 650 160 L 655 155" class="arrow"/>
+  
+  <!-- Normalization -->
+  <rect x="590" y="170" width="120" height="50" class="analysis-box"/>
+  <text x="650" y="190" text-anchor="middle" class="step">标准化</text>
+  <text x="650" y="205" text-anchor="middle" class="step">Normalization</text>
+  <text x="650" y="235" text-anchor="middle" class="desc">• 文库大小标准化</text>
+  <text x="650" y="250" text-anchor="middle" class="desc">• log变换</text>
+  
+  <!-- Arrow left -->
+  <path d="M 580 195 L 540 195" class="arrow"/>
+  <path d="M 545 190 L 540 195 L 545 200" class="arrow"/>
+  
+  <!-- Feature selection -->
+  <rect x="410" y="170" width="120" height="50" class="analysis-box"/>
+  <text x="470" y="190" text-anchor="middle" class="step">特征选择</text>
+  <text x="470" y="205" text-anchor="middle" class="step">Feature Selection</text>
+  <text x="470" y="235" text-anchor="middle" class="desc">• 高变异基因</text>
+  <text x="470" y="250" text-anchor="middle" class="desc">• 去除细胞周期影响</text>
+  
+  <!-- Arrow left -->
+  <path d="M 400 195 L 360 195" class="arrow"/>
+  <path d="M 365 190 L 360 195 L 365 200" class="arrow"/>
+  
+  <!-- Dimensionality reduction -->
+  <rect x="230" y="170" width="120" height="50" class="analysis-box"/>
+  <text x="290" y="190" text-anchor="middle" class="step">降维分析</text>
+  <text x="290" y="205" text-anchor="middle" class="step">Dim Reduction</text>
+  <text x="290" y="235" text-anchor="middle" class="desc">• PCA主成分分析</text>
+  <text x="290" y="250" text-anchor="middle" class="desc">• t-SNE/UMAP</text>
+  
+  <!-- Arrow left -->
+  <path d="M 220 195 L 180 195" class="arrow"/>
+  <path d="M 185 190 L 180 195 L 185 200" class="arrow"/>
+  
+  <!-- Clustering -->
+  <rect x="50" y="170" width="120" height="50" class="analysis-box"/>
+  <text x="110" y="190" text-anchor="middle" class="step">聚类分析</text>
+  <text x="110" y="205" text-anchor="middle" class="step">Clustering</text>
+  <text x="110" y="235" text-anchor="middle" class="desc">• 图聚类算法</text>
+  <text x="110" y="250" text-anchor="middle" class="desc">• 识别细胞群体</text>
+  
+  <!-- Arrow down -->
+  <path d="M 110 230 L 110 270" class="arrow"/>
+  <path d="M 105 265 L 110 270 L 115 265" class="arrow"/>
+  
+  <!-- Cell type annotation -->
+  <rect x="50" y="280" width="120" height="50" class="result-box"/>
+  <text x="110" y="300" text-anchor="middle" class="step">细胞类型注释</text>
+  <text x="110" y="315" text-anchor="middle" class="step">Cell Annotation</text>
+  <text x="110" y="345" text-anchor="middle" class="desc">• 标记基因识别</text>
+  <text x="110" y="360" text-anchor="middle" class="desc">• 参考数据库比对</text>
+  
+  <!-- Arrow right -->
+  <path d="M 180 305 L 220 305" class="arrow"/>
+  <path d="M 215 300 L 220 305 L 215 310" class="arrow"/>
+  
+  <!-- Differential expression -->
+  <rect x="230" y="280" width="120" height="50" class="result-box"/>
+  <text x="290" y="300" text-anchor="middle" class="step">差异表达</text>
+  <text x="290" y="315" text-anchor="middle" class="step">DE Analysis</text>
+  <text x="290" y="345" text-anchor="middle" class="desc">• 细胞群间比较</text>
+  <text x="290" y="360" text-anchor="middle" class="desc">• 标记基因发现</text>
+  
+  <!-- Arrow right -->
+  <path d="M 360 305 L 400 305" class="arrow"/>
+  <path d="M 395 300 L 400 305 L 395 310" class="arrow"/>
+  
+  <!-- Trajectory analysis -->
+  <rect x="410" y="280" width="120" height="50" class="result-box"/>
+  <text x="470" y="300" text-anchor="middle" class="step">轨迹分析</text>
+  <text x="470" y="315" text-anchor="middle" class="step">Trajectory</text>
+  <text x="470" y="345" text-anchor="middle" class="desc">• 细胞发育轨迹</text>
+  <text x="470" y="360" text-anchor="middle" class="desc">• 伪时间分析</text>
+  
+  <!-- Arrow right -->
+  <path d="M 540 305 L 580 305" class="arrow"/>
+  <path d="M 575 300 L 580 305 L 575 310" class="arrow"/>
+  
+  <!-- Functional analysis -->
+  <rect x="590" y="280" width="120" height="50" class="result-box"/>
+  <text x="650" y="300" text-anchor="middle" class="step">功能分析</text>
+  <text x="650" y="315" text-anchor="middle" class="step">Functional</text>
+  <text x="650" y="345" text-anchor="middle" class="desc">• GO富集分析</text>
+  <text x="650" y="360" text-anchor="middle" class="desc">• 通路分析</text>
+  
+  <!-- Key challenges box -->
+  <rect x="50" y="400" width="700" height="80" fill="#fef2f2" stroke="#ef4444" stroke-width="1" rx="5"/>
+  <text x="400" y="425" text-anchor="middle" class="title" style="font-size: 14px; fill: #dc2626;">单细胞分析关键挑战</text>
+  
+  <text x="70" y="445" class="desc" style="font-weight: bold;">数据稀疏性:</text>
+  <text x="150" y="445" class="desc">大量零值，需要特殊的统计方法处理</text>
+  
+  <text x="70" y="460" class="desc" style="font-weight: bold;">技术噪音:</text>
+  <text x="150" y="460" class="desc">扩增偏好性、dropout事件影响数据质量</text>
+  
+  <text x="400" y="445" class="desc" style="font-weight: bold;">批次效应:</text>
+  <text x="480" y="445" class="desc">不同实验批次间的系统性差异</text>
+  
+  <text x="400" y="460" class="desc" style="font-weight: bold;">计算复杂度:</text>
+  <text x="480" y="460" class="desc">大规模数据需要高效的算法和计算资源</text>
+  
+  <!-- Tools and methods -->
+  <rect x="50" y="500" width="700" height="80" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1" rx="5"/>
+  <text x="400" y="525" text-anchor="middle" class="title" style="font-size: 14px; fill: #1e40af;">常用工具和方法</text>
+  
+  <text x="70" y="545" class="desc" style="font-weight: bold;">R包:</text>
+  <text x="110" y="545" class="desc">Seurat, SingleCellExperiment, scater, scran</text>
+  
+  <text x="70" y="560" class="desc" style="font-weight: bold;">Python包:</text>
+  <text x="130" y="560" class="desc">scanpy, scvi-tools, cellranger</text>
+  
+  <text x="400" y="545" class="desc" style="font-weight: bold;">降维方法:</text>
+  <text x="470" y="545" class="desc">PCA, t-SNE, UMAP, PHATE</text>
+  
+  <text x="400" y="560" class="desc" style="font-weight: bold;">聚类算法:</text>
+  <text x="470" y="560" class="desc">Leiden, Louvain, k-means</text>
+</svg>

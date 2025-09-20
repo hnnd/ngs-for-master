@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .method { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .formula { font-family: 'Courier New', monospace; font-size: 11px; fill: #374151; }
+      .desc { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #374151; }
+      .cpm { fill: #3b82f6; }
+      .rpkm { fill: #059669; }
+      .tpm { fill: #f59e0b; }
+      .tmm { fill: #ef4444; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">RNA-seq表达量标准化方法对比</text>
+  
+  <!-- CPM -->
+  <rect x="50" y="50" width="150" height="40" class="cpm" rx="5"/>
+  <text x="125" y="75" text-anchor="middle" class="method">CPM</text>
+  <text x="125" y="105" text-anchor="middle" class="desc">Counts Per Million</text>
+  <text x="125" y="125" text-anchor="middle" class="formula">CPM = (count × 10⁶) / total_reads</text>
+  <text x="125" y="145" text-anchor="middle" class="desc">只考虑测序深度</text>
+  
+  <!-- RPKM/FPKM -->
+  <rect x="220" y="50" width="150" height="40" class="rpkm" rx="5"/>
+  <text x="295" y="75" text-anchor="middle" class="method">RPKM/FPKM</text>
+  <text x="295" y="105" text-anchor="middle" class="desc">Reads/Fragments Per Kilobase Million</text>
+  <text x="295" y="125" text-anchor="middle" class="formula">RPKM = CPM / (gene_length/1000)</text>
+  <text x="295" y="145" text-anchor="middle" class="desc">考虑基因长度</text>
+  
+  <!-- TPM -->
+  <rect x="390" y="50" width="150" height="40" class="tpm" rx="5"/>
+  <text x="465" y="75" text-anchor="middle" class="method">TPM</text>
+  <text x="465" y="105" text-anchor="middle" class="desc">Transcripts Per Million</text>
+  <text x="465" y="125" text-anchor="middle" class="formula">TPM = (count/length) × 10⁶ / sum(count/length)</text>
+  <text x="465" y="145" text-anchor="middle" class="desc">先标准化长度</text>
+  
+  <!-- TMM -->
+  <rect x="560" y="50" width="150" height="40" class="tmm" rx="5"/>
+  <text x="635" y="75" text-anchor="middle" class="method">TMM</text>
+  <text x="635" y="105" text-anchor="middle" class="desc">Trimmed Mean of M-values</text>
+  <text x="635" y="125" text-anchor="middle" class="formula">复杂统计算法</text>
+  <text x="635" y="145" text-anchor="middle" class="desc">样本间标准化</text>
+  
+  <!-- Comparison visualization -->
+  <text x="400" y="190" text-anchor="middle" class="title" style="font-size: 14px;">标准化效果示例</text>
+  
+  <!-- Before normalization -->
+  <text x="150" y="220" text-anchor="middle" class="desc" style="font-weight: bold;">标准化前 (Raw counts)</text>
+  <rect x="50" y="230" width="200" height="80" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  
+  <!-- Sample bars (raw) -->
+  <rect x="70" y="240" width="30" height="60" fill="#6b7280"/>
+  <text x="85" y="310" text-anchor="middle" class="desc">S1</text>
+  <text x="85" y="235" text-anchor="middle" class="desc">1000</text>
+  
+  <rect x="110" y="250" width="30" height="50" fill="#6b7280"/>
+  <text x="125" y="310" text-anchor="middle" class="desc">S2</text>
+  <text x="125" y="245" text-anchor="middle" class="desc">800</text>
+  
+  <rect x="150" y="260" width="30" height="40" fill="#6b7280"/>
+  <text x="165" y="310" text-anchor="middle" class="desc">S3</text>
+  <text x="165" y="255" text-anchor="middle" class="desc">600</text>
+  
+  <rect x="190" y="245" width="30" height="55" fill="#6b7280"/>
+  <text x="205" y="310" text-anchor="middle" class="desc">S4</text>
+  <text x="205" y="240" text-anchor="middle" class="desc">900</text>
+  
+  <!-- After CPM normalization -->
+  <text x="400" y="220" text-anchor="middle" class="desc" style="font-weight: bold;">CPM标准化后</text>
+  <rect x="300" y="230" width="200" height="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" rx="5"/>
+  
+  <!-- Sample bars (CPM) -->
+  <rect x="320" y="250" width="30" height="50" class="cpm"/>
+  <text x="335" y="310" text-anchor="middle" class="desc">S1</text>
+  <text x="335" y="245" text-anchor="middle" class="desc">50</text>
+  
+  <rect x="360" y="250" width="30" height="50" class="cpm"/>
+  <text x="375" y="310" text-anchor="middle" class="desc">S2</text>
+  <text x="375" y="245" text-anchor="middle" class="desc">50</text>
+  
+  <rect x="400" y="250" width="30" height="50" class="cpm"/>
+  <text x="415" y="310" text-anchor="middle" class="desc">S3</text>
+  <text x="415" y="245" text-anchor="middle" class="desc">50</text>
+  
+  <rect x="440" y="250" width="30" height="50" class="cpm"/>
+  <text x="455" y="310" text-anchor="middle" class="desc">S4</text>
+  <text x="455" y="245" text-anchor="middle" class="desc">50</text>
+  
+  <!-- After TPM normalization -->
+  <text x="650" y="220" text-anchor="middle" class="desc" style="font-weight: bold;">TPM标准化后</text>
+  <rect x="550" y="230" width="200" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="5"/>
+  
+  <!-- Sample bars (TPM) -->
+  <rect x="570" y="245" width="30" height="55" class="tpm"/>
+  <text x="585" y="310" text-anchor="middle" class="desc">S1</text>
+  <text x="585" y="240" text-anchor="middle" class="desc">45</text>
+  
+  <rect x="610" y="250" width="30" height="50" class="tpm"/>
+  <text x="625" y="310" text-anchor="middle" class="desc">S2</text>
+  <text x="625" y="245" text-anchor="middle" class="desc">48</text>
+  
+  <rect x="650" y="255" width="30" height="45" class="tpm"/>
+  <text x="665" y="310" text-anchor="middle" class="desc">S3</text>
+  <text x="665" y="250" text-anchor="middle" class="desc">52</text>
+  
+  <rect x="690" y="248" width="30" height="52" class="tpm"/>
+  <text x="705" y="310" text-anchor="middle" class="desc">S4</text>
+  <text x="705" y="243" text-anchor="middle" class="desc">47</text>
+  
+  <!-- Usage recommendations -->
+  <rect x="50" y="350" width="700" height="120" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  <text x="400" y="375" text-anchor="middle" class="title" style="font-size: 14px;">使用建议</text>
+  
+  <!-- Recommendation table -->
+  <text x="70" y="400" class="desc" style="font-weight: bold;">分析类型</text>
+  <text x="250" y="400" class="desc" style="font-weight: bold;">推荐方法</text>
+  <text x="450" y="400" class="desc" style="font-weight: bold;">原因</text>
+  
+  <text x="70" y="420" class="desc">样本内基因比较</text>
+  <text x="250" y="420" class="desc">RPKM/FPKM/TPM</text>
+  <text x="450" y="420" class="desc">考虑基因长度差异</text>
+  
+  <text x="70" y="440" class="desc">样本间基因比较</text>
+  <text x="250" y="440" class="desc">TMM + CPM</text>
+  <text x="450" y="440" class="desc">校正样本间偏好性</text>
+  
+  <text x="70" y="460" class="desc">差异表达分析</text>
+  <text x="250" y="460" class="desc">Raw counts</text>
+  <text x="450" y="460" class="desc">统计模型内部标准化</text>
+</svg>

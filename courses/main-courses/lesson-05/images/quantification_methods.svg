@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .category { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #059669; }
+      .tool { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .desc { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #374151; }
+      .alignment-based { fill: #3b82f6; }
+      .alignment-free { fill: #059669; }
+      .box { stroke: #d1d5db; stroke-width: 1; fill: #f9fafb; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">基因表达定量方法分类</text>
+  
+  <!-- Alignment-based methods -->
+  <text x="200" y="60" text-anchor="middle" class="category">基于比对的方法</text>
+  
+  <!-- HTSeq-count -->
+  <rect x="50" y="80" width="120" height="60" class="alignment-based" rx="5"/>
+  <text x="110" y="105" text-anchor="middle" class="tool">HTSeq-count</text>
+  <text x="110" y="120" text-anchor="middle" class="tool">经典工具</text>
+  <text x="110" y="155" text-anchor="middle" class="desc">• 简单计数策略</text>
+  <text x="110" y="170" text-anchor="middle" class="desc">• 处理重叠基因</text>
+  <text x="110" y="185" text-anchor="middle" class="desc">• Python实现</text>
+  
+  <!-- featureCounts -->
+  <rect x="190" y="80" width="120" height="60" class="alignment-based" rx="5"/>
+  <text x="250" y="105" text-anchor="middle" class="tool">featureCounts</text>
+  <text x="250" y="120" text-anchor="middle" class="tool">快速准确</text>
+  <text x="250" y="155" text-anchor="middle" class="desc">• C语言实现</text>
+  <text x="250" y="170" text-anchor="middle" class="desc">• 多线程支持</text>
+  <text x="250" y="185" text-anchor="middle" class="desc">• 灵活参数设置</text>
+  
+  <!-- RSEM -->
+  <rect x="330" y="80" width="120" height="60" class="alignment-based" rx="5"/>
+  <text x="390" y="105" text-anchor="middle" class="tool">RSEM</text>
+  <text x="390" y="120" text-anchor="middle" class="tool">处理多重比对</text>
+  <text x="390" y="155" text-anchor="middle" class="desc">• 期望最大化算法</text>
+  <text x="390" y="170" text-anchor="middle" class="desc">• 转录本水平定量</text>
+  <text x="390" y="185" text-anchor="middle" class="desc">• 不确定性估计</text>
+  
+  <!-- Alignment-free methods -->
+  <text x="600" y="60" text-anchor="middle" class="category">无比对方法</text>
+  
+  <!-- Salmon -->
+  <rect x="490" y="80" width="120" height="60" class="alignment-free" rx="5"/>
+  <text x="550" y="105" text-anchor="middle" class="tool">Salmon</text>
+  <text x="550" y="120" text-anchor="middle" class="tool">快速伪比对</text>
+  <text x="550" y="155" text-anchor="middle" class="desc">• k-mer匹配</text>
+  <text x="550" y="170" text-anchor="middle" class="desc">• 偏好性校正</text>
+  <text x="550" y="185" text-anchor="middle" class="desc">• 速度极快</text>
+  
+  <!-- Kallisto -->
+  <rect x="630" y="80" width="120" height="60" class="alignment-free" rx="5"/>
+  <text x="690" y="105" text-anchor="middle" class="tool">Kallisto</text>
+  <text x="690" y="120" text-anchor="middle" class="tool">轻量级工具</text>
+  <text x="690" y="155" text-anchor="middle" class="desc">• 伪比对算法</text>
+  <text x="690" y="170" text-anchor="middle" class="desc">• 内存效率高</text>
+  <text x="690" y="185" text-anchor="middle" class="desc">• 不确定性量化</text>
+  
+  <!-- Comparison table -->
+  <rect x="50" y="220" width="700" height="150" class="box" rx="5"/>
+  <text x="400" y="245" text-anchor="middle" class="category">方法对比</text>
+  
+  <!-- Table headers -->
+  <text x="70" y="270" class="desc" style="font-weight: bold;">特征</text>
+  <text x="200" y="270" class="desc" style="font-weight: bold;">基于比对</text>
+  <text x="400" y="270" class="desc" style="font-weight: bold;">无比对</text>
+  <text x="600" y="270" class="desc" style="font-weight: bold;">推荐场景</text>
+  
+  <!-- Comparison rows -->
+  <text x="70" y="290" class="desc">运行速度</text>
+  <text x="200" y="290" class="desc">慢-中等</text>
+  <text x="400" y="290" class="desc">极快</text>
+  <text x="600" y="290" class="desc">大规模数据</text>
+  
+  <text x="70" y="310" class="desc">内存需求</text>
+  <text x="200" y="310" class="desc">中等-高</text>
+  <text x="400" y="310" class="desc">低</text>
+  <text x="600" y="310" class="desc">资源受限环境</text>
+  
+  <text x="70" y="330" class="desc">准确性</text>
+  <text x="200" y="330" class="desc">高</text>
+  <text x="400" y="330" class="desc">高</text>
+  <text x="600" y="330" class="desc">两者相当</text>
+  
+  <text x="70" y="350" class="desc">新转录本</text>
+  <text x="200" y="350" class="desc">可检测</text>
+  <text x="400" y="350" class="desc">依赖参考</text>
+  <text x="600" y="350" class="desc">发现新转录本</text>
+</svg>

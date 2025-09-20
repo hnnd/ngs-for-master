@@ -1,0 +1,7 @@
+platform,read_length,error_rate,throughput_gb,cost_per_gb,variant_types
+Illumina_NovaSeq,150,0.001,6000,5,SNP;InDel
+PacBio_Sequel,15000,0.13,500,50,SNP;InDel;SV
+ONT_PromethION,20000,0.05,8000,10,SNP;InDel;SV
+Illumina_HiSeq,125,0.001,1500,8,SNP;InDel
+PacBio_Revio,25000,0.01,1200,25,SNP;InDel;SV
+ONT_MinION,10000,0.05,50,20,SNP;InDel;SV

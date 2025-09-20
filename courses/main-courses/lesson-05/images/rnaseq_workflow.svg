@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .step { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .desc { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #374151; }
+      .box { fill: #3b82f6; stroke: #1e40af; stroke-width: 2; rx: 10; }
+      .arrow { stroke: #6b7280; stroke-width: 2; fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">RNA-seq实验流程</text>
+  
+  <!-- Step 1: RNA extraction -->
+  <rect x="50" y="70" width="120" height="60" class="box"/>
+  <text x="110" y="95" text-anchor="middle" class="step">RNA提取</text>
+  <text x="110" y="110" text-anchor="middle" class="step">RNA Extraction</text>
+  <text x="110" y="150" text-anchor="middle" class="desc">从样本中提取总RNA</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 180 100 L 220 100" class="arrow"/>
+  <path d="M 215 95 L 220 100 L 215 105" class="arrow"/>
+  
+  <!-- Step 2: mRNA enrichment -->
+  <rect x="230" y="70" width="120" height="60" class="box"/>
+  <text x="290" y="95" text-anchor="middle" class="step">mRNA富集</text>
+  <text x="290" y="110" text-anchor="middle" class="step">mRNA Enrichment</text>
+  <text x="290" y="150" text-anchor="middle" class="desc">去除rRNA，富集mRNA</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 360 100 L 400 100" class="arrow"/>
+  <path d="M 395 95 L 400 100 L 395 105" class="arrow"/>
+  
+  <!-- Step 3: Reverse transcription -->
+  <rect x="410" y="70" width="120" height="60" class="box"/>
+  <text x="470" y="95" text-anchor="middle" class="step">反转录</text>
+  <text x="470" y="110" text-anchor="middle" class="step">Reverse Transcription</text>
+  <text x="470" y="150" text-anchor="middle" class="desc">mRNA反转录为cDNA</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 540 100 L 580 100" class="arrow"/>
+  <path d="M 575 95 L 580 100 L 575 105" class="arrow"/>
+  
+  <!-- Step 4: Library preparation -->
+  <rect x="590" y="70" width="120" height="60" class="box"/>
+  <text x="650" y="95" text-anchor="middle" class="step">文库构建</text>
+  <text x="650" y="110" text-anchor="middle" class="step">Library Prep</text>
+  <text x="650" y="150" text-anchor="middle" class="desc">添加接头，PCR扩增</text>
+  
+  <!-- Arrow down -->
+  <path d="M 650 140 L 650 180" class="arrow"/>
+  <path d="M 645 175 L 650 180 L 655 175" class="arrow"/>
+  
+  <!-- Step 5: Sequencing -->
+  <rect x="590" y="190" width="120" height="60" class="box"/>
+  <text x="650" y="215" text-anchor="middle" class="step">高通量测序</text>
+  <text x="650" y="230" text-anchor="middle" class="step">Sequencing</text>
+  <text x="650" y="270" text-anchor="middle" class="desc">获得大量短序列reads</text>
+  
+  <!-- Arrow left -->
+  <path d="M 580 220 L 540 220" class="arrow"/>
+  <path d="M 545 215 L 540 220 L 545 225" class="arrow"/>
+  
+  <!-- Step 6: Data analysis -->
+  <rect x="410" y="190" width="120" height="60" class="box"/>
+  <text x="470" y="215" text-anchor="middle" class="step">数据分析</text>
+  <text x="470" y="230" text-anchor="middle" class="step">Data Analysis</text>
+  <text x="470" y="270" text-anchor="middle" class="desc">比对、定量、差异分析</text>
+  
+  <!-- Analysis steps -->
+  <rect x="50" y="320" width="150" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="5"/>
+  <text x="125" y="340" text-anchor="middle" class="desc" style="font-weight: bold;">质量控制</text>
+  <text x="125" y="355" text-anchor="middle" class="desc">Quality Control</text>
+  
+  <rect x="220" y="320" width="150" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="5"/>
+  <text x="295" y="340" text-anchor="middle" class="desc" style="font-weight: bold;">序列比对</text>
+  <text x="295" y="355" text-anchor="middle" class="desc">Read Alignment</text>
+  
+  <rect x="390" y="320" width="150" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="5"/>
+  <text x="465" y="340" text-anchor="middle" class="desc" style="font-weight: bold;">基因定量</text>
+  <text x="465" y="355" text-anchor="middle" class="desc">Gene Quantification</text>
+  
+  <rect x="560" y="320" width="150" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="5"/>
+  <text x="635" y="340" text-anchor="middle" class="desc" style="font-weight: bold;">差异分析</text>
+  <text x="635" y="355" text-anchor="middle" class="desc">Differential Analysis</text>
+  
+  <!-- Arrows for analysis steps -->
+  <path d="M 200 340 L 210 340" class="arrow"/>
+  <path d="M 370 340 L 380 340" class="arrow"/>
+  <path d="M 540 340 L 550 340" class="arrow"/>
+</svg>

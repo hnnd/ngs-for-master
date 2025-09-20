@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 20px; font-weight: bold; fill: #1e3a8a; }
+      .axis-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; fill: #374151; }
+      .label-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #6b7280; }
+      .gene-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #374151; }
+    </style>
+    
+    <!-- 渐变定义 -->
+    <linearGradient id="heatmapGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title-text">基因表达量热图 (RNA-seq数据)</text>
+  
+  <!-- 热图主体 -->
+  <g transform="translate(150, 80)">
+    <!-- 样本标签 -->
+    <g class="sample-labels">
+      <text x="25" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 25, -10)">Control_1</text>
+      <text x="55" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 55, -10)">Control_2</text>
+      <text x="85" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 85, -10)">Control_3</text>
+      <text x="115" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 115, -10)">Treatment_1</text>
+      <text x="145" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 145, -10)">Treatment_2</text>
+      <text x="175" y="-10" text-anchor="middle" class="axis-text" transform="rotate(-45, 175, -10)">Treatment_3</text>
+    </g>
+    
+    <!-- 基因标签 -->
+    <g class="gene-labels">
+      <text x="-10" y="15" text-anchor="end" class="gene-text">GAPDH</text>
+      <text x="-10" y="35" text-anchor="end" class="gene-text">ACTB</text>
+      <text x="-10" y="55" text-anchor="end" class="gene-text">TP53</text>
+      <text x="-10" y="75" text-anchor="end" class="gene-text">MYC</text>
+      <text x="-10" y="95" text-anchor="end" class="gene-text">BRCA1</text>
+      <text x="-10" y="115" text-anchor="end" class="gene-text">EGFR</text>
+      <text x="-10" y="135" text-anchor="end" class="gene-text">KRAS</text>
+      <text x="-10" y="155" text-anchor="end" class="gene-text">PIK3CA</text>
+      <text x="-10" y="175" text-anchor="end" class="gene-text">AKT1</text>
+      <text x="-10" y="195" text-anchor="end" class="gene-text">MTOR</text>
+      <text x="-10" y="215" text-anchor="end" class="gene-text">VEGFA</text>
+      <text x="-10" y="235" text-anchor="end" class="gene-text">HIF1A</text>
+      <text x="-10" y="255" text-anchor="end" class="gene-text">STAT3</text>
+      <text x="-10" y="275" text-anchor="end" class="gene-text">NF1</text>
+      <text x="-10" y="295" text-anchor="end" class="gene-text">RB1</text>
+    </g>
+    
+    <!-- 热图方块 -->
+    <g class="heatmap-cells">
+      <!-- 第1行 GAPDH -->
+      <rect x="10" y="5" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="40" y="5" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="70" y="5" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="100" y="5" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="130" y="5" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="160" y="5" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      
+      <!-- 第2行 ACTB -->
+      <rect x="10" y="25" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="40" y="25" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="70" y="25" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="100" y="25" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="130" y="25" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="160" y="25" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      
+      <!-- 第3行 TP53 -->
+      <rect x="10" y="45" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="40" y="45" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="70" y="45" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="100" y="45" width="20" height="20" fill="#fed7aa" stroke="#e5e7eb"/>
+      <rect x="130" y="45" width="20" height="20" fill="#fdba74" stroke="#e5e7eb"/>
+      <rect x="160" y="45" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      
+      <!-- 第4行 MYC -->
+      <rect x="10" y="65" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="40" y="65" width="20" height="20" fill="#7dd3fc" stroke="#e5e7eb"/>
+      <rect x="70" y="65" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="100" y="65" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      <rect x="130" y="65" width="20" height="20" fill="#ea580c" stroke="#e5e7eb"/>
+      <rect x="160" y="65" width="20" height="20" fill="#dc2626" stroke="#e5e7eb"/>
+      
+      <!-- 第5行 BRCA1 -->
+      <rect x="10" y="85" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="40" y="85" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="70" y="85" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="100" y="85" width="20" height="20" fill="#fbbf24" stroke="#e5e7eb"/>
+      <rect x="130" y="85" width="20" height="20" fill="#f59e0b" stroke="#e5e7eb"/>
+      <rect x="160" y="85" width="20" height="20" fill="#d97706" stroke="#e5e7eb"/>
+      
+      <!-- 第6行 EGFR -->
+      <rect x="10" y="105" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="40" y="105" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="70" y="105" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="100" y="105" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      <rect x="130" y="105" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      <rect x="160" y="105" width="20" height="20" fill="#ea580c" stroke="#e5e7eb"/>
+      
+      <!-- 第7行 KRAS -->
+      <rect x="10" y="125" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="40" y="125" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="70" y="125" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="100" y="125" width="20" height="20" fill="#fed7aa" stroke="#e5e7eb"/>
+      <rect x="130" y="125" width="20" height="20" fill="#fdba74" stroke="#e5e7eb"/>
+      <rect x="160" y="125" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      
+      <!-- 第8行 PIK3CA -->
+      <rect x="10" y="145" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="40" y="145" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="70" y="145" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="100" y="145" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      <rect x="130" y="145" width="20" height="20" fill="#ea580c" stroke="#e5e7eb"/>
+      <rect x="160" y="145" width="20" height="20" fill="#dc2626" stroke="#e5e7eb"/>
+      
+      <!-- 第9行 AKT1 -->
+      <rect x="10" y="165" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="40" y="165" width="20" height="20" fill="#7dd3fc" stroke="#e5e7eb"/>
+      <rect x="70" y="165" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="100" y="165" width="20" height="20" fill="#fdba74" stroke="#e5e7eb"/>
+      <rect x="130" y="165" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      <rect x="160" y="165" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      
+      <!-- 第10行 MTOR -->
+      <rect x="10" y="185" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="40" y="185" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="70" y="185" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="100" y="185" width="20" height="20" fill="#fed7aa" stroke="#e5e7eb"/>
+      <rect x="130" y="185" width="20" height="20" fill="#fdba74" stroke="#e5e7eb"/>
+      <rect x="160" y="185" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      
+      <!-- 第11行 VEGFA -->
+      <rect x="10" y="205" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="40" y="205" width="20" height="20" fill="#93c5fd" stroke="#e5e7eb"/>
+      <rect x="70" y="205" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="100" y="205" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      <rect x="130" y="205" width="20" height="20" fill="#ea580c" stroke="#e5e7eb"/>
+      <rect x="160" y="205" width="20" height="20" fill="#dc2626" stroke="#e5e7eb"/>
+      
+      <!-- 第12行 HIF1A -->
+      <rect x="10" y="225" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="40" y="225" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="70" y="225" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="100" y="225" width="20" height="20" fill="#fbbf24" stroke="#e5e7eb"/>
+      <rect x="130" y="225" width="20" height="20" fill="#f59e0b" stroke="#e5e7eb"/>
+      <rect x="160" y="225" width="20" height="20" fill="#d97706" stroke="#e5e7eb"/>
+      
+      <!-- 第13行 STAT3 -->
+      <rect x="10" y="245" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="40" y="245" width="20" height="20" fill="#bfdbfe" stroke="#e5e7eb"/>
+      <rect x="70" y="245" width="20" height="20" fill="#dbeafe" stroke="#e5e7eb"/>
+      <rect x="100" y="245" width="20" height="20" fill="#fb923c" stroke="#e5e7eb"/>
+      <rect x="130" y="245" width="20" height="20" fill="#f97316" stroke="#e5e7eb"/>
+      <rect x="160" y="245" width="20" height="20" fill="#ea580c" stroke="#e5e7eb"/>
+      
+      <!-- 第14行 NF1 -->
+      <rect x="10" y="265" width="20" height="20" fill="#60a5fa" stroke="#e5e7eb"/>
+      <rect x="40" y="265" width="20" height="20" fill="#3b82f6" stroke="#e5e7eb"/>
+      <rect x="70" y="265" width="20" height="20" fill="#60a5fa" stroke="#e5e7eb"/>
+      <rect x="100" y="265" width="20" height="20" fill="#ffffff" stroke="#e5e7eb"/>
+      <rect x="130" y="265" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="160" y="265" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      
+      <!-- 第15行 RB1 -->
+      <rect x="10" y="285" width="20" height="20" fill="#3b82f6" stroke="#e5e7eb"/>
+      <rect x="40" y="285" width="20" height="20" fill="#1e40af" stroke="#e5e7eb"/>
+      <rect x="70" y="285" width="20" height="20" fill="#3b82f6" stroke="#e5e7eb"/>
+      <rect x="100" y="285" width="20" height="20" fill="#f3f4f6" stroke="#e5e7eb"/>
+      <rect x="130" y="285" width="20" height="20" fill="#e5e7eb" stroke="#e5e7eb"/>
+      <rect x="160" y="285" width="20" height="20" fill="#d1d5db" stroke="#e5e7eb"/>
+    </g>
+  </g>
+  
+  <!-- 颜色条 -->
+  <g transform="translate(450, 100)">
+    <text x="50" y="-10" text-anchor="middle" class="axis-text">表达量 (log2 FC)</text>
+    
+    <!-- 颜色条背景 -->
+    <rect x="0" y="0" width="100" height="20" fill="url(#heatmapGradient)" stroke="#d1d5db"/>
+    
+    <!-- 颜色条标签 -->
+    <text x="0" y="35" text-anchor="start" class="label-text">-3</text>
+    <text x="25" y="35" text-anchor="middle" class="label-text">-1</text>
+    <text x="50" y="35" text-anchor="middle" class="label-text">0</text>
+    <text x="75" y="35" text-anchor="middle" class="label-text">1</text>
+    <text x="100" y="35" text-anchor="end" class="label-text">3</text>
+    
+    <text x="50" y="50" text-anchor="middle" class="label-text">下调 ← → 上调</text>
+  </g>
+  
+  <!-- 聚类树状图 -->
+  <g transform="translate(450, 180)">
+    <text x="100" y="-10" text-anchor="middle" class="axis-text">样本聚类树状图</text>
+    
+    <!-- 树状图 -->
+    <g stroke="#374151" stroke-width="2" fill="none">
+      <!-- 主干 -->
+      <line x1="100" y1="0" x2="100" y2="40"/>
+      
+      <!-- 分支1 -->
+      <line x1="50" y1="40" x2="150" y2="40"/>
+      <line x1="50" y1="40" x2="50" y2="80"/>
+      <line x1="150" y1="40" x2="150" y2="80"/>
+      
+      <!-- 子分支 -->
+      <line x1="25" y1="80" x2="75" y2="80"/>
+      <line x1="25" y1="80" x2="25" y2="100"/>
+      <line x1="75" y1="80" x2="75" y2="100"/>
+      
+      <line x1="125" y1="80" x2="175" y2="80"/>
+      <line x1="125" y1="80" x2="125" y2="100"/>
+      <line x1="175" y1="80" x2="175" y2="100"/>
+      
+      <!-- 叶节点 -->
+      <line x1="12.5" y1="100" x2="37.5" y2="100"/>
+      <line x1="12.5" y1="100" x2="12.5" y2="110"/>
+      <line x1="37.5" y1="100" x2="37.5" y2="110"/>
+      
+      <line x1="62.5" y1="100" x2="87.5" y2="100"/>
+      <line x1="62.5" y1="100" x2="62.5" y2="110"/>
+      <line x1="87.5" y1="100" x2="87.5" y2="110"/>
+      
+      <line x1="112.5" y1="100" x2="137.5" y2="100"/>
+      <line x1="112.5" y1="100" x2="112.5" y2="110"/>
+      <line x1="137.5" y1="100" x2="137.5" y2="110"/>
+      
+      <line x1="162.5" y1="100" x2="187.5" y2="100"/>
+      <line x1="162.5" y1="100" x2="162.5" y2="110"/>
+      <line x1="187.5" y1="100" x2="187.5" y2="110"/>
+    </g>
+    
+    <!-- 样本标签 -->
+    <text x="12.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 12.5, 125)">C1</text>
+    <text x="37.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 37.5, 125)">C2</text>
+    <text x="62.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 62.5, 125)">C3</text>
+    <text x="87.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 87.5, 125)">T1</text>
+    <text x="112.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 112.5, 125)">T2</text>
+    <text x="137.5" y="125" text-anchor="middle" class="label-text" transform="rotate(-45, 137.5, 125)">T3</text>
+  </g>
+  
+  <!-- 统计信息 -->
+  <g transform="translate(450, 350)">
+    <text x="100" y="0" text-anchor="middle" class="axis-text">差异表达统计</text>
+    
+    <rect x="0" y="10" width="200" height="120" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+    
+    <g transform="translate(10, 30)">
+      <text x="0" y="0" class="label-text">总基因数：</text>
+      <text x="120" y="0" class="axis-text" fill="#1e3a8a">15,000</text>
+      
+      <text x="0" y="20" class="label-text">差异表达基因：</text>
+      <text x="120" y="20" class="axis-text" fill="#dc2626">2,345</text>
+      
+      <text x="0" y="40" class="label-text">上调基因：</text>
+      <text x="120" y="40" class="axis-text" fill="#f59e0b">1,234 (52.6%)</text>
+      
+      <text x="0" y="60" class="label-text">下调基因：</text>
+      <text x="120" y="60" class="axis-text" fill="#3b82f6">1,111 (47.4%)</text>
+      
+      <text x="0" y="80" class="label-text">显著性阈值：</text>
+      <text x="120" y="80" class="label-text">p &lt; 0.05, |FC| &gt; 2</text>
+      
+      <text x="0" y="100" class="label-text">分析方法：</text>
+      <text x="120" y="100" class="label-text">DESeq2</text>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <g transform="translate(50, 550)">
+    <rect x="0" y="0" width="700" height="40" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1" rx="5"/>
+    <text x="10" y="20" class="label-text" font-weight="600">分析说明：</text>
+    <text x="80" y="20" class="label-text">热图显示基因在不同样本间的表达模式，颜色深浅代表表达量高低</text>
+    <text x="10" y="35" class="label-text">工具：DESeq2, edgeR, pheatmap, ComplexHeatmap</text>
+  </g>
+</svg>

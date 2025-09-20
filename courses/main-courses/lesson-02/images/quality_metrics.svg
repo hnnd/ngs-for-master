@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #374151; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .metric-box { fill: #f0f9ff; stroke: #0284c7; stroke-width: 2; rx: 8; }
+      .formula-box { fill: #fef3c7; stroke: #d97706; stroke-width: 1; rx: 5; }
+      .axis { stroke: #374151; stroke-width: 1; }
+      .grid { stroke: #e5e7eb; stroke-width: 0.5; }
+      .quality-line { stroke: #059669; stroke-width: 3; fill: none; }
+      .poor-quality { stroke: #dc2626; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" class="title" text-anchor="middle">质量评估指标体系</text>
+  
+  <!-- Phred Score Formula -->
+  <rect x="50" y="50" width="300" height="80" class="formula-box"/>
+  <text x="200" y="70" class="subtitle" text-anchor="middle">Phred质量分数公式</text>
+  <text x="200" y="90" class="text" text-anchor="middle">Q = -10 × log₁₀(P)</text>
+  <text x="200" y="105" class="small-text" text-anchor="middle">Q: 质量分数, P: 错误概率</text>
+  <text x="200" y="120" class="small-text" text-anchor="middle">Q30 = 99.9%准确率</text>
+  
+  <!-- Quality Standards -->
+  <rect x="450" y="50" width="300" height="80" class="metric-box"/>
+  <text x="600" y="70" class="subtitle" text-anchor="middle">质量标准</text>
+  <text x="520" y="90" class="small-text">Q10: 90%准确率</text>
+  <text x="680" y="90" class="small-text">Q20: 99%准确率</text>
+  <text x="520" y="105" class="small-text">Q30: 99.9%准确率</text>
+  <text x="680" y="105" class="small-text">Q40: 99.99%准确率</text>
+  <text x="600" y="120" class="small-text" text-anchor="middle">推荐: Q30 &gt; 85%, Q20 &gt; 90%</text>
+  
+  <!-- Per-base Quality Plot -->
+  <g transform="translate(50, 160)">
+    <text x="150" y="0" class="subtitle" text-anchor="middle">每碱基质量分布</text>
+    
+    <!-- Axes -->
+    <line x1="30" y1="120" x2="270" y2="120" class="axis"/>
+    <line x1="30" y1="20" x2="30" y2="120" class="axis"/>
+    
+    <!-- Grid lines -->
+    <line x1="30" y1="40" x2="270" y2="40" class="grid"/>
+    <line x1="30" y1="60" x2="270" y2="60" class="grid"/>
+    <line x1="30" y1="80" x2="270" y2="80" class="grid"/>
+    <line x1="30" y1="100" x2="270" y2="100" class="grid"/>
+    
+    <!-- Quality lines -->
+    <polyline points="30,30 60,25 90,25 120,30 150,35 180,45 210,55 240,70 270,85" class="quality-line"/>
+    <polyline points="30,50 60,45 90,45 120,50 150,55 180,75 210,90 240,105 270,115" class="poor-quality"/>
+    
+    <!-- Labels -->
+    <text x="15" y="25" class="small-text">40</text>
+    <text x="15" y="45" class="small-text">30</text>
+    <text x="15" y="65" class="small-text">20</text>
+    <text x="15" y="85" class="small-text">10</text>
+    <text x="15" y="105" class="small-text">0</text>
+    
+    <text x="50" y="135" class="small-text">20</text>
+    <text x="90" y="135" class="small-text">40</text>
+    <text x="130" y="135" class="small-text">60</text>
+    <text x="170" y="135" class="small-text">80</text>
+    <text x="210" y="135" class="small-text">100</text>
+    <text x="250" y="135" class="small-text">120</text>
+    
+    <text x="150" y="150" class="small-text" text-anchor="middle">碱基位置 (Base Position)</text>
+    <text x="10" y="70" class="small-text" transform="rotate(-90, 10, 70)" text-anchor="middle">质量分数 (Quality Score)</text>
+    
+    <!-- Legend -->
+    <line x1="200" y1="35" x2="220" y2="35" class="quality-line"/>
+    <text x="225" y="40" class="small-text">高质量数据</text>
+    <line x1="200" y1="50" x2="220" y2="50" class="poor-quality"/>
+    <text x="225" y="55" class="small-text">低质量数据</text>
+  </g>
+  
+  <!-- GC Content Distribution -->
+  <g transform="translate(450, 160)">
+    <text x="150" y="0" class="subtitle" text-anchor="middle">GC含量分布</text>
+    
+    <!-- Axes -->
+    <line x1="30" y1="120" x2="270" y2="120" class="axis"/>
+    <line x1="30" y1="20" x2="30" y2="120" class="axis"/>
+    
+    <!-- Normal distribution curve -->
+    <path d="M 50,110 Q 80,60 110,40 Q 140,25 170,40 Q 200,60 230,110" 
+          fill="none" stroke="#059669" stroke-width="2"/>
+    
+    <!-- Theoretical line -->
+    <line x1="140" y1="20" x2="140" y2="120" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5"/>
+    
+    <!-- Labels -->
+    <text x="15" y="125" class="small-text">0</text>
+    <text x="15" y="70" class="small-text">50</text>
+    <text x="15" y="25" class="small-text">100</text>
+    
+    <text x="50" y="135" class="small-text">20</text>
+    <text x="90" y="135" class="small-text">30</text>
+    <text x="130" y="135" class="small-text">40</text>
+    <text x="170" y="135" class="small-text">50</text>
+    <text x="210" y="135" class="small-text">60</text>
+    
+    <text x="150" y="150" class="small-text" text-anchor="middle">GC含量 (%)</text>
+    <text x="10" y="70" class="small-text" transform="rotate(-90, 10, 70)" text-anchor="middle">序列数量</text>
+    
+    <!-- Legend -->
+    <text x="180" y="35" class="small-text">理论值</text>
+    <text x="180" y="50" class="small-text">实际分布</text>
+  </g>
+  
+  <!-- Quality Metrics Summary -->
+  <rect x="50" y="340" width="700" height="120" class="metric-box"/>
+  <text x="400" y="360" class="subtitle" text-anchor="middle">主要质量指标</text>
+  
+  <!-- Metrics grid -->
+  <g transform="translate(80, 380)">
+    <!-- Row 1 -->
+    <text x="0" y="0" class="text">每碱基质量分布</text>
+    <text x="200" y="0" class="small-text">Per Base Sequence Quality</text>
+    <text x="450" y="0" class="small-text">正常: 质量平稳下降</text>
+    
+    <text x="0" y="20" class="text">每序列质量分布</text>
+    <text x="200" y="20" class="small-text">Per Sequence Quality Scores</text>
+    <text x="450" y="20" class="small-text">正常: 高质量集中</text>
+    
+    <text x="0" y="40" class="text">GC含量分布</text>
+    <text x="200" y="40" class="small-text">Per Sequence GC Content</text>
+    <text x="450" y="40" class="small-text">正常: 符合理论分布</text>
+    
+    <text x="0" y="60" class="text">序列重复水平</text>
+    <text x="200" y="60" class="small-text">Sequence Duplication Levels</text>
+    <text x="450" y="60" class="small-text">正常: &lt; 20%重复</text>
+  </g>
+  
+  <!-- Quality Assessment Guidelines -->
+  <rect x="50" y="480" width="700" height="100" fill="#f9fafb" stroke="#6b7280" stroke-width="1" rx="5"/>
+  <text x="400" y="500" class="subtitle" text-anchor="middle">质量评估指导</text>
+  
+  <g transform="translate(80, 520)">
+    <circle cx="10" cy="0" r="5" fill="#059669"/>
+    <text x="20" y="5" class="small-text">通过 (PASS): 质量优秀，无需处理</text>
+    
+    <circle cx="250" cy="0" r="5" fill="#d97706"/>
+    <text x="260" y="5" class="small-text">警告 (WARN): 质量可接受，建议关注</text>
+    
+    <circle cx="480" cy="0" r="5" fill="#dc2626"/>
+    <text x="490" y="5" class="small-text">失败 (FAIL): 质量较差，需要处理</text>
+    
+    <text x="0" y="25" class="small-text">建议标准: Q30 > 85%, 保留率 > 80%, GC含量正常，无明显接头污染</text>
+    <text x="0" y="40" class="small-text">关键指标: 每碱基质量分布、序列重复水平、接头序列检测</text>
+  </g>
+</svg>

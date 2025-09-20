@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #059669; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #374151; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .grid { stroke: #e5e7eb; stroke-width: 1; }
+      .sig-up { fill: #ef4444; }
+      .sig-down { fill: #3b82f6; }
+      .non-sig { fill: #9ca3af; opacity: 0.6; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">DESeq2差异表达分析结果可视化</text>
+  
+  <!-- MA Plot -->
+  <text x="200" y="60" text-anchor="middle" class="subtitle">MA图 (M-A Plot)</text>
+  
+  <!-- MA plot axes -->
+  <line x1="50" y1="80" x2="50" y2="250" class="axis"/>
+  <line x1="50" y1="250" x2="350" y2="250" class="axis"/>
+  
+  <!-- MA plot grid -->
+  <g class="grid">
+    <line x1="100" y1="80" x2="100" y2="250"/>
+    <line x1="150" y1="80" x2="150" y2="250"/>
+    <line x1="200" y1="80" x2="200" y2="250"/>
+    <line x1="250" y1="80" x2="250" y2="250"/>
+    <line x1="300" y1="80" x2="300" y2="250"/>
+    <line x1="50" y1="100" x2="350" y2="100"/>
+    <line x1="50" y1="150" x2="350" y2="150"/>
+    <line x1="50" y1="200" x2="350" y2="200"/>
+  </g>
+  
+  <!-- MA plot data points -->
+  <!-- Non-significant genes -->
+  <circle cx="80" cy="160" r="2" class="non-sig"/>
+  <circle cx="90" cy="155" r="2" class="non-sig"/>
+  <circle cx="110" cy="165" r="2" class="non-sig"/>
+  <circle cx="130" cy="150" r="2" class="non-sig"/>
+  <circle cx="140" cy="170" r="2" class="non-sig"/>
+  <circle cx="160" cy="145" r="2" class="non-sig"/>
+  <circle cx="180" cy="175" r="2" class="non-sig"/>
+  <circle cx="190" cy="140" r="2" class="non-sig"/>
+  <circle cx="210" cy="180" r="2" class="non-sig"/>
+  <circle cx="230" cy="135" r="2" class="non-sig"/>
+  <circle cx="250" cy="185" r="2" class="non-sig"/>
+  <circle cx="270" cy="130" r="2" class="non-sig"/>
+  <circle cx="290" cy="190" r="2" class="non-sig"/>
+  <circle cx="310" cy="125" r="2" class="non-sig"/>
+  
+  <!-- Upregulated genes -->
+  <circle cx="120" cy="100" r="3" class="sig-up"/>
+  <circle cx="150" cy="90" r="3" class="sig-up"/>
+  <circle cx="180" cy="95" r="3" class="sig-up"/>
+  <circle cx="220" cy="85" r="3" class="sig-up"/>
+  <circle cx="260" cy="80" r="3" class="sig-up"/>
+  
+  <!-- Downregulated genes -->
+  <circle cx="100" cy="220" r="3" class="sig-down"/>
+  <circle cx="140" cy="230" r="3" class="sig-down"/>
+  <circle cx="170" cy="225" r="3" class="sig-down"/>
+  <circle cx="200" cy="235" r="3" class="sig-down"/>
+  <circle cx="240" cy="240" r="3" class="sig-down"/>
+  
+  <!-- MA plot labels -->
+  <text x="200" y="275" text-anchor="middle" class="label">平均表达量 (log2)</text>
+  <text x="25" y="165" text-anchor="middle" class="label" transform="rotate(-90, 25, 165)">log2倍数变化</text>
+  
+  <!-- Volcano Plot -->
+  <text x="600" y="60" text-anchor="middle" class="subtitle">火山图 (Volcano Plot)</text>
+  
+  <!-- Volcano plot axes -->
+  <line x1="450" y1="80" x2="450" y2="250" class="axis"/>
+  <line x1="450" y1="250" x2="750" y2="250" class="axis"/>
+  
+  <!-- Volcano plot grid -->
+  <g class="grid">
+    <line x1="500" y1="80" x2="500" y2="250"/>
+    <line x1="550" y1="80" x2="550" y2="250"/>
+    <line x1="600" y1="80" x2="600" y2="250"/>
+    <line x1="650" y1="80" x2="650" y2="250"/>
+    <line x1="700" y1="80" x2="700" y2="250"/>
+    <line x1="450" y1="100" x2="750" y2="100"/>
+    <line x1="450" y1="150" x2="750" y2="150"/>
+    <line x1="450" y1="200" x2="750" y2="200"/>
+  </g>
+  
+  <!-- Significance thresholds -->
+  <line x1="520" y1="80" x2="520" y2="250" stroke="#059669" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="680" y1="80" x2="680" y2="250" stroke="#059669" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="450" y1="200" x2="750" y2="200" stroke="#059669" stroke-width="1" stroke-dasharray="3,3"/>
+  
+  <!-- Volcano plot data points -->
+  <!-- Non-significant genes -->
+  <circle cx="580" cy="220" r="2" class="non-sig"/>
+  <circle cx="590" cy="215" r="2" class="non-sig"/>
+  <circle cx="610" cy="225" r="2" class="non-sig"/>
+  <circle cx="620" cy="210" r="2" class="non-sig"/>
+  <circle cx="570" cy="230" r="2" class="non-sig"/>
+  <circle cx="630" cy="205" r="2" class="non-sig"/>
+  
+  <!-- Upregulated significant genes -->
+  <circle cx="700" cy="120" r="3" class="sig-up"/>
+  <circle cx="710" cy="100" r="3" class="sig-up"/>
+  <circle cx="720" cy="140" r="3" class="sig-up"/>
+  <circle cx="690" cy="160" r="3" class="sig-up"/>
+  <circle cx="730" cy="110" r="3" class="sig-up"/>
+  
+  <!-- Downregulated significant genes -->
+  <circle cx="500" cy="130" r="3" class="sig-down"/>
+  <circle cx="490" cy="150" r="3" class="sig-down"/>
+  <circle cx="480" cy="120" r="3" class="sig-down"/>
+  <circle cx="510" cy="170" r="3" class="sig-down"/>
+  <circle cx="470" cy="140" r="3" class="sig-down"/>
+  
+  <!-- Volcano plot labels -->
+  <text x="600" y="275" text-anchor="middle" class="label">log2倍数变化</text>
+  <text x="425" y="165" text-anchor="middle" class="label" transform="rotate(-90, 425, 165)">-log10(p值)</text>
+  
+  <!-- Threshold labels -->
+  <text x="525" y="75" class="label" style="fill: #059669; font-size: 10px;">FC=-2</text>
+  <text x="675" y="75" class="label" style="fill: #059669; font-size: 10px;">FC=2</text>
+  <text x="755" y="205" class="label" style="fill: #059669; font-size: 10px;">p=0.05</text>
+  
+  <!-- Heatmap -->
+  <text x="400" y="320" text-anchor="middle" class="subtitle">差异基因表达热图</text>
+  
+  <!-- Heatmap matrix -->
+  <rect x="200" y="340" width="400" height="200" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  
+  <!-- Sample labels -->
+  <text x="250" y="335" text-anchor="middle" class="label">Ctrl1</text>
+  <text x="300" y="335" text-anchor="middle" class="label">Ctrl2</text>
+  <text x="350" y="335" text-anchor="middle" class="label">Ctrl3</text>
+  <text x="450" y="335" text-anchor="middle" class="label">Treat1</text>
+  <text x="500" y="335" text-anchor="middle" class="label">Treat2</text>
+  <text x="550" y="335" text-anchor="middle" class="label">Treat3</text>
+  
+  <!-- Heatmap cells (simplified representation) -->
+  <!-- Row 1 - Upregulated gene -->
+  <rect x="225" y="350" width="25" height="15" fill="#fee2e2"/>
+  <rect x="275" y="350" width="25" height="15" fill="#fecaca"/>
+  <rect x="325" y="350" width="25" height="15" fill="#fed7d7"/>
+  <rect x="425" y="350" width="25" height="15" fill="#dc2626"/>
+  <rect x="475" y="350" width="25" height="15" fill="#b91c1c"/>
+  <rect x="525" y="350" width="25" height="15" fill="#991b1b"/>
+  
+  <!-- Row 2 - Upregulated gene -->
+  <rect x="225" y="370" width="25" height="15" fill="#fef2f2"/>
+  <rect x="275" y="370" width="25" height="15" fill="#fee2e2"/>
+  <rect x="325" y="370" width="25" height="15" fill="#fecaca"/>
+  <rect x="425" y="370" width="25" height="15" fill="#ef4444"/>
+  <rect x="475" y="370" width="25" height="15" fill="#dc2626"/>
+  <rect x="525" y="370" width="25" height="15" fill="#b91c1c"/>
+  
+  <!-- Row 3 - Downregulated gene -->
+  <rect x="225" y="390" width="25" height="15" fill="#1e40af"/>
+  <rect x="275" y="390" width="25" height="15" fill="#2563eb"/>
+  <rect x="325" y="390" width="25" height="15" fill="#3b82f6"/>
+  <rect x="425" y="390" width="25" height="15" fill="#dbeafe"/>
+  <rect x="475" y="390" width="25" height="15" fill="#bfdbfe"/>
+  <rect x="525" y="390" width="25" height="15" fill="#e0e7ff"/>
+  
+  <!-- Row 4 - Downregulated gene -->
+  <rect x="225" y="410" width="25" height="15" fill="#1d4ed8"/>
+  <rect x="275" y="410" width="25" height="15" fill="#2563eb"/>
+  <rect x="325" y="410" width="25" height="15" fill="#3b82f6"/>
+  <rect x="425" y="410" width="25" height="15" fill="#f0f9ff"/>
+  <rect x="475" y="410" width="25" height="15" fill="#e0f2fe"/>
+  <rect x="525" y="410" width="25" height="15" fill="#f0f9ff"/>
+  
+  <!-- Gene labels -->
+  <text x="190" y="362" text-anchor="end" class="label" style="font-size: 10px;">Gene1</text>
+  <text x="190" y="382" text-anchor="end" class="label" style="font-size: 10px;">Gene2</text>
+  <text x="190" y="402" text-anchor="end" class="label" style="font-size: 10px;">Gene3</text>
+  <text x="190" y="422" text-anchor="end" class="label" style="font-size: 10px;">Gene4</text>
+  
+  <!-- Color scale -->
+  <rect x="650" y="350" width="20" height="100" fill="url(#colorGradient)"/>
+  <defs>
+    <linearGradient id="colorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#991b1b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="680" y="355" class="label" style="font-size: 10px;">高表达</text>
+  <text x="680" y="405" class="label" style="font-size: 10px;">平均</text>
+  <text x="680" y="455" class="label" style="font-size: 10px;">低表达</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="480" width="700" height="80" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="5"/>
+  <text x="400" y="505" text-anchor="middle" class="subtitle">图例说明</text>
+  
+  <circle cx="100" cy="525" r="3" class="sig-up"/>
+  <text x="110" y="530" class="label">上调基因 (padj &lt; 0.05, FC &gt; 2)</text>
+  
+  <circle cx="300" cy="525" r="3" class="sig-down"/>
+  <text x="310" y="530" class="label">下调基因 (padj &lt; 0.05, FC &lt; -2)</text>
+  
+  <circle cx="500" cy="525" r="2" class="non-sig"/>
+  <text x="510" y="530" class="label">非显著基因</text>
+  
+  <text x="100" y="550" class="label">• MA图显示表达量与倍数变化关系</text>
+  <text x="400" y="550" class="label">• 火山图同时显示显著性和倍数变化</text>
+  <text x="100" y="565" class="label">• 热图展示差异基因在样本间的表达模式</text>
+</svg>

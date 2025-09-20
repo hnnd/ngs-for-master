@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .timeline-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .timeline-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .timeline-year { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .gen1 { fill: #ff6b6b; }
+      .gen2 { fill: #4ecdc4; }
+      .gen3 { fill: #45b7d1; }
+    </style>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="timeline-title" font-size="18">测序技术发展时间线</text>
+  
+  <!-- 时间轴 -->
+  <line x1="50" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2"/>
+  
+  <!-- 年份标记 -->
+  <g class="timeline-year">
+    <line x1="100" y1="345" x2="100" y2="355" stroke="#666"/>
+    <text x="100" y="370" text-anchor="middle">1975</text>
+    
+    <line x1="200" y1="345" x2="200" y2="355" stroke="#666"/>
+    <text x="200" y="370" text-anchor="middle">1985</text>
+    
+    <line x1="300" y1="345" x2="300" y2="355" stroke="#666"/>
+    <text x="300" y="370" text-anchor="middle">1995</text>
+    
+    <line x1="400" y1="345" x2="400" y2="355" stroke="#666"/>
+    <text x="400" y="370" text-anchor="middle">2005</text>
+    
+    <line x1="500" y1="345" x2="500" y2="355" stroke="#666"/>
+    <text x="500" y="370" text-anchor="middle">2015</text>
+    
+    <line x1="600" y1="345" x2="600" y2="355" stroke="#666"/>
+    <text x="600" y="370" text-anchor="middle">2025</text>
+  </g>
+  
+  <!-- 第一代测序 -->
+  <rect x="120" y="80" width="200" height="80" class="gen1" rx="10" opacity="0.8"/>
+  <text x="220" y="105" text-anchor="middle" class="timeline-title">第一代测序</text>
+  <text x="220" y="125" text-anchor="middle" class="timeline-text">Sanger测序法</text>
+  <text x="220" y="140" text-anchor="middle" class="timeline-text">1977-2005</text>
+  <text x="220" y="155" text-anchor="middle" class="timeline-text">高准确率，低通量</text>
+  
+  <!-- 连接线 -->
+  <line x1="220" y1="160" x2="220" y2="340" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- 第二代测序 -->
+  <rect x="350" y="180" width="200" height="100" class="gen2" rx="10" opacity="0.8"/>
+  <text x="450" y="205" text-anchor="middle" class="timeline-title">第二代测序 (NGS)</text>
+  <text x="450" y="225" text-anchor="middle" class="timeline-text">Illumina, 454, SOLiD</text>
+  <text x="450" y="240" text-anchor="middle" class="timeline-text">2005-2015</text>
+  <text x="450" y="255" text-anchor="middle" class="timeline-text">高通量，短读长</text>
+  <text x="450" y="270" text-anchor="middle" class="timeline-text">大规模并行测序</text>
+  
+  <!-- 连接线 -->
+  <line x1="450" y1="280" x2="450" y2="340" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- 第三代测序 -->
+  <rect x="520" y="60" width="200" height="120" class="gen3" rx="10" opacity="0.8"/>
+  <text x="620" y="85" text-anchor="middle" class="timeline-title">第三代测序</text>
+  <text x="620" y="105" text-anchor="middle" class="timeline-text">PacBio, Oxford Nanopore</text>
+  <text x="620" y="120" text-anchor="middle" class="timeline-text">2010-至今</text>
+  <text x="620" y="135" text-anchor="middle" class="timeline-text">长读长，实时测序</text>
+  <text x="620" y="150" text-anchor="middle" class="timeline-text">单分子测序</text>
+  <text x="620" y="165" text-anchor="middle" class="timeline-text">直接RNA/DNA检测</text>
+  
+  <!-- 连接线 -->
+  <line x1="620" y1="180" x2="620" y2="340" stroke="#45b7d1" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- 关键事件标记 -->
+  <circle cx="180" cy="350" r="5" fill="#ff6b6b"/>
+  <text x="180" y="320" text-anchor="middle" class="timeline-text" font-size="10">1977</text>
+  <text x="180" y="310" text-anchor="middle" class="timeline-text" font-size="10">Sanger法</text>
+  
+  <circle cx="420" cy="350" r="5" fill="#4ecdc4"/>
+  <text x="420" y="320" text-anchor="middle" class="timeline-text" font-size="10">2005</text>
+  <text x="420" y="310" text-anchor="middle" class="timeline-text" font-size="10">454测序</text>
+  
+  <circle cx="480" cy="350" r="5" fill="#4ecdc4"/>
+  <text x="480" y="320" text-anchor="middle" class="timeline-text" font-size="10">2007</text>
+  <text x="480" y="310" text-anchor="middle" class="timeline-text" font-size="10">Illumina</text>
+  
+  <circle cx="540" cy="350" r="5" fill="#45b7d1"/>
+  <text x="540" y="320" text-anchor="middle" class="timeline-text" font-size="10">2011</text>
+  <text x="540" y="310" text-anchor="middle" class="timeline-text" font-size="10">PacBio</text>
+  
+  <circle cx="580" cy="350" r="5" fill="#45b7d1"/>
+  <text x="580" y="320" text-anchor="middle" class="timeline-text" font-size="10">2014</text>
+  <text x="580" y="310" text-anchor="middle" class="timeline-text" font-size="10">Nanopore</text>
+  
+  <!-- 图例 -->
+  <rect x="50" y="50" width="15" height="15" class="gen1" opacity="0.8"/>
+  <text x="75" y="62" class="timeline-text">第一代测序</text>
+  
+  <rect x="50" y="70" width="15" height="15" class="gen2" opacity="0.8"/>
+  <text x="75" y="82" class="timeline-text">第二代测序</text>
+  
+  <rect x="50" y="90" width="15" height="15" class="gen3" opacity="0.8"/>
+  <text x="75" y="102" class="timeline-text">第三代测序</text>
+</svg>

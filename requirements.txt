@@ -1,0 +1,31 @@
+# 高通量测序数据分析课程教学材料依赖包
+
+# 文档生成和处理
+markdown>=3.4.0
+pymdown-extensions>=9.0.0
+mkdocs>=1.4.0
+mkdocs-material>=8.0.0
+
+# 数据处理和分析
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# 生物信息学相关
+biopython>=1.79
+pysam>=0.19.0
+
+# 图像处理
+pillow>=9.0.0
+cairosvg>=2.5.0
+
+# 实用工具
+requests>=2.28.0
+pyyaml>=6.0
+click>=8.0.0
+
+# 开发和测试工具
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
