@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; fill: #374151; }
+      .step { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #6b7280; }
+      .dna { fill: none; stroke: #059669; stroke-width: 3; }
+      .protein { fill: #dc2626; stroke: #991b1b; stroke-width: 2; }
+      .antibody { fill: #7c3aed; stroke: #5b21b6; stroke-width: 2; }
+      .arrow { fill: #374151; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">ChIP-seq&#25216;&#26415;&#21407;&#29702;</text>
+  
+  <!-- Step 1: Crosslinking -->
+  <g transform="translate(50, 80)">
+    <text x="100" y="20" text-anchor="middle" class="label">1. &#20132;&#32852;&#22266;&#23450;</text>
+    
+    <!-- DNA double helix -->
+    <path d="M20 40 Q40 30 60 40 Q80 50 100 40 Q120 30 140 40 Q160 50 180 40" class="dna"/>
+    <path d="M20 50 Q40 60 60 50 Q80 40 100 50 Q120 60 140 50 Q160 40 180 50" class="dna"/>
+    
+    <!-- Proteins bound to DNA -->
+    <circle cx="60" cy="35" r="8" class="protein"/>
+    <circle cx="140" cy="35" r="8" class="protein"/>
+    
+    <!-- Formaldehyde -->
+    <text x="100" y="75" text-anchor="middle" class="step">&#30002;&#37275;</text>
+    <text x="100" y="90" text-anchor="middle" class="step">HCHO</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <polygon points="250,120 270,115 270,125" class="arrow"/>
+  
+  <!-- Step 2: Fragmentation -->
+  <g transform="translate(300, 80)">
+    <text x="100" y="20" text-anchor="middle" class="label">2. &#26579;&#33394;&#36136;&#29255;&#27573;&#21270;</text>
+    
+    <!-- Fragmented DNA -->
+    <path d="M20 40 Q30 35 40 40" class="dna"/>
+    <path d="M20 50 Q30 55 40 50" class="dna"/>
+    <circle cx="30" cy="37" r="6" class="protein"/>
+    
+    <path d="M60 40 Q70 35 80 40" class="dna"/>
+    <path d="M60 50 Q70 55 80 50" class="dna"/>
+    
+    <path d="M100 40 Q110 35 120 40" class="dna"/>
+    <path d="M100 50 Q110 55 120 50" class="dna"/>
+    <circle cx="110" cy="37" r="6" class="protein"/>
+    
+    <path d="M140 40 Q150 35 160 40" class="dna"/>
+    <path d="M140 50 Q150 55 160 50" class="dna"/>
+    
+    <!-- Sonication waves -->
+    <text x="100" y="75" text-anchor="middle" class="step">&#36229;&#22768;&#27874;</text>
+    <path d="M80 80 Q90 75 100 80 Q110 85 120 80" fill="none" stroke="#6b7280" stroke-width="1"/>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <polygon points="500,120 520,115 520,125" class="arrow"/>
+  
+  <!-- Step 3: Immunoprecipitation -->
+  <g transform="translate(550, 80)">
+    <text x="100" y="20" text-anchor="middle" class="label">3. &#20813;&#30123;&#27785;&#28096;</text>
+    
+    <!-- Antibody-protein-DNA complex -->
+    <path d="M80 40 Q90 35 100 40" class="dna"/>
+    <path d="M80 50 Q90 55 100 50" class="dna"/>
+    <circle cx="90" cy="37" r="6" class="protein"/>
+    
+    <!-- Antibody -->
+    <ellipse cx="90" cy="25" rx="12" ry="6" class="antibody"/>
+    <text x="90" y="28" text-anchor="middle" class="step" style="font-size: 8px; fill: white;">Ab</text>
+    
+    <!-- Magnetic beads -->
+    <circle cx="90" cy="10" r="4" fill="#6b7280"/>
+    <text x="100" y="75" text-anchor="middle" class="step">&#30913;&#29664;</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <polygon points="400,180 420,175 420,185" class="arrow"/>
+  
+  <!-- Step 4: Reverse crosslinking -->
+  <g transform="translate(300, 220)">
+    <text x="100" y="20" text-anchor="middle" class="label">4. &#20132;&#32852;&#36870;&#36716;</text>
+    
+    <!-- Free DNA -->
+    <path d="M60 40 Q70 35 80 40 Q90 45 100 40 Q110 35 120 40" class="dna"/>
+    <path d="M60 50 Q70 55 80 50 Q90 45 100 50 Q110 55 120 50" class="dna"/>
+    
+    <!-- Heat treatment -->
+    <text x="100" y="75" text-anchor="middle" class="step">65°C &#21152;&#28909;</text>
+    <path d="M85 80 L90 70 L95 80 L100 70 L105 80" fill="none" stroke="#dc2626" stroke-width="2"/>
+  </g>
+  
+  <!-- Arrow 4 -->
+  <polygon points="250,280 270,275 270,285" class="arrow"/>
+  
+  <!-- Step 5: Library preparation -->
+  <g transform="translate(50, 320)">
+    <text x="100" y="20" text-anchor="middle" class="label">5. &#25991;&#24211;&#26500;&#24314;</text>
+    
+    <!-- DNA with adapters -->
+    <rect x="20" y="40" width="15" height="8" fill="#7c3aed"/>
+    <path d="M35 44 Q50 39 65 44 Q80 49 95 44 Q110 39 125 44 Q140 49 155 44" class="dna"/>
+    <rect x="155" y="40" width="15" height="8" fill="#7c3aed"/>
+    
+    <text x="100" y="65" text-anchor="middle" class="step">&#28155;&#21152;&#25509;&#22836; + PCR&#25193;&#22686;</text>
+  </g>
+  
+  <!-- Arrow 5 -->
+  <polygon points="250,360 270,355 270,365" class="arrow"/>
+  
+  <!-- Step 6: Sequencing -->
+  <g transform="translate(300, 320)">
+    <text x="100" y="20" text-anchor="middle" class="label">6. &#39640;&#36890;&#37327;&#27979;&#24207;</text>
+    
+    <!-- Sequencing reads -->
+    <rect x="30" y="40" width="40" height="6" fill="#059669"/>
+    <rect x="80" y="40" width="40" height="6" fill="#059669"/>
+    <rect x="130" y="40" width="40" height="6" fill="#059669"/>
+    
+    <rect x="30" y="50" width="40" height="6" fill="#059669"/>
+    <rect x="80" y="50" width="40" height="6" fill="#059669"/>
+    <rect x="130" y="50" width="40" height="6" fill="#059669"/>
+    
+    <text x="100" y="75" text-anchor="middle" class="step">Illumina / PacBio</text>
+  </g>
+  
+  <!-- Arrow 6 -->
+  <polygon points="500,360 520,355 520,365" class="arrow"/>
+  
+  <!-- Step 7: Data analysis -->
+  <g transform="translate(550, 320)">
+    <text x="100" y="20" text-anchor="middle" class="label">7. &#25968;&#25454;&#20998;&#26512;</text>
+    
+    <!-- Peak visualization -->
+    <path d="M30 60 L40 50 L50 40 L60 35 L70 40 L80 50 L90 55 L100 50 L110 45 L120 40 L130 45 L140 50 L150 55 L160 60" 
+          fill="none" stroke="#059669" stroke-width="3"/>
+    
+    <text x="100" y="75" text-anchor="middle" class="step">Peak calling</text>
+  </g>
+  
+  <!-- Overall process flow -->
+  <text x="400" y="450" text-anchor="middle" class="label">&#32467;&#21512;&#20301;&#28857;&#35782;&#21035; → &#34507;&#30333;&#36136;-DNA&#30456;&#20114;&#20316;&#29992;&#22270;&#35889;</text>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 500)">
+    <text x="0" y="15" class="label">&#22270;&#20363;&#65306;</text>
+    <circle cx="60" cy="10" r="6" class="protein"/>
+    <text x="75" y="15" class="step">&#34507;&#30333;&#36136;</text>
+    
+    <ellipse cx="140" cy="10" rx="10" ry="5" class="antibody"/>
+    <text x="160" y="15" class="step">&#25239;&#20307;</text>
+    
+    <path d="M200 10 Q210 5 220 10" class="dna"/>
+    <text x="230" y="15" class="step">DNA</text>
+    
+    <circle cx="290" cy="10" r="3" fill="#6b7280"/>
+    <text x="305" y="15" class="step">&#30913;&#29664;</text>
+  </g>
+</svg>

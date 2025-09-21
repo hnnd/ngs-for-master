@@ -2,8 +2,8 @@
 marp: true
 theme: ngs-course
 paginate: true
-header: '高通量测序数据分析 | 王运生教授'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 

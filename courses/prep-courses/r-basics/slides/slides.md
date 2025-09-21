@@ -2,8 +2,8 @@
 marp: true
 theme: ngs-course
 paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 
@@ -54,6 +54,7 @@ R语言基础课程幻灯片
 <!-- _class: content -->
 # R语言简介
 
+
 ## 什么是R？
 
 - **统计计算语言**：专为数据分析和统计建模设计
@@ -88,9 +89,6 @@ R语言基础课程幻灯片
 - **统计建模**：回归、分类、聚类
 
 </div>
-
----
-
 <div class="column">
 
 ## 可视化
@@ -151,7 +149,7 @@ print(result)
 # 获取帮助
 ?print
 help(mean)
-```
+```r
 
 ---
 
@@ -720,7 +718,7 @@ boxplot(gene_expr ~ mutation_status, data=gene_data,
 
 # 线图
 plot(1:10, (1:10)^2, type="l", main="Quadratic Function")
-```
+```r
 
 ---
 
@@ -747,7 +745,7 @@ ggplot(gene_data, aes(x=gene_name, y=expression, fill=mutation_status)) +
   geom_bar(stat="identity") +
   theme_minimal() +
   labs(title="Gene Expression by Mutation Status")
-```
+```r
 
 ---
 

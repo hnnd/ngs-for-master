@@ -309,7 +309,7 @@ cat results/platform_recommendation.txt
 ```bash
 # 生成综合分析报告
 python generate_report.py
-```
+```python
 
 ## 预期结果
 
@@ -347,7 +347,7 @@ python generate_report.py
 ```bash
 # 安装缺少的包
 pip install pandas matplotlib seaborn biopython
-```
+```bash
 
 ### 常见问题2：数据文件无法下载
 **症状：** wget: command not found 或下载失败
@@ -365,7 +365,7 @@ cp /shared/data/lesson01/* data/
 ```bash
 # 添加执行权限
 chmod +x scripts/*.py
-```
+```python
 
 ### 获取帮助
 如果遇到其他问题：

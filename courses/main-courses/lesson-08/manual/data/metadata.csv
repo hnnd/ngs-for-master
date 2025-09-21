@@ -1,0 +1,11 @@
+Sample_ID,group,age,gender,batch,treatment
+Sample_1,group1,45,Male,batch1,treated
+Sample_2,group1,52,Female,batch1,control
+Sample_3,group1,38,Male,batch2,treated
+Sample_4,group1,61,Female,batch1,control
+Sample_5,group1,29,Male,batch2,treated
+Sample_6,group2,47,Female,batch1,control
+Sample_7,group2,55,Male,batch2,treated
+Sample_8,group2,33,Female,batch1,control
+Sample_9,group2,42,Male,batch2,treated
+Sample_10,group2,58,Female,batch1,control

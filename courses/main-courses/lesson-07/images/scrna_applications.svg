@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .app-title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #4b5563; }
+      .example-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .dev-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .disease-box { fill: #fecaca; stroke: #ef4444; stroke-width: 2; }
+      .drug-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .agri-box { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">单细胞测序技术应用领域</text>
+  
+  <!-- 第一行：发育生物学和疾病研究 -->
+  <!-- 发育生物学 -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="200" height="200" class="dev-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">发育生物学</text>
+    
+    <!-- 胚胎发育图示 -->
+    <circle cx="60" cy="60" r="8" fill="#fbbf24" opacity="0.8"/>
+    <text x="60" y="75" text-anchor="middle" class="example-text">受精卵</text>
+    
+    <circle cx="100" cy="50" r="6" fill="#f97316" opacity="0.8"/>
+    <circle cx="100" cy="65" r="6" fill="#f97316" opacity="0.8"/>
+    <text x="100" y="80" text-anchor="middle" class="example-text">早期胚胎</text>
+    
+    <circle cx="140" cy="45" r="4" fill="#dc2626" opacity="0.8"/>
+    <circle cx="140" cy="55" r="4" fill="#dc2626" opacity="0.8"/>
+    <circle cx="140" cy="65" r="4" fill="#dc2626" opacity="0.8"/>
+    <circle cx="140" cy="75" r="4" fill="#dc2626" opacity="0.8"/>
+    <text x="140" y="90" text-anchor="middle" class="example-text">器官发生</text>
+    
+    <text x="100" y="110" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="125" text-anchor="middle" class="example-text">• 胚胎发育图谱构建</text>
+    <text x="100" y="137" text-anchor="middle" class="example-text">• 细胞命运决定机制</text>
+    <text x="100" y="149" text-anchor="middle" class="example-text">• 器官发生过程解析</text>
+    <text x="100" y="161" text-anchor="middle" class="example-text">• 干细胞分化研究</text>
+    <text x="100" y="173" text-anchor="middle" class="example-text">• 再生医学应用</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#d97706">代表性研究：小鼠胚胎发育图谱</text>
+  </g>
+  
+  <!-- 疾病研究 -->
+  <g transform="translate(300, 60)">
+    <rect x="0" y="0" width="200" height="200" class="disease-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">疾病研究</text>
+    
+    <!-- 肿瘤异质性图示 -->
+    <g transform="translate(30, 45)">
+      <!-- 正常细胞 -->
+      <circle cx="20" cy="20" r="6" fill="#22c55e" opacity="0.8"/>
+      <text x="20" y="35" text-anchor="middle" class="example-text">正常</text>
+      
+      <!-- 肿瘤细胞群 -->
+      <circle cx="60" cy="15" r="5" fill="#ef4444" opacity="0.8"/>
+      <circle cx="70" cy="25" r="5" fill="#dc2626" opacity="0.8"/>
+      <circle cx="80" cy="15" r="5" fill="#b91c1c" opacity="0.8"/>
+      <text x="70" y="40" text-anchor="middle" class="example-text">肿瘤细胞</text>
+      
+      <!-- 免疫细胞 -->
+      <circle cx="120" cy="20" r="5" fill="#3b82f6" opacity="0.8"/>
+      <text x="120" y="35" text-anchor="middle" class="example-text">免疫细胞</text>
+    </g>
+    
+    <text x="100" y="90" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="105" text-anchor="middle" class="example-text">• 肿瘤异质性分析</text>
+    <text x="100" y="117" text-anchor="middle" class="example-text">• 肿瘤微环境研究</text>
+    <text x="100" y="129" text-anchor="middle" class="example-text">• 免疫系统疾病</text>
+    <text x="100" y="141" text-anchor="middle" class="example-text">• 神经退行性疾病</text>
+    <text x="100" y="153" text-anchor="middle" class="example-text">• 代谢性疾病</text>
+    <text x="100" y="165" text-anchor="middle" class="example-text">• 罕见病研究</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#dc2626">代表性研究：人类肿瘤图谱计划</text>
+  </g>
+  
+  <!-- 第二行：药物开发和农业应用 -->
+  <!-- 药物开发 -->
+  <g transform="translate(550, 60)">
+    <rect x="0" y="0" width="200" height="200" class="drug-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">药物开发</text>
+    
+    <!-- 药物作用图示 -->
+    <g transform="translate(40, 45)">
+      <!-- 药物分子 -->
+      <rect x="10" y="15" width="15" height="10" fill="#8b5cf6" opacity="0.8" rx="2"/>
+      <text x="17" y="35" text-anchor="middle" class="example-text">药物</text>
+      
+      <!-- 箭头 -->
+      <path d="M 30 20 L 45 20" stroke="#6b7280" stroke-width="2" fill="none"/>
+      <polygon points="45,17 50,20 45,23" fill="#6b7280"/>
+      
+      <!-- 细胞反应 -->
+      <circle cx="70" cy="20" r="8" fill="#3b82f6" opacity="0.8"/>
+      <text x="70" y="35" text-anchor="middle" class="example-text">细胞反应</text>
+      
+      <!-- 效果评估 -->
+      <rect x="100" y="15" width="15" height="10" fill="#22c55e" opacity="0.8" rx="2"/>
+      <text x="107" y="35" text-anchor="middle" class="example-text">疗效</text>
+    </g>
+    
+    <text x="100" y="90" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="105" text-anchor="middle" class="example-text">• 药物靶点发现</text>
+    <text x="100" y="117" text-anchor="middle" class="example-text">• 药物作用机制</text>
+    <text x="100" y="129" text-anchor="middle" class="example-text">• 毒性评估</text>
+    <text x="100" y="141" text-anchor="middle" class="example-text">• 耐药机制研究</text>
+    <text x="100" y="153" text-anchor="middle" class="example-text">• 个性化医疗</text>
+    <text x="100" y="165" text-anchor="middle" class="example-text">• 药物重定位</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#2563eb">代表性研究：COVID-19药物筛选</text>
+  </g>
+  
+  <!-- 农业和环境 -->
+  <g transform="translate(50, 290)">
+    <rect x="0" y="0" width="200" height="200" class="agri-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">农业与环境</text>
+    
+    <!-- 植物细胞图示 -->
+    <g transform="translate(50, 45)">
+      <!-- 植物细胞 -->
+      <rect x="20" y="10" width="20" height="20" fill="#22c55e" opacity="0.6" stroke="#16a34a" rx="2"/>
+      <circle cx="30" cy="20" r="3" fill="#15803d" opacity="0.8"/>
+      <text x="30" y="40" text-anchor="middle" class="example-text">植物细胞</text>
+      
+      <!-- 微生物 -->
+      <circle cx="80" cy="20" r="4" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="90" cy="15" r="3" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="85" cy="25" r="3" fill="#f59e0b" opacity="0.8"/>
+      <text x="85" y="40" text-anchor="middle" class="example-text">微生物</text>
+    </g>
+    
+    <text x="100" y="90" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="105" text-anchor="middle" class="example-text">• 植物发育研究</text>
+    <text x="100" y="117" text-anchor="middle" class="example-text">• 胁迫响应机制</text>
+    <text x="100" y="129" text-anchor="middle" class="example-text">• 作物品种改良</text>
+    <text x="100" y="141" text-anchor="middle" class="example-text">• 微生物群落分析</text>
+    <text x="100" y="153" text-anchor="middle" class="example-text">• 环境监测</text>
+    <text x="100" y="165" text-anchor="middle" class="example-text">• 生态系统研究</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#16a34a">代表性研究：拟南芥根系发育</text>
+  </g>
+  
+  <!-- 免疫学研究 -->
+  <g transform="translate(300, 290)">
+    <rect x="0" y="0" width="200" height="200" class="disease-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">免疫学研究</text>
+    
+    <!-- 免疫细胞图示 -->
+    <g transform="translate(30, 45)">
+      <!-- T细胞 -->
+      <circle cx="30" cy="20" r="6" fill="#ef4444" opacity="0.8"/>
+      <text x="30" y="35" text-anchor="middle" class="example-text">T细胞</text>
+      
+      <!-- B细胞 -->
+      <circle cx="70" cy="20" r="6" fill="#3b82f6" opacity="0.8"/>
+      <text x="70" y="35" text-anchor="middle" class="example-text">B细胞</text>
+      
+      <!-- 巨噬细胞 -->
+      <circle cx="110" cy="20" r="6" fill="#10b981" opacity="0.8"/>
+      <text x="110" y="35" text-anchor="middle" class="example-text">巨噬细胞</text>
+    </g>
+    
+    <text x="100" y="90" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="105" text-anchor="middle" class="example-text">• 免疫细胞分化</text>
+    <text x="100" y="117" text-anchor="middle" class="example-text">• 免疫反应机制</text>
+    <text x="100" y="129" text-anchor="middle" class="example-text">• 疫苗开发</text>
+    <text x="100" y="141" text-anchor="middle" class="example-text">• 自身免疫病</text>
+    <text x="100" y="153" text-anchor="middle" class="example-text">• 免疫治疗</text>
+    <text x="100" y="165" text-anchor="middle" class="example-text">• 器官移植</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#dc2626">代表性研究：人类免疫细胞图谱</text>
+  </g>
+  
+  <!-- 神经科学 -->
+  <g transform="translate(550, 290)">
+    <rect x="0" y="0" width="200" height="200" class="drug-box" rx="10"/>
+    <text x="100" y="25" text-anchor="middle" class="app-title">神经科学</text>
+    
+    <!-- 神经细胞图示 -->
+    <g transform="translate(40, 45)">
+      <!-- 神经元 -->
+      <circle cx="30" cy="20" r="5" fill="#8b5cf6" opacity="0.8"/>
+      <line x1="35" y1="20" x2="50" y2="15" stroke="#8b5cf6" stroke-width="2"/>
+      <line x1="35" y1="20" x2="50" y2="25" stroke="#8b5cf6" stroke-width="2"/>
+      <text x="30" y="35" text-anchor="middle" class="example-text">神经元</text>
+      
+      <!-- 胶质细胞 -->
+      <circle cx="80" cy="20" r="4" fill="#f59e0b" opacity="0.8"/>
+      <text x="80" y="35" text-anchor="middle" class="example-text">胶质细胞</text>
+    </g>
+    
+    <text x="100" y="90" text-anchor="middle" class="desc-text">主要应用：</text>
+    <text x="100" y="105" text-anchor="middle" class="example-text">• 大脑发育研究</text>
+    <text x="100" y="117" text-anchor="middle" class="example-text">• 神经元分类</text>
+    <text x="100" y="129" text-anchor="middle" class="example-text">• 神经回路分析</text>
+    <text x="100" y="141" text-anchor="middle" class="example-text">• 神经退行性疾病</text>
+    <text x="100" y="153" text-anchor="middle" class="example-text">• 精神疾病研究</text>
+    <text x="100" y="165" text-anchor="middle" class="example-text">• 学习记忆机制</text>
+    
+    <text x="100" y="190" text-anchor="middle" class="desc-text" fill="#2563eb">代表性研究：人类大脑细胞图谱</text>
+  </g>
+  
+  <!-- 底部总结 -->
+  <g transform="translate(50, 520)">
+    <rect x="0" y="0" width="700" height="60" fill="#f8fafc" stroke="#cbd5e1" rx="5"/>
+    <text x="350" y="20" text-anchor="middle" class="app-title">单细胞技术的变革性影响</text>
+    <text x="350" y="40" text-anchor="middle" class="desc-text">
+      从细胞水平理解生命过程，推动精准医学、个性化治疗和生物技术创新
+    </text>
+    <text x="350" y="55" text-anchor="middle" class="example-text">
+      预计到2030年，单细胞技术将成为生命科学研究的标准工具
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa" stroke="none"/>
+
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">质量控制前后效果对比</text>
+
+  <!-- 左侧：清洗前 -->
+  <g>
+    <!-- 左侧标题 -->
+    <text x="200" y="70" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="bold" fill="#e74c3c">清洗前 (Raw Data)</text>
+
+    <!-- 质量分布图框架 -->
+    <rect x="50" y="90" width="300" height="200" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="200" y="110" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#666">每碱基质量分布</text>
+
+    <!-- 质量曲线 - 清洗前（质量下降明显） -->
+    <polyline points="70,250 90,230 110,220 130,210 150,200 170,190 190,185 210,190 230,200 250,220 270,240 290,260 310,280 330,300"
+              fill="none" stroke="#e74c3c" stroke-width="3"/>
+
+    <!-- Y轴标签 -->
+    <text x="45" y="140" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q40</text>
+    <text x="45" y="170" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q30</text>
+    <text x="45" y="200" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q20</text>
+    <text x="45" y="230" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q10</text>
+    <text x="45" y="260" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q0</text>
+
+    <!-- X轴标签 -->
+    <text x="200" y="310" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">碱基位置</text>
+
+    <!-- 质量区域背景 -->
+    <rect x="70" y="130" width="280" height="40" fill="#d5f4e6" opacity="0.5"/>
+    <rect x="70" y="170" width="280" height="40" fill="#fff3cd" opacity="0.5"/>
+    <rect x="70" y="210" width="280" height="80" fill="#f8d7da" opacity="0.5"/>
+
+    <!-- 统计信息 - 清洗前 -->
+    <rect x="50" y="330" width="300" height="150" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="200" y="350" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#666">质量统计</text>
+
+    <text x="70" y="370" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">总序列数: 1,000,000</text>
+    <text x="70" y="390" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">平均长度: 150 bp</text>
+    <text x="70" y="410" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#e74c3c">Q20率: 75%</text>
+    <text x="70" y="430" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#e74c3c">Q30率: 60%</text>
+    <text x="70" y="450" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">GC含量: 42%</text>
+    <text x="70" y="470" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#e74c3c">重复率: 25%</text>
+  </g>
+
+  <!-- 右侧：清洗后 -->
+  <g>
+    <!-- 右侧标题 -->
+    <text x="600" y="70" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="bold" fill="#27ae60">清洗后 (Clean Data)</text>
+
+    <!-- 质量分布图框架 -->
+    <rect x="450" y="90" width="300" height="200" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="600" y="110" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" fill="#666">每碱基质量分布</text>
+
+    <!-- 质量曲线 - 清洗后（质量稳定） -->
+    <polyline points="470,170 490,165 510,160 530,158 550,157 570,156 590,157 610,158 630,160 650,162 670,165 690,168 710,170 730,172"
+              fill="none" stroke="#27ae60" stroke-width="3"/>
+
+    <!-- Y轴标签 -->
+    <text x="445" y="140" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q40</text>
+    <text x="445" y="170" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q30</text>
+    <text x="445" y="200" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q20</text>
+    <text x="445" y="230" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q10</text>
+    <text x="445" y="260" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">Q0</text>
+
+    <!-- X轴标签 -->
+    <text x="600" y="310" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">碱基位置</text>
+
+    <!-- 质量区域背景 -->
+    <rect x="470" y="130" width="280" height="40" fill="#d5f4e6" opacity="0.5"/>
+    <rect x="470" y="170" width="280" height="40" fill="#fff3cd" opacity="0.5"/>
+    <rect x="470" y="210" width="280" height="80" fill="#f8d7da" opacity="0.5"/>
+
+    <!-- 统计信息 - 清洗后 -->
+    <rect x="450" y="330" width="300" height="150" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="600" y="350" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#666">质量统计</text>
+
+    <text x="470" y="370" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">总序列数: 850,000</text>
+    <text x="470" y="390" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">平均长度: 140 bp</text>
+    <text x="470" y="410" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#27ae60">Q20率: 98%</text>
+    <text x="470" y="430" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#27ae60">Q30率: 95%</text>
+    <text x="470" y="450" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#333">GC含量: 41%</text>
+    <text x="470" y="470" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#27ae60">重复率: 5%</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <g>
+    <path d="M 370 300 L 420 300" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="395" y="295" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498db">QC</text>
+  </g>
+
+  <!-- 箭头标记定义 -->
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 12px; fill: #4b5563; }
+      .small-text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- 图例 -->
+  <g>
+    <rect x="50" y="520" width="700" height="60" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="400" y="540" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#666">质量控制效果</text>
+
+    <circle cx="100" cy="555" r="5" fill="#d5f4e6"/>
+    <text x="115" y="560" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">优秀 (Q30+)</text>
+
+    <circle cx="250" cy="555" r="5" fill="#fff3cd"/>
+    <text x="265" y="560" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">良好 (Q20-Q30)</text>
+
+    <circle cx="400" cy="555" r="5" fill="#f8d7da"/>
+    <text x="415" y="560" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">较差 (&lt;Q20)</text>
+
+    <text x="550" y="560" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#666">保留率: 85%</text>
+  </g>
+</svg>

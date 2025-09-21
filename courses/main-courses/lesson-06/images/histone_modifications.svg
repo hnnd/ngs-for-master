@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .section { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .mark { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #7c3aed; font-weight: bold; }
+      .function { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #059669; }
+      .location { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #dc2626; }
+      .active { fill: #10b981; stroke: #059669; stroke-width: 2; }
+      .repressive { fill: #ef4444; stroke: #dc2626; stroke-width: 2; }
+      .neutral { fill: #6b7280; stroke: #4b5563; stroke-width: 2; }
+      .histone { fill: #3b82f6; stroke: #1d4ed8; stroke-width: 2; }
+      .dna { fill: none; stroke: #059669; stroke-width: 3; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">&#32452;&#34507;&#30333;&#20462;&#39280;&#31867;&#22411;&#21450;&#21151;&#33021;</text>
+  
+  <!-- Nucleosome Structure -->
+  <g transform="translate(50, 60)">
+    <text x="200" y="20" text-anchor="middle" class="section">&#26680;&#23567;&#20307;&#32467;&#26500;&#21450;&#20462;&#39280;&#20301;&#28857;</text>
+    
+    <!-- DNA wrapping around histone octamer -->
+    <path d="M50 80 Q100 60 150 80 Q200 100 250 80 Q300 60 350 80" class="dna"/>
+    <path d="M50 90 Q100 110 150 90 Q200 70 250 90 Q300 110 350 90" class="dna"/>
+    
+    <!-- Histone octamer -->
+    <circle cx="200" cy="85" r="25" class="histone"/>
+    <text x="200" y="90" text-anchor="middle" class="label" style="fill: white;">H2A H2B</text>
+    <text x="200" y="105" text-anchor="middle" class="label" style="fill: white;">H3 H4</text>
+    
+    <!-- Histone tails with modifications -->
+    <g transform="translate(200, 60)">
+      <!-- H3 tail -->
+      <line x1="-15" y1="0" x2="-15" y2="-20" stroke="#7c3aed" stroke-width="3"/>
+      <circle cx="-15" cy="-25" r="4" class="active"/>
+      <text x="-15" y="-30" text-anchor="middle" class="mark">K4me3</text>
+      
+      <circle cx="-15" cy="-15" r="3" class="active"/>
+      <text x="-5" y="-12" class="mark">K27ac</text>
+      
+      <!-- H4 tail -->
+      <line x1="15" y1="0" x2="15" y2="-20" stroke="#7c3aed" stroke-width="3"/>
+      <circle cx="15" cy="-25" r="4" class="repressive"/>
+      <text x="15" y="-30" text-anchor="middle" class="mark">K20me3</text>
+      
+      <!-- H2A tail -->
+      <line x1="-25" y1="10" x2="-35" y2="5" stroke="#7c3aed" stroke-width="3"/>
+      <circle cx="-38" cy="3" r="3" class="neutral"/>
+      <text x="-45" y="8" class="mark">K119ub</text>
+    </g>
+    
+    <text x="200" y="140" text-anchor="middle" class="label">&#32452;&#34507;&#30333;&#20843;&#32858;&#20307;&#21450;&#20854;&#20462;&#39280;</text>
+  </g>
+  
+  <!-- Active Marks Section -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="380" height="160" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="8"/>
+    <text x="190" y="20" text-anchor="middle" class="section">&#28608;&#27963;&#24615;&#34920;&#35266;&#36951;&#20256;&#26631;&#35760;</text>
+    
+    <!-- H3K4me3 -->
+    <g transform="translate(20, 35)">
+      <circle cx="15" cy="15" r="8" class="active"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K4me3</text>
+      <text x="35" y="15" class="mark">H3K4me3</text>
+      <text x="35" y="28" class="function">&#21551;&#21160;&#23376;&#27963;&#36291;&#26631;&#35760;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: TSS ±2kb</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23574;&#38160;&#23792;</text>
+    </g>
+    
+    <!-- H3K4me1 -->
+    <g transform="translate(20, 65)">
+      <circle cx="15" cy="15" r="8" class="active"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K4me1</text>
+      <text x="35" y="15" class="mark">H3K4me1</text>
+      <text x="35" y="28" class="function">&#22686;&#24378;&#23376;&#26631;&#35760;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#36828;&#31471;&#35843;&#25511;&#21306;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+    
+    <!-- H3K27ac -->
+    <g transform="translate(20, 95)">
+      <circle cx="15" cy="15" r="8" class="active"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K27ac</text>
+      <text x="35" y="15" class="mark">H3K27ac</text>
+      <text x="35" y="28" class="function">&#27963;&#36291;&#22686;&#24378;&#23376;/&#21551;&#21160;&#23376;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#27963;&#36291;&#35843;&#25511;&#21306;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23574;&#38160;&#23792;</text>
+    </g>
+    
+    <!-- H3K36me3 -->
+    <g transform="translate(20, 125)">
+      <circle cx="15" cy="15" r="8" class="active"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K36me3</text>
+      <text x="35" y="15" class="mark">H3K36me3</text>
+      <text x="35" y="28" class="function">&#22522;&#22240;&#20307;&#27963;&#36291;&#36716;&#24405;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#22522;&#22240;&#20307;&#21306;&#22495;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+  </g>
+  
+  <!-- Repressive Marks Section -->
+  <g transform="translate(470, 200)">
+    <rect x="0" y="0" width="380" height="160" fill="#fef2f2" stroke="#dc2626" stroke-width="2" rx="8"/>
+    <text x="190" y="20" text-anchor="middle" class="section">&#25233;&#21046;&#24615;&#34920;&#35266;&#36951;&#20256;&#26631;&#35760;</text>
+    
+    <!-- H3K27me3 -->
+    <g transform="translate(20, 35)">
+      <circle cx="15" cy="15" r="8" class="repressive"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K27me3</text>
+      <text x="35" y="15" class="mark">H3K27me3</text>
+      <text x="35" y="28" class="function">&#22810;&#26803;&#34507;&#30333;&#25233;&#21046;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: CpG&#23707;&#21551;&#21160;&#23376;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+    
+    <!-- H3K9me3 -->
+    <g transform="translate(20, 65)">
+      <circle cx="15" cy="15" r="8" class="repressive"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K9me3</text>
+      <text x="35" y="15" class="mark">H3K9me3</text>
+      <text x="35" y="28" class="function">&#24322;&#26579;&#33394;&#36136;&#26631;&#35760;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#37325;&#22797;&#24207;&#21015;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+    
+    <!-- H3K9me2 -->
+    <g transform="translate(20, 95)">
+      <circle cx="15" cy="15" r="8" class="repressive"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K9me2</text>
+      <text x="35" y="15" class="mark">H3K9me2</text>
+      <text x="35" y="28" class="function">&#22522;&#22240;&#27785;&#40664;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#22522;&#22240;&#38388;&#21306;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+    
+    <!-- H4K20me3 -->
+    <g transform="translate(20, 125)">
+      <circle cx="15" cy="15" r="8" class="repressive"/>
+      <text x="15" y="19" text-anchor="middle" class="mark" style="font-size: 8px; fill: white;">K20me3</text>
+      <text x="35" y="15" class="mark">H4K20me3</text>
+      <text x="35" y="28" class="function">&#24322;&#26579;&#33394;&#36136;&#32500;&#25345;</text>
+      <text x="200" y="15" class="location">&#20301;&#32622;: &#24322;&#26579;&#33394;&#36136;</text>
+      <text x="200" y="28" class="location">&#23792;&#24418;: &#23485;&#23792;</text>
+    </g>
+  </g>
+  
+  <!-- Genomic Distribution -->
+  <g transform="translate(50, 400)">
+    <rect x="0" y="0" width="800" height="120" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+    <text x="400" y="20" text-anchor="middle" class="section">&#34920;&#35266;&#36951;&#20256;&#26631;&#35760;&#30340;&#22522;&#22240;&#32452;&#20998;&#24067;</text>
+    
+    <!-- Gene structure -->
+    <g transform="translate(50, 40)">
+      <!-- Gene body -->
+      <rect x="100" y="20" width="200" height="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+      <text x="200" y="32" text-anchor="middle" class="label">&#22522;&#22240;&#20307;</text>
+      
+      <!-- Promoter -->
+      <rect x="80" y="20" width="20" height="15" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+      <text x="90" y="15" text-anchor="middle" class="label">&#21551;&#21160;&#23376;</text>
+      
+      <!-- Enhancer -->
+      <rect x="50" y="45" width="30" height="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+      <text x="65" y="40" text-anchor="middle" class="label">&#22686;&#24378;&#23376;</text>
+      
+      <!-- Marks distribution -->
+      <circle cx="90" cy="10" r="4" class="active"/>
+      <text x="90" y="5" text-anchor="middle" class="mark" style="font-size: 8px;">K4me3</text>
+      
+      <circle cx="65" cy="35" r="3" class="active"/>
+      <text x="65" y="30" text-anchor="middle" class="mark" style="font-size: 8px;">K27ac</text>
+      
+      <circle cx="200" cy="10" r="3" class="active"/>
+      <text x="200" y="5" text-anchor="middle" class="mark" style="font-size: 8px;">K36me3</text>
+      
+      <circle cx="150" cy="45" r="4" class="repressive"/>
+      <text x="150" y="55" text-anchor="middle" class="mark" style="font-size: 8px;">K27me3</text>
+    </g>
+    
+    <!-- Distribution percentages -->
+    <g transform="translate(400, 40)">
+      <text x="0" y="15" class="section">&#20998;&#24067;&#27604;&#20363;&#65306;</text>
+      
+      <text x="0" y="30" class="label">H3K4me3:</text>
+      <text x="70" y="30" class="function">&#21551;&#21160;&#23376; 60%, &#22522;&#22240;&#20307; 30%, &#22522;&#22240;&#38388;&#21306; 10%</text>
+      
+      <text x="0" y="45" class="label">H3K27ac:</text>
+      <text x="70" y="45" class="function">&#22686;&#24378;&#23376; 40%, &#21551;&#21160;&#23376; 35%, &#22522;&#22240;&#38388;&#21306; 25%</text>
+      
+      <text x="0" y="60" class="label">H3K27me3:</text>
+      <text x="70" y="60" class="function">&#21551;&#21160;&#23376; 45%, &#22522;&#22240;&#20307; 35%, &#22522;&#22240;&#38388;&#21306; 20%</text>
+      
+      <text x="0" y="75" class="label">H3K36me3:</text>
+      <text x="70" y="75" class="function">&#22522;&#22240;&#20307; 80%, &#21551;&#21160;&#23376; 15%, &#22522;&#22240;&#38388;&#21306; 5%</text>
+    </g>
+  </g>
+  
+  <!-- Chromatin States -->
+  <g transform="translate(50, 540)">
+    <rect x="0" y="0" width="800" height="50" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+    <text x="400" y="20" text-anchor="middle" class="section">&#26579;&#33394;&#36136;&#29366;&#24577;&#32452;&#21512;</text>
+    
+    <text x="20" y="35" class="label">&#27963;&#36291;&#21551;&#21160;&#23376;:</text>
+    <text x="120" y="35" class="function">H3K4me3 + H3K27ac</text>
+    
+    <text x="250" y="35" class="label">&#27963;&#36291;&#22686;&#24378;&#23376;:</text>
+    <text x="350" y="35" class="function">H3K4me1 + H3K27ac</text>
+    
+    <text x="480" y="35" class="label">&#21452;&#20215;&#29366;&#24577;:</text>
+    <text x="560" y="35" class="function">H3K4me3 + H3K27me3</text>
+    
+    <text x="680" y="35" class="label">&#24322;&#26579;&#33394;&#36136;:</text>
+    <text x="750" y="35" class="function">H3K9me3</text>
+  </g>
+</svg>

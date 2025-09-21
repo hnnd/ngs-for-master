@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .step-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #4b5563; }
+      .gene-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .arrow { stroke: #059669; stroke-width: 2; fill: #059669; }
+      .cluster-box { fill: #ddd6fe; stroke: #8b5cf6; stroke-width: 2; }
+      .annotation-box { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+      .method-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">细胞类型注释流程</text>
+  
+  <!-- 第一步：聚类结果 -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="150" height="120" class="cluster-box" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="step-text">聚类结果</text>
+    
+    <!-- 聚类示意图 -->
+    <circle cx="40" cy="50" r="8" fill="#ef4444" opacity="0.7"/>
+    <text x="40" y="70" text-anchor="middle" class="gene-text">Cluster 0</text>
+    
+    <circle cx="75" cy="50" r="8" fill="#3b82f6" opacity="0.7"/>
+    <text x="75" y="70" text-anchor="middle" class="gene-text">Cluster 1</text>
+    
+    <circle cx="110" cy="50" r="8" fill="#10b981" opacity="0.7"/>
+    <text x="110" y="70" text-anchor="middle" class="gene-text">Cluster 2</text>
+    
+    <text x="75" y="90" text-anchor="middle" class="desc-text">未知细胞群</text>
+    <text x="75" y="105" text-anchor="middle" class="desc-text">需要注释</text>
+  </g>
+  
+  <!-- 箭头1 -->
+  <line x1="200" y1="120" x2="240" y2="120" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 第二步：标记基因识别 -->
+  <g transform="translate(250, 60)">
+    <rect x="0" y="0" width="150" height="120" class="method-box" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="step-text">标记基因识别</text>
+    
+    <text x="10" y="40" class="desc-text">差异表达分析：</text>
+    <text x="10" y="55" class="gene-text">• Wilcoxon检验</text>
+    <text x="10" y="68" class="gene-text">• MAST算法</text>
+    <text x="10" y="81" class="gene-text">• DESeq2方法</text>
+    
+    <text x="10" y="100" class="desc-text">筛选标准：</text>
+    <text x="10" y="115" class="gene-text">• log2FC &gt; 0.25, p &lt; 0.05</text>
+  </g>
+  
+  <!-- 箭头2 -->
+  <line x1="400" y1="120" x2="440" y2="120" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 第三步：文献查证 -->
+  <g transform="translate(450, 60)">
+    <rect x="0" y="0" width="150" height="120" class="method-box" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="step-text">文献查证</text>
+    
+    <text x="10" y="40" class="desc-text">数据库查询：</text>
+    <text x="10" y="55" class="gene-text">• CellMarker</text>
+    <text x="10" y="68" class="gene-text">• PanglaoDB</text>
+    <text x="10" y="81" class="gene-text">• Human Cell Atlas</text>
+    
+    <text x="10" y="100" class="desc-text">文献调研：</text>
+    <text x="10" y="115" class="gene-text">• PubMed搜索</text>
+  </g>
+  
+  <!-- 箭头3 -->
+  <line x1="600" y1="120" x2="640" y2="120" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 第四步：自动注释 -->
+  <g transform="translate(650, 60)">
+    <rect x="0" y="0" width="150" height="120" class="method-box" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="step-text">自动注释工具</text>
+    
+    <text x="10" y="40" class="desc-text">推荐工具：</text>
+    <text x="10" y="55" class="gene-text">• SingleR</text>
+    <text x="10" y="68" class="gene-text">• CellTypist</text>
+    <text x="10" y="81" class="gene-text">• Azimuth</text>
+    
+    <text x="10" y="100" class="desc-text">参考数据库：</text>
+    <text x="10" y="115" class="gene-text">• Human Primary Cell Atlas</text>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <line x1="450" y1="180" x2="450" y2="220" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 注释结果展示 -->
+  <g transform="translate(50, 230)">
+    <rect x="0" y="0" width="800" height="200" fill="#f0f9ff" stroke="#0ea5e9" rx="10"/>
+    <text x="400" y="25" text-anchor="middle" class="step-text" fill="#0ea5e9">细胞类型注释示例</text>
+    
+    <!-- Cluster 0 -->
+    <g transform="translate(50, 50)">
+      <rect x="0" y="0" width="200" height="130" class="annotation-box" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" class="step-text">Cluster 0 → T细胞</text>
+      
+      <text x="10" y="40" class="desc-text">标记基因：</text>
+      <text x="10" y="55" class="gene-text">• CD3D (CD3 delta)</text>
+      <text x="10" y="68" class="gene-text">• CD3E (CD3 epsilon)</text>
+      <text x="10" y="81" class="gene-text">• CD2 (T cell marker)</text>
+      
+      <text x="10" y="100" class="desc-text">功能：</text>
+      <text x="10" y="115" class="gene-text">• 适应性免疫</text>
+      <text x="10" y="128" class="gene-text">• 细胞毒性/辅助功能</text>
+    </g>
+    
+    <!-- Cluster 1 -->
+    <g transform="translate(300, 50)">
+      <rect x="0" y="0" width="200" height="130" class="annotation-box" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" class="step-text">Cluster 1 → B细胞</text>
+      
+      <text x="10" y="40" class="desc-text">标记基因：</text>
+      <text x="10" y="55" class="gene-text">• CD19 (B cell marker)</text>
+      <text x="10" y="68" class="gene-text">• MS4A1 (CD20)</text>
+      <text x="10" y="81" class="gene-text">• CD79A (Ig-alpha)</text>
+      
+      <text x="10" y="100" class="desc-text">功能：</text>
+      <text x="10" y="115" class="gene-text">• 抗体产生</text>
+      <text x="10" y="128" class="gene-text">• 体液免疫</text>
+    </g>
+    
+    <!-- Cluster 2 -->
+    <g transform="translate(550, 50)">
+      <rect x="0" y="0" width="200" height="130" class="annotation-box" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" class="step-text">Cluster 2 → 单核细胞</text>
+      
+      <text x="10" y="40" class="desc-text">标记基因：</text>
+      <text x="10" y="55" class="gene-text">• CD14 (LPS receptor)</text>
+      <text x="10" y="68" class="gene-text">• FCGR3A (CD16)</text>
+      <text x="10" y="81" class="gene-text">• LYZ (Lysozyme)</text>
+      
+      <text x="10" y="100" class="desc-text">功能：</text>
+      <text x="10" y="115" class="gene-text">• 先天免疫</text>
+      <text x="10" y="128" class="gene-text">• 吞噬作用</text>
+    </g>
+  </g>
+  
+  <!-- 注释质量评估 -->
+  <g transform="translate(50, 450)">
+    <rect x="0" y="0" width="800" height="120" fill="#fef7ed" stroke="#f97316" rx="10"/>
+    <text x="400" y="25" text-anchor="middle" class="step-text" fill="#ea580c">注释质量评估</text>
+    
+    <!-- 第一列 -->
+    <g transform="translate(30, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">一致性检查</text>
+      <text x="0" y="20" class="desc-text">• 标记基因表达一致性</text>
+      <text x="0" y="35" class="desc-text">• 多种方法结果对比</text>
+      <text x="0" y="50" class="desc-text">• 生物学合理性评估</text>
+      <text x="0" y="65" class="desc-text">• 细胞比例合理性</text>
+    </g>
+    
+    <!-- 第二列 -->
+    <g transform="translate(280, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">验证方法</text>
+      <text x="0" y="20" class="desc-text">• 已知标记基因验证</text>
+      <text x="0" y="35" class="desc-text">• 功能富集分析</text>
+      <text x="0" y="50" class="desc-text">• 与已发表数据对比</text>
+      <text x="0" y="65" class="desc-text">• 实验验证（如FACS）</text>
+    </g>
+    
+    <!-- 第三列 -->
+    <g transform="translate(530, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">常见问题</text>
+      <text x="0" y="20" class="desc-text">• 过度细分：合并相似聚类</text>
+      <text x="0" y="35" class="desc-text">• 标记基因不明确</text>
+      <text x="0" y="50" class="desc-text">• 混合细胞类型</text>
+      <text x="0" y="65" class="desc-text">• 技术批次效应</text>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="590" text-anchor="middle" class="desc-text">
+    细胞类型注释需要结合多种证据，包括标记基因、功能分析和生物学知识
+  </text>
+</svg>

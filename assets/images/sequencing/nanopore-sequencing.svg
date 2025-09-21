@@ -2,9 +2,9 @@
 <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .title-text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #333; }
-      .step-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
-      .label-text { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #333; }
+      .step-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; fill: #333; }
+      .label-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #666; }
       .dna-strand { stroke: #2196F3; stroke-width: 4; fill: none; }
       .nanopore { fill: #FF6B35; stroke: #D84315; stroke-width: 2; }
       .membrane { fill: #E0E0E0; stroke: #333; stroke-width: 2; }

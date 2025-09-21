@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 
@@ -50,6 +50,9 @@ Linux系统基础课程幻灯片
 <!-- _class: content -->
 # Linux系统概述
 
+<div class="columns">
+<div class="column">
+
 ## 什么是Linux？
 
 - **开源操作系统**：基于Unix的自由软件
@@ -57,16 +60,18 @@ Linux系统基础课程幻灯片
 - **稳定可靠**：广泛应用于服务器和科学计算
 - **命令行界面**：强大的文本界面操作
 
----
+</div>
+<div class="column">
 
-<!-- _class: content -->
-# Linux系统特点
 ## 为什么生物信息学需要Linux？
 
 - 大多数生物信息学软件运行在Linux上
 - 强大的文本处理能力
 - 高效的批处理和自动化
 - 丰富的开源工具生态
+
+</div>
+</div>
 
 ---
 
@@ -83,9 +88,6 @@ Linux系统基础课程幻灯片
 - **Fedora**：新技术，更新频繁
 
 </div>
-
----
-
 <div class="column">
 
 ## 生物信息学推荐
@@ -102,6 +104,9 @@ Linux系统基础课程幻灯片
 <!-- _class: content -->
 # Linux系统架构
 
+<div class="columns">
+<div class="column">
+
 ## 系统层次结构
 
 - **内核（Kernel）**：系统核心，管理硬件资源
@@ -109,10 +114,9 @@ Linux系统基础课程幻灯片
 - **文件系统**：数据存储和组织方式
 - **应用程序**：用户使用的各种软件
 
----
+</div>
+<div class="column">
 
-<!-- _class: content -->
-# Linux系统架构
 ## 文件系统层次标准（FHS）
 
 - `/`：根目录，所有文件的起点
@@ -120,6 +124,9 @@ Linux系统基础课程幻灯片
 - `/usr`：用户程序和数据
 - `/var`：变量数据文件
 - `/tmp`：临时文件
+
+</div>
+</div>
 
 ---
 
@@ -132,9 +139,6 @@ Linux系统基础课程幻灯片
 - **命令提示符**：显示当前用户和路径信息
 - **命令格式**：`命令 [选项] [参数]`
 
----
-
-<!-- _class: content -->    
 ## 基本命令结构
 
 ```bash
@@ -172,18 +176,14 @@ cd -           # 上次访问的目录
 <!-- _class: code -->
 # 文件和目录操作
 
+<div class="columns">
+<div class="column">
+
 ```bash
 # 显示目录树结构
 tree
 tree -L 2      # 只显示2级深度
 ```
-
----
-
-<!-- _class: content -->
-# 文件和目录操作
-
-## 创建操作
 
 ```bash
 # 创建目录
@@ -195,7 +195,8 @@ touch filename.txt
 echo "content" > filename.txt
 ```
 
----
+</div>
+<div class="column">
 
 ## 复制和移动
 
@@ -233,16 +234,17 @@ vim filename.txt              # 高级编辑器
 <!-- _class: content -->
 # 文件权限管理
 
+<div class="columns">
+<div class="column">
+
 ## 权限概念
 
 - **用户类型**：所有者(u)、组(g)、其他(o)
 - **权限类型**：读(r)、写(w)、执行(x)
 - **权限表示**：数字(755)或字符(rwxr-xr-x)
 
----
-
-<!-- _class: code -->
-# 文件权限管理
+</div>
+<div class="column">
 
 ## 权限操作
 
@@ -258,6 +260,9 @@ chmod -R 644 directory/       # 递归修改
 # 修改所有者
 chown user:group filename.txt
 ```
+
+</div>
+</div>
 
 ---
 
@@ -282,9 +287,6 @@ sort file.txt | uniq          # 排序后去重
 ```
 
 </div>
-
----
-
 <div class="column">
 
 ## 高级处理
@@ -310,6 +312,9 @@ awk '{print $1, $3}' file.txt # 打印特定列
 <!-- _class: content -->
 # 管道和重定向
 
+<div class="columns">
+<div class="column">
+
 ## 重定向操作
 
 ```bash
@@ -323,9 +328,9 @@ command > output.txt 2>&1     # 合并输出和错误
 command < input.txt
 ```
 
----
+</div>
+<div class="column">
 
-<!-- _class: code -->
 ## 管道操作
 
 ```bash
@@ -334,6 +339,9 @@ ls -l | grep ".txt"           # 列出txt文件
 cat file.txt | sort | uniq    # 排序去重
 ps aux | grep python          # 查找Python进程
 ```
+
+</div>
+</div>
 
 ---
 
@@ -584,14 +592,7 @@ echo "目录结构创建完成"
 - 进程管理和系统监控
 - 脚本编写基础
 
----
-
-## 下次课程预告
-- Python编程基础
-- 数据结构和算法
-- 生物信息学Python库介绍
-
-**作业/练习：**
+## **作业/练习：**
 - 完成Linux基础操作练习
 - 编写简单的文件处理脚本
 

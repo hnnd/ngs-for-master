@@ -116,7 +116,7 @@ fastqc -t 4 -o results/fastqc_raw/ data/*.fastq.gz
 
 # 检查生成的报告文件
 ls -la results/fastqc_raw/
-```
+```bash
 
 **参数解释：**
 - `-t 4`：使用4个线程并行处理，提高分析速度
@@ -178,7 +178,7 @@ multiqc -o results/multiqc/ results/fastqc_raw/
 
 # 检查生成的报告
 ls -la results/multiqc/
-```
+```bash
 
 **参数解释：**
 - `-o results/multiqc/`：指定输出目录
@@ -470,7 +470,7 @@ bash scripts/batch_qc.sh data results_batch
 
 # 检查处理结果
 ls -la results_batch/
-```
+```bash
 
 **检查点：** 脚本应该能够成功处理所有数据文件，生成完整的质量控制报告。
 
@@ -563,7 +563,7 @@ trimmomatic PE -threads 4 -phred33 \
     LEADING:2 TRAILING:2 \
     SLIDINGWINDOW:4:10 \
     MINLEN:30
-```
+```bash
 
 ### 获取帮助
 如果遇到其他问题：

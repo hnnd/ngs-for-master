@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .method-title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #4b5563; }
+      .axis-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 9px; fill: #6b7280; }
+      .cell-type1 { fill: #ef4444; opacity: 0.7; }
+      .cell-type2 { fill: #3b82f6; opacity: 0.7; }
+      .cell-type3 { fill: #10b981; opacity: 0.7; }
+      .cell-type4 { fill: #f59e0b; opacity: 0.7; }
+      .cell-type5 { fill: #8b5cf6; opacity: 0.7; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">降维分析方法比较</text>
+  
+  <!-- PCA -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="200" height="180" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">PCA (主成分分析)</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="150" x2="170" y2="150" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="150" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- 数据点 - 线性分布 -->
+    <circle cx="50" cy="130" r="3" class="cell-type1"/>
+    <circle cx="60" cy="120" r="3" class="cell-type1"/>
+    <circle cx="70" cy="110" r="3" class="cell-type1"/>
+    <circle cx="80" cy="100" r="3" class="cell-type2"/>
+    <circle cx="90" cy="90" r="3" class="cell-type2"/>
+    <circle cx="100" cy="80" r="3" class="cell-type2"/>
+    <circle cx="110" cy="70" r="3" class="cell-type3"/>
+    <circle cx="120" cy="60" r="3" class="cell-type3"/>
+    <circle cx="130" cy="50" r="3" class="cell-type3"/>
+    
+    <text x="100" y="170" text-anchor="middle" class="desc-text">线性降维，保持全局结构</text>
+  </g>
+  
+  <!-- t-SNE -->
+  <g transform="translate(300, 60)">
+    <rect x="0" y="0" width="200" height="180" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">t-SNE</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="150" x2="170" y2="150" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="150" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- 数据点 - 聚类分布 -->
+    <!-- 聚类1 -->
+    <circle cx="60" cy="60" r="3" class="cell-type1"/>
+    <circle cx="65" cy="55" r="3" class="cell-type1"/>
+    <circle cx="55" cy="65" r="3" class="cell-type1"/>
+    <circle cx="70" cy="60" r="3" class="cell-type1"/>
+    
+    <!-- 聚类2 -->
+    <circle cx="120" cy="80" r="3" class="cell-type2"/>
+    <circle cx="125" cy="75" r="3" class="cell-type2"/>
+    <circle cx="115" cy="85" r="3" class="cell-type2"/>
+    <circle cx="130" cy="80" r="3" class="cell-type2"/>
+    
+    <!-- 聚类3 -->
+    <circle cx="90" cy="120" r="3" class="cell-type3"/>
+    <circle cx="95" cy="115" r="3" class="cell-type3"/>
+    <circle cx="85" cy="125" r="3" class="cell-type3"/>
+    <circle cx="100" cy="120" r="3" class="cell-type3"/>
+    
+    <text x="100" y="170" text-anchor="middle" class="desc-text">非线性，强调局部结构</text>
+  </g>
+  
+  <!-- UMAP -->
+  <g transform="translate(550, 60)">
+    <rect x="0" y="0" width="200" height="180" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">UMAP</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="150" x2="170" y2="150" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="150" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- 数据点 - 平衡分布 -->
+    <!-- 聚类1 -->
+    <circle cx="70" cy="70" r="3" class="cell-type1"/>
+    <circle cx="75" cy="65" r="3" class="cell-type1"/>
+    <circle cx="65" cy="75" r="3" class="cell-type1"/>
+    
+    <!-- 聚类2 -->
+    <circle cx="130" cy="60" r="3" class="cell-type2"/>
+    <circle cx="135" cy="55" r="3" class="cell-type2"/>
+    <circle cx="125" cy="65" r="3" class="cell-type2"/>
+    
+    <!-- 聚类3 -->
+    <circle cx="50" cy="110" r="3" class="cell-type3"/>
+    <circle cx="55" cy="105" r="3" class="cell-type3"/>
+    <circle cx="45" cy="115" r="3" class="cell-type3"/>
+    
+    <!-- 聚类4 -->
+    <circle cx="140" cy="120" r="3" class="cell-type4"/>
+    <circle cx="145" cy="115" r="3" class="cell-type4"/>
+    <circle cx="135" cy="125" r="3" class="cell-type4"/>
+    
+    <!-- 连接线显示全局结构 -->
+    <line x1="70" y1="70" x2="130" y2="60" stroke="#9ca3af" stroke-width="1" opacity="0.5"/>
+    <line x1="130" y1="60" x2="140" y2="120" stroke="#9ca3af" stroke-width="1" opacity="0.5"/>
+    
+    <text x="100" y="170" text-anchor="middle" class="desc-text">平衡局部和全局结构</text>
+  </g>
+  
+  <!-- 方法比较表 -->
+  <g transform="translate(50, 280)">
+    <rect x="0" y="0" width="700" height="180" fill="#f0f9ff" stroke="#0ea5e9" rx="10"/>
+    <text x="350" y="25" text-anchor="middle" class="method-title" fill="#0ea5e9">降维方法详细比较</text>
+    
+    <!-- 表头 -->
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" class="method-title">方法</text>
+      <text x="80" y="0" class="method-title">类型</text>
+      <text x="150" y="0" class="method-title">优点</text>
+      <text x="350" y="0" class="method-title">缺点</text>
+      <text x="550" y="0" class="method-title">适用场景</text>
+    </g>
+    
+    <!-- PCA行 -->
+    <g transform="translate(20, 75)">
+      <text x="0" y="0" class="desc-text" fill="#dc2626">PCA</text>
+      <text x="80" y="0" class="desc-text">线性</text>
+      <text x="150" y="0" class="desc-text">• 快速计算</text>
+      <text x="150" y="15" class="desc-text">• 保持全局结构</text>
+      <text x="150" y="30" class="desc-text">• 可解释性强</text>
+      <text x="350" y="0" class="desc-text">• 无法处理非线性</text>
+      <text x="350" y="15" class="desc-text">• 可能丢失局部信息</text>
+      <text x="550" y="0" class="desc-text">• 初步探索</text>
+      <text x="550" y="15" class="desc-text">• 大数据集</text>
+      <text x="550" y="30" class="desc-text">• 聚类前处理</text>
+    </g>
+    
+    <!-- t-SNE行 -->
+    <g transform="translate(20, 115)">
+      <text x="0" y="0" class="desc-text" fill="#3b82f6">t-SNE</text>
+      <text x="80" y="0" class="desc-text">非线性</text>
+      <text x="150" y="0" class="desc-text">• 聚类效果好</text>
+      <text x="150" y="15" class="desc-text">• 局部结构清晰</text>
+      <text x="150" y="30" class="desc-text">• 可视化效果佳</text>
+      <text x="350" y="0" class="desc-text">• 计算时间长</text>
+      <text x="350" y="15" class="desc-text">• 参数敏感</text>
+      <text x="350" y="30" class="desc-text">• 距离不可信</text>
+      <text x="550" y="0" class="desc-text">• 可视化</text>
+      <text x="550" y="15" class="desc-text">• 聚类展示</text>
+      <text x="550" y="30" class="desc-text">• 小数据集</text>
+    </g>
+    
+    <!-- UMAP行 -->
+    <g transform="translate(20, 155)">
+      <text x="0" y="0" class="desc-text" fill="#10b981">UMAP</text>
+      <text x="80" y="0" class="desc-text">非线性</text>
+      <text x="150" y="0" class="desc-text">• 速度快</text>
+      <text x="150" y="15" class="desc-text">• 保持全局结构</text>
+      <text x="150" y="30" class="desc-text">• 参数稳定</text>
+      <text x="350" y="0" class="desc-text">• 相对较新</text>
+      <text x="350" y="15" class="desc-text">• 理论复杂</text>
+      <text x="550" y="0" class="desc-text">• 推荐首选</text>
+      <text x="550" y="15" class="desc-text">• 大数据集</text>
+      <text x="550" y="30" class="desc-text">• 轨迹分析</text>
+    </g>
+  </g>
+  
+  <!-- 参数建议 -->
+  <g transform="translate(800, 280)">
+    <rect x="0" y="0" width="180" height="180" fill="#fef7ed" stroke="#f97316" rx="5"/>
+    <text x="90" y="20" text-anchor="middle" class="method-title" fill="#ea580c">参数建议</text>
+    
+    <text x="10" y="45" class="desc-text" fill="#dc2626">PCA参数：</text>
+    <text x="10" y="60" class="desc-text">• n_components: 50</text>
+    <text x="10" y="75" class="desc-text">• 肘部法则选择</text>
+    
+    <text x="10" y="100" class="desc-text" fill="#3b82f6">t-SNE参数：</text>
+    <text x="10" y="115" class="desc-text">• perplexity: 30</text>
+    <text x="10" y="130" class="desc-text">• learning_rate: 200</text>
+    
+    <text x="10" y="155" class="desc-text" fill="#10b981">UMAP参数：</text>
+    <text x="10" y="170" class="desc-text">• n_neighbors: 15</text>
+    <text x="10" y="185" class="desc-text">• min_dist: 0.1</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="490" text-anchor="middle" class="desc-text">
+    选择降维方法时需要考虑数据规模、计算资源、分析目的和可视化需求
+  </text>
+</svg>

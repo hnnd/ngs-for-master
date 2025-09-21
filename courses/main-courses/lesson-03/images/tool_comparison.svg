@@ -2,10 +2,10 @@
 <svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
-      .subtitle { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
-      .text { font-family: Arial, sans-serif; font-size: 12px; }
-      .small-text { font-family: Arial, sans-serif; font-size: 10px; }
+      .title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; }
+      .subtitle { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; }
+      .small-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; }
       .bwa-box { fill: #e8f4fd; stroke: #1f77b4; stroke-width: 2; }
       .bowtie-box { fill: #fff2cc; stroke: #d6b656; stroke-width: 2; }
       .star-box { fill: #f0f8e8; stroke: #2ca02c; stroke-width: 2; }

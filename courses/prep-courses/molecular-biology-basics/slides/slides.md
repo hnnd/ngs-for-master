@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!--
@@ -24,7 +24,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 **联系邮箱：** wangys@hunau.edu.cn
 **办公室：** 16教420室
 **上课地点：** 105机房
-**课程时长：** 4小时
 
 ---
 
@@ -40,7 +39,7 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ---
 
-**学习目标：**
+# 学习目标
 - 掌握DNA、RNA、蛋白质的基本结构和功能
 - 理解中心法则及其在生物信息学中的意义
 - 了解基因组结构和基因调控的基本概念
@@ -50,7 +49,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 <!-- _class: content -->
 # 第一部分：DNA结构与复制
-## 时长：60分钟
+
+<div class="columns">
+<div class="column">
 
 ### DNA的基本结构
 - 核苷酸组成：磷酸基团、五碳糖、含氮碱基
@@ -58,13 +59,17 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 碱基配对规则：A-T, G-C
 - 双螺旋结构：Watson-Crick模型
 
----
+</div>
+<div class="column">
 
 ### DNA复制机制
 - 半保留复制
 - 复制的方向性：5'→3'
 - 前导链与滞后链
 - 冈崎片段
+
+</div>
+</div>
 
 ---
 
@@ -88,9 +93,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 每圈10个碱基对
 
 </div>
-
----
-
 <div class="column">
 
 ## 生物信息学意义
@@ -108,25 +110,34 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 <!-- _class: content -->
 # DNA复制与测序技术的关系
 
+<div class="columns">
+<div class="column">
+
 ## 复制机制的重要概念
 - **模板导向合成**：测序技术的基础原理
 - **DNA聚合酶**：边合成边测序技术
 - **引物**：测序反应的起始点
 - **5'→3'方向性**：决定测序方向
 
----
-# DNA复制与测序技术的关系
+</div>
+<div class="column">
+
 ## 在NGS中的应用
 - 扩增子测序中的PCR原理
 - 文库制备过程中的DNA复制
 - 桥式PCR扩增
 - 测序化学反应原理
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 第二部分：RNA与转录
-## 时长：60分钟
+
+<div class="columns">
+<div class="column">
 
 ### RNA的基本结构
 - 核糖核酸的组成
@@ -134,13 +145,17 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 单链结构但可形成二级结构
 - RNA的种类：mRNA、tRNA、rRNA、ncRNA
 
----
-## 转录
+</div>
+<div class="column">
+
 ### 转录过程
 - RNA聚合酶的作用
 - 启动子识别与结合
 - 转录起始、延伸和终止
 - 转录后修饰
+
+</div>
+</div>
 
 ---
 
@@ -163,9 +178,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 3'多聚A尾
 
 </div>
-
----
-
 <div class="column">
 
 ## 转录后修饰
@@ -183,13 +195,17 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 <!-- _class: content -->
 # RNA-seq数据分析的分子基础
 
+<div class="columns">
+<div class="column">
+
 ## 转录组的复杂性
 - **多种RNA类型**：mRNA、lncRNA、miRNA、circRNA
 - **选择性剪切**：同一基因产生多个转录本
 - **转录本长度变化**：不同剪切模式
 - **表达量差异**：组织和时期特异性
 
----
+</div>
+<div class="column">
 
 ## 对数据分析的影响
 - 参考基因组vs参考转录组
@@ -197,11 +213,16 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 新转录本的发现
 - 差异表达分析的生物学意义
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 第三部分：蛋白质与翻译
-## 时长：60分钟
+
+<div class="columns">
+<div class="column">
 
 ### 蛋白质结构层次
 - 一级结构：氨基酸序列
@@ -209,7 +230,8 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 三级结构：空间折叠
 - 四级结构：多亚基组装
 
----
+</div>
+<div class="column">
 
 ## 蛋白质与翻译
 ### 翻译过程
@@ -217,6 +239,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - 起始密码子和终止密码子
 - 核糖体的作用
 - tRNA的功能
+
+</div>
+</div>
 
 ---
 
@@ -234,17 +259,25 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 DNA → RNA → 蛋白质
 复制   转录   翻译
 ```
+<div class="columns">
+<div class="column">
 
 ## 中心法则的扩展
 - 逆转录：RNA → DNA
 - RNA复制：RNA → RNA
 - 直接翻译：某些病毒
 
+</div>
+<div class="column">
+
 ## 在生物信息学中的意义
 - 序列注释的层次
 - 功能预测的基础
 - 进化分析的框架
 - 数据库组织的原则
+
+</div>
+</div>
 
 ---
 
@@ -268,20 +301,26 @@ DNA → RNA → 蛋白质
 <!-- _class: content -->
 # 第四部分：基因组结构与组织
 
+<div class="columns">
+<div class="column">
+
 ### 基因的结构
 - 外显子与内含子
 - 5'UTR和3'UTR
 - 调控序列：启动子、增强子、沉默子
 - 重复序列和转座元件
 
----
+</div>
+<div class="column">
 
-# 基因组结构与组织
 ### 基因组的层次结构
 - 核苷酸水平
 - 基因水平
 - 染色体水平
 - 基因组水平
+
+</div>
+</div>
 
 ---
 
@@ -294,6 +333,9 @@ DNA → RNA → 蛋白质
 <!-- _class: multi-column -->
 # 真核基因组的复杂性
 
+<div class="columns">
+<div class="column">
+
 ## 序列特征
 - 基因间区域广阔
 - 内含子普遍存在
@@ -301,7 +343,8 @@ DNA → RNA → 蛋白质
 - 假基因的存在
 - 基因家族聚集
 
----
+</div>
+<div class="column">
 
 ## 调控元件
 - 顺式调控元件
@@ -310,18 +353,24 @@ DNA → RNA → 蛋白质
 - 染色质结构
 - 三维基因组组织
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 基因组注释的生物学基础
+
+<div class="columns">
+<div class="column">
 
 ## 注释的层次
 1. **序列特征**：重复序列、低复杂度区域
 2. **基因预测**：编码序列、非编码RNA
 3. **功能注释**：GO注释、通路分析
 4. **比较注释**：同源基因、进化关系
-
----
+</div>
+<div class="column">
 
 ## 注释质量的影响因素
 - 实验证据的完整性
@@ -329,25 +378,40 @@ DNA → RNA → 蛋白质
 - 物种特异性特征
 - 注释版本的更新
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 第五部分：生物信息学中的分子生物学概念
+
+<div class="columns">
+<div class="column">
 
 ### 序列同源性
 - 同源(Homology)vs相似性(Similarity)
 - 直系同源(Ortholog)vs旁系同源(Paralog)
 - 进化关系的推断
 
+</div>
+<div class="column">
+
 ### 保守性与变异
 - 保守序列的功能意义
 - 同义突变vs非同义突变
 - 结构域的保守性
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 分子进化的基本概念
+
+<div class="columns">
+<div class="column">
 
 ## 进化的分子机制
 - **点突变**：转换与颠换
@@ -355,7 +419,8 @@ DNA → RNA → 蛋白质
 - **重排**：染色体水平的变化
 - **基因重复**：基因家族的形成
 
----
+</div>
+<div class="column">
 
 ## 选择压力的类型
 - 纯化选择：保守功能
@@ -363,10 +428,16 @@ DNA → RNA → 蛋白质
 - 平衡选择：维持多样性
 - 遗传漂变：中性进化
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 生物信息学数据格式的分子基础
+
+<div class="columns">
+<div class="column">
 
 ## FASTA格式
 ```
@@ -377,7 +448,8 @@ ATCGATCGATCG...
 - 核酸序列的表示
 - 蛋白质序列的表示
 
----
+</div>
+<div class="column">
 
 ## FASTQ格式
 ```
@@ -389,27 +461,38 @@ IIIIIIIIIIII...
 - 质量分数的含义
 - Phred质量评分系统
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 第六部分：测序技术的分子生物学基础
-## 时长：30分钟
+
+<div class="columns">
+<div class="column">
 
 ### 测序反应的化学原理
 - 链终止法(Sanger测序)
 - 边合成边测序技术
 - 单分子测序原理
 
+</div>
+<div class="column">
+
 ### 文库制备的生物学基础
 - DNA片段化：物理vs酶切
 - 接头连接：T4连接酶反应
 - PCR扩增：指数增长原理
 
+</div>
+</div>
+
 ---
 
 <!-- _class: image -->
 
-![测序技术原理图](../assets/sequencing-principle.svg)
+<img src="../assets/sequencing-principle.svg" alt="测序技术原理图" width="80%" style="max-height: 400px; margin: 15px auto; display: block;">
 
 ---
 

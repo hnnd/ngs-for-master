@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 
@@ -30,17 +30,14 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 # 本次课程内容
 
 1. **转录组测序技术概述**
-2. **RNA-seq实验设计原理**
 3. **转录组数据预处理**
 4. **序列比对与基因定量**
 5. **差异表达分析方法**
-6. **功能富集分析**
-7. **结果可视化与解读**
-8. **实践操作演示**
+6. **其他分析**
 
 ---
 
-**学习目标：**
+# 学习目标
 - 掌握RNA-seq实验设计原理和关键考虑因素
 - 理解转录组数据分析的完整流程
 - 学会使用主流工具进行差异表达分析
@@ -57,7 +54,7 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **第三代技术**：RNA-seq - 全转录组无偏检测
 - **第四代技术**：单细胞RNA-seq - 细胞异质性分析
 
-![转录组技术发展时间线](../images/rnaseq_timeline.svg)
+<img src="../images/rnaseq_timeline.svg" alt="转录组技术发展时间线" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -91,7 +88,7 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ---
 
-![RNA-seq实验流程](../images/rnaseq_workflow.svg)
+<img src="../images/rnaseq_workflow.svg" alt="RNA-seq实验流程" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -100,15 +97,24 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ## 样本设计
 
+<div class="columns">
+<div class="column">
+
 ### 生物学重复
 - **最少3个生物学重复**
 - 技术重复通常不必要
 - 重复数量影响统计检验力
 
+</div>
+<div class="column">
+
 ### 样本收集
 - **时间点选择**：考虑生物学过程时间尺度
 - **样本保存**：液氮冷冻或RNA保护剂
 - **批次效应**：随机化样本处理顺序
+
+</div>
+</div>
 
 ---
 
@@ -125,9 +131,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **单细胞RNA-seq**：1-10M reads
 
 </div>
-
----
-
 <div class="column">
 
 ## 影响因素
@@ -151,15 +154,24 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ## 技术原理
 
+<div class="columns">
+<div class="column">
+
 ### 非链特异性测序
 - 无法区分正义链和反义链
 - 反义转录本可能被误判
 - 基因重叠区域定量不准确
 
+</div>
+<div class="column">
+
 ### 链特异性测序
 - 保留原始链信息
 - 准确定量反义转录本
 - 提高基因注释准确性
+
+</div>
+</div>
 
 ---
 
@@ -238,7 +250,7 @@ trimmomatic PE -threads 8 \
 
 ---
 
-![比对工具性能比较](../images/alignment_tools_comparison.svg)
+<img src="../images/alignment_tools_comparison.svg" alt="比对工具性能比较" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -254,6 +266,8 @@ wget ftp://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/Homo_sapiens.GRCh38.
 # 建立HISAT2索引
 hisat2-build Homo_sapiens.GRCh38.dna.primary_assembly.fa genome_index
 ```
+
+---
 
 ## 序列比对
 ```bash
@@ -273,17 +287,24 @@ hisat2 -x genome_index \
 
 ## 定量策略分类
 
+<div class="columns">
+<div class="column">
+
 ### 基于比对的方法
 - **HTSeq-count**：经典计数工具
 - **featureCounts**：快速、准确
 - **RSEM**：处理多重比对
 
----
+</div>
+<div class="column">
 
 ### 无比对方法
 - **Salmon**：快速伪比对
 - **Kallisto**：k-mer匹配
 - **Sailfish**：Salmon前身
+
+</div>
+</div>
 
 ---
 
@@ -304,9 +325,6 @@ hisat2 -x genome_index \
 - **TMM**：Trimmed Mean of M-values
 
 </div>
-
----
-
 <div class="column">
 
 ## 选择原则
@@ -320,12 +338,15 @@ hisat2 -x genome_index \
 
 ---
 
-![标准化方法效果](../images/normalization_comparison.svg)
+<img src="../images/normalization_comparison.svg" alt="标准化方法效果" width="90%" style="max-height: 500px;">
 
 ---
 
 <!-- _class: code -->
 # featureCounts基因定量
+
+<div class="columns">
+<div class="column">
 
 ## 基本用法
 ```bash
@@ -339,7 +360,8 @@ featureCounts -a annotation.gtf \
   sample1.bam sample2.bam sample3.bam
 ```
 
----
+</div>
+<div class="column">
 
 ## 参数说明
 - `-a`：基因注释文件（GTF/GFF格式）
@@ -349,6 +371,9 @@ featureCounts -a annotation.gtf \
 - `-B`：只计算正确配对的reads
 - `-C`：不计算嵌合reads
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
@@ -356,17 +381,24 @@ featureCounts -a annotation.gtf \
 
 ## 统计学基础
 
+<div class="columns">
+<div class="column">
+
 ### 负二项分布模型
 - RNA-seq数据符合负二项分布
 - 考虑生物学变异和技术变异
 - 处理过度离散问题
 
----
+</div>
+<div class="column">
 
 ### 假设检验
 - **零假设**：基因在两组间无差异表达
 - **备择假设**：基因存在差异表达
 - **检验统计量**：Wald检验、似然比检验
+
+</div>
+</div>
 
 ---
 
@@ -420,6 +452,9 @@ res <- results(dds)
 <!-- _class: content -->
 # 多重检验校正
 
+<div class="columns">
+<div class="column">
+
 ## 问题描述
 - 同时检验数万个基因
 - 假阳性率急剧增加
@@ -430,11 +465,15 @@ res <- results(dds)
 - **FDR控制**：Benjamini-Hochberg方法
 - **q-value**：考虑检验统计量分布
 
----
+</div>
+<div class="column">
 
 ### 阈值设定
 - **|log2FC| > 1**：表达倍数大于2倍
 - **padj < 0.05**：校正后p值小于0.05
+
+</div>
+</div>
 
 ---
 
@@ -447,22 +486,29 @@ res <- results(dds)
 
 ## 主要图表类型
 
+<div class="columns">
+<div class="column">
+
 ### MA图（M-A plot）
 - **M轴**：log2倍数变化
 - **A轴**：平均表达量
 - 显示差异基因分布
-
----
 
 ### 火山图（Volcano plot）
 - **X轴**：log2倍数变化
 - **Y轴**：-log10(p值)
 - 同时显示显著性和倍数变化
 
+</div>
+<div class="column">
+
 ### 热图（Heatmap）
 - 显示差异基因表达模式
 - 样本聚类分析
 - 基因功能聚类
+
+</div>
+</div>
 
 ---
 
@@ -506,12 +552,13 @@ pheatmap(assay(vsd)[select,], cluster_rows=FALSE,
 <!-- _class: content -->
 # 功能富集分析
 
+<div class="columns">
+<div class="column">
+
 ## 分析目的
 - 理解差异基因的生物学意义
 - 识别受影响的生物学通路
 - 发现潜在的调控机制
-
----
 
 ## 主要数据库
 - **GO**：Gene Ontology - 基因功能注释
@@ -519,10 +566,16 @@ pheatmap(assay(vsd)[select,], cluster_rows=FALSE,
 - **Reactome**：反应通路数据库
 - **MSigDB**：分子标签数据库
 
+</div>
+<div class="column">
+
 ### 分析方法
 - **过表征分析**：Fisher精确检验
 - **基因集富集分析**：GSEA
 - **通路拓扑分析**：考虑基因间关系
+
+</div>
+</div>
 
 ---
 
@@ -544,9 +597,6 @@ pheatmap(assay(vsd)[select,], cluster_rows=FALSE,
   - 如细胞核、线粒体
 
 </div>
-
----
-
 <div class="column">
 
 ## 层次结构
@@ -595,27 +645,37 @@ kk <- enrichKEGG(gene = deg_genes,
 <!-- _class: content -->
 # 高级分析方法
 
+<div class="columns">
+<div class="column">
+
 ## 时间序列分析
 - **目标**：研究基因表达的时间动态
 - **方法**：样条回归、聚类分析
 - **工具**：maSigPro、STEM
-
----
 
 ## 共表达网络分析
 - **目标**：识别共调控基因模块
 - **方法**：WGCNA、相关性分析
 - **应用**：关键基因识别、功能预测
 
+</div>
+<div class="column">
+
 ## 剪接变异分析
 - **目标**：检测差异剪接事件
 - **工具**：rMATS、SUPPA、LeafCutter
 - **意义**：蛋白质多样性、疾病机制
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 单细胞RNA-seq简介
+
+<div class="columns">
+<div class="column">
 
 ## 技术特点
 - **细胞异质性**：揭示细胞间差异
@@ -627,7 +687,9 @@ kk <- enrichKEGG(gene = deg_genes,
 - **技术噪音**：扩增偏好性
 - **批次效应**：实验间差异
 
----
+
+</div>
+<div class="column">
 
 ## 分析流程
 1. 质量控制和过滤
@@ -636,14 +698,20 @@ kk <- enrichKEGG(gene = deg_genes,
 4. 细胞类型注释
 5. 轨迹分析
 
+</div>
+</div>
+
 ---
 
-![单细胞分析流程](../images/scrna_workflow.svg)
+<img src="../images/scrna_workflow.svg" alt="单细胞分析流程" width="90%" style="max-height: 500px;">
 
 ---
 
 <!-- _class: content -->
 # 转录组数据整合
+
+<div class="columns">
+<div class="column">
 
 ## 多样本整合
 - **批次效应校正**：ComBat、limma
@@ -655,42 +723,24 @@ kk <- enrichKEGG(gene = deg_genes,
 - **转录组 + 代谢组**：代谢通路活性
 - **转录组 + 表观组**：调控机制解析
 
----
+</div>
+<div class="column">
 
 ## 公共数据利用
 - **GEO数据库**：表达数据仓库
 - **TCGA**：癌症基因组图谱
 - **GTEx**：正常组织表达图谱
 
----
-
-<!-- _class: content -->
-# 转录组分析最佳实践
-
-## 实验设计
-- **充分的生物学重复**（≥3个）
-- **随机化样本处理**
-- **记录详细的元数据**
-- **考虑批次效应**
-
----
-
-## 数据分析
-- **严格的质量控制**
-- **合适的统计方法**
-- **多重检验校正**
-- **结果验证**
-
-## 结果解读
-- **生物学意义优先**
-- **整合多种证据**
-- **考虑技术局限性**
-- **实验验证重要发现**
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # 转录组分析工具生态
+
+<div class="columns">
+<div class="column">
 
 ## 命令行工具
 - **质量控制**：FastQC, MultiQC
@@ -699,7 +749,8 @@ kk <- enrichKEGG(gene = deg_genes,
 - **基因定量**：featureCounts, Salmon
 - **差异分析**：DESeq2, edgeR
 
----
+</div>
+<div class="column">
 
 ## 集成平台
 - **Galaxy**：Web界面分析平台
@@ -707,10 +758,16 @@ kk <- enrichKEGG(gene = deg_genes,
 - **Nextflow/Snakemake**：工作流管理
 - **Docker/Singularity**：容器化部署
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 云计算在转录组分析中的应用
+
+<div class="columns">
+<div class="column">
 
 ## 优势
 - **计算资源弹性**：按需扩展
@@ -718,7 +775,8 @@ kk <- enrichKEGG(gene = deg_genes,
 - **协作便利**：数据共享
 - **工具预装**：减少配置工作
 
----
+</div>
+<div class="column">
 
 ## 主要平台
 - **AWS**：EC2, S3, Batch
@@ -731,56 +789,8 @@ kk <- enrichKEGG(gene = deg_genes,
 - **成本控制**：监控资源使用
 - **网络带宽**：大文件传输
 
----
-
-<!-- _class: content -->
-# 转录组分析发展趋势
-
-## 技术发展
-- **长读长测序**：PacBio, Oxford Nanopore
-- **空间转录组**：组织空间信息
-- **实时测序**：动态过程监测
-- **多模态测序**：同时检测多种分子
-
----
-
-## 分析方法
-- **机器学习**：深度学习应用
-- **因果推断**：调控网络构建
-- **个性化分析**：精准医学
-- **实时分析**：边测序边分析
-
-## 应用领域
-- **精准医学**：个体化治疗
-- **药物开发**：靶点发现
-- **农业育种**：作物改良
-- **环境监测**：生态评估
-
----
-
-<!-- _class: content -->
-# 实践操作预览
-
-## 今天的实验内容
-
-### 数据准备
-- 下载RNA-seq测试数据
-- 准备参考基因组和注释
-
----
-
-### 分析流程
-1. **质量控制**：FastQC评估
-2. **序列比对**：HISAT2比对
-3. **基因定量**：featureCounts计数
-4. **差异分析**：DESeq2分析
-5. **结果可视化**：MA图、火山图
-6. **功能分析**：GO富集分析
-
-### 预期结果
-- 差异表达基因列表
-- 功能富集结果
-- 可视化图表
+</div>
+</div>
 
 ---
 
@@ -802,7 +812,7 @@ kk <- enrichKEGG(gene = deg_genes,
 - 染色质免疫沉淀测序原理
 - Peak calling和表观遗传修饰分析
 
-**作业/练习：**
+## 作业/练习
 - 完成转录组分析实践操作
 - 分析提供的RNA-seq数据集
 - 撰写分析报告

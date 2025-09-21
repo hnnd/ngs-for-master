@@ -2,6 +2,7 @@
 高通量测序数据分析课程 Marp 主题样式
 作者：王运生教授
 邮箱：wangys@hunau.edu.cn
+版本：1.1 - 修复多列布局
 */
 
 /* @theme ngs-course */
@@ -128,13 +129,13 @@ pre code {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 24px;
+  margin: 10px 0;
+  font-size: 22px;
 }
 
 th, td {
   border: 1px solid var(--border-color);
-  padding: 12px 16px;
+  padding: 8px 10px;
   text-align: left;
 }
 
@@ -164,8 +165,7 @@ header {
   left: var(--content-padding);
   right: var(--content-padding);
   height: 40px;
-  background: var(--primary-color);
-  color: white;
+  color: var(--gray);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -182,12 +182,12 @@ footer {
   right: var(--content-padding);
   height: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: 0 20px;
   align-items: center;
   font-size: 16px;
   color: var(--medium-gray);
   border-top: 1px solid var(--border-color);
-  padding-top: 10px;
 }
 
 /* 页码样式 */
@@ -247,27 +247,32 @@ section.toc ol {
 }
 
 section.toc ol li {
-  margin: 20px 0;
-  padding: 15px;
+  margin: 10px 0;
+  padding: 8px;
   background: white;
   border-radius: var(--border-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 多列布局样式 - 通用样式 */
+/* 多列布局样式 - 强制左右排列 */
 .columns {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 40px;
   align-items: flex-start;
   margin: 20px 0;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .column {
-  flex: 1;
+  flex: 1 1 48%;
   padding: 20px;
   background: var(--light-gray);
   border-radius: var(--border-radius);
   box-sizing: border-box;
+  min-width: 0;
+  max-width: 48%;
 }
 
 .column h2 {
@@ -278,14 +283,24 @@ section.toc ol li {
 }
 
 /* 特定于multi-column类的样式 */
+section.multi-column {
+  display: block !important;
+}
+
 section.multi-column .columns {
-  height: calc(100% - 150px);
-  margin: 0;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 40px;
+  height: auto;
+  margin: 20px 0;
+  align-items: stretch;
 }
 
 section.multi-column .column {
-  height: 100%;
-  overflow-y: auto;
+  flex: 1 1 45%;
+  height: auto;
+  min-height: 400px;
+  overflow-y: visible;
 }
 
 /* 图片展示页样式 */

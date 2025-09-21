@@ -1,0 +1,100 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 12px; fill: #4b5563; }
+      .small-text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 原始FASTQ文件 -->
+  <rect x="50" y="20" width="120" height="40" rx="5" fill="#e1f5fe" stroke="#01579b" stroke-width="2"/>
+  <text x="110" y="45" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">原始FASTQ文件</text>
+  
+  <!-- FastQC质量评估 -->
+  <rect x="50" y="100" width="120" height="40" rx="5" fill="#f3e5f5" stroke="#4a148c" stroke-width="2"/>
+  <text x="110" y="125" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">FastQC质量评估</text>
+  
+  <!-- 质量是否合格判断 -->
+  <polygon points="110,180 150,200 110,220 70,200" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="110" y="205" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11">质量是否合格?</text>
+  
+  <!-- MultiQC整合报告 -->
+  <rect x="250" y="180" width="120" height="40" rx="5" fill="#f1f8e9" stroke="#33691e" stroke-width="2"/>
+  <text x="310" y="205" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">MultiQC整合报告</text>
+  
+  <!-- 数据清洗处理 -->
+  <rect x="50" y="280" width="120" height="40" rx="5" fill="#fce4ec" stroke="#880e4f" stroke-width="2"/>
+  <text x="110" y="305" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">数据清洗处理</text>
+  
+  <!-- Trimmomatic修剪 -->
+  <rect x="250" y="280" width="120" height="40" rx="5" fill="#e8f5e8" stroke="#2e7d32" stroke-width="2"/>
+  <text x="310" y="305" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">Trimmomatic修剪</text>
+  
+  <!-- 接头去除 -->
+  <rect x="450" y="280" width="120" height="40" rx="5" fill="#e8f5e8" stroke="#2e7d32" stroke-width="2"/>
+  <text x="510" y="305" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">接头去除</text>
+  
+  <!-- 质量过滤 -->
+  <rect x="450" y="360" width="120" height="40" rx="5" fill="#e8f5e8" stroke="#2e7d32" stroke-width="2"/>
+  <text x="510" y="385" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">质量过滤</text>
+  
+  <!-- 长度过滤 -->
+  <rect x="250" y="360" width="120" height="40" rx="5" fill="#e8f5e8" stroke="#2e7d32" stroke-width="2"/>
+  <text x="310" y="385" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">长度过滤</text>
+  
+  <!-- 清洗后FastQC -->
+  <rect x="50" y="360" width="120" height="40" rx="5" fill="#f3e5f5" stroke="#4a148c" stroke-width="2"/>
+  <text x="110" y="385" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">清洗后FastQC</text>
+  
+  <!-- 效果评估 -->
+  <rect x="50" y="440" width="120" height="40" rx="5" fill="#fff8e1" stroke="#ff8f00" stroke-width="2"/>
+  <text x="110" y="465" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">效果评估</text>
+  
+  <!-- 清洗效果满意判断 -->
+  <polygon points="110,520 150,540 110,560 70,540" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="110" y="545" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11">清洗效果满意?</text>
+  
+  <!-- 输出清洗数据 -->
+  <rect x="250" y="520" width="120" height="40" rx="5" fill="#c8e6c9" stroke="#1b5e20" stroke-width="2"/>
+  <text x="310" y="545" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">输出清洗数据</text>
+  
+  <!-- 调整参数重新清洗 -->
+  <rect x="450" y="520" width="120" height="40" rx="5" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+  <text x="510" y="540" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10">调整参数</text>
+  <text x="510" y="555" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10">重新清洗</text>
+  
+  <!-- 生成最终报告 -->
+  <rect x="450" y="180" width="120" height="40" rx="5" fill="#c8e6c9" stroke="#1b5e20" stroke-width="2"/>
+  <text x="510" y="205" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12">生成最终报告</text>
+  
+  <!-- 箭头连接线 -->
+  <line x1="110" y1="60" x2="110" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="110" y1="140" x2="110" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="150" y1="200" x2="250" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="110" y1="220" x2="110" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="170" y1="300" x2="250" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="370" y1="300" x2="450" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="320" x2="510" y2="360" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="450" y1="380" x2="370" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="380" x2="170" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="110" y1="400" x2="110" y2="440" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="110" y1="480" x2="110" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="150" y1="540" x2="250" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="110" y1="560" x2="450" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="520" x2="510" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <line x1="370" y1="200" x2="450" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="310" y1="520" x2="310" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <line x1="370" y1="200" x2="450" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 标签 -->
+  <text x="180" y="195" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#2e7d32">是</text>
+  <text x="120" y="250" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#d32f2f">否</text>
+  <text x="180" y="535" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#2e7d32">是</text>
+  <text x="280" y="535" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#d32f2f">否</text>
+</svg>

@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
+paginate: false
 header: '高通量测序数据分析 | 王运生'
 footer: 'wangys@hunau.edu.cn | 16教420室'
 ---
@@ -34,7 +34,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 3. [主要内容点3]
 4. [主要内容点4]
 
-**学习目标：**
+---
+
+## 学习目标
 - [学习目标1]
 - [学习目标2]
 - [学习目标3]
@@ -50,6 +52,8 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - [要点2]
 - [要点3]
 
+---
+<!-- _class: image -->
 ![图片描述](../assets/images/[图片文件名].svg)
 
 ---
@@ -115,11 +119,13 @@ ggplot(data, aes(x, y)) + geom_point()
 - [要点2]
 - [要点3]
 
+---
+
 ## 下次课程预告
 - [下次课程主题]
 - [需要准备的内容]
 
-**作业/练习：**
+## **作业/练习：**
 - [作业要求]
 
 ---

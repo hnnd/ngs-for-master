@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .step-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #1f2937; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #374151; }
+      .method-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .arrow { stroke: #059669; stroke-width: 2; fill: #059669; }
+      .step-box { fill: #f0f9ff; stroke: #0ea5e9; stroke-width: 2; }
+      .data-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .analysis-box { fill: #f0fdf4; stroke: #22c55e; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="500" y="30" text-anchor="middle" class="title-text">单细胞RNA测序数据分析标准流程</text>
+  
+  <!-- 第一行：数据预处理 -->
+  <g transform="translate(50, 60)">
+    <!-- 原始数据 -->
+    <rect x="0" y="0" width="120" height="80" class="data-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">原始数据</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">10X格式</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• matrix.mtx</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• features.tsv</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• barcodes.tsv</text>
+  </g>
+  
+  <!-- 箭头1 -->
+  <line x1="170" y1="100" x2="210" y2="100" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 质量控制 -->
+  <g transform="translate(220, 60)">
+    <rect x="0" y="0" width="120" height="80" class="step-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">质量控制</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">过滤低质量细胞</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• 基因数量</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• UMI数量</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 线粒体基因%</text>
+  </g>
+  
+  <!-- 箭头2 -->
+  <line x1="340" y1="100" x2="380" y2="100" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 标准化 -->
+  <g transform="translate(390, 60)">
+    <rect x="0" y="0" width="120" height="80" class="step-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">数据标准化</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">消除技术差异</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• LogNormalize</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• SCTransform</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• CPM/TPM</text>
+  </g>
+  
+  <!-- 箭头3 -->
+  <line x1="510" y1="100" x2="550" y2="100" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 特征选择 -->
+  <g transform="translate(560, 60)">
+    <rect x="0" y="0" width="120" height="80" class="step-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">特征选择</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">高变基因识别</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• 方差稳定</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• 离散度模型</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 2000-3000基因</text>
+  </g>
+  
+  <!-- 箭头4 -->
+  <line x1="680" y1="100" x2="720" y2="100" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 缩放 -->
+  <g transform="translate(730, 60)">
+    <rect x="0" y="0" width="120" height="80" class="step-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">数据缩放</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">标准化表达</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• Z-score标准化</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• 均值=0</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 方差=1</text>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <line x1="790" y1="140" x2="790" y2="180" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 第二行：降维分析 -->
+  <g transform="translate(730, 190)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">降维分析</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">主成分分析</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• PCA</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• 选择前50个PC</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 肘部法则</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <line x1="730" y1="230" x2="690" y2="230" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 邻接图构建 -->
+  <g transform="translate(560, 190)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">邻接图构建</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">细胞相似性</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• KNN图</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• SNN图</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• Jaccard距离</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <line x1="560" y1="230" x2="520" y2="230" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 细胞聚类 -->
+  <g transform="translate(390, 190)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">细胞聚类</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">识别细胞群</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• Louvain算法</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• Leiden算法</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 分辨率参数</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <line x1="390" y1="230" x2="350" y2="230" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 非线性降维 -->
+  <g transform="translate(220, 190)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">非线性降维</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">可视化</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• UMAP</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• t-SNE</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 2D/3D投影</text>
+  </g>
+  
+  <!-- 向左箭头 -->
+  <line x1="220" y1="230" x2="180" y2="230" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 差异表达 -->
+  <g transform="translate(50, 190)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">差异表达</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">标记基因</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• Wilcoxon检验</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• MAST</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• DESeq2</text>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <line x1="110" y1="270" x2="110" y2="310" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 第三行：高级分析 -->
+  <g transform="translate(50, 320)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">细胞注释</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">类型识别</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• 标记基因</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• SingleR</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 文献调研</text>
+  </g>
+  
+  <!-- 向右箭头 -->
+  <line x1="170" y1="360" x2="210" y2="360" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 轨迹分析 -->
+  <g transform="translate(220, 320)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">轨迹分析</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">伪时间</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• Monocle3</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• Slingshot</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• scVelo</text>
+  </g>
+  
+  <!-- 向右箭头 -->
+  <line x1="340" y1="360" x2="380" y2="360" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 功能分析 -->
+  <g transform="translate(390, 320)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">功能分析</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">通路富集</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• GO富集</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• KEGG通路</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• GSEA</text>
+  </g>
+  
+  <!-- 向右箭头 -->
+  <line x1="510" y1="360" x2="550" y2="360" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 细胞通讯 -->
+  <g transform="translate(560, 320)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">细胞通讯</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">相互作用</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• CellChat</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• NicheNet</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 配体-受体</text>
+  </g>
+  
+  <!-- 向右箭头 -->
+  <line x1="680" y1="360" x2="720" y2="360" class="arrow" marker-end="url(#arrowhead)"/>
+  
+  <!-- 结果可视化 -->
+  <g transform="translate(730, 320)">
+    <rect x="0" y="0" width="120" height="80" class="analysis-box" rx="5"/>
+    <text x="60" y="20" text-anchor="middle" class="step-text">结果可视化</text>
+    <text x="60" y="35" text-anchor="middle" class="desc-text">图表制作</text>
+    <text x="60" y="50" text-anchor="middle" class="method-text">• UMAP图</text>
+    <text x="60" y="62" text-anchor="middle" class="method-text">• 热图</text>
+    <text x="60" y="74" text-anchor="middle" class="method-text">• 小提琴图</text>
+  </g>
+  
+  <!-- 关键参数说明 -->
+  <g transform="translate(50, 450)">
+    <rect x="0" y="0" width="800" height="200" fill="#fef7ed" stroke="#f97316" rx="10"/>
+    <text x="400" y="25" text-anchor="middle" class="step-text" fill="#ea580c">关键参数和注意事项</text>
+    
+    <!-- 第一列 -->
+    <g transform="translate(30, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">质量控制参数</text>
+      <text x="0" y="20" class="desc-text">• 基因数量：200-2500（细胞类型相关）</text>
+      <text x="0" y="35" class="desc-text">• UMI数量：1000-15000</text>
+      <text x="0" y="50" class="desc-text">• 线粒体基因：&lt;20%（组织相关）</text>
+      <text x="0" y="65" class="desc-text">• 双细胞检测：DoubletFinder</text>
+      
+      <text x="0" y="95" class="step-text" fill="#dc2626">标准化选择</text>
+      <text x="0" y="115" class="desc-text">• LogNormalize：经典方法</text>
+      <text x="0" y="130" class="desc-text">• SCTransform：推荐方法</text>
+      <text x="0" y="145" class="desc-text">• 批次效应：Harmony/CCA</text>
+    </g>
+    
+    <!-- 第二列 -->
+    <g transform="translate(280, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">降维参数</text>
+      <text x="0" y="20" class="desc-text">• PCA维度：通常前50个PC</text>
+      <text x="0" y="35" class="desc-text">• UMAP参数：n.neighbors=30</text>
+      <text x="0" y="50" class="desc-text">• t-SNE参数：perplexity=30</text>
+      <text x="0" y="65" class="desc-text">• 随机种子：保证可重现性</text>
+      
+      <text x="0" y="95" class="step-text" fill="#dc2626">聚类参数</text>
+      <text x="0" y="115" class="desc-text">• 分辨率：0.1-2.0</text>
+      <text x="0" y="130" class="desc-text">• 算法：Louvain/Leiden</text>
+      <text x="0" y="145" class="desc-text">• 验证：生物学意义</text>
+    </g>
+    
+    <!-- 第三列 -->
+    <g transform="translate(530, 50)">
+      <text x="0" y="0" class="step-text" fill="#dc2626">分析建议</text>
+      <text x="0" y="20" class="desc-text">• 保存中间结果</text>
+      <text x="0" y="35" class="desc-text">• 记录参数设置</text>
+      <text x="0" y="50" class="desc-text">• 多种方法验证</text>
+      <text x="0" y="65" class="desc-text">• 生物学解释优先</text>
+      
+      <text x="0" y="95" class="step-text" fill="#dc2626">常见问题</text>
+      <text x="0" y="115" class="desc-text">• 过度聚类：降低分辨率</text>
+      <text x="0" y="130" class="desc-text">• 批次效应：数据整合</text>
+      <text x="0" y="145" class="desc-text">• 稀有细胞：调整参数</text>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="500" y="680" text-anchor="middle" class="desc-text">
+    单细胞数据分析是一个迭代过程，需要根据数据特点和生物学问题调整参数和方法
+  </text>
+</svg>

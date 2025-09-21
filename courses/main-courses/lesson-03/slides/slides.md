@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- _class: title -->
@@ -23,16 +23,13 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 1. **序列比对基础概念**
 2. **比对算法原理**
 3. **主流比对工具介绍**
-4. **BWA算法详解**
-5. **Bowtie2算法详解**
-6. **比对工具性能比较**
 7. **比对策略与参数优化**
 8. **SAM/BAM文件格式**
 9. **比对质量评估**
 
 ---
 
-**学习目标：**
+# 学习目标
 - 理解序列比对算法原理
 - 掌握BWA和Bowtie2工具使用
 - 学会比对结果质量评估
@@ -60,21 +57,28 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ## 按比对策略分类
 
+<div class="columns">
+<div class="column">
+
 ### 1. 全局比对 (Global Alignment)
 - 比对整个序列
 - 适用于相似度高的序列
 - 算法：Needleman-Wunsch
-
----
 
 ### 2. 局部比对 (Local Alignment)  
 - 寻找最佳匹配片段
 - 适用于部分相似的序列
 - 算法：Smith-Waterman
 
+</div>
+<div class="column">
+
 ### 3. 半全局比对 (Semi-global Alignment)
 - 允许末端不匹配
 - 适用于测序reads比对
+
+</div>
+</div>
 
 ---
 
@@ -88,10 +92,14 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 <!-- _class: content -->
 # Burrows-Wheeler Transform (BWT)
 
+<div class="columns">
+<div class="column">
+
 ## BWT的基本思想
 将字符串进行特殊变换，使相似字符聚集在一起，便于压缩和快速搜索
 
----
+</div>
+<div class="column">
 
 ## BWT变换步骤
 1. 在字符串末尾添加特殊字符$
@@ -103,28 +111,38 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 原字符串: BANANA$
 BWT结果:  ANNB$AA
 ```
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # BWT在序列比对中的应用
 
+<div class="columns">
+<div class="column">
+
 ## FM-Index结构
 - **BWT + 后缀数组采样**
 - 支持快速的精确匹配
 - 内存使用量小
 
----
 
 ## 搜索算法
 1. **后向搜索**：从查询序列末尾开始
 2. **LF映射**：利用BWT的性质快速定位
 3. **范围缩小**：逐步缩小匹配范围
 
+</div>
+<div class="column">
+
 ## 优势
 - 内存效率高
 - 搜索速度快
 - 支持精确和近似匹配
+
+</div>
+</div>
 
 ---
 
@@ -134,28 +152,33 @@ BWT结果:  ANNB$AA
 ## 基本思想
 将长序列分解为短的"种子"，先进行精确匹配，再扩展
 
-## 种子类型
+<div class="columns">
+<div class="column">
 
 ### 1. 连续种子
 - 固定长度的连续子串
 - 简单但对错误敏感
 
----
-
 ### 2. 间隔种子 (Spaced Seeds)
 - 允许特定位置的不匹配
 - 提高对错误的容忍度
 
+</div>
+<div class="column">
+
 ### 3. 多重种子
 - 使用多个不同的种子模式
 - 提高敏感性
+
+</div>
+</div>
 
 ---
 
 <!-- _class: image -->
 # 主流比对工具比较
 
-![工具比较图](../images/tool_comparison.svg)
+<img src="../images/tool_comparison.svg" alt="工具比较图" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -164,49 +187,67 @@ BWT结果:  ANNB$AA
 
 ## BWA包含的算法
 
+<div class="columns">
+<div class="column">
+
 ### 1. BWA-backtrack (bwa aln)
 - 适用于短reads (<100bp)
 - 基于回溯搜索
 - 精确但速度较慢
-
----
 
 ### 2. BWA-SW (bwa bwasw)
 - 适用于长reads (>100bp)
 - 基于Smith-Waterman
 - 支持长InDel
 
+</div>
+<div class="column">
+
 ### 3. BWA-MEM (bwa mem)
 - **推荐使用**
 - 适用于70bp-1Mbp的reads
 - 结合种子匹配和局部比对
+
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # BWA-MEM算法流程
 
+
+<div class="columns">
+<div class="column">
+
 ## 第一阶段：种子匹配
 1. **SMEM查找**：寻找超级最大精确匹配
 2. **种子过滤**：去除过短或重复的种子
 3. **种子排序**：按基因组位置排序
-
----
 
 ## 第二阶段：种子扩展
 1. **链式连接**：将相邻种子连成链
 2. **局部比对**：使用Smith-Waterman扩展
 3. **评分排序**：计算比对得分
 
+</div>
+<div class="column">
+
 ## 第三阶段：后处理
 1. **配对信息**：处理paired-end reads
 2. **比对质量**：计算MAPQ值
 3. **输出格式**：生成SAM格式结果
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # BWA-MEM的优势
+
+<div class="columns">
+<div class="column">
 
 ## 算法优势
 - **快速**：线性时间复杂度
@@ -214,7 +255,8 @@ BWT结果:  ANNB$AA
 - **鲁棒**：对测序错误容忍度高
 - **灵活**：支持多种读长
 
----
+</div>
+<div class="column">
 
 ## 实用特性
 - **自动参数**：大多数情况下使用默认参数
@@ -222,10 +264,16 @@ BWT结果:  ANNB$AA
 - **多线程**：支持并行计算
 - **内存效率**：索引文件相对较小
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # Bowtie2算法特点
+
+<div class="columns">
+<div class="column">
 
 ## 与Bowtie的区别
 - **支持gap**：允许插入和删除
@@ -233,37 +281,53 @@ BWT结果:  ANNB$AA
 - **更长reads**：适用于更长的测序reads
 - **更快速度**：优化的算法实现
 
+</div>
+<div class="column">
+
 ## 核心算法
 - **双向BWT**：正向和反向BWT索引
 - **动态规划**：处理gap和错配
 - **多阶段搜索**：从严格到宽松的搜索策略
+
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # Bowtie2比对流程
 
+<div class="columns">
+<div class="column">
+
 ## 第一阶段：精确匹配搜索
 1. **种子提取**：从read中提取多个种子
 2. **精确搜索**：在BWT索引中查找精确匹配
 3. **扩展验证**：验证种子周围区域
-
----
 
 ## 第二阶段：近似匹配搜索
 1. **允许错配**：逐步增加允许的错配数
 2. **gap处理**：使用动态规划处理InDel
 3. **评分计算**：根据比对质量计算得分
 
+</div>
+<div class="column">
+
 ## 第三阶段：结果选择
 1. **多重比对**：处理多个可能的比对位置
 2. **最佳选择**：选择得分最高的比对
 3. **质量评估**：计算比对置信度
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # Bowtie2参数调优
+
+<div class="columns">
+<div class="column">
 
 ## 敏感性参数
 ```bash
@@ -273,13 +337,14 @@ BWT结果:  ANNB$AA
 --very-sensitive  # 最高敏感性，较慢速度
 ```
 
----
-
 ## 比对模式
 ```bash
 --end-to-end      # 端到端比对（默认）
 --local           # 局部比对，允许软剪切
 ```
+
+</div>
+<div class="column">
 
 ## 配对参数
 ```bash
@@ -288,6 +353,9 @@ BWT结果:  ANNB$AA
 --no-mixed        # 禁止单端比对
 --no-discordant   # 禁止不一致配对
 ```
+
+</div>
+</div>
 
 ---
 
@@ -306,9 +374,6 @@ BWT结果:  ANNB$AA
 - **适用场景**: 需要精细参数控制，内存受限
 
 </div>
-
----
-
 <div class="column">
 
 ## BWA-MEM
@@ -327,22 +392,29 @@ BWT结果:  ANNB$AA
 <!-- _class: content -->
 # 性能评估指标
 
+<div class="columns">
+<div class="column">
+
 ## 准确性指标
 - **敏感性** (Sensitivity)：正确比对的reads比例
 - **特异性** (Specificity)：比对结果的准确性
 - **精确率** (Precision)：正确比对占所有比对的比例
-
----
 
 ## 效率指标
 - **运行时间**：完成比对所需时间
 - **内存使用**：峰值内存消耗
 - **CPU利用率**：多核处理器使用效率
 
+</div>
+<div class="column">
+
 ## 实用性指标
 - **易用性**：参数设置的复杂度
 - **稳定性**：不同数据集的表现一致性
 - **兼容性**：与下游分析工具的兼容性
+
+</div>
+</div>
 
 ---
 
@@ -372,6 +444,9 @@ BWT结果:  ANNB$AA
 <!-- _class: content -->
 # 不同数据类型的工具选择
 
+<div class="columns">
+<div class="column">
+
 ## DNA重测序 (WGS/WES)
 **推荐**：BWA-MEM, Bowtie2
 - 需要高精度的变异检测
@@ -382,7 +457,8 @@ BWT结果:  ANNB$AA
 - 需要处理剪接位点
 - 对转录本定量精度要求高
 
----
+</div>
+<div class="column">
 
 ## ChIP测序 (ChIP-seq)
 **推荐**：BWA-MEM, Bowtie2
@@ -394,12 +470,18 @@ BWT结果:  ANNB$AA
 - 专门优化长reads比对
 - 支持高错误率数据
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 比对策略选择
 
 ## 根据研究目标选择
+
+<div class="columns">
+<div class="column">
 
 ### 1. 变异检测
 - **工具**：BWA-MEM + GATK
@@ -411,12 +493,16 @@ BWT结果:  ANNB$AA
 - **策略**：保留多重比对
 - **参数**：-a参数输出所有比对
 
----
+</div>
+<div class="column">
 
 ### 3. 结构变异
 - **工具**：BWA-MEM, minimap2
 - **策略**：软剪切信息保留
 - **参数**：增大插入片段范围
+
+</div>
+</div>
 
 ---
 
@@ -424,6 +510,8 @@ BWT结果:  ANNB$AA
 # BWA-MEM参数优化
 
 ## 核心参数
+<div class="columns">
+<div class="column">
 
 ### 种子长度 (-k)
 ```bash
@@ -438,7 +526,8 @@ BWT结果:  ANNB$AA
 -w 200   # 增加带宽，处理长InDel
 ```
 
----
+</div>
+<div class="column">
 
 ### 评分参数
 ```bash
@@ -447,6 +536,8 @@ BWT结果:  ANNB$AA
 -O 6     # gap开启罚分
 -E 1     # gap延伸罚分
 ```
+</div>
+</div>
 
 ---
 
@@ -548,11 +639,17 @@ read2 147 chr1 1200 60 100M = 1000 -300 GCTA... IIII...
 <!-- _class: content -->
 # BAM格式
 
+<div class="columns">
+<div class="column">
+
 ## BAM特点
 - **二进制格式**：SAM的压缩版本
 - **索引支持**：支持随机访问
 - **空间效率**：显著减少存储空间
 - **处理速度**：更快的读写速度
+
+</div>
+<div class="column">
 
 ## 文件大小比较
 ```
@@ -567,6 +664,8 @@ CRAM文件:   1.5GB (压缩比 ~10:1)
 sample.bam      # BAM文件
 sample.bam.bai  # BAM索引文件
 ```
+</div>
+</div>
 
 ---
 
@@ -574,6 +673,9 @@ sample.bam.bai  # BAM索引文件
 # 比对质量指标
 
 ## 基本统计指标
+
+<div class="columns">
+<div class="column">
 
 ### 比对率 (Alignment Rate)
 ```
@@ -587,11 +689,16 @@ sample.bam.bai  # BAM索引文件
 正确配对率 = 正确配对的read pairs / 总read pairs
 单端比对率 = 只有一端比对的read pairs / 总read pairs
 ```
+</div>
+<div class="column">
 
 ### 插入片段分布
 - **平均插入大小**
 - **插入大小标准差**
 - **异常配对比例**
+
+</div>
+</div>
 
 ---
 
@@ -601,6 +708,12 @@ sample.bam.bai  # BAM索引文件
 ## MAPQ含义
 **MAPQ = -10 × log₁₀(P)**
 其中P是比对位置错误的概率
+
+## MAPQ分布分析
+```bash
+# 统计MAPQ分布
+samtools view sample.bam | cut -f5 | sort -n | uniq -c
+```
 
 ---
 
@@ -617,23 +730,27 @@ sample.bam.bai  # BAM索引文件
 
 ---
 
-## MAPQ分布分析
-```bash
-# 统计MAPQ分布
-samtools view sample.bam | cut -f5 | sort -n | uniq -c
-```
-
----
-
 <!-- _class: content -->
 # 覆盖度分析
+
+<div class="columns">
+<div class="column">
 
 ## 覆盖度指标
 - **平均覆盖度**：总碱基数 / 基因组大小
 - **覆盖度分布**：不同覆盖度区间的比例
 - **覆盖均匀性**：覆盖度的变异系数
 
----
+</div>
+<div class="column">
+
+## 覆盖度可视化
+- **覆盖度直方图**
+- **基因组浏览器**
+- **热图展示**
+
+</div>
+</div>
 
 ## 覆盖度计算
 ```bash
@@ -644,11 +761,6 @@ samtools depth sample.bam > coverage.txt
 awk '{sum+=$3; count++} END {print "平均覆盖度:", sum/count}' coverage.txt
 ```
 
-## 覆盖度可视化
-- **覆盖度直方图**
-- **基因组浏览器**
-- **热图展示**
-
 ---
 
 <!-- _class: content -->
@@ -656,13 +768,17 @@ awk '{sum+=$3; count++} END {print "平均覆盖度:", sum/count}' coverage.txt
 
 ## 可接受的质量标准
 
+<div class="columns">
+<div class="column">
+
 ### DNA重测序
 - **总比对率** > 95%
 - **唯一比对率** > 90%
 - **正确配对率** > 95%
 - **平均MAPQ** > 30
 
----
+</div>
+<div class="column">
 
 ### RNA测序
 - **总比对率** > 80%
@@ -674,10 +790,16 @@ awk '{sum+=$3; count++} END {print "平均覆盖度:", sum/count}' coverage.txt
 - **唯一比对率** > 60%
 - **重复率** < 30%
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 实践操作预览
+
+<div class="columns">
+<div class="column">
 
 ## 实验环境准备
 ```bash
@@ -694,10 +816,16 @@ conda install -c bioconda samtools
 conda install -c bioconda igv
 ```
 
+</div>
+<div class="column">
+
 ## 数据准备
 - **参考基因组**：人类基因组chr22片段
 - **测序数据**：模拟的paired-end reads
 - **预期结果**：标准比对结果用于比较
+
+</div>
+</div>
 
 ---
 
@@ -711,6 +839,11 @@ conda install -c bioconda igv
 4. **参数优化**：根据数据特点调整参数
 5. **质量评估**：MAPQ、覆盖度、错误分析
 
+---
+
+<div class="columns">
+<div class="column">
+
 ## 下次课程预告
 **第4次课：变异检测与基因分型**
 - 变异类型和检测原理
@@ -718,10 +851,16 @@ conda install -c bioconda igv
 - VCF文件格式和处理
 - 变异质量控制和过滤
 
-**作业/练习：**
+</div>
+<div class="column">
+
+## 作业/练习
 - 完成实践操作手册中的所有练习
 - 比较BWA和Bowtie2在不同参数下的性能
 - 分析一个真实数据集的比对质量
+
+</div>
+</div>
 
 ---
 

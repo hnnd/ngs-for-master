@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .method-title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #4b5563; }
+      .small-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 9px; fill: #6b7280; }
+      .trajectory-line { stroke: #dc2626; stroke-width: 3; fill: none; }
+      .cell-early { fill: #fbbf24; opacity: 0.8; }
+      .cell-mid { fill: #f97316; opacity: 0.8; }
+      .cell-late { fill: #dc2626; opacity: 0.8; }
+      .arrow { stroke: #059669; stroke-width: 2; fill: #059669; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" 
+            refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#059669" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">轨迹分析方法比较</text>
+  
+  <!-- Monocle -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="200" height="150" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">Monocle3</text>
+    
+    <!-- 轨迹示意图 - 线性 -->
+    <circle cx="40" cy="60" r="4" class="cell-early"/>
+    <circle cx="60" cy="65" r="4" class="cell-early"/>
+    <circle cx="80" cy="70" r="4" class="cell-mid"/>
+    <circle cx="100" cy="75" r="4" class="cell-mid"/>
+    <circle cx="120" cy="80" r="4" class="cell-late"/>
+    <circle cx="140" cy="85" r="4" class="cell-late"/>
+    
+    <!-- 轨迹线 -->
+    <path d="M 40 60 Q 90 72 140 85" class="trajectory-line"/>
+    
+    <text x="100" y="105" text-anchor="middle" class="desc-text">基于UMAP的轨迹学习</text>
+    <text x="100" y="120" text-anchor="middle" class="small-text">• 图学习算法</text>
+    <text x="100" y="132" text-anchor="middle" class="small-text">• 支持复杂轨迹</text>
+    <text x="100" y="144" text-anchor="middle" class="small-text">• 分支点检测</text>
+  </g>
+  
+  <!-- Slingshot -->
+  <g transform="translate(300, 60)">
+    <rect x="0" y="0" width="200" height="150" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">Slingshot</text>
+    
+    <!-- 轨迹示意图 - 分支 -->
+    <circle cx="60" cy="60" r="4" class="cell-early"/>
+    <circle cx="80" cy="65" r="4" class="cell-early"/>
+    <circle cx="100" cy="70" r="4" class="cell-mid"/>
+    
+    <!-- 分支1 -->
+    <circle cx="120" cy="50" r="4" class="cell-late"/>
+    <circle cx="140" cy="45" r="4" class="cell-late"/>
+    
+    <!-- 分支2 -->
+    <circle cx="120" cy="90" r="4" class="cell-late"/>
+    <circle cx="140" cy="95" r="4" class="cell-late"/>
+    
+    <!-- 轨迹线 -->
+    <path d="M 60 60 Q 90 67 100 70" class="trajectory-line"/>
+    <path d="M 100 70 Q 110 60 140 45" class="trajectory-line"/>
+    <path d="M 100 70 Q 110 80 140 95" class="trajectory-line"/>
+    
+    <text x="100" y="115" text-anchor="middle" class="desc-text">最小生成树方法</text>
+    <text x="100" y="127" text-anchor="middle" class="small-text">• 聚类连接</text>
+    <text x="100" y="139" text-anchor="middle" class="small-text">• 平滑曲线拟合</text>
+  </g>
+  
+  <!-- scVelo -->
+  <g transform="translate(550, 60)">
+    <rect x="0" y="0" width="200" height="150" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="method-title">scVelo (RNA速度)</text>
+    
+    <!-- 轨迹示意图 - 带方向箭头 -->
+    <circle cx="50" cy="70" r="4" class="cell-early"/>
+    <circle cx="80" cy="75" r="4" class="cell-mid"/>
+    <circle cx="110" cy="80" r="4" class="cell-mid"/>
+    <circle cx="140" cy="85" r="4" class="cell-late"/>
+    
+    <!-- 方向箭头 -->
+    <line x1="50" y1="70" x2="65" y2="72" class="arrow" marker-end="url(#arrowhead)"/>
+    <line x1="80" y1="75" x2="95" y2="77" class="arrow" marker-end="url(#arrowhead)"/>
+    <line x1="110" y1="80" x2="125" y2="82" class="arrow" marker-end="url(#arrowhead)"/>
+    
+    <text x="100" y="105" text-anchor="middle" class="desc-text">基于RNA动力学</text>
+    <text x="100" y="117" text-anchor="middle" class="small-text">• 剪接/未剪接RNA</text>
+    <text x="100" y="129" text-anchor="middle" class="small-text">• 预测细胞未来状态</text>
+    <text x="100" y="141" text-anchor="middle" class="small-text">• 方向性信息</text>
+  </g>
+  
+  <!-- 轨迹类型示例 -->
+  <g transform="translate(50, 240)">
+    <rect x="0" y="0" width="800" height="200" fill="#f0f9ff" stroke="#0ea5e9" rx="10"/>
+    <text x="400" y="25" text-anchor="middle" class="method-title" fill="#0ea5e9">常见轨迹类型</text>
+    
+    <!-- 线性轨迹 -->
+    <g transform="translate(50, 50)">
+      <text x="75" y="0" text-anchor="middle" class="method-title">线性轨迹</text>
+      
+      <circle cx="20" cy="30" r="5" class="cell-early"/>
+      <circle cx="40" cy="30" r="5" class="cell-mid"/>
+      <circle cx="60" cy="30" r="5" class="cell-mid"/>
+      <circle cx="80" cy="30" r="5" class="cell-late"/>
+      <circle cx="100" cy="30" r="5" class="cell-late"/>
+      <circle cx="120" cy="30" r="5" class="cell-late"/>
+      
+      <path d="M 20 30 L 120 30" class="trajectory-line"/>
+      
+      <text x="75" y="55" text-anchor="middle" class="desc-text">单一发育路径</text>
+      <text x="75" y="70" text-anchor="middle" class="small-text">例：造血干细胞分化</text>
+    </g>
+    
+    <!-- 分支轨迹 -->
+    <g transform="translate(250, 50)">
+      <text x="75" y="0" text-anchor="middle" class="method-title">分支轨迹</text>
+      
+      <circle cx="40" cy="50" r="5" class="cell-early"/>
+      <circle cx="60" cy="50" r="5" class="cell-mid"/>
+      <circle cx="80" cy="30" r="5" class="cell-late"/>
+      <circle cx="100" cy="25" r="5" class="cell-late"/>
+      <circle cx="80" cy="70" r="5" class="cell-late"/>
+      <circle cx="100" cy="75" r="5" class="cell-late"/>
+      
+      <path d="M 40 50 L 60 50" class="trajectory-line"/>
+      <path d="M 60 50 L 100 25" class="trajectory-line"/>
+      <path d="M 60 50 L 100 75" class="trajectory-line"/>
+      
+      <text x="75" y="95" text-anchor="middle" class="desc-text">多重分化命运</text>
+      <text x="75" y="110" text-anchor="middle" class="small-text">例：神经干细胞分化</text>
+    </g>
+    
+    <!-- 循环轨迹 -->
+    <g transform="translate(450, 50)">
+      <text x="75" y="0" text-anchor="middle" class="method-title">循环轨迹</text>
+      
+      <circle cx="75" cy="25" r="5" class="cell-early"/>
+      <circle cx="95" cy="40" r="5" class="cell-mid"/>
+      <circle cx="85" cy="65" r="5" class="cell-mid"/>
+      <circle cx="65" cy="65" r="5" class="cell-late"/>
+      <circle cx="55" cy="40" r="5" class="cell-late"/>
+      
+      <path d="M 75 25 Q 100 35 85 65 Q 50 70 55 40 Q 60 20 75 25" class="trajectory-line"/>
+      
+      <text x="75" y="95" text-anchor="middle" class="desc-text">周期性过程</text>
+      <text x="75" y="110" text-anchor="middle" class="small-text">例：细胞周期</text>
+    </g>
+    
+    <!-- 复杂轨迹 -->
+    <g transform="translate(650, 50)">
+      <text x="75" y="0" text-anchor="middle" class="method-title">复杂轨迹</text>
+      
+      <circle cx="40" cy="50" r="4" class="cell-early"/>
+      <circle cx="60" cy="40" r="4" class="cell-mid"/>
+      <circle cx="60" cy="60" r="4" class="cell-mid"/>
+      <circle cx="80" cy="30" r="4" class="cell-late"/>
+      <circle cx="80" cy="50" r="4" class="cell-late"/>
+      <circle cx="80" cy="70" r="4" class="cell-late"/>
+      <circle cx="100" cy="40" r="4" class="cell-late"/>
+      <circle cx="100" cy="60" r="4" class="cell-late"/>
+      
+      <path d="M 40 50 L 60 40" class="trajectory-line"/>
+      <path d="M 40 50 L 60 60" class="trajectory-line"/>
+      <path d="M 60 40 L 80 30" class="trajectory-line"/>
+      <path d="M 60 40 L 80 50" class="trajectory-line"/>
+      <path d="M 60 60 L 80 50" class="trajectory-line"/>
+      <path d="M 60 60 L 80 70" class="trajectory-line"/>
+      <path d="M 80 30 L 100 40" class="trajectory-line"/>
+      <path d="M 80 70 L 100 60" class="trajectory-line"/>
+      
+      <text x="75" y="95" text-anchor="middle" class="desc-text">多分支网络</text>
+      <text x="75" y="110" text-anchor="middle" class="small-text">例：胚胎发育</text>
+    </g>
+  </g>
+  
+  <!-- 方法选择指南 -->
+  <g transform="translate(50, 460)">
+    <rect x="0" y="0" width="800" height="120" fill="#fef7ed" stroke="#f97316" rx="10"/>
+    <text x="400" y="25" text-anchor="middle" class="method-title" fill="#ea580c">方法选择指南</text>
+    
+    <!-- 第一列 -->
+    <g transform="translate(30, 50)">
+      <text x="0" y="0" class="method-title" fill="#dc2626">数据类型考虑</text>
+      <text x="0" y="20" class="desc-text">• 有内含子数据 → scVelo</text>
+      <text x="0" y="35" class="desc-text">• 标准scRNA-seq → Monocle3</text>
+      <text x="0" y="50" class="desc-text">• 已有聚类结果 → Slingshot</text>
+      <text x="0" y="65" class="desc-text">• 时间序列数据 → Monocle3</text>
+    </g>
+    
+    <!-- 第二列 -->
+    <g transform="translate(280, 50)">
+      <text x="0" y="0" class="method-title" fill="#dc2626">轨迹复杂度</text>
+      <text x="0" y="20" class="desc-text">• 简单线性 → 所有方法适用</text>
+      <text x="0" y="35" class="desc-text">• 分支轨迹 → Slingshot/Monocle3</text>
+      <text x="0" y="50" class="desc-text">• 复杂网络 → Monocle3/PAGA</text>
+      <text x="0" y="65" class="desc-text">• 循环过程 → Monocle3</text>
+    </g>
+    
+    <!-- 第三列 -->
+    <g transform="translate(530, 50)">
+      <text x="0" y="0" class="method-title" fill="#dc2626">分析目标</text>
+      <text x="0" y="20" class="desc-text">• 伪时间排序 → Monocle3</text>
+      <text x="0" y="35" class="desc-text">• 分支点识别 → Slingshot</text>
+      <text x="0" y="50" class="desc-text">• 方向性预测 → scVelo</text>
+      <text x="0" y="65" class="desc-text">• 基因动态 → Monocle3</text>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="595" text-anchor="middle" class="desc-text">
+    轨迹分析方法的选择应基于数据特征、轨迹复杂度和分析目标进行综合考虑
+  </text>
+</svg>

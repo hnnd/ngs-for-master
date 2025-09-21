@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .data-title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .desc-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 11px; fill: #4b5563; }
+      .method-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .rna-data { fill: #ef4444; opacity: 0.8; }
+      .protein-data { fill: #3b82f6; opacity: 0.8; }
+      .atac-data { fill: #10b981; opacity: 0.8; }
+      .integrated-data { fill: #8b5cf6; opacity: 0.8; }
+      .arrow { stroke: #059669; stroke-width: 2; fill: #059669; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">多组学数据整合策略</text>
+  
+  <!-- 第一行：不同组学数据 -->
+  <!-- RNA-seq数据 -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="150" height="120" fill="#fef2f2" stroke="#ef4444" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="data-title">scRNA-seq</text>
+    
+    <!-- 数据矩阵示意 -->
+    <rect x="20" y="35" width="8" height="8" class="rna-data"/>
+    <rect x="30" y="35" width="8" height="8" class="rna-data"/>
+    <rect x="40" y="35" width="8" height="8" class="rna-data"/>
+    <rect x="50" y="35" width="8" height="8" class="rna-data"/>
+    
+    <rect x="20" y="45" width="8" height="8" class="rna-data"/>
+    <rect x="30" y="45" width="8" height="8" class="rna-data"/>
+    <rect x="40" y="45" width="8" height="8" class="rna-data"/>
+    <rect x="50" y="45" width="8" height="8" class="rna-data"/>
+    
+    <text x="75" y="70" text-anchor="middle" class="desc-text">转录组数据</text>
+    <text x="75" y="85" text-anchor="middle" class="method-text">• 基因表达水平</text>
+    <text x="75" y="97" text-anchor="middle" class="method-text">• 细胞状态</text>
+    <text x="75" y="109" text-anchor="middle" class="method-text">• 功能活性</text>
+  </g>
+  
+  <!-- 蛋白质组数据 -->
+  <g transform="translate(250, 60)">
+    <rect x="0" y="0" width="150" height="120" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="data-title">CITE-seq</text>
+    
+    <!-- 数据矩阵示意 -->
+    <rect x="20" y="35" width="8" height="8" class="protein-data"/>
+    <rect x="30" y="35" width="8" height="8" class="protein-data"/>
+    <rect x="40" y="35" width="8" height="8" class="protein-data"/>
+    <rect x="50" y="35" width="8" height="8" class="protein-data"/>
+    
+    <rect x="20" y="45" width="8" height="8" class="protein-data"/>
+    <rect x="30" y="45" width="8" height="8" class="protein-data"/>
+    <rect x="40" y="45" width="8" height="8" class="protein-data"/>
+    <rect x="50" y="45" width="8" height="8" class="protein-data"/>
+    
+    <text x="75" y="70" text-anchor="middle" class="desc-text">蛋白质组数据</text>
+    <text x="75" y="85" text-anchor="middle" class="method-text">• 表面蛋白</text>
+    <text x="75" y="97" text-anchor="middle" class="method-text">• 细胞标记</text>
+    <text x="75" y="109" text-anchor="middle" class="method-text">• 功能蛋白</text>
+  </g>
+  
+  <!-- ATAC-seq数据 -->
+  <g transform="translate(450, 60)">
+    <rect x="0" y="0" width="150" height="120" fill="#f0fdf4" stroke="#10b981" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="data-title">scATAC-seq</text>
+    
+    <!-- 数据矩阵示意 -->
+    <rect x="20" y="35" width="8" height="8" class="atac-data"/>
+    <rect x="30" y="35" width="8" height="8" class="atac-data"/>
+    <rect x="40" y="35" width="8" height="8" class="atac-data"/>
+    <rect x="50" y="35" width="8" height="8" class="atac-data"/>
+    
+    <rect x="20" y="45" width="8" height="8" class="atac-data"/>
+    <rect x="30" y="45" width="8" height="8" class="atac-data"/>
+    <rect x="40" y="45" width="8" height="8" class="atac-data"/>
+    <rect x="50" y="45" width="8" height="8" class="atac-data"/>
+    
+    <text x="75" y="70" text-anchor="middle" class="desc-text">染色质可及性</text>
+    <text x="75" y="85" text-anchor="middle" class="method-text">• 开放染色质</text>
+    <text x="75" y="97" text-anchor="middle" class="method-text">• 调控元件</text>
+    <text x="75" y="109" text-anchor="middle" class="method-text">• 转录因子结合</text>
+  </g>
+  
+  <!-- 空间数据 -->
+  <g transform="translate(650, 60)">
+    <rect x="0" y="0" width="150" height="120" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" class="data-title">空间转录组</text>
+    
+    <!-- 空间位置示意 -->
+    <circle cx="40" cy="50" r="4" class="integrated-data"/>
+    <circle cx="60" cy="45" r="4" class="integrated-data"/>
+    <circle cx="80" cy="55" r="4" class="integrated-data"/>
+    <circle cx="50" cy="65" r="4" class="integrated-data"/>
+    <circle cx="70" cy="70" r="4" class="integrated-data"/>
+    
+    <text x="75" y="85" text-anchor="middle" class="desc-text">空间位置信息</text>
+    <text x="75" y="97" text-anchor="middle" class="method-text">• 组织结构</text>
+    <text x="75" y="109" text-anchor="middle" class="method-text">• 细胞邻域</text>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <line x1="350" y1="180" x2="350" y2="220" class="arrow" marker-end="url(#arrowhead)"/>
+  <text x="370" y="205" class="desc-text">数据整合</text>
+  
+  <!-- 整合方法 -->
+  <g transform="translate(50, 230)">
+    <rect x="0" y="0" width="700" height="150" fill="#f0f9ff" stroke="#0ea5e9" rx="10"/>
+    <text x="350" y="25" text-anchor="middle" class="data-title" fill="#0ea5e9">多组学整合方法</text>
+    
+    <!-- Seurat整合 -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="150" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+      <text x="75" y="20" text-anchor="middle" class="data-title">Seurat整合</text>
+      <text x="75" y="35" text-anchor="middle" class="desc-text">CCA/RPCA方法</text>
+      <text x="75" y="50" text-anchor="middle" class="method-text">• 寻找共同变异源</text>
+      <text x="75" y="62" text-anchor="middle" class="method-text">• 锚点细胞识别</text>
+      <text x="75" y="74" text-anchor="middle" class="method-text">• 批次效应校正</text>
+    </g>
+    
+    <!-- Harmony -->
+    <g transform="translate(200, 50)">
+      <rect x="0" y="0" width="150" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+      <text x="75" y="20" text-anchor="middle" class="data-title">Harmony</text>
+      <text x="75" y="35" text-anchor="middle" class="desc-text">迭代聚类方法</text>
+      <text x="75" y="50" text-anchor="middle" class="method-text">• 软聚类分配</text>
+      <text x="75" y="62" text-anchor="middle" class="method-text">• 多批次整合</text>
+      <text x="75" y="74" text-anchor="middle" class="method-text">• 保持生物变异</text>
+    </g>
+    
+    <!-- scVI -->
+    <g transform="translate(370, 50)">
+      <rect x="0" y="0" width="150" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+      <text x="75" y="20" text-anchor="middle" class="data-title">scVI</text>
+      <text x="75" y="35" text-anchor="middle" class="desc-text">变分自编码器</text>
+      <text x="75" y="50" text-anchor="middle" class="method-text">• 深度学习模型</text>
+      <text x="75" y="62" text-anchor="middle" class="method-text">• 潜在空间学习</text>
+      <text x="75" y="74" text-anchor="middle" class="method-text">• 概率建模</text>
+    </g>
+    
+    <!-- MultiVI -->
+    <g transform="translate(540, 50)">
+      <rect x="0" y="0" width="150" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="5"/>
+      <text x="75" y="20" text-anchor="middle" class="data-title">MultiVI</text>
+      <text x="75" y="35" text-anchor="middle" class="desc-text">多模态整合</text>
+      <text x="75" y="50" text-anchor="middle" class="method-text">• RNA+蛋白质</text>
+      <text x="75" y="62" text-anchor="middle" class="method-text">• 联合建模</text>
+      <text x="75" y="74" text-anchor="middle" class="method-text">• 缺失数据处理</text>
+    </g>
+  </g>
+  
+  <!-- 向下箭头 -->
+  <line x1="400" y1="380" x2="400" y2="420" class="arrow" marker-end="url(#arrowhead)"/>
+  <text x="420" y="405" class="desc-text">整合结果</text>
+  
+  <!-- 整合后的分析 -->
+  <g transform="translate(200, 430)">
+    <rect x="0" y="0" width="400" height="60" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" rx="5"/>
+    <text x="200" y="20" text-anchor="middle" class="data-title">整合后的下游分析</text>
+    
+    <text x="50" y="40" class="desc-text">• 联合聚类分析</text>
+    <text x="150" y="40" class="desc-text">• 多层次细胞注释</text>
+    <text x="270" y="40" class="desc-text">• 调控网络推断</text>
+    
+    <text x="50" y="52" class="desc-text">• 轨迹分析增强</text>
+    <text x="150" y="52" class="desc-text">• 功能状态解析</text>
+    <text x="270" y="52" class="desc-text">• 细胞通讯分析</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="510" text-anchor="middle" class="desc-text">
+    多组学整合能够提供更全面的细胞状态描述，揭示单一组学无法发现的生物学机制
+  </text>
+</svg>

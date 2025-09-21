@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 20px; font-weight: bold; fill: #1e3a8a; }
+      .section { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #374151; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .step { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #6b7280; }
+      .formula { font-family: 'Source Han Sans CN', sans-serif; font-size: 11px; fill: #7c3aed; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 8; }
+      .process { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; rx: 6; }
+      .data { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; rx: 6; }
+      .arrow { fill: #6b7280; }
+      .peak { fill: #10b981; opacity: 0.7; }
+      .background { fill: #e5e7eb; opacity: 0.5; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">MACS2&#31639;&#27861;&#27969;&#31243;</text>
+  
+  <!-- Step 1: Fragment Length Estimation -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">1. &#29255;&#27573;&#38271;&#24230;&#20272;&#31639;</text>
+    
+    <!-- Cross-correlation visualization -->
+    <g transform="translate(20, 30)">
+      <path d="M0 40 Q20 35 40 30 Q60 25 80 30 Q100 35 120 40 Q140 45 160 40" 
+            fill="none" stroke="#3b82f6" stroke-width="2"/>
+      <circle cx="80" cy="25" r="3" fill="#dc2626"/>
+      <text x="80" y="20" text-anchor="middle" class="step">&#26368;&#22823;&#20540;</text>
+    </g>
+    
+    <text x="100" y="80" text-anchor="middle" class="label">&#20132;&#21449;&#30456;&#20851;&#20998;&#26512;</text>
+    <text x="100" y="95" text-anchor="middle" class="step">&#30830;&#23450;&#29255;&#27573;&#22823;&#23567;</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <polygon points="270,110 290,105 290,115" class="arrow"/>
+  
+  <!-- Step 2: Genome Scanning -->
+  <g transform="translate(310, 60)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">2. &#22522;&#22240;&#32452;&#25195;&#25551;</text>
+    
+    <!-- Sliding window visualization -->
+    <g transform="translate(20, 30)">
+      <rect x="0" y="30" width="160" height="8" fill="#e5e7eb"/>
+      <rect x="20" y="25" width="40" height="18" fill="#3b82f6" opacity="0.3"/>
+      <rect x="40" y="25" width="40" height="18" fill="#3b82f6" opacity="0.5"/>
+      <rect x="60" y="25" width="40" height="18" fill="#3b82f6" opacity="0.7"/>
+      <text x="80" y="55" text-anchor="middle" class="step">&#28369;&#21160;&#31383;&#21475;</text>
+    </g>
+    
+    <text x="100" y="80" text-anchor="middle" class="label">&#20505;&#36873;&#21306;&#22495;&#26816;&#27979;</text>
+    <text x="100" y="95" text-anchor="middle" class="step">&#40664;&#35748;&#31383;&#21475;&#22823;&#23567;: 1kb</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <polygon points="530,110 550,105 550,115" class="arrow"/>
+  
+  <!-- Step 3: Local Background Modeling -->
+  <g transform="translate(570, 60)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">3. &#23616;&#37096;&#32972;&#26223;&#24314;&#27169;</text>
+    
+    <!-- Poisson distribution -->
+    <g transform="translate(20, 30)">
+      <path d="M0 40 Q20 35 40 25 Q60 20 80 25 Q100 30 120 35 Q140 40 160 45" 
+            fill="none" stroke="#f59e0b" stroke-width="2"/>
+      <text x="80" y="55" text-anchor="middle" class="step">&#27867;&#26494;&#20998;&#24067;</text>
+    </g>
+    
+    <text x="100" y="80" text-anchor="middle" class="formula">λ = reads/window</text>
+    <text x="100" y="95" text-anchor="middle" class="step">&#21160;&#24577;&#32972;&#26223;&#35745;&#31639;</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <polygon points="450,180 470,175 470,185" class="arrow"/>
+  
+  <!-- Step 4: Statistical Testing -->
+  <g transform="translate(350, 200)">
+    <rect x="0" y="0" width="200" height="120" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">4. &#32479;&#35745;&#26174;&#33879;&#24615;&#26816;&#39564;</text>
+    
+    <!-- P-value calculation -->
+    <g transform="translate(20, 30)">
+      <text x="80" y="15" text-anchor="middle" class="formula">P(X ≥ k) = Σ(λ^i * e^(-λ))/i!</text>
+      <text x="80" y="35" text-anchor="middle" class="label">&#27867;&#26494;&#26816;&#39564;</text>
+      
+      <!-- FDR correction -->
+      <rect x="20" y="45" width="120" height="20" class="process"/>
+      <text x="80" y="58" text-anchor="middle" class="label">FDR&#26657;&#27491;</text>
+      
+      <text x="80" y="80" text-anchor="middle" class="step">Benjamini-Hochberg</text>
+      <text x="80" y="95" text-anchor="middle" class="formula">q-value &lt; 0.05</text>
+    </g>
+  </g>
+  
+  <!-- Arrow 4 -->
+  <polygon points="270,260 290,255 290,265" class="arrow"/>
+  <polygon points="570,260 590,255 590,265" class="arrow"/>
+  
+  <!-- Step 5: Peak Boundary Refinement -->
+  <g transform="translate(50, 340)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">5. Peak&#36793;&#30028;&#31934;&#21270;</text>
+    
+    <!-- Peak shape -->
+    <g transform="translate(20, 30)">
+      <path d="M0 40 L20 40 L40 30 L60 20 L80 15 L100 20 L120 30 L140 40 L160 40" 
+            fill="none" stroke="#10b981" stroke-width="3"/>
+      <circle cx="80" cy="15" r="3" fill="#dc2626"/>
+      <text x="80" y="10" text-anchor="middle" class="step">Summit</text>
+      
+      <!-- Peak boundaries -->
+      <line x1="30" y1="15" x2="30" y2="45" stroke="#dc2626" stroke-width="2" stroke-dasharray="3,3"/>
+      <line x1="130" y1="15" x2="130" y2="45" stroke="#dc2626" stroke-width="2" stroke-dasharray="3,3"/>
+      <text x="80" y="55" text-anchor="middle" class="step">&#31934;&#30830;&#36793;&#30028;</text>
+    </g>
+    
+    <text x="100" y="80" text-anchor="middle" class="label">&#23792;&#39030;&#26816;&#27979;</text>
+    <text x="100" y="95" text-anchor="middle" class="step">--call-summits</text>
+  </g>
+  
+  <!-- Parameter Settings -->
+  <g transform="translate(300, 340)">
+    <rect x="0" y="0" width="250" height="100" class="box"/>
+    <text x="125" y="20" text-anchor="middle" class="section">&#20851;&#38190;&#21442;&#25968;&#35774;&#32622;</text>
+    
+    <text x="20" y="40" class="label">-g/--gsize:</text>
+    <text x="100" y="40" class="step">&#22522;&#22240;&#32452;&#22823;&#23567;</text>
+    <text x="180" y="40" class="formula">2.7e9 (human)</text>
+    
+    <text x="20" y="55" class="label">-q/--qvalue:</text>
+    <text x="100" y="55" class="step">FDR&#38408;&#20540;</text>
+    <text x="180" y="55" class="formula">0.05</text>
+    
+    <text x="20" y="70" class="label">--extsize:</text>
+    <text x="100" y="70" class="step">&#24310;&#20280;&#38271;&#24230;</text>
+    <text x="180" y="70" class="formula">200bp</text>
+    
+    <text x="20" y="85" class="label">--broad:</text>
+    <text x="100" y="85" class="step">&#23485;&#23792;&#27169;&#24335;</text>
+    <text x="180" y="85" class="formula">H3K27me3</text>
+  </g>
+  
+  <!-- Output Files -->
+  <g transform="translate(600, 340)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#36755;&#20986;&#25991;&#20214;</text>
+    
+    <rect x="20" y="30" width="160" height="15" class="data"/>
+    <text x="100" y="40" text-anchor="middle" class="label">*_peaks.narrowPeak</text>
+    
+    <rect x="20" y="50" width="160" height="15" class="data"/>
+    <text x="100" y="60" text-anchor="middle" class="label">*_summits.bed</text>
+    
+    <rect x="20" y="70" width="160" height="15" class="data"/>
+    <text x="100" y="80" text-anchor="middle" class="label">*_treat_pileup.bdg</text>
+    
+    <text x="100" y="95" text-anchor="middle" class="step">BED/BigWig&#26684;&#24335;</text>
+  </g>
+  
+  <!-- Algorithm Comparison -->
+  <g transform="translate(50, 460)">
+    <rect x="0" y="0" width="750" height="120" class="box"/>
+    <text x="375" y="20" text-anchor="middle" class="section">&#31639;&#27861;&#27604;&#36739;</text>
+    
+    <!-- MACS2 -->
+    <g transform="translate(20, 30)">
+      <text x="100" y="15" text-anchor="middle" class="label">MACS2</text>
+      <text x="0" y="30" class="step">&#20248;&#28857;&#65306;</text>
+      <text x="40" y="30" class="step">&#27169;&#22411;&#39537;&#21160;&#12289;&#39640;&#31934;&#24230;</text>
+      <text x="0" y="45" class="step">&#36866;&#29992;&#65306;</text>
+      <text x="40" y="45" class="step">&#22823;&#22810;&#25968;ChIP-seq</text>
+      <text x="0" y="60" class="step">&#21442;&#25968;&#65306;</text>
+      <text x="40" y="60" class="step">&#33258;&#21160;&#20248;&#21270;</text>
+      <text x="0" y="75" class="step">&#36755;&#20986;&#65306;</text>
+      <text x="40" y="75" class="step">&#26631;&#20934;BED&#26684;&#24335;</text>
+    </g>
+    
+    <!-- HOMER -->
+    <g transform="translate(200, 30)">
+      <text x="100" y="15" text-anchor="middle" class="label">HOMER</text>
+      <text x="0" y="30" class="step">&#20248;&#28857;&#65306;</text>
+      <text x="40" y="30" class="step">&#38598;&#25104;&#20998;&#26512;&#27969;&#31243;</text>
+      <text x="0" y="45" class="step">&#36866;&#29992;&#65306;</text>
+      <text x="40" y="45" class="step">&#36716;&#24405;&#22240;&#23376;ChIP-seq</text>
+      <text x="0" y="60" class="step">&#21442;&#25968;&#65306;</text>
+      <text x="40" y="60" class="step">&#28789;&#27963;&#35774;&#32622;</text>
+      <text x="0" y="75" class="step">&#36755;&#20986;&#65306;</text>
+      <text x="40" y="75" class="step">&#22810;&#31181;&#26684;&#24335;</text>
+    </g>
+    
+    <!-- SPP -->
+    <g transform="translate(380, 30)">
+      <text x="100" y="15" text-anchor="middle" class="label">SPP</text>
+      <text x="0" y="30" class="step">&#20248;&#28857;&#65306;</text>
+      <text x="40" y="30" class="step">&#20005;&#26684;&#32479;&#35745;&#26816;&#39564;</text>
+      <text x="0" y="45" class="step">&#36866;&#29992;&#65306;</text>
+      <text x="40" y="45" class="step">&#39640;&#36136;&#37327;&#25968;&#25454;</text>
+      <text x="0" y="60" class="step">&#21442;&#25968;&#65306;</text>
+      <text x="40" y="60" class="step">&#22797;&#26434;&#35774;&#32622;</text>
+      <text x="0" y="75" class="step">&#36755;&#20986;&#65306;</text>
+      <text x="40" y="75" class="step">R&#23545;&#35937;</text>
+    </g>
+    
+    <!-- SICER -->
+    <g transform="translate(560, 30)">
+      <text x="100" y="15" text-anchor="middle" class="label">SICER</text>
+      <text x="0" y="30" class="step">&#20248;&#28857;&#65306;</text>
+      <text x="40" y="30" class="step">&#23485;&#23792;&#26816;&#27979;</text>
+      <text x="0" y="45" class="step">&#36866;&#29992;&#65306;</text>
+      <text x="40" y="45" class="step">&#32452;&#34507;&#30333;&#20462;&#39280;</text>
+      <text x="0" y="60" class="step">&#21442;&#25968;&#65306;</text>
+      <text x="40" y="60" class="step">&#31383;&#21475;&#22823;&#23567;</text>
+      <text x="0" y="75" class="step">&#36755;&#20986;&#65306;</text>
+      <text x="40" y="75" class="step">&#21306;&#22495;&#25991;&#20214;</text>
+    </g>
+  </g>
+  
+  <!-- Best Practices -->
+  <g transform="translate(50, 600)">
+    <rect x="0" y="0" width="750" height="80" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+    <text x="375" y="20" text-anchor="middle" class="section">&#26368;&#20339;&#23454;&#36341;</text>
+    
+    <text x="20" y="40" class="label">1. &#21442;&#25968;&#20248;&#21270;&#65306;</text>
+    <text x="120" y="40" class="step">&#26681;&#25454;&#25968;&#25454;&#29305;&#28857;&#35843;&#25972;q-value&#21644;extsize</text>
+    
+    <text x="400" y="40" class="label">2. &#36136;&#37327;&#25511;&#21046;&#65306;</text>
+    <text x="500" y="40" class="step">&#26816;&#26597;FRiP&#12289;NSC&#31561;&#25351;&#26631;</text>
+    
+    <text x="20" y="60" class="label">3. &#32467;&#26524;&#39564;&#35777;&#65306;</text>
+    <text x="120" y="60" class="step">&#20351;&#29992;&#24050;&#30693;&#38451;&#24615;&#20301;&#28857;&#39564;&#35777;Peak&#36136;&#37327;</text>
+    
+    <text x="400" y="60" class="label">4. &#22810;&#24037;&#20855;&#27604;&#36739;&#65306;</text>
+    <text x="500" y="60" class="step">&#32467;&#21512;&#22810;&#31181;&#31639;&#27861;&#32467;&#26524;&#25552;&#39640;&#21487;&#38752;&#24615;</text>
+  </g>
+</svg>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="650" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 24px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #374151; }
+      .label-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 14px; fill: #374151; }
+      .small-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #6b7280; }
+      .gcp-box { fill: #e8f5e8; stroke: #4285f4; stroke-width: 2; rx: 10; }
+      .aws-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 10; }
+      .azure-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 10; }
+      .alibaba-box { fill: #fff8e1; stroke: #ffc107; stroke-width: 2; rx: 10; }
+      .feature-box { fill: #f3f4f6; stroke: #6b7280; stroke-width: 1; rx: 5; }
+      .advantage-box { fill: #f0fdf4; stroke: #059669; stroke-width: 1; rx: 5; }
+      .tool-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 1; rx: 5; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">云计算平台在生物信息学中的比较</text>
+  
+  <!-- Google Cloud Platform -->
+  <rect x="50" y="60" width="200" height="220" class="gcp-box"/>
+  <text x="150" y="85" text-anchor="middle" class="subtitle-text">Google Cloud Platform</text>
+  
+  <!-- GCP Features -->
+  <rect x="70" y="100" width="160" height="25" class="feature-box"/>
+  <text x="150" y="118" text-anchor="middle" class="small-text">Google Colab (免费GPU)</text>
+  
+  <rect x="70" y="130" width="160" height="25" class="advantage-box"/>
+  <text x="150" y="148" text-anchor="middle" class="small-text">BigQuery 大数据分析</text>
+  
+  <rect x="70" y="160" width="160" height="25" class="tool-box"/>
+  <text x="150" y="178" text-anchor="middle" class="small-text">AutoML 机器学习</text>
+  
+  <text x="70" y="200" class="small-text">生物信息学工具：</text>
+  <text x="70" y="215" class="small-text">• Cloud Life Sciences API</text>
+  <text x="70" y="230" class="small-text">• Variant Transforms</text>
+  <text x="70" y="245" class="small-text">• DeepVariant</text>
+  <text x="70" y="260" class="small-text">• TensorFlow深度集成</text>
+  
+  <!-- Amazon Web Services -->
+  <rect x="270" y="60" width="200" height="220" class="aws-box"/>
+  <text x="370" y="85" text-anchor="middle" class="subtitle-text">Amazon Web Services</text>
+  
+  <!-- AWS Features -->
+  <rect x="290" y="100" width="160" height="25" class="feature-box"/>
+  <text x="370" y="118" text-anchor="middle" class="small-text">丰富的服务生态</text>
+  
+  <rect x="290" y="130" width="160" height="25" class="advantage-box"/>
+  <text x="370" y="148" text-anchor="middle" class="small-text">强大的计算能力</text>
+  
+  <rect x="290" y="160" width="160" height="25" class="tool-box"/>
+  <text x="370" y="178" text-anchor="middle" class="small-text">完善的安全体系</text>
+  
+  <text x="290" y="200" class="small-text">生物信息学工具：</text>
+  <text x="290" y="215" class="small-text">• AWS Batch</text>
+  <text x="290" y="230" class="small-text">• Amazon Genomics CLI</text>
+  <text x="290" y="245" class="small-text">• SageMaker</text>
+  <text x="290" y="260" class="small-text">• EC2 高性能计算</text>
+  
+  <!-- Microsoft Azure -->
+  <rect x="490" y="60" width="200" height="220" class="azure-box"/>
+  <text x="590" y="85" text-anchor="middle" class="subtitle-text">Microsoft Azure</text>
+  
+  <!-- Azure Features -->
+  <rect x="510" y="100" width="160" height="25" class="feature-box"/>
+  <text x="590" y="118" text-anchor="middle" class="small-text">企业级服务</text>
+  
+  <rect x="510" y="130" width="160" height="25" class="advantage-box"/>
+  <text x="590" y="148" text-anchor="middle" class="small-text">Office 365集成</text>
+  
+  <rect x="510" y="160" width="160" height="25" class="tool-box"/>
+  <text x="590" y="178" text-anchor="middle" class="small-text">混合云解决方案</text>
+  
+  <text x="510" y="200" class="small-text">生物信息学工具：</text>
+  <text x="510" y="215" class="small-text">• Azure Machine Learning</text>
+  <text x="510" y="230" class="small-text">• Azure Genomics</text>
+  <text x="510" y="245" class="small-text">• Azure Batch</text>
+  <text x="510" y="260" class="small-text">• Cognitive Services</text>
+  
+  <!-- Alibaba Cloud -->
+  <rect x="710" y="60" width="170" height="220" class="alibaba-box"/>
+  <text x="795" y="85" text-anchor="middle" class="subtitle-text">阿里云</text>
+  
+  <!-- Alibaba Features -->
+  <rect x="720" y="100" width="150" height="25" class="feature-box"/>
+  <text x="795" y="118" text-anchor="middle" class="small-text">本土化服务</text>
+  
+  <rect x="720" y="130" width="150" height="25" class="advantage-box"/>
+  <text x="795" y="148" text-anchor="middle" class="small-text">价格优势</text>
+  
+  <rect x="720" y="160" width="150" height="25" class="tool-box"/>
+  <text x="795" y="178" text-anchor="middle" class="small-text">中文支持</text>
+  
+  <text x="720" y="200" class="small-text">生物信息学工具：</text>
+  <text x="720" y="215" class="small-text">• 机器学习PAI</text>
+  <text x="720" y="230" class="small-text">• 弹性计算ECS</text>
+  <text x="720" y="245" class="small-text">• 基因计算服务</text>
+  <text x="720" y="260" class="small-text">• 数据湖分析</text>
+  
+  <!-- Comparison Table -->
+  <rect x="50" y="320" width="800" height="200" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" rx="10"/>
+  <text x="450" y="345" text-anchor="middle" class="subtitle-text">平台特性对比</text>
+  
+  <!-- Table Headers -->
+  <text x="80" y="370" class="label-text">特性</text>
+  <text x="200" y="370" class="label-text">Google Cloud</text>
+  <text x="320" y="370" class="label-text">AWS</text>
+  <text x="440" y="370" class="label-text">Azure</text>
+  <text x="560" y="370" class="label-text">阿里云</text>
+  <text x="680" y="370" class="label-text">华为云</text>
+  
+  <!-- Table Rows -->
+  <line x1="70" y1="380" x2="830" y2="380" stroke="#cbd5e1" stroke-width="1"/>
+  
+  <text x="80" y="395" class="small-text">免费额度</text>
+  <text x="200" y="395" class="small-text">Colab免费</text>
+  <text x="320" y="395" class="small-text">12个月免费</text>
+  <text x="440" y="395" class="small-text">12个月免费</text>
+  <text x="560" y="395" class="small-text">新用户优惠</text>
+  <text x="680" y="395" class="small-text">新用户优惠</text>
+  
+  <text x="80" y="415" class="small-text">GPU支持</text>
+  <text x="200" y="415" class="small-text">TPU优势</text>
+  <text x="320" y="415" class="small-text">多种GPU</text>
+  <text x="440" y="415" class="small-text">GPU实例</text>
+  <text x="560" y="415" class="small-text">GPU计算</text>
+  <text x="680" y="415" class="small-text">昇腾AI</text>
+  
+  <text x="80" y="435" class="small-text">数据存储</text>
+  <text x="200" y="435" class="small-text">Cloud Storage</text>
+  <text x="320" y="435" class="small-text">S3</text>
+  <text x="440" y="435" class="small-text">Blob Storage</text>
+  <text x="560" y="435" class="small-text">对象存储OSS</text>
+  <text x="680" y="435" class="small-text">对象存储OBS</text>
+  
+  <text x="80" y="455" class="small-text">机器学习</text>
+  <text x="200" y="455" class="small-text">AutoML</text>
+  <text x="320" y="455" class="small-text">SageMaker</text>
+  <text x="440" y="455" class="small-text">ML Studio</text>
+  <text x="560" y="455" class="small-text">PAI平台</text>
+  <text x="680" y="455" class="small-text">ModelArts</text>
+  
+  <text x="80" y="475" class="small-text">生物工具</text>
+  <text x="200" y="475" class="small-text">DeepVariant</text>
+  <text x="320" y="475" class="small-text">Genomics CLI</text>
+  <text x="440" y="475" class="small-text">Genomics</text>
+  <text x="560" y="475" class="small-text">基因计算</text>
+  <text x="680" y="475" class="small-text">基因容器</text>
+  
+  <text x="80" y="495" class="small-text">价格</text>
+  <text x="200" y="495" class="small-text">中等</text>
+  <text x="320" y="495" class="small-text">较高</text>
+  <text x="440" y="495" class="small-text">中等</text>
+  <text x="560" y="495" class="small-text">较低</text>
+  <text x="680" y="495" class="small-text">较低</text>
+  
+  <!-- Workflow Example -->
+  <rect x="50" y="550" width="800" height="80" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" rx="10"/>
+  <text x="450" y="575" text-anchor="middle" class="subtitle-text">云端生物信息学工作流示例</text>
+  
+  <!-- Workflow Steps -->
+  <rect x="80" y="590" width="100" height="25" class="feature-box"/>
+  <text x="130" y="608" text-anchor="middle" class="small-text">数据上传</text>
+  
+  <rect x="200" y="590" width="100" height="25" class="advantage-box"/>
+  <text x="250" y="608" text-anchor="middle" class="small-text">环境配置</text>
+  
+  <rect x="320" y="590" width="100" height="25" class="tool-box"/>
+  <text x="370" y="608" text-anchor="middle" class="small-text">分析计算</text>
+  
+  <rect x="440" y="590" width="100" height="25" class="feature-box"/>
+  <text x="490" y="608" text-anchor="middle" class="small-text">结果存储</text>
+  
+  <rect x="560" y="590" width="100" height="25" class="advantage-box"/>
+  <text x="610" y="608" text-anchor="middle" class="small-text">结果分享</text>
+  
+  <rect x="680" y="590" width="100" height="25" class="tool-box"/>
+  <text x="730" y="608" text-anchor="middle" class="small-text">成本优化</text>
+  
+  <!-- Arrows -->
+  <polygon points="185,602 195,598 195,606" fill="#374151"/>
+  <polygon points="305,602 315,598 315,606" fill="#374151"/>
+  <polygon points="425,602 435,598 435,606" fill="#374151"/>
+  <polygon points="545,602 555,598 555,606" fill="#374151"/>
+  <polygon points="665,602 675,598 675,606" fill="#374151"/>
+</svg>

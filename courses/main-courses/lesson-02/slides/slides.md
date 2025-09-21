@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 
@@ -35,7 +35,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 4. **质量控制工具介绍**
 5. **实践操作演示**
 
-**学习目标：**
+---
+
+# 学习目标
 - 理解测序数据中各种错误的来源和特征
 - 掌握质量评估的主要指标和方法
 - 学会使用FastQC和MultiQC进行质量控制
@@ -85,6 +87,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 <!-- _class: content -->
 # 测序化学反应中的错误
 
+<div class="columns">
+<div class="column">
+
 ## 聚合酶相关错误
 - **掺入错误**：错误碱基的掺入（~0.1-1%）
 - **滑链现象**：重复序列区域的滑动
@@ -95,17 +100,24 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **假终止**：非特异性终止
 - **终止子降解**：化学稳定性问题
 
----
+</div>
+<div class="column">
 
 ## 影响因素
 - **反应温度**：影响酶活性和特异性
 - **离子浓度**：Mg²⁺、Mn²⁺浓度
 - **pH值**：缓冲体系的稳定性
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 光学系统引入的噪声
+
+<div class="columns">
+<div class="column">
 
 ## 激光系统问题
 - **功率不稳定**：导致信号强度变化
@@ -117,19 +129,20 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **光谱串扰**：不同荧光通道间的干扰
 - **像素缺陷**：坏点、热点问题
 
----
+</div>
+<div class="column">
 
-<!-- _class: content -->
-# 碱基识别算法的局限性
 ## 数据处理算法
 - **基线校正**：背景信号的处理
 - **信号分离**：重叠峰的分离算法
 - **质量评分**：Phred分数的计算
 
+</div>
+</div>
+
 ---
 
-<!-- _class: multi-column -->
-# 不同测序平台的错误特征
+# 测序平台测序错误特征
 
 <div class="columns">
 <div class="column">
@@ -142,9 +155,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **特征**：质量分数可靠
 
 </div>
-
----
-
 <div class="column">
 
 ## PacBio/Nanopore
@@ -164,6 +174,9 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ## Phred质量分数系统
 
+<div class="columns">
+<div class="column">
+
 ### 定义和计算
 ```
 Q = -10 × log₁₀(P)
@@ -172,7 +185,8 @@ Q = -10 × log₁₀(P)
 - **Q**：Phred质量分数
 - **P**：碱基识别错误的概率
 
----
+</div>
+<div class="column">
 
 ### 常用质量标准
 - **Q10**：错误率10%（90%准确率）
@@ -180,10 +194,16 @@ Q = -10 × log₁₀(P)
 - **Q30**：错误率0.1%（99.9%准确率）
 - **Q40**：错误率0.01%（99.99%准确率）
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 每碱基质量分布分析
+
+<div class="columns">
+<div class="column">
 
 ## 正常质量分布特征
 - **起始位置**：通常质量较高（Q30+）
@@ -191,18 +211,24 @@ Q = -10 × log₁₀(P)
 - **末端区域**：质量逐渐下降
 - **整体趋势**：平滑的质量曲线
 
----
+</div>
+<div class="column">
 
 ## 异常模式识别
 - **急剧下降**：可能的技术问题
 - **周期性波动**：系统性偏差
 - **异常峰值**：特定位置的问题
 - **整体偏低**：测序质量差
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # 每序列质量分布分析
+
+<div class="columns">
+<div class="column">
 
 ## 质量分布模式
 - **正常分布**：大部分序列质量集中在高分区
@@ -210,7 +236,8 @@ Q = -10 × log₁₀(P)
 - **左偏分布**：整体质量偏低
 - **异常分布**：需要进一步调查
 
----
+</div>
+<div class="column">
 
 ## 评估标准
 - **平均质量**：序列平均Phred分数
@@ -218,10 +245,16 @@ Q = -10 × log₁₀(P)
 - **分布形状**：正态性检验
 - **异常值**：极端质量值的比例
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # GC含量分析
+
+<div class="columns">
+<div class="column">
 
 ## 理论GC含量
 - **人类基因组**：约41%
@@ -234,10 +267,16 @@ Q = -10 × log₁₀(P)
 - **污染问题**：外源DNA的混入
 - **样本问题**：DNA降解或修饰
 
+</div>
+<div class="column">
+
 ## 评估方法
 - **理论值比较**：与参考基因组比较
 - **分布形状**：正态分布检验
 - **异常峰值**：污染序列识别
+
+</div>
+</div>
 
 ---
 
@@ -251,29 +290,38 @@ Q = -10 × log₁₀(P)
 <!-- _class: content -->
 # 序列长度分布分析
 
+<div class="columns">
+<div class="column">
+
 ## 预期长度分布
 - **单端测序**：固定长度（如150bp）
 - **双端测序**：两个固定长度
 - **长读长测序**：广泛的长度分布
 
----
-
-## 实际长度分布
 ## 异常长度模式
 - **长度截断**：质量过滤导致的截断
 - **异常短序列**：接头二聚体等
 - **长度偏差**：样本制备问题
 - **多峰分布**：多种文库的混合
 
+</div>
+<div class="column">
+
 ## 影响因素
 - **片段化方法**：物理vs化学片段化
 - **文库制备**：大小选择的效果
 - **测序策略**：读长设置
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 重复序列检测
+
+<div class="columns">
+<div class="column">
 
 ## 重复序列的类型
 - **PCR重复**：扩增过程中的人工重复
@@ -281,18 +329,22 @@ Q = -10 × log₁₀(P)
 - **生物学重复**：基因组中的天然重复
 - **接头序列**：文库制备中的接头
 
----
-
 ## 检测方法
 - **序列比对**：完全匹配的序列
 - **起始位置**：相同起始位置的reads
 - **质量模式**：相似的质量分布
 - **统计分析**：重复频率的统计
 
+</div>
+<div class="column">
+
 ## 处理策略
 - **标记重复**：保留但标记
 - **去除重复**：完全删除
 - **质量选择**：保留最高质量的副本
+
+</div>
+</div>
 
 ---
 
@@ -301,20 +353,32 @@ Q = -10 × log₁₀(P)
 
 ## 数据清洗的目标
 
+<div class="columns">
+<div class="column">
+
 ### 提高数据质量
 - **去除低质量碱基**：提高整体准确性
 - **统一序列长度**：便于后续分析
 - **减少噪声**：降低假阳性率
+
+</div>
+<div class="column">
 
 ### 优化分析效率
 - **减少数据量**：节省计算资源
 - **标准化格式**：统一数据格式
 - **提高速度**：加快分析进程
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 低质量碱基修剪
+
+<div class="columns">
+<div class="column">
 
 ## 修剪策略
 - **固定长度修剪**：从末端修剪固定长度
@@ -322,13 +386,15 @@ Q = -10 × log₁₀(P)
 - **滑动窗口修剪**：使用滑动窗口算法
 - **自适应修剪**：根据质量分布自适应
 
----
 
 ## 参数设置
 - **质量阈值**：通常设置为Q20或Q30
 - **窗口大小**：滑动窗口的大小（如4bp）
 - **最小长度**：修剪后保留的最小长度
 - **修剪方向**：5'端、3'端或两端
+
+</div>
+<div class="column">
 
 ## 修剪算法示例
 ```
@@ -339,10 +405,16 @@ Q = -10 × log₁₀(P)
 4. 如果低于阈值，修剪该位置及之后的序列
 ```
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 接头序列去除
+
+<div class="columns">
+<div class="column">
 
 ## 接头序列的来源
 - **通用接头**：Illumina标准接头序列
@@ -350,19 +422,23 @@ Q = -10 × log₁₀(P)
 - **接头二聚体**：接头自连形成的短片段
 - **污染接头**：其他实验的接头残留
 
----
-
 ## 检测方法
 - **序列比对**：与已知接头序列比对
 - **k-mer分析**：高频k-mer的识别
 - **长度分析**：异常短序列的检测
 - **质量模式**：接头区域的质量特征
 
+</div>
+<div class="column">
+
 ## 去除策略
 - **硬修剪**：完全去除匹配的接头序列
 - **软修剪**：部分去除或标记
 - **严格匹配**：要求完全匹配
 - **模糊匹配**：允许少量错配
+
+</div>
+</div>
 
 ---
 
@@ -385,9 +461,6 @@ CTGTCTCTTATACACATCT
 ```
 
 </div>
-
----
-
 <div class="column">
 
 ## 其他平台接头
@@ -410,13 +483,15 @@ ATCTCTCTCTTTTCCTCCTCCTCCGTTGTTGTTGTTGAGAGAGAT
 <!-- _class: content -->
 # 重复序列处理
 
+<div class="columns">
+<div class="column">
+
 ## 重复序列的影响
 - **分析偏差**：人为增加某些区域的覆盖度
 - **资源浪费**：占用不必要的计算资源
 - **统计问题**：影响统计分析的准确性
 - **假阳性**：增加变异检测的假阳性率
 
----
 
 ## 识别方法
 - **完全匹配**：序列完全相同
@@ -424,16 +499,25 @@ ATCTCTCTCTTTTCCTCCTCCTCCGTTGTTGTTGTTGAGAGAGAT
 - **质量模式匹配**：相似的质量分布模式
 - **统计学方法**：基于概率的重复检测
 
+</div>
+<div class="column">
+
 ## 处理选择
 - **保留标记**：标记但不删除
 - **完全去除**：删除所有重复
 - **保留最佳**：保留质量最高的副本
 - **随机保留**：随机选择一个副本
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 污染序列过滤
+
+<div class="columns">
+<div class="column">
 
 ## 污染来源
 - **宿主DNA**：细菌样本中的人类DNA
@@ -441,24 +525,30 @@ ATCTCTCTCTTTTCCTCCTCCTCCGTTGTTGTTGTTGAGAGAGAT
 - **试剂污染**：实验试剂中的DNA
 - **交叉污染**：不同样本间的污染
 
----
-
 ## 检测策略
 - **参考数据库比对**：与已知污染序列比对
 - **物种特异性分析**：基于物种特征的过滤
 - **GC含量分析**：异常GC含量的序列
 - **k-mer分析**：异常k-mer频率分析
 
+</div>
+<div class="column">
+
 ## 过滤方法
 - **黑名单过滤**：基于已知污染序列列表
 - **相似性过滤**：基于序列相似性
 - **统计过滤**：基于统计学异常
 - **手动检查**：人工验证可疑序列
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # 长度过滤策略
+
+<div class="columns">
+<div class="column">
 
 ## 长度过滤的必要性
 - **分析要求**：某些分析需要特定长度范围
@@ -466,13 +556,17 @@ ATCTCTCTCTTTTCCTCCTCCTCCGTTGTTGTTGTTGAGAGAGAT
 - **效率优化**：去除无用的短序列
 - **标准化**：统一序列长度分布
 
----
+</div>
+<div class="column">
 
 ## 过滤参数
 - **最小长度**：通常设置为原长度的50-70%
 - **最大长度**：去除异常长的序列
 - **长度分布**：保持合理的长度分布
 - **双端配对**：保持配对reads的一致性
+
+</div>
+</div>
 
 ---
 
@@ -496,20 +590,32 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 
 ## FastQC - 快速质量控制
 
+<div class="columns">
+<div class="column">
+
 ### 主要功能
 - **基本统计**：序列数量、长度分布、GC含量
 - **质量分析**：每碱基和每序列质量分布
 - **序列分析**：重复序列、接头污染检测
 - **报告生成**：HTML格式的详细报告
 
+</div>
+<div class="column">
+
 ### 优势特点
 - **速度快**：高效的算法实现
 - **易使用**：简单的命令行界面
+
+</div>
+</div>
 
 ---
 
 <!-- _class: content -->
 # FastQC分析模块详解
+
+<div class="columns">
+<div class="column">
 
 ## 基本统计模块
 - **Total Sequences**：总序列数
@@ -517,18 +623,16 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 - **%GC**：GC含量百分比
 - **Encoding**：质量编码格式
 
----
+</div>
+<div class="column">
 
 ## 质量分析模块
 - **Per Base Sequence Quality**：每个位置的质量分布
 - **Per Sequence Quality Scores**：每条序列的质量分布
 - **Per Base N Content**：每个位置的N碱基含量
 
-## 序列内容分析
-- **Per Base Sequence Content**：每个位置的碱基组成
-- **Per Sequence GC Content**：GC含量分布
-- **Sequence Duplication Levels**：序列重复水平
-- **Overrepresented Sequences**：过度表达序列
+</div>
+</div>
 
 ---
 
@@ -537,27 +641,37 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 
 ## 通过/警告/失败标准
 
+<div class="columns">
+<div class="column">
+
 ### 通过（绿色）✅
 - 质量分数中位数 > Q25
 - GC含量偏差 < 15%
 - 重复序列 < 20%
-
----
 
 ### 警告（黄色）⚠️
 - 质量分数中位数 Q20-Q25
 - GC含量偏差 15-30%
 - 重复序列 20-50%
 
+</div>
+<div class="column">
+
 ### 失败（红色）❌
 - 质量分数中位数 < Q20
 - GC含量偏差 > 30%
 - 重复序列 > 50%
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # MultiQC - 多样本整合分析
+
+<div class="columns">
+<div class="column">
 
 ### 核心功能
 - **报告整合**：将多个FastQC报告整合为一个
@@ -565,30 +679,37 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 - **异常检测**：自动识别异常样本
 - **交互式图表**：支持交互式数据探索
 
----
-
 ### 支持的工具
 - **质量控制**：FastQC, AfterQC, Clumpify
 - **比对工具**：BWA, Bowtie2, STAR, HISAT2
 - **变异检测**：GATK, FreeBayes, VarScan
 - **定量分析**：featureCounts, Salmon, Kallisto
 
+</div>
+<div class="column">
+
 ### 输出格式
 - **HTML报告**：交互式网页报告
 - **数据表格**：CSV格式的原始数据
 - **图片文件**：PNG/SVG格式的图表
+
+</div>
+</div>
 
 ---
 
 <!-- _class: image -->
 # 质量控制工作流程
 
-![质量控制流程](../images/qc_workflow.svg)
+<img src="../images/qc_workflow.svg" alt="质量控制工作流程" width="90%" style="max-height: 500px;">
 
 ---
 
 <!-- _class: content -->
 # 其他质量控制工具
+
+<div class="columns">
+<div class="column">
 
 ## Trimmomatic
 - **功能**：序列修剪和过滤
@@ -600,7 +721,8 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 - **特点**：支持多种接头类型
 - **适用**：各种测序平台
 
----
+</div>
+<div class="column">
 
 ## fastp
 - **功能**：一体化质量控制和预处理
@@ -611,6 +733,9 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 - **功能**：自动质量控制和修复
 - **特点**：智能化处理，减少人工干预
 - **适用**：批量样本处理
+
+</div>
+</div>
 
 ---
 
@@ -631,9 +756,6 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 - **Cutadapt**：接头专用
 
 </div>
-
----
-
 <div class="column">
 
 ## 特殊需求
@@ -656,30 +778,34 @@ trimmomatic PE input_R1.fastq input_R2.fastq \
 
 ## 实验环境准备
 
+<div class="columns">
+<div class="column">
+
 ### 软件安装
 ```bash
 # 安装FastQC
 sudo apt-get install fastqc
-
 # 安装MultiQC
 pip install multiqc
-
 # 安装Trimmomatic
 conda install -c bioconda trimmomatic
-
 # 验证安装
 fastqc --version
 multiqc --version
 trimmomatic -version
 ```
 
----
+</div>
+<div class="column">
 
 ### 数据准备
 - **测试数据集**：SRA公共数据
 - **文件格式**：FASTQ格式
 - **数据大小**：适中的样本量
 - **质量特征**：包含典型的质量问题
+
+</div>
+</div>
 
 ---
 
@@ -753,13 +879,17 @@ trimmomatic PE -threads 4 \
 <!-- _class: content -->
 # 质量控制效果评估
 
+<div class="columns">
+<div class="column">
+
 ## 清洗前后对比
 - **序列数量变化**：评估数据损失程度
 - **质量分布改善**：质量分数的提升
 - **长度分布变化**：修剪对长度的影响
 - **GC含量稳定性**：确保无偏差引入
 
----
+</div>
+<div class="column">
 
 ## 评估指标
 - **保留率**：清洗后保留的序列比例
@@ -771,6 +901,9 @@ trimmomatic PE -threads 4 \
 - **Q30比例**：> 85%为优秀
 - **保留率**：> 80%为可接受
 - **长度分布**：保持合理的分布形状
+
+</div>
+</div>
 
 ---
 
@@ -828,13 +961,17 @@ echo "质量控制完成！"
 <!-- _class: content -->
 # 质量控制最佳实践
 
+<div class="columns">
+<div class="column">
+
 ## 分析前准备
 - **了解数据来源**：测序平台、文库制备方法
 - **设定质量标准**：根据下游分析需求
 - **准备参考数据**：接头序列、污染序列列表
 - **规划存储空间**：确保足够的磁盘空间
 
----
+</div>
+<div class="column">
 
 ## 参数优化
 - **质量阈值**：根据数据特征调整
@@ -847,10 +984,16 @@ echo "质量控制完成！"
 - **手动检查**：抽查部分结果
 - **下游兼容性**：确保满足后续分析需求
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 常见问题和解决方案
+
+<div class="columns">
+<div class="column">
 
 ## 质量分数异常低
 **可能原因：**
@@ -863,7 +1006,8 @@ echo "质量控制完成！"
 - 增加修剪力度
 - 考虑重新测序
 
----
+</div>
+<div class="column">
 
 ## GC含量异常
 **可能原因：**
@@ -876,10 +1020,16 @@ echo "质量控制完成！"
 - 优化PCR条件
 - 彻底去除接头
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
 # 质量控制报告解读技巧
+
+<div class="columns">
+<div class="column">
 
 ## 关注重点指标
 - **整体质量趋势**：是否符合预期
@@ -887,19 +1037,23 @@ echo "质量控制完成！"
 - **批次效应**：不同批次间的差异
 - **技术重复一致性**：重复样本的相似性
 
----
-
 ## 决策标准
 - **可接受标准**：Q20 > 90%, Q30 > 80%
 - **需要清洗**：存在明显质量问题
 - **需要重测**：质量过差无法挽救
 - **可直接使用**：质量优秀，无需处理
 
+</div>
+<div class="column">
+
 ## 文档记录
 - **参数设置**：记录所有处理参数
 - **质量统计**：保存关键质量指标
 - **处理日志**：记录处理过程和问题
 - **版本信息**：记录软件版本
+
+</div>
+</div>
 
 ---
 

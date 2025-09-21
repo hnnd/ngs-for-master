@@ -586,7 +586,7 @@ png("basic_plots.png", width = 800, height = 600)
 par(mfrow = c(2, 2))
 # 重复上面的绘图代码...
 dev.off()
-```
+```r
 
 #### 5.2 ggplot2高级可视化
 ```r
@@ -943,7 +943,7 @@ samples_match <- all(colnames(expr_matrix_read) %in% sample_data_read$sample_id)
 
 cat("基因名称匹配:", genes_match, "\n")
 cat("样本名称匹配:", samples_match, "\n")
-```
+```r
 
 ## 预期结果
 

@@ -2,10 +2,10 @@
 <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
-      .subtitle { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
-      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #374151; }
-      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; fill: #374151; }
+      .small-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
       .metric-box { fill: #f0f9ff; stroke: #0284c7; stroke-width: 2; rx: 8; }
       .formula-box { fill: #fef3c7; stroke: #d97706; stroke-width: 1; rx: 5; }
       .axis { stroke: #374151; stroke-width: 1; }

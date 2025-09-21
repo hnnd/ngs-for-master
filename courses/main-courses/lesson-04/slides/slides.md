@@ -1,9 +1,9 @@
 ---
 marp: true
 theme: ngs-course
-paginate: true
-header: '高通量测序数据分析 | 王运生'
-footer: 'wangys@hunau.edu.cn | 16教420室'
+paginate: false
+header: '高通量测序数据分析'
+footer: '王运生 | 2025'
 ---
 
 <!-- 
@@ -34,11 +34,10 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 3. GATK最佳实践流程
 4. VCF格式与质量控制
 5. 变异注释与功能预测
-6. 实践操作演示
 
 ---
 
-**学习目标：**
+# 学习目标
 - 理解不同变异类型的检测原理
 - 掌握GATK变异检测流程
 - 学会VCF文件处理和质量评估
@@ -61,6 +60,8 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ---
 
+<!-- _class: image -->
+
 ![变异类型示意图](../images/variant_types.svg)
 
 ---
@@ -80,9 +81,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
   - 同框变异
 
 </div>
-
----
-
 <div class="column">
 
 ## 大变异
@@ -113,12 +111,17 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ---
 
+<!-- _class: image -->
+
 ![变异功能影响](../images/variant_effects.svg)
 
 ---
 
 <!-- _class: content -->
 # 变异频率与分布
+
+<div class="columns">
+<div class="column">
 
 ## 人类基因组变异统计
 
@@ -128,12 +131,16 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - CNV：~1000-2000个
 - SV：~2000-3000个
 
----
+</div>
+<div class="column">
 
 **变异分布特点：**
 - 编码区变异密度较低
 - 非编码区变异更为常见
 - 重复序列区域变异率高
+
+</div>
+</div>
 
 ---
 
@@ -151,7 +158,8 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 
 ---
 
-![变异检测流程](../images/variant_calling_workflow.svg)
+<!-- _class: image -->
+<img src="../images/variant_calling_workflow.svg" alt="变异检测流程" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -169,57 +177,6 @@ footer: 'wangys@hunau.edu.cn | 16教420室'
 - **变异支持度**：支持变异的reads比例
 - **碱基质量**：测序质量分数
 - **比对质量**：reads比对的可信度
-
----
-
-<!-- _class: code -->
-# 变异检测算法示例
-
-## 简单的SNP检测逻辑
-
-```python
-def detect_snp(position, reads, ref_base, min_depth=10, min_freq=0.3):
-    """
-    简单的SNP检测算法
-    """
-    # 统计各碱基的支持reads数
-    base_counts = {'A': 0, 'T': 0, 'G': 0, 'C': 0}
-    total_depth = 0
-    
-    for read in reads:
-        if position in read.positions:
-            base = read.get_base(position)
-            if base in base_counts:
-                base_counts[base] += 1
-                total_depth += 1
-    
-    # 检查覆盖深度
-    if total_depth < min_depth:
-        return None
-    
-    # 找到最高频率的非参考碱基
-    alt_bases = {base: count for base, count in base_counts.items() 
-                 if base != ref_base and count > 0}
-    
-    if not alt_bases:
-        return None
-    
-    # 计算变异频率
-    max_alt_base = max(alt_bases, key=alt_bases.get)
-    alt_freq = alt_bases[max_alt_base] / total_depth
-    
-    if alt_freq >= min_freq:
-        return {
-            'position': position,
-            'ref': ref_base,
-            'alt': max_alt_base,
-            'depth': total_depth,
-            'alt_count': alt_bases[max_alt_base],
-            'frequency': alt_freq
-        }
-    
-    return None
-```
 
 ---
 
@@ -241,6 +198,7 @@ def detect_snp(position, reads, ref_base, min_depth=10, min_freq=0.3):
 
 ---
 
+<!-- _class: image -->
 ![InDel检测挑战](../images/indel_challenges.svg)
 
 ---
@@ -267,12 +225,16 @@ def detect_snp(position, reads, ref_base, min_depth=10, min_freq=0.3):
 
 ## 完整分析流程
 
+<div class="columns">
+<div class="column">
+
 **数据预处理：**
 1. 比对质量校正（BQSR）
 2. 重复序列标记
 3. InDel区域重新比对
 
----
+</div>
+<div class="column">
 
 **变异检测：**
 1. HaplotypeCaller检测变异
@@ -283,9 +245,13 @@ def detect_snp(position, reads, ref_base, min_depth=10, min_freq=0.3):
 1. 变异质量分数校正（VQSR）
 2. 硬过滤（Hard filtering）
 
+</div>
+</div>
+
 ---
 
-![GATK流程图](../images/gatk_workflow.svg)
+<!-- _class: image -->
+<img src="../images/gatk_workflow.svg" alt="GATK流程图" width="90%" style="max-height: 500px;">
 
 ---
 
@@ -293,6 +259,9 @@ def detect_snp(position, reads, ref_base, min_depth=10, min_freq=0.3):
 # GATK核心命令
 
 ## 主要分析步骤
+
+<div class="columns">
+<div class="column">
 
 ```bash
 # 1. 碱基质量分数校正
@@ -307,7 +276,11 @@ gatk ApplyBQSR \
     -R reference.fasta \
     --bqsr-recal-file recal_data.table \
     -O output.recal.bam
+```
+</div>
+<div class="column">
 
+```bash
 # 2. 变异检测
 gatk HaplotypeCaller \
     -I input.recal.bam \
@@ -322,6 +295,9 @@ gatk GenotypeGVCFs \
     -O variants.vcf
 ```
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
@@ -329,13 +305,17 @@ gatk GenotypeGVCFs \
 
 ## 核心特点
 
+<div class="columns">
+<div class="column">
+
 **算法优势：**
 - 基于单倍型的变异检测
 - 同时检测SNP和InDel
 - 局部重新组装
 - 减少假阳性变异
 
----
+</div>
+<div class="column">
 
 **工作原理：**
 1. 识别活跃区域（Active Region）
@@ -343,9 +323,13 @@ gatk GenotypeGVCFs \
 3. 单倍型比对和评分
 4. 变异候选生成
 
+</div>
+</div>
+
 ---
 
-![HaplotypeCaller原理](../images/haplotypecaller_principle.svg)
+<!-- _class: image -->
+<img src="../images/haplotypecaller_principle.svg" alt="HaplotypeCaller原理" width="80%" style="max-height: 400px; margin: 15px auto; display: block;">
 
 ---
 
@@ -353,6 +337,9 @@ gatk GenotypeGVCFs \
 # 4. VCF格式详解
 
 ## VCF文件结构
+
+<div class="columns">
+<div class="column">
 
 **Variant Call Format (VCF)**
 - 变异检测结果的标准格式
@@ -364,6 +351,19 @@ gatk GenotypeGVCFs \
 - **数据行**：每行一个变异位点
 - **必需字段**：CHROM, POS, ID, REF, ALT, QUAL, FILTER, INFO
 - **可选字段**：FORMAT, 样本基因型
+
+
+</div>
+<div class="column">
+
+**字段解释：**
+- GT: 基因型 (0/1表示杂合子)
+- DP: 覆盖深度
+- AD: 各等位基因支持reads数
+- AF: 等位基因频率
+
+</div>
+</div>
 
 ---
 
@@ -384,11 +384,7 @@ chr1	2000	.	ATG	A	89.5	PASS	DP=40;AF=0.75	GT:DP:AD	1/1:40:10,30
 chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 ```
 
-**字段解释：**
-- GT: 基因型 (0/1表示杂合子)
-- DP: 覆盖深度
-- AD: 各等位基因支持reads数
-- AF: 等位基因频率
+
 
 ---
 
@@ -397,13 +393,18 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 
 ## 重要质量参数
 
+
+<div class="columns">
+<div class="column">
+
 **变异级别质量：**
 - **QUAL**：变异质量分数（Phred scale）
 - **DP**：总覆盖深度
 - **MQ**：比对质量均值
 - **QD**：质量/深度比值
 
----
+</div>
+<div class="column">
 
 **基因型级别质量：**
 - **GQ**：基因型质量
@@ -414,6 +415,9 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 - QUAL > 30 (99.9%准确性)
 - DP > 10 (足够覆盖深度)
 - QD > 2.0 (质量密度)
+
+</div>
+</div>
 
 ---
 
@@ -432,9 +436,6 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
   - ReadPosRankSum < -8.0
 
 </div>
-
----
-
 <div class="column">
 
 ## VQSR软过滤
@@ -456,13 +457,17 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 
 ## 注释的重要性
 
+<div class="columns">
+<div class="column">
+
 **为什么需要注释？**
 - 理解变异的生物学意义
 - 预测功能影响
 - 优先级排序
 - 临床解读
 
----
+</div>
+<div class="column">
 
 **注释内容：**
 - 基因位置信息
@@ -471,8 +476,12 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 - 人群频率
 - 疾病关联
 
+</div>
+</div>
+
 ---
 
+<!-- _class: image -->
 ![变异注释流程](../images/variant_annotation.svg)
 
 ---
@@ -482,27 +491,37 @@ chr2	3000	rs456	C	T,G	95.2	PASS	DP=60;AF=0.3,0.2	GT:DP:AD	1/2:60:30,18,12
 
 ## 常用注释软件
 
+<div class="columns">
+<div class="column">
+
 **VEP (Variant Effect Predictor)**
 - Ensembl开发
 - 功能全面
 - 在线和本地版本
-
----
 
 **ANNOVAR**
 - 王凯教授开发
 - 注释数据库丰富
 - 命令行友好
 
+
+</div>
+<div class="column">
+
 **SnpEff**
 - 轻量级工具
 - 快速注释
 - 统计报告
+</div>
+</div>
 
 ---
 
 <!-- _class: code -->
 # 变异注释示例
+
+<div class="columns">
+<div class="column">
 
 ## VEP注释命令
 
@@ -527,6 +546,9 @@ vep --input_file variants.vcf \
 # gnomAD_AF: 人群频率
 ```
 
+</div>
+<div class="column">
+
 ## ANNOVAR注释
 
 ```bash
@@ -542,6 +564,9 @@ annotate_variation.pl -filter -dbtype ljb26_all \
     variants.avinput humandb/
 ```
 
+</div>
+</div>
+
 ---
 
 <!-- _class: content -->
@@ -549,13 +574,17 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 预测算法
 
+<div class="columns">
+<div class="column">
+
 **有害性预测工具：**
 - **SIFT**：基于进化保守性
 - **PolyPhen-2**：结构和进化信息
 - **CADD**：综合评分系统
 - **REVEL**：集成多种预测器
 
----
+</div>
+<div class="column">
 
 **评分解读：**
 - SIFT < 0.05：有害
@@ -563,8 +592,12 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 - CADD > 15：前1%有害变异
 - REVEL > 0.5：致病性
 
+</div>
+</div>
+
 ---
 
+<!-- _class: image -->
 ![功能预测比较](../images/prediction_tools.svg)
 
 ---
@@ -574,12 +607,13 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 重要数据库
 
+<div class="columns">
+<div class="column">
+
 **gnomAD (Genome Aggregation Database)**
 - 最大的人群变异频率数据库
 - 包含>140,000个外显子组
 - 提供不同人群的频率信息
-
----
 
 **其他重要数据库：**
 - **1000 Genomes**：26个人群
@@ -587,10 +621,16 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 - **ESP6500**：欧洲裔和非洲裔
 - **ClinVar**：临床意义变异
 
+</div>
+<div class="column">
+
 **频率过滤原则：**
 - 常见变异：MAF > 1%
 - 罕见变异：MAF < 0.1%
 - 超罕见变异：MAF < 0.01%
+
+</div>
+</div>
 
 ---
 
@@ -599,25 +639,33 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 多层次质量控制
 
+<div class="columns">
+<div class="column">
+
 **测序数据质量：**
 - 原始数据质量评估
 - 比对质量检查
 - 覆盖深度分析
-
----
 
 **变异检测质量：**
 - Ti/Tv比值检查
 - InDel/SNP比值
 - 新变异比例
 
+</div>
+<div class="column">
+
 **注释质量：**
 - 功能分布检查
 - 频率分布验证
 - 已知变异比例
 
+</div>
+</div>
+
 ---
 
+<!-- _class: image -->
 ![质量控制指标](../images/qc_metrics.svg)
 
 ---
@@ -635,9 +683,6 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 - **缺失率**：<5%
 
 </div>
-
----
-
 <div class="column">
 
 ## InDel质量指标
@@ -656,22 +701,30 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 技术重复性评估
 
+<div class="columns">
+<div class="column">
+
 **主成分分析（PCA）**
 - 检测样本聚类模式
 - 识别批次效应
 - 发现异常样本
 
----
 
 **相关性分析**
 - 样本间变异一致性
 - 技术重复相关性
 - 生物学重复验证
 
+</div>
+<div class="column">
+
 **解决策略**
 - 批次校正算法
 - 重新处理异常样本
 - 统计模型调整
+
+</div>
+</div>
 
 ---
 
@@ -680,22 +733,29 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 疾病关联研究
 
+<div class="columns">
+<div class="column">
+
 **全基因组关联研究（GWAS）**
 - 大规模人群变异检测
 - 疾病易感位点发现
 - 药物反应预测
-
----
 
 **罕见病诊断**
 - 外显子组测序
 - 致病变异筛选
 - 功能验证实验
 
+</div>
+<div class="column">
+
 **肿瘤基因组学**
 - 体细胞变异检测
 - 驱动基因识别
 - 治疗靶点发现
+
+</div>
+</div>
 
 ---
 
@@ -704,22 +764,29 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 精准医疗实践
 
+<div class="columns">
+<div class="column">
+
 **药物基因组学**
 - CYP2D6变异与药物代谢
 - BRCA1/2与乳腺癌风险
 - CFTR与囊性纤维化
-
----
 
 **治疗方案选择**
 - 靶向治疗药物选择
 - 化疗敏感性预测
 - 免疫治疗反应预测
 
+</div>
+<div class="column">
+
 **风险评估**
 - 多基因风险评分
 - 疾病易感性评估
 - 预防策略制定
+
+</div>
+</div>
 
 ---
 
@@ -728,22 +795,29 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 新技术挑战
 
+<div class="columns">
+<div class="column">
+
 **长读长测序**
 - PacBio和Oxford Nanopore
 - 结构变异检测优势
 - 重复序列区域解析
-
----
 
 **单细胞测序**
 - 细胞异质性检测
 - 体细胞变异谱系追踪
 - 发育过程变异积累
 
+</div>
+<div class="column">
+
 **多组学整合**
 - 基因组+转录组+表观组
 - 变异功能影响评估
 - 系统生物学分析
+
+</div>
+</div>
 
 ---
 
@@ -752,22 +826,29 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 
 ## 大数据处理
 
+<div class="columns">
+<div class="column">
+
 **数据规模挑战**
 - TB级别数据存储
 - 计算资源需求
 - 分析时间优化
-
----
 
 **解决策略**
 - 云计算平台
 - 并行计算框架
 - 算法优化改进
 
+</div>
+<div class="column">
+
 **标准化需求**
 - 数据格式统一
 - 分析流程标准化
 - 质量控制规范
+
+</div>
+</div>
 
 ---
 
@@ -787,7 +868,7 @@ annotate_variation.pl -filter -dbtype ljb26_all \
 - **内容**：RNA-seq原理、差异表达分析、功能富集
 - **准备**：复习分子生物学中心法则
 
-**作业/练习：**
+## 作业/练习
 - 完成GATK变异检测实验
 - 分析提供的VCF文件质量指标
 - 思考：如何区分真实变异和技术假象？

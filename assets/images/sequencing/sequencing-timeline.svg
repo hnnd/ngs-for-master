@@ -2,9 +2,15 @@
 <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .timeline-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
-      .timeline-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
-      .timeline-year { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .title { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 12px; fill: #4b5563; }
+      .small-text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+    </style>
+    <style>
+      .timeline-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; fill: #333; }
+      .timeline-title { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .timeline-year { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #666; }
       .gen1 { fill: #ff6b6b; }
       .gen2 { fill: #4ecdc4; }
       .gen3 { fill: #45b7d1; }

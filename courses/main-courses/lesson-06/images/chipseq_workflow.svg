@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', sans-serif; font-size: 20px; font-weight: bold; fill: #1e3a8a; }
+      .section { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; font-weight: bold; fill: #374151; }
+      .label { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #4b5563; }
+      .step { font-family: 'Source Han Sans CN', sans-serif; font-size: 10px; fill: #6b7280; }
+      .box { fill: #f3f4f6; stroke: #d1d5db; stroke-width: 2; rx: 8; }
+      .process { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; rx: 6; }
+      .data { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; rx: 6; }
+      .tool { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; rx: 4; }
+      .arrow { fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">ChIP-seq&#25968;&#25454;&#20998;&#26512;&#27969;&#31243;</text>
+  
+  <!-- Raw Data Section -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="200" height="80" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#21407;&#22987;&#25968;&#25454;</text>
+    
+    <rect x="20" y="30" width="60" height="20" class="data"/>
+    <text x="50" y="43" text-anchor="middle" class="label">ChIP.fastq</text>
+    
+    <rect x="120" y="30" width="60" height="20" class="data"/>
+    <text x="150" y="43" text-anchor="middle" class="label">Input.fastq</text>
+    
+    <text x="100" y="65" text-anchor="middle" class="step">&#21407;&#22987;&#27979;&#24207;&#25968;&#25454;</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <polygon points="270,100 290,95 290,105" class="arrow"/>
+  
+  <!-- Quality Control Section -->
+  <g transform="translate(310, 60)">
+    <rect x="0" y="0" width="200" height="80" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#36136;&#37327;&#25511;&#21046;</text>
+    
+    <rect x="30" y="30" width="50" height="15" class="process"/>
+    <text x="55" y="40" text-anchor="middle" class="label">FastQC</text>
+    
+    <rect x="120" y="30" width="50" height="15" class="process"/>
+    <text x="145" y="40" text-anchor="middle" class="label">MultiQC</text>
+    
+    <text x="100" y="60" text-anchor="middle" class="step">&#36136;&#37327;&#35780;&#20272;&#21644;&#25253;&#21578;</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <polygon points="530,100 550,95 550,105" class="arrow"/>
+  
+  <!-- Preprocessing Section -->
+  <g transform="translate(570, 60)">
+    <rect x="0" y="0" width="200" height="80" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#25968;&#25454;&#39044;&#22788;&#29702;</text>
+    
+    <rect x="20" y="30" width="70" height="15" class="process"/>
+    <text x="55" y="40" text-anchor="middle" class="label">Trimmomatic</text>
+    
+    <rect x="110" y="30" width="70" height="15" class="process"/>
+    <text x="145" y="40" text-anchor="middle" class="label">Cutadapt</text>
+    
+    <text x="100" y="60" text-anchor="middle" class="step">&#25509;&#22836;&#21435;&#38500;&#21644;&#36136;&#37327;&#36807;&#28388;</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <polygon points="450,160 470,155 470,165" class="arrow"/>
+  
+  <!-- Alignment Section -->
+  <g transform="translate(350, 180)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#24207;&#21015;&#27604;&#23545;</text>
+    
+    <rect x="30" y="30" width="40" height="15" class="process"/>
+    <text x="50" y="40" text-anchor="middle" class="label">BWA</text>
+    
+    <rect x="80" y="30" width="40" height="15" class="process"/>
+    <text x="100" y="40" text-anchor="middle" class="label">Bowtie2</text>
+    
+    <rect x="130" y="30" width="40" height="15" class="process"/>
+    <text x="150" y="40" text-anchor="middle" class="label">HISAT2</text>
+    
+    <rect x="60" y="55" width="80" height="20" class="data"/>
+    <text x="100" y="68" text-anchor="middle" class="label">Aligned BAM</text>
+    
+    <text x="100" y="90" text-anchor="middle" class="step">&#27604;&#23545;&#21040;&#21442;&#32771;&#22522;&#22240;&#32452;</text>
+  </g>
+  
+  <!-- Arrow 4 -->
+  <polygon points="270,230 290,225 290,235" class="arrow"/>
+  <polygon points="570,230 590,225 590,235" class="arrow"/>
+  
+  <!-- Post-alignment Processing -->
+  <g transform="translate(50, 300)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#27604;&#23545;&#21518;&#22788;&#29702;</text>
+    
+    <rect x="30" y="30" width="60" height="15" class="process"/>
+    <text x="60" y="40" text-anchor="middle" class="label">&#21435;&#37325;&#22797;</text>
+    
+    <rect x="110" y="30" width="60" height="15" class="process"/>
+    <text x="140" y="40" text-anchor="middle" class="label">&#36136;&#37327;&#36807;&#28388;</text>
+    
+    <rect x="60" y="55" width="80" height="20" class="data"/>
+    <text x="100" y="68" text-anchor="middle" class="label">Filtered BAM</text>
+    
+    <text x="100" y="90" text-anchor="middle" class="step">Picard, SAMtools</text>
+  </g>
+  
+  <!-- Peak Calling Section -->
+  <g transform="translate(350, 300)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">Peak Calling</text>
+    
+    <rect x="30" y="30" width="50" height="15" class="process"/>
+    <text x="55" y="40" text-anchor="middle" class="label">MACS2</text>
+    
+    <rect x="90" y="30" width="40" height="15" class="process"/>
+    <text x="110" y="40" text-anchor="middle" class="label">HOMER</text>
+    
+    <rect x="140" y="30" width="30" height="15" class="process"/>
+    <text x="155" y="40" text-anchor="middle" class="label">SPP</text>
+    
+    <rect x="60" y="55" width="80" height="20" class="data"/>
+    <text x="100" y="68" text-anchor="middle" class="label">Peak BED</text>
+    
+    <text x="100" y="90" text-anchor="middle" class="step">&#23500;&#38598;&#21306;&#22495;&#35782;&#21035;</text>
+  </g>
+  
+  <!-- Quality Assessment -->
+  <g transform="translate(650, 300)">
+    <rect x="0" y="0" width="200" height="100" class="box"/>
+    <text x="100" y="20" text-anchor="middle" class="section">&#36136;&#37327;&#35780;&#20272;</text>
+    
+    <rect x="30" y="30" width="40" height="15" class="tool"/>
+    <text x="50" y="40" text-anchor="middle" class="label">FRiP</text>
+    
+    <rect x="80" y="30" width="40" height="15" class="tool"/>
+    <text x="100" y="40" text-anchor="middle" class="label">IDR</text>
+    
+    <rect x="130" y="30" width="40" height="15" class="tool"/>
+    <text x="150" y="40" text-anchor="middle" class="label">NSC</text>
+    
+    <rect x="60" y="55" width="80" height="20" class="data"/>
+    <text x="100" y="68" text-anchor="middle" class="label">QC Report</text>
+    
+    <text x="100" y="90" text-anchor="middle" class="step">&#32479;&#35745;&#25351;&#26631;&#35780;&#20272;</text>
+  </g>
+  
+  <!-- Arrow 5 -->
+  <polygon points="450,420 470,415 470,425" class="arrow"/>
+  
+  <!-- Downstream Analysis -->
+  <g transform="translate(200, 440)">
+    <rect x="0" y="0" width="500" height="120" class="box"/>
+    <text x="250" y="20" text-anchor="middle" class="section">&#19979;&#28216;&#20998;&#26512;</text>
+    
+    <!-- Peak Annotation -->
+    <rect x="20" y="30" width="80" height="30" class="process"/>
+    <text x="60" y="40" text-anchor="middle" class="label">Peak&#27880;&#37322;</text>
+    <text x="60" y="53" text-anchor="middle" class="step">ChIPseeker</text>
+    
+    <!-- Motif Analysis -->
+    <rect x="120" y="30" width="80" height="30" class="process"/>
+    <text x="160" y="40" text-anchor="middle" class="label">Motif&#20998;&#26512;</text>
+    <text x="160" y="53" text-anchor="middle" class="step">HOMER</text>
+    
+    <!-- Functional Enrichment -->
+    <rect x="220" y="30" width="80" height="30" class="process"/>
+    <text x="260" y="40" text-anchor="middle" class="label">&#21151;&#33021;&#23500;&#38598;</text>
+    <text x="260" y="53" text-anchor="middle" class="step">GREAT</text>
+    
+    <!-- Visualization -->
+    <rect x="320" y="30" width="80" height="30" class="process"/>
+    <text x="360" y="40" text-anchor="middle" class="label">&#21487;&#35270;&#21270;</text>
+    <text x="360" y="53" text-anchor="middle" class="step">IGV</text>
+    
+    <!-- Differential Analysis -->
+    <rect x="420" y="30" width="80" height="30" class="process"/>
+    <text x="460" y="40" text-anchor="middle" class="label">&#24046;&#24322;&#20998;&#26512;</text>
+    <text x="460" y="53" text-anchor="middle" class="step">DiffBind</text>
+    
+    <!-- Results -->
+    <rect x="150" y="80" width="200" height="25" class="data"/>
+    <text x="250" y="95" text-anchor="middle" class="label">&#29983;&#29289;&#23398;&#35299;&#37322;&#21644;&#21151;&#33021;&#27880;&#37322;</text>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <g stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrowhead)">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+      </marker>
+    </defs>
+    
+    <!-- Connecting lines -->
+    <path d="M250 350 Q300 380 350 350"/>
+    <path d="M550 350 Q600 380 650 350"/>
+  </g>
+  
+  <!-- Key Tools Box -->
+  <g transform="translate(50, 580)">
+    <rect x="0" y="0" width="800" height="80" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+    <text x="20" y="20" class="section">&#20851;&#38190;&#24037;&#20855;&#21644;&#36719;&#20214;&#65306;</text>
+    
+    <text x="20" y="40" class="label">&#36136;&#37327;&#25511;&#21046;&#65306;</text>
+    <text x="100" y="40" class="step">FastQC, MultiQC, Trimmomatic</text>
+    
+    <text x="300" y="40" class="label">&#24207;&#21015;&#27604;&#23545;&#65306;</text>
+    <text x="380" y="40" class="step">BWA, Bowtie2, SAMtools</text>
+    
+    <text x="550" y="40" class="label">Peak Calling&#65306;</text>
+    <text x="630" y="40" class="step">MACS2, HOMER, SPP</text>
+    
+    <text x="20" y="60" class="label">&#19979;&#28216;&#20998;&#26512;&#65306;</text>
+    <text x="100" y="60" class="step">ChIPseeker, deepTools, DiffBind, IGV</text>
+    
+    <text x="400" y="60" class="label">&#32479;&#35745;&#29615;&#22659;&#65306;</text>
+    <text x="480" y="60" class="step">R/Bioconductor, Python</text>
+  </g>
+</svg>

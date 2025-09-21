@@ -156,7 +156,7 @@ markdown-preview courses/lesson-01/manual/manual.md
 
 ## 更新日志
 
-### v1.0.0 (2025-01-XX)
+### v1.0.0 (2025-01)
 - 完成基础模板和样式系统
 - 创建标准化目录结构
 - 建立文档和使用指南

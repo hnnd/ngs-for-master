@@ -1,5 +1,11 @@
 <svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <style>
+      .title { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1e3a8a; }
+      .subtitle { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 12px; fill: #4b5563; }
+      .small-text { font-family: 'Source Han Sans CN', 'Microsoft YaHei', Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+    </style>
     <linearGradient id="dnaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
@@ -36,11 +42,11 @@
   <rect width="1000" height="700" fill="#ecf0f1"/>
 
   <!-- Title -->
-  <text x="500" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#2c3e50">测序技术的分子生物学基础</text>
+  <text x="500" y="40" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="26" font-weight="bold" fill="#2c3e50">测序技术的分子生物学基础</text>
 
   <!-- Template DNA -->
   <g transform="translate(50, 80)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">1. 模板DNA与引物结合</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">1. 模板DNA与引物结合</text>
 
     <!-- Template strand -->
     <line x1="50" y1="30" x2="400" y2="30" stroke="url(#dnaGrad)" stroke-width="6"/>
@@ -63,24 +69,24 @@
 
   <!-- DNA Polymerase action -->
   <g transform="translate(500, 80)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">2. DNA聚合酶作用</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">2. DNA聚合酶作用</text>
 
     <!-- Polymerase -->
     <ellipse cx="80" cy="40" rx="30" ry="15" fill="url(#polymeraseGrad)" filter="url(#shadow)"/>
-    <text x="80" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">聚合酶</text>
+    <text x="80" y="45" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" font-weight="bold" fill="white">聚合酶</text>
 
     <!-- Active site -->
     <rect x="60" y="60" width="40" height="20" fill="#27ae60" rx="5"/>
-    <text x="80" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">活性位点</text>
+    <text x="80" y="73" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="9" fill="white">活性位点</text>
 
     <!-- Direction arrow -->
     <path d="M 120 40 L 150 40" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="135" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">5'→3'</text>
+    <text x="135" y="35" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#e74c3c">5'→3'</text>
   </g>
 
   <!-- Chain elongation -->
   <g transform="translate(50, 180)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">3. 链延伸过程 - 边合成边测序</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">3. 链延伸过程 - 边合成边测序</text>
 
     <!-- Template -->
     <line x1="50" y1="30" x2="500" y2="30" stroke="url(#dnaGrad)" stroke-width="6"/>
@@ -92,105 +98,105 @@
 
     <!-- Incoming base -->
     <circle cx="270" cy="50" r="12" fill="url(#baseGradG)"/>
-    <text x="270" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">G*</text>
-    <text x="270" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#feca57">荧光标记</text>
+    <text x="270" y="55" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" font-weight="bold" fill="white">G*</text>
+    <text x="270" y="80" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#feca57">荧光标记</text>
 
     <!-- Light emission -->
     <g transform="translate(270, 30)">
       <circle cx="0" cy="0" r="8" fill="none" stroke="#f39c12" stroke-width="2" opacity="0.7"/>
       <circle cx="0" cy="0" r="12" fill="none" stroke="#f39c12" stroke-width="1" opacity="0.5"/>
       <circle cx="0" cy="0" r="16" fill="none" stroke="#f39c12" stroke-width="1" opacity="0.3"/>
-      <text x="0" y="-25" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">光信号</text>
+      <text x="0" y="-25" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#f39c12">光信号</text>
     </g>
   </g>
 
   <!-- Different sequencing technologies -->
   <g transform="translate(50, 300)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">主要测序技术对比</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">主要测序技术对比</text>
 
     <!-- Sanger sequencing -->
     <g transform="translate(0, 30)">
       <rect width="200" height="100" fill="#3498db" rx="10" opacity="0.1" filter="url(#shadow)"/>
-      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2980b9">Sanger测序</text>
-      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 链终止法</text>
-      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• ddNTP终止子</text>
-      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(~1kb)</text>
-      <text x="10" y="85" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 高准确性(99.9%)</text>
+      <text x="100" y="20" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#2980b9">Sanger测序</text>
+      <text x="10" y="40" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 链终止法</text>
+      <text x="10" y="55" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• ddNTP终止子</text>
+      <text x="10" y="70" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(~1kb)</text>
+      <text x="10" y="85" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 高准确性(99.9%)</text>
     </g>
 
     <!-- Illumina sequencing -->
     <g transform="translate(220, 30)">
       <rect width="200" height="100" fill="#e74c3c" rx="10" opacity="0.1" filter="url(#shadow)"/>
-      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c0392b">Illumina测序</text>
-      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 可逆终止子</text>
-      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 桥式PCR扩增</text>
-      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 短读长(150-300bp)</text>
-      <text x="10" y="85" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 高通量</text>
+      <text x="100" y="20" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c0392b">Illumina测序</text>
+      <text x="10" y="40" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 可逆终止子</text>
+      <text x="10" y="55" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 桥式PCR扩增</text>
+      <text x="10" y="70" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 短读长(150-300bp)</text>
+      <text x="10" y="85" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 高通量</text>
     </g>
 
     <!-- Nanopore sequencing -->
     <g transform="translate(440, 30)">
       <rect width="200" height="100" fill="#27ae60" rx="10" opacity="0.1" filter="url(#shadow)"/>
-      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e8449">纳米孔测序</text>
-      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 电流信号检测</text>
-      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 单分子测序</text>
-      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(>10kb)</text>
-      <text x="10" y="85" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 实时测序</text>
+      <text x="100" y="20" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e8449">纳米孔测序</text>
+      <text x="10" y="40" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 电流信号检测</text>
+      <text x="10" y="55" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 单分子测序</text>
+      <text x="10" y="70" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(>10kb)</text>
+      <text x="10" y="85" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 实时测序</text>
     </g>
 
     <!-- PacBio sequencing -->
     <g transform="translate(660, 30)">
       <rect width="200" height="100" fill="#9b59b6" rx="10" opacity="0.1" filter="url(#shadow)"/>
-      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8e44ad">PacBio测序</text>
-      <text x="10" y="40" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• SMRT技术</text>
-      <text x="10" y="55" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 零模式波导</text>
-      <text x="10" y="70" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(10-20kb)</text>
-      <text x="10" y="85" font-family="Arial, sans-serif" font-size="11" fill="#34495e">• 同步检测</text>
+      <text x="100" y="20" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#8e44ad">PacBio测序</text>
+      <text x="10" y="40" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• SMRT技术</text>
+      <text x="10" y="55" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 零模式波导</text>
+      <text x="10" y="70" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 长读长(10-20kb)</text>
+      <text x="10" y="85" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#34495e">• 同步检测</text>
     </g>
   </g>
 
   <!-- Library preparation -->
   <g transform="translate(50, 450)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">文库制备的分子基础</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">文库制备的分子基础</text>
 
     <!-- Step 1: Fragmentation -->
     <g transform="translate(0, 30)">
-      <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">1. DNA片段化</text>
+      <text x="0" y="20" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">1. DNA片段化</text>
       <!-- Before fragmentation -->
       <line x1="20" y1="40" x2="180" y2="40" stroke="url(#dnaGrad)" stroke-width="6"/>
-      <text x="100" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">完整基因组DNA</text>
+      <text x="100" y="60" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#2c3e50">完整基因组DNA</text>
 
       <!-- Fragmentation arrow -->
       <path d="M 200 40 L 220 40" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)"/>
-      <text x="210" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c">物理/酶切</text>
+      <text x="210" y="30" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#e74c3c">物理/酶切</text>
 
       <!-- After fragmentation -->
       <g transform="translate(240, 35)">
         <line x1="0" y1="0" x2="60" y2="0" stroke="url(#dnaGrad)" stroke-width="4"/>
         <line x1="0" y1="10" x2="40" y2="10" stroke="url(#dnaGrad)" stroke-width="4"/>
         <line x1="0" y1="20" x2="70" y2="20" stroke="url(#dnaGrad)" stroke-width="4"/>
-        <text x="35" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#2c3e50">DNA片段</text>
+        <text x="35" y="35" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#2c3e50">DNA片段</text>
       </g>
     </g>
 
     <!-- Step 2: Adapter ligation -->
     <g transform="translate(400, 30)">
-      <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">2. 接头连接</text>
+      <text x="0" y="20" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">2. 接头连接</text>
       <!-- DNA fragment -->
       <line x1="20" y1="40" x2="100" y2="40" stroke="url(#dnaGrad)" stroke-width="4"/>
 
       <!-- Adapters -->
       <rect x="10" y="35" width="20" height="10" fill="#f39c12" rx="2"/>
       <rect x="90" y="35" width="20" height="10" fill="#f39c12" rx="2"/>
-      <text x="60" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">接头序列</text>
+      <text x="60" y="60" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#f39c12">接头序列</text>
 
       <!-- T4 ligase -->
-      <text x="60" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c">T4连接酶</text>
+      <text x="60" y="25" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#e74c3c">T4连接酶</text>
     </g>
 
     <!-- Step 3: PCR amplification -->
     <g transform="translate(600, 30)">
-      <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">3. PCR扩增</text>
+      <text x="0" y="20" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#34495e">3. PCR扩增</text>
       <!-- Single molecule -->
       <line x1="20" y1="35" x2="80" y2="35" stroke="url(#dnaGrad)" stroke-width="3"/>
       <rect x="15" y="32" width="10" height="6" fill="#f39c12" rx="1"/>
@@ -204,46 +210,46 @@
         <line x1="0" y1="0" x2="60" y2="0" stroke="url(#dnaGrad)" stroke-width="3"/>
         <line x1="0" y1="5" x2="60" y2="5" stroke="url(#dnaGrad)" stroke-width="3"/>
         <line x1="0" y1="10" x2="60" y2="10" stroke="url(#dnaGrad)" stroke-width="3"/>
-        <text x="30" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#2c3e50">扩增产物</text>
+        <text x="30" y="25" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="8" fill="#2c3e50">扩增产物</text>
       </g>
     </g>
   </g>
 
   <!-- Sequencing errors -->
   <g transform="translate(50, 580)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">测序错误的分子来源</text>
+    <text x="0" y="0" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">测序错误的分子来源</text>
 
     <!-- Error types -->
     <g transform="translate(0, 30)">
       <rect width="180" height="80" fill="#e67e22" rx="8" opacity="0.1"/>
-      <text x="90" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#d35400">聚合酶错误</text>
-      <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 保真性限制</text>
-      <text x="10" y="50" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• GC偏好性</text>
-      <text x="10" y="65" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 同聚物错误</text>
+      <text x="90" y="15" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#d35400">聚合酶错误</text>
+      <text x="10" y="35" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 保真性限制</text>
+      <text x="10" y="50" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• GC偏好性</text>
+      <text x="10" y="65" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 同聚物错误</text>
     </g>
 
     <g transform="translate(200, 30)">
       <rect width="180" height="80" fill="#8e44ad" rx="8" opacity="0.1"/>
-      <text x="90" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7d3c98">化学错误</text>
-      <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 荧光衰减</text>
-      <text x="10" y="50" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 相位偏移</text>
-      <text x="10" y="65" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 串音效应</text>
+      <text x="90" y="15" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#7d3c98">化学错误</text>
+      <text x="10" y="35" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 荧光衰减</text>
+      <text x="10" y="50" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 相位偏移</text>
+      <text x="10" y="65" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 串音效应</text>
     </g>
 
     <g transform="translate(400, 30)">
       <rect width="180" height="80" fill="#16a085" rx="8" opacity="0.1"/>
-      <text x="90" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#138d75">结构错误</text>
-      <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 二级结构</text>
-      <text x="10" y="50" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 重复序列</text>
-      <text x="10" y="65" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 发夹结构</text>
+      <text x="90" y="15" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#138d75">结构错误</text>
+      <text x="10" y="35" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 二级结构</text>
+      <text x="10" y="50" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 重复序列</text>
+      <text x="10" y="65" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 发夹结构</text>
     </g>
 
     <g transform="translate(600, 30)">
       <rect width="180" height="80" fill="#c0392b" rx="8" opacity="0.1"/>
-      <text x="90" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#a93226">PCR偏好性</text>
-      <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 扩增不均匀</text>
-      <text x="10" y="50" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• GC含量敏感</text>
-      <text x="10" y="65" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• 嵌合体形成</text>
+      <text x="90" y="15" text-anchor="middle" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="#a93226">PCR偏好性</text>
+      <text x="10" y="35" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 扩增不均匀</text>
+      <text x="10" y="50" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• GC含量敏感</text>
+      <text x="10" y="65" font-family="Source Han Sans CN, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#34495e">• 嵌合体形成</text>
     </g>
   </g>
 </svg>

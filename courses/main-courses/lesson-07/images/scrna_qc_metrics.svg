@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1f2937; }
+      .subtitle-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #374151; }
+      .label-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 12px; fill: #4b5563; }
+      .axis-text { font-family: "Source Han Sans CN", "Microsoft YaHei", Arial, sans-serif; font-size: 10px; fill: #6b7280; }
+      .good-cell { fill: #10b981; opacity: 0.7; }
+      .bad-cell { fill: #ef4444; opacity: 0.7; }
+      .medium-cell { fill: #f59e0b; opacity: 0.7; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" class="title-text">单细胞数据质量控制指标</text>
+  
+  <!-- 第一行：基因数量分布 -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="250" height="200" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="125" y="20" text-anchor="middle" class="subtitle-text">检测基因数量分布</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="170" x2="220" y2="170" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="170" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- X轴标签 -->
+    <text x="50" y="185" text-anchor="middle" class="axis-text">500</text>
+    <text x="100" y="185" text-anchor="middle" class="axis-text">1500</text>
+    <text x="150" y="185" text-anchor="middle" class="axis-text">2500</text>
+    <text x="200" y="185" text-anchor="middle" class="axis-text">3500</text>
+    
+    <!-- Y轴标签 -->
+    <text x="25" y="160" text-anchor="end" class="axis-text">0</text>
+    <text x="25" y="120" text-anchor="end" class="axis-text">200</text>
+    <text x="25" y="80" text-anchor="end" class="axis-text">400</text>
+    <text x="25" y="40" text-anchor="end" class="axis-text">600</text>
+    
+    <!-- 直方图 -->
+    <rect x="40" y="140" width="15" height="30" class="bad-cell"/>
+    <rect x="60" y="100" width="15" height="70" class="medium-cell"/>
+    <rect x="80" y="60" width="15" height="110" class="good-cell"/>
+    <rect x="100" y="50" width="15" height="120" class="good-cell"/>
+    <rect x="120" y="70" width="15" height="100" class="good-cell"/>
+    <rect x="140" y="90" width="15" height="80" class="good-cell"/>
+    <rect x="160" y="120" width="15" height="50" class="medium-cell"/>
+    <rect x="180" y="150" width="15" height="20" class="bad-cell"/>
+    
+    <!-- 阈值线 -->
+    <line x1="55" y1="40" x2="55" y2="170" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="58" y="35" class="axis-text" fill="#dc2626">最小阈值</text>
+    
+    <line x1="175" y1="40" x2="175" y2="170" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="178" y="35" class="axis-text" fill="#dc2626">最大阈值</text>
+    
+    <text x="125" y="195" text-anchor="middle" class="axis-text">检测基因数量</text>
+  </g>
+  
+  <!-- 第二行：UMI数量分布 -->
+  <g transform="translate(350, 60)">
+    <rect x="0" y="0" width="250" height="200" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="125" y="20" text-anchor="middle" class="subtitle-text">UMI数量分布</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="170" x2="220" y2="170" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="170" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- X轴标签 -->
+    <text x="50" y="185" text-anchor="middle" class="axis-text">1K</text>
+    <text x="100" y="185" text-anchor="middle" class="axis-text">5K</text>
+    <text x="150" y="185" text-anchor="middle" class="axis-text">10K</text>
+    <text x="200" y="185" text-anchor="middle" class="axis-text">20K</text>
+    
+    <!-- Y轴标签 -->
+    <text x="25" y="160" text-anchor="end" class="axis-text">0</text>
+    <text x="25" y="120" text-anchor="end" class="axis-text">300</text>
+    <text x="25" y="80" text-anchor="end" class="axis-text">600</text>
+    <text x="25" y="40" text-anchor="end" class="axis-text">900</text>
+    
+    <!-- 直方图 -->
+    <rect x="40" y="150" width="15" height="20" class="bad-cell"/>
+    <rect x="60" y="120" width="15" height="50" class="medium-cell"/>
+    <rect x="80" y="70" width="15" height="100" class="good-cell"/>
+    <rect x="100" y="50" width="15" height="120" class="good-cell"/>
+    <rect x="120" y="60" width="15" height="110" class="good-cell"/>
+    <rect x="140" y="80" width="15" height="90" class="good-cell"/>
+    <rect x="160" y="110" width="15" height="60" class="medium-cell"/>
+    <rect x="180" y="140" width="15" height="30" class="bad-cell"/>
+    
+    <text x="125" y="195" text-anchor="middle" class="axis-text">UMI数量</text>
+  </g>
+  
+  <!-- 第三行：线粒体基因比例 -->
+  <g transform="translate(650, 60)">
+    <rect x="0" y="0" width="200" height="200" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="subtitle-text">线粒体基因比例</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="170" x2="170" y2="170" stroke="#6b7280" stroke-width="1"/>
+    <line x1="30" y1="170" x2="30" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- X轴标签 -->
+    <text x="50" y="185" text-anchor="middle" class="axis-text">5%</text>
+    <text x="90" y="185" text-anchor="middle" class="axis-text">15%</text>
+    <text x="130" y="185" text-anchor="middle" class="axis-text">25%</text>
+    <text x="170" y="185" text-anchor="middle" class="axis-text">35%</text>
+    
+    <!-- 直方图 -->
+    <rect x="40" y="60" width="12" height="110" class="good-cell"/>
+    <rect x="55" y="80" width="12" height="90" class="good-cell"/>
+    <rect x="70" y="100" width="12" height="70" class="good-cell"/>
+    <rect x="85" y="120" width="12" height="50" class="medium-cell"/>
+    <rect x="100" y="140" width="12" height="30" class="medium-cell"/>
+    <rect x="115" y="150" width="12" height="20" class="bad-cell"/>
+    <rect x="130" y="160" width="12" height="10" class="bad-cell"/>
+    
+    <!-- 阈值线 -->
+    <line x1="95" y1="40" x2="95" y2="170" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="98" y="35" class="axis-text" fill="#dc2626">20%阈值</text>
+    
+    <text x="100" y="195" text-anchor="middle" class="axis-text">线粒体基因%</text>
+  </g>
+  
+  <!-- 第二行：散点图 -->
+  <g transform="translate(50, 280)">
+    <rect x="0" y="0" width="400" height="250" fill="#f9fafb" stroke="#d1d5db" rx="5"/>
+    <text x="200" y="20" text-anchor="middle" class="subtitle-text">基因数量 vs UMI数量散点图</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="40" y1="210" x2="360" y2="210" stroke="#6b7280" stroke-width="1"/>
+    <line x1="40" y1="210" x2="40" y2="40" stroke="#6b7280" stroke-width="1"/>
+    
+    <!-- X轴标签 -->
+    <text x="80" y="225" text-anchor="middle" class="axis-text">5K</text>
+    <text x="160" y="225" text-anchor="middle" class="axis-text">10K</text>
+    <text x="240" y="225" text-anchor="middle" class="axis-text">15K</text>
+    <text x="320" y="225" text-anchor="middle" class="axis-text">20K</text>
+    
+    <!-- Y轴标签 -->
+    <text x="35" y="200" text-anchor="end" class="axis-text">1K</text>
+    <text x="35" y="160" text-anchor="end" class="axis-text">2K</text>
+    <text x="35" y="120" text-anchor="end" class="axis-text">3K</text>
+    <text x="35" y="80" text-anchor="end" class="axis-text">4K</text>
+    
+    <!-- 散点 -->
+    <circle cx="100" cy="180" r="3" class="good-cell"/>
+    <circle cx="120" cy="160" r="3" class="good-cell"/>
+    <circle cx="140" cy="140" r="3" class="good-cell"/>
+    <circle cx="160" cy="120" r="3" class="good-cell"/>
+    <circle cx="180" cy="100" r="3" class="good-cell"/>
+    <circle cx="200" cy="90" r="3" class="good-cell"/>
+    <circle cx="220" cy="85" r="3" class="good-cell"/>
+    <circle cx="240" cy="80" r="3" class="good-cell"/>
+    <circle cx="260" cy="75" r="3" class="good-cell"/>
+    <circle cx="280" cy="70" r="3" class="good-cell"/>
+    
+    <!-- 异常点 -->
+    <circle cx="80" cy="200" r="3" class="bad-cell"/>
+    <circle cx="90" cy="195" r="3" class="bad-cell"/>
+    <circle cx="320" cy="60" r="3" class="bad-cell"/>
+    <circle cx="340" cy="55" r="3" class="bad-cell"/>
+    
+    <!-- 中等质量点 -->
+    <circle cx="110" cy="190" r="3" class="medium-cell"/>
+    <circle cx="300" cy="65" r="3" class="medium-cell"/>
+    
+    <text x="200" y="240" text-anchor="middle" class="axis-text">UMI数量</text>
+    <text x="20" y="125" text-anchor="middle" class="axis-text" transform="rotate(-90, 20, 125)">基因数量</text>
+  </g>
+  
+  <!-- 质控标准说明 -->
+  <g transform="translate(480, 280)">
+    <rect x="0" y="0" width="370" height="250" fill="#f0f9ff" stroke="#0ea5e9" rx="5"/>
+    <text x="185" y="25" text-anchor="middle" class="subtitle-text" fill="#0ea5e9">质量控制标准</text>
+    
+    <!-- 好细胞标准 -->
+    <g transform="translate(20, 50)">
+      <circle cx="10" cy="0" r="5" class="good-cell"/>
+      <text x="25" y="5" class="label-text" fill="#059669">高质量细胞</text>
+      <text x="25" y="20" class="axis-text">• 检测基因数：500-2500</text>
+      <text x="25" y="35" class="axis-text">• UMI数量：1000-15000</text>
+      <text x="25" y="50" class="axis-text">• 线粒体基因比例：&lt;20%</text>
+      <text x="25" y="65" class="axis-text">• 核糖体基因比例：适中</text>
+    </g>
+    
+    <!-- 中等细胞标准 -->
+    <g transform="translate(20, 130)">
+      <circle cx="10" cy="0" r="5" class="medium-cell"/>
+      <text x="25" y="5" class="label-text" fill="#d97706">中等质量细胞</text>
+      <text x="25" y="20" class="axis-text">• 部分指标超出理想范围</text>
+      <text x="25" y="35" class="axis-text">• 需要进一步评估</text>
+      <text x="25" y="50" class="axis-text">• 可能保留用于分析</text>
+    </g>
+    
+    <!-- 差细胞标准 -->
+    <g transform="translate(20, 190)">
+      <circle cx="10" cy="0" r="5" class="bad-cell"/>
+      <text x="25" y="5" class="label-text" fill="#dc2626">低质量细胞</text>
+      <text x="25" y="20" class="axis-text">• 检测基因数过低或过高</text>
+      <text x="25" y="35" class="axis-text">• 线粒体基因比例过高</text>
+      <text x="25" y="50" class="axis-text">• 应该从分析中移除</text>
+    </g>
+    
+    <!-- 右侧说明 -->
+    <g transform="translate(200, 50)">
+      <text x="0" y="0" class="label-text" fill="#7c3aed">常见问题识别：</text>
+      <text x="0" y="20" class="axis-text">• 双细胞：基因数和UMI数异常高</text>
+      <text x="0" y="35" class="axis-text">• 死细胞：线粒体基因比例高</text>
+      <text x="0" y="50" class="axis-text">• 空液滴：基因数和UMI数极低</text>
+      <text x="0" y="65" class="axis-text">• 细胞碎片：不规则的表达模式</text>
+      
+      <text x="0" y="100" class="label-text" fill="#7c3aed">过滤建议：</text>
+      <text x="0" y="120" class="axis-text">• 设置合理的阈值范围</text>
+      <text x="0" y="135" class="axis-text">• 考虑细胞类型特异性</text>
+      <text x="0" y="150" class="axis-text">• 平衡数据质量和数量</text>
+      <text x="0" y="165" class="axis-text">• 记录过滤参数和结果</text>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="570" text-anchor="middle" class="axis-text">
+    质量控制是单细胞数据分析的关键第一步，直接影响后续分析结果的可靠性
+  </text>
+</svg>

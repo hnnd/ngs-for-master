@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 24px; font-weight: bold; fill: #1e3a8a; }
+      .label-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 16px; fill: #374151; }
+      .small-text { font-family: 'Source Han Sans CN', sans-serif; font-size: 12px; fill: #6b7280; }
+      .omics-box { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; rx: 10; }
+      .integration-box { fill: #f0fdf4; stroke: #059669; stroke-width: 2; rx: 10; }
+      .arrow { stroke: #374151; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title-text">多组学数据整合概览</text>
+  
+  <!-- Genomics -->
+  <rect x="50" y="80" width="140" height="80" class="omics-box"/>
+  <text x="120" y="105" text-anchor="middle" class="label-text">基因组学</text>
+  <text x="120" y="125" text-anchor="middle" class="small-text">DNA序列变异</text>
+  <text x="120" y="140" text-anchor="middle" class="small-text">SNP, CNV, SV</text>
+  <text x="120" y="155" text-anchor="middle" class="small-text">~3×10⁹ bp</text>
+  
+  <!-- Transcriptomics -->
+  <rect x="220" y="80" width="140" height="80" class="omics-box"/>
+  <text x="290" y="105" text-anchor="middle" class="label-text">转录组学</text>
+  <text x="290" y="125" text-anchor="middle" class="small-text">基因表达</text>
+  <text x="290" y="140" text-anchor="middle" class="small-text">mRNA, lncRNA</text>
+  <text x="290" y="155" text-anchor="middle" class="small-text">~20,000 基因</text>
+  
+  <!-- Epigenomics -->
+  <rect x="390" y="80" width="140" height="80" class="omics-box"/>
+  <text x="460" y="105" text-anchor="middle" class="label-text">表观基因组学</text>
+  <text x="460" y="125" text-anchor="middle" class="small-text">DNA甲基化</text>
+  <text x="460" y="140" text-anchor="middle" class="small-text">组蛋白修饰</text>
+  <text x="460" y="155" text-anchor="middle" class="small-text">~28M CpG位点</text>
+  
+  <!-- Proteomics -->
+  <rect x="560" y="80" width="140" height="80" class="omics-box"/>
+  <text x="630" y="105" text-anchor="middle" class="label-text">蛋白质组学</text>
+  <text x="630" y="125" text-anchor="middle" class="small-text">蛋白质表达</text>
+  <text x="630" y="140" text-anchor="middle" class="small-text">修饰蛋白质</text>
+  <text x="630" y="155" text-anchor="middle" class="small-text">~20,000 蛋白质</text>
+  
+  <!-- Metabolomics -->
+  <rect x="135" y="200" width="140" height="80" class="omics-box"/>
+  <text x="205" y="225" text-anchor="middle" class="label-text">代谢组学</text>
+  <text x="205" y="245" text-anchor="middle" class="small-text">代谢物</text>
+  <text x="205" y="260" text-anchor="middle" class="small-text">小分子化合物</text>
+  <text x="205" y="275" text-anchor="middle" class="small-text">~100,000 代谢物</text>
+  
+  <!-- Microbiomics -->
+  <rect x="305" y="200" width="140" height="80" class="omics-box"/>
+  <text x="375" y="225" text-anchor="middle" class="label-text">微生物组学</text>
+  <text x="375" y="245" text-anchor="middle" class="small-text">微生物群落</text>
+  <text x="375" y="260" text-anchor="middle" class="small-text">16S rRNA</text>
+  <text x="375" y="275" text-anchor="middle" class="small-text">宏基因组</text>
+  
+  <!-- Phenomics -->
+  <rect x="475" y="200" width="140" height="80" class="omics-box"/>
+  <text x="545" y="225" text-anchor="middle" class="label-text">表型组学</text>
+  <text x="545" y="245" text-anchor="middle" class="small-text">临床表型</text>
+  <text x="545" y="260" text-anchor="middle" class="small-text">影像学数据</text>
+  <text x="545" y="275" text-anchor="middle" class="small-text">生理指标</text>
+  
+  <!-- Integration Methods -->
+  <rect x="200" y="350" width="400" height="120" class="integration-box"/>
+  <text x="400" y="375" text-anchor="middle" class="label-text">数据整合方法</text>
+  
+  <!-- Early Integration -->
+  <rect x="220" y="390" width="100" height="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="5"/>
+  <text x="270" y="410" text-anchor="middle" class="small-text">早期整合</text>
+  
+  <!-- Intermediate Integration -->
+  <rect x="350" y="390" width="100" height="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="5"/>
+  <text x="400" y="410" text-anchor="middle" class="small-text">中期整合</text>
+  
+  <!-- Late Integration -->
+  <rect x="480" y="390" width="100" height="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="5"/>
+  <text x="530" y="410" text-anchor="middle" class="small-text">晚期整合</text>
+  
+  <!-- Statistical Methods -->
+  <text x="220" y="445" class="small-text">• PCA/PLS</text>
+  <text x="220" y="460" class="small-text">• CCA</text>
+  
+  <text x="350" y="445" class="small-text">• 网络分析</text>
+  <text x="350" y="460" class="small-text">• 路径分析</text>
+  
+  <text x="480" y="445" class="small-text">• 元分析</text>
+  <text x="480" y="460" class="small-text">• 集成学习</text>
+  
+  <!-- Applications -->
+  <rect x="150" y="520" width="500" height="60" fill="#fef7ff" stroke="#a855f7" stroke-width="2" rx="10"/>
+  <text x="400" y="545" text-anchor="middle" class="label-text">应用领域</text>
+  <text x="200" y="565" class="small-text">• 疾病分型与诊断</text>
+  <text x="350" y="565" class="small-text">• 药物靶点发现</text>
+  <text x="500" y="565" class="small-text">• 生物标志物识别</text>
+  <text x="600" y="565" class="small-text">• 系统生物学</text>
+  
+  <!-- Arrows from omics to integration -->
+  <line x1="120" y1="160" x2="300" y2="350" class="arrow"/>
+  <line x1="290" y1="160" x2="350" y2="350" class="arrow"/>
+  <line x1="460" y1="160" x2="450" y2="350" class="arrow"/>
+  <line x1="630" y1="160" x2="500" y2="350" class="arrow"/>
+  <line x1="205" y1="280" x2="320" y2="350" class="arrow"/>
+  <line x1="375" y1="280" x2="400" y2="350" class="arrow"/>
+  <line x1="545" y1="280" x2="480" y2="350" class="arrow"/>
+  
+  <!-- Arrow from integration to applications -->
+  <line x1="400" y1="470" x2="400" y2="520" class="arrow"/>
+</svg>
