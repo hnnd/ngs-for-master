@@ -17,12 +17,13 @@
 
 ```
 ngs-course-materials/
-├── templates/          # 模板文件
 ├── assets/            # 资源文件
 ├── courses/           # 课程内容
 ├── scripts/           # 脚本工具
 └── docs/             # 文档说明
 ```
+
+> **注意**: `templates/` 目录包含开发用的模板文件，仅在本地使用，不会推送到远程仓库。
 
 ## 课程安排
 

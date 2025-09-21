@@ -119,3 +119,6 @@ stats/
 logs/
 *.access.log
 *.error.log
+
+# 模板文件（本地开发使用，不推送到远程仓库）
+templates/
