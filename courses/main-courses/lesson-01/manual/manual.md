@@ -110,8 +110,8 @@ echo "PacBio序列数量:"
 grep -c "^@" data/pacbio_sample.fastq
 echo "Nanopore序列数量:"
 grep -c "^@" data/nanopore_sample.fastq
-```###
-# 2.2 序列长度分析
+```
+#### 2.2 序列长度分析
 
 **执行命令：**
 ```bash
