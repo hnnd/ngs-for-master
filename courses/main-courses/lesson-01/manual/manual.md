@@ -77,12 +77,12 @@ cat SRR35514484_1.fastq SRR35514484_2.fastq > illumina_sample.fastq
 rm SRR35514484_1.fastq SRR35514484_2.fastq
 
 # pacbio
-fasterq-dump ERR15371774
-mv  ERR15371774.fastq pacbio_sample.fastq
+fasterq-dump SRR35320215
+mv  SRR35320215.fastq pacbio_sample.fastq
 
 # nanopore
-fasterq-dump SRR35522673
-mv SRR35522673.fastq nanopore_sample.fastq
+fasterq-dump SRR35012763
+mv SRR35012763.fastq nanopore_sample.fastq
 
 # 验证数据完整性
 ls -lh *.fastq
