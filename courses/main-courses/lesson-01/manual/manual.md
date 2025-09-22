@@ -68,11 +68,21 @@ Python 3.8.x
 
 #### 1.3 下载和准备数据
 ```bash
-# 下载实验数据（模拟数据）
+# 下载实验数据（实际数据）
 cd data
-wget -O illumina_sample.fastq "https://example.com/illumina_sample.fastq"
-wget -O pacbio_sample.fastq "https://example.com/pacbio_sample.fastq"
-wget -O nanopore_sample.fastq "https://example.com/nanopore_sample.fastq"
+
+# illumina
+fasterq-dump -3 SRR35514484
+cat SRR35514484_1.fastq SRR35514484_2.fastq > illumina_sample.fastq
+rm SRR35514484_1.fastq SRR35514484_2.fastq
+
+# pacbio
+fasterq-dump SRR35320215
+mv  SRR35320215.fastq pacbio_sample.fastq
+
+# nanopore
+fasterq-dump SRR35522673
+mv SRR35522673.fastq nanopore_sample.fastq
 
 # 验证数据完整性
 ls -lh *.fastq
