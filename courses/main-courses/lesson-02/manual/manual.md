@@ -27,24 +27,17 @@
 ### 软件环境
 | 软件名称 | 版本要求 | 安装方式 | 说明 |
 |---------|---------|---------|------|
-| FastQC | v0.11.9+ | `sudo apt-get install fastqc` | 质量控制分析工具 |
-| MultiQC | v1.12+ | `pip install multiqc` | 多样本报告整合 |
-| Trimmomatic | v0.39+ | `conda install -c bioconda trimmomatic` | 序列修剪工具 |
+| FastQC | v0.11.9+ | | 质量控制分析工具 |
+| MultiQC | v1.12+ | | 多样本报告整合 |
+| Trimmomatic | v0.39+ | | 序列修剪工具 |
 | Python | 3.7+ | 系统自带 | 脚本运行环境 |
-| Java | 8+ | `sudo apt-get install openjdk-8-jdk` | Trimmomatic依赖 |
+| Java | 8+ |  | Trimmomatic依赖 |
 
 ### 硬件要求
 - **内存**：至少 4 GB RAM
 - **存储空间**：至少 10 GB 可用空间
 - **CPU**：多核处理器（推荐4核以上）
 - **网络**：稳定的互联网连接（用于下载数据）
-
-### 数据准备
-| 数据文件 | 大小 | 下载链接/位置 | 说明 |
-|---------|------|-------------|------|
-| sample_R1.fastq.gz | ~500MB | SRA:SRR1234567 | 双端测序数据第一端 |
-| sample_R2.fastq.gz | ~500MB | SRA:SRR1234567 | 双端测序数据第二端 |
-| TruSeq3-PE.fa | ~2KB | Trimmomatic安装目录 | Illumina接头序列文件 |
 
 ## 操作步骤
 
