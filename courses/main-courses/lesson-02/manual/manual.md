@@ -171,7 +171,7 @@ multiqc -o results/multiqc/ results/fastqc_raw/
 
 # 检查生成的报告
 ls -la results/multiqc/
-```bash
+```
 
 **参数解释：**
 - `-o results/multiqc/`：指定输出目录
@@ -556,7 +556,7 @@ trimmomatic PE -threads 4 -phred33 \
     LEADING:2 TRAILING:2 \
     SLIDINGWINDOW:4:10 \
     MINLEN:30
-```bash
+```
 
 ### 获取帮助
 如果遇到其他问题：
