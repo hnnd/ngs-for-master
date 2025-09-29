@@ -109,7 +109,7 @@ fastqc -t 4 -o results/fastqc_raw/ data/*.fastq.gz
 
 # 检查生成的报告文件
 ls -la results/fastqc_raw/
-```bash
+```
 
 **参数解释：**
 - `-t 4`：使用4个线程并行处理，提高分析速度
