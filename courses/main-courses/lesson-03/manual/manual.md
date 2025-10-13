@@ -196,15 +196,6 @@ wgsim -N 1000000 -1 100 -2 100 -r 0.001 -R 0.15 -X 0.3 \
 echo "数据生成完成"
 ```
 
-**选项C：使用课程提供的数据（如果可用）**
-```bash
-# 如果老师提供了本地数据服务器
-# 请替换下面的URL为实际的课程数据地址
-# wget -O data/sample_R1.fastq.gz "http://course-server/data/sample_R1.fastq.gz"
-# wget -O data/sample_R2.fastq.gz "http://course-server/data/sample_R2.fastq.gz"
-# gunzip data/*.fastq.gz
-```
-
 **验证数据完整性**
 ```bash
 # 检查参考基因组
