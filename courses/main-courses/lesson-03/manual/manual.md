@@ -44,8 +44,14 @@
 ### 数据准备
 本次实验将使用以下数据：
 - **参考基因组**：人类基因组22号染色体片段 (5Mb)
-- **测序数据**：模拟的paired-end reads (2×100bp, 1M reads)
-- **质量控制数据**：用于比较的标准结果
+  - 来源：Ensembl/UCSC公共数据库
+  - 版本：GRCh38 (hg38)
+- **测序数据**：Paired-end reads (2×100bp, 1M reads)
+  - 选项1：NCBI SRA真实数据 (SRR622461)
+  - 选项2：使用wgsim工具生成的模拟数据
+  - 选项3：课程服务器提供的数据（如果可用）
+
+> **📖 数据详细说明**：关于数据来源、格式要求和使用建议的完整信息，请参阅 [DATA_SOURCES.md](DATA_SOURCES.md)
 
 ## 操作步骤
 
@@ -61,13 +67,7 @@ cd ~/ngs_alignment_lab
 mkdir -p data reference results logs scripts
 ```
 
-#### 1.2 运行环境设置脚本
-```bash
-# 运行环境设置脚本
-bash scripts/setup.sh
-```
-
-#### 1.3 检查软件安装
+#### 1.2 检查软件安装（重要！）
 ```bash
 # 检查BWA版本
 bwa 2>&1 | head -3
@@ -77,22 +77,153 @@ bowtie2 --version | head -1
 
 # 检查samtools版本
 samtools --version | head -1
+
+# 如果缺少工具，使用conda安装
+# conda install -c bioconda bwa bowtie2 samtools
 ```
 
-#### 1.4 下载和准备数据
+#### 1.3 快速数据准备（推荐）
+
+**使用自动化脚本准备所有数据**
 ```bash
-# 下载参考基因组片段
-wget -O reference/chr22_fragment.fa \
-  "https://example.com/data/chr22_fragment.fa"
+# 下载数据准备脚本（如果还没有）
+# 脚本应该在课程材料的scripts目录中
 
-# 下载测序数据
-wget -O data/sample_R1.fastq.gz \
-  "https://example.com/data/sample_R1.fastq.gz"
-wget -O data/sample_R2.fastq.gz \
-  "https://example.com/data/sample_R2.fastq.gz"
+# 给脚本添加执行权限
+chmod +x scripts/prepare_data.sh
 
-# 解压数据文件
-gunzip data/*.fastq.gz
+# 运行数据准备脚本（自动下载所有数据）
+bash scripts/prepare_data.sh
+
+# 该脚本将自动完成：
+# 1. 检查必需的软件
+# 2. 下载参考基因组（Ensembl或UCSC）
+# 3. 下载/生成测序数据
+# 4. 验证数据完整性
+```
+
+**脚本使用选项**
+```bash
+# 仅下载参考基因组
+bash scripts/prepare_data.sh --reference
+
+# 仅准备测序数据
+bash scripts/prepare_data.sh --sequencing
+
+# 仅验证数据
+bash scripts/prepare_data.sh --validate
+
+# 查看帮助
+bash scripts/prepare_data.sh --help
+```
+
+#### 1.4 手动数据准备（可选）
+
+如果自动脚本无法运行，或者您想了解详细步骤，可以手动准备数据：
+
+**方案一：下载真实参考基因组**
+```bash
+# 从Ensembl下载人类22号染色体序列
+echo "下载人类22号染色体参考序列..."
+wget -O reference/chr22.fa.gz \
+  "http://ftp.ensembl.org/pub/release-110/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz"
+
+# 解压
+gunzip reference/chr22.fa.gz
+
+# 提取前5Mb作为实验数据（减少计算时间）
+echo "提取前5Mb序列..."
+samtools faidx reference/chr22.fa
+samtools faidx reference/chr22.fa 22:1-5000000 > reference/chr22_fragment.fa
+
+# 清理临时文件
+rm reference/chr22.fa reference/chr22.fa.fai
+```
+
+**方案二：使用UCSC数据源（备选）**
+```bash
+# 从UCSC下载
+wget -O reference/chr22.fa.gz \
+  "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr22.fa.gz"
+
+gunzip reference/chr22.fa.gz
+# 提取前5Mb
+samtools faidx reference/chr22.fa
+samtools faidx reference/chr22.fa chr22:1-5000000 > reference/chr22_fragment.fa
+rm reference/chr22.fa reference/chr22.fa.fai
+```
+
+**测序数据准备**
+
+由于公共数据库的原始测序数据通常非常大，本实验提供两种方式获取测序数据：
+
+**选项A：下载示例数据集（推荐用于教学）**
+```bash
+# 从NCBI SRA下载一个小的测序数据集
+# 使用SRA Toolkit下载数据（需要先安装sra-toolkit）
+# 这里使用一个小规模的人类基因组测序数据
+
+# 安装sra-toolkit（如果未安装）
+# conda install -c bioconda sra-tools
+
+# 下载一个小规模数据集（约100万条reads）
+echo "下载测序数据..."
+fastq-dump --split-files --gzip -X 1000000 SRR622461 -O data/
+
+# 重命名文件
+mv data/SRR622461_1.fastq.gz data/sample_R1.fastq.gz
+mv data/SRR622461_2.fastq.gz data/sample_R2.fastq.gz
+
+# 解压
+gunzip data/sample_R1.fastq.gz
+gunzip data/sample_R2.fastq.gz
+```
+
+**选项B：生成模拟测序数据（如果网络受限）**
+```bash
+# 如果无法下载真实数据，可以使用工具生成模拟数据
+# 需要先下载参考基因组片段
+
+# 使用wgsim生成模拟reads（需要先安装wgsim）
+# conda install -c bioconda wgsim
+
+echo "生成模拟测序数据..."
+wgsim -N 1000000 -1 100 -2 100 -r 0.001 -R 0.15 -X 0.3 \
+  reference/chr22_fragment.fa \
+  data/sample_R1.fastq \
+  data/sample_R2.fastq
+
+echo "数据生成完成"
+```
+
+**选项C：使用课程提供的数据（如果可用）**
+```bash
+# 如果老师提供了本地数据服务器
+# 请替换下面的URL为实际的课程数据地址
+# wget -O data/sample_R1.fastq.gz "http://course-server/data/sample_R1.fastq.gz"
+# wget -O data/sample_R2.fastq.gz "http://course-server/data/sample_R2.fastq.gz"
+# gunzip data/*.fastq.gz
+```
+
+**验证数据完整性**
+```bash
+# 检查参考基因组
+echo "检查参考基因组..."
+head -1 reference/chr22_fragment.fa
+wc -l reference/chr22_fragment.fa
+
+# 检查测序数据
+echo "检查测序数据..."
+head -4 data/sample_R1.fastq
+echo "R1 reads数量: $(wc -l < data/sample_R1.fastq | awk '{print $1/4}')"
+echo "R2 reads数量: $(wc -l < data/sample_R2.fastq | awk '{print $1/4}')"
+
+# 确认数据格式正确
+if [ -f data/sample_R1.fastq ] && [ -f data/sample_R2.fastq ]; then
+    echo "✓ 测序数据准备完成"
+else
+    echo "✗ 测序数据文件缺失，请检查"
+fi
 ```
 
 ### 步骤2：参考基因组索引构建
