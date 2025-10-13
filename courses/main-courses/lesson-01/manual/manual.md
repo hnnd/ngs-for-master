@@ -68,11 +68,21 @@ Python 3.8.x
 
 #### 1.3 下载和准备数据
 ```bash
-# 下载实验数据（模拟数据）
+# 下载实验数据（实际数据）
 cd data
-wget -O illumina_sample.fastq "https://example.com/illumina_sample.fastq"
-wget -O pacbio_sample.fastq "https://example.com/pacbio_sample.fastq"
-wget -O nanopore_sample.fastq "https://example.com/nanopore_sample.fastq"
+
+# illumina
+fasterq-dump -3 SRR35514484
+cat SRR35514484_1.fastq SRR35514484_2.fastq > illumina_sample.fastq
+rm SRR35514484_1.fastq SRR35514484_2.fastq
+
+# pacbio
+fasterq-dump SRR35320215
+mv  SRR35320215.fastq pacbio_sample.fastq
+
+# nanopore
+fasterq-dump SRR35012763
+mv SRR35012763.fastq nanopore_sample.fastq
 
 # 验证数据完整性
 ls -lh *.fastq
@@ -110,8 +120,8 @@ echo "PacBio序列数量:"
 grep -c "^@" data/pacbio_sample.fastq
 echo "Nanopore序列数量:"
 grep -c "^@" data/nanopore_sample.fastq
-```###
-# 2.2 序列长度分析
+```
+#### 2.2 序列长度分析
 
 **执行命令：**
 ```bash
@@ -191,10 +201,11 @@ python error_analysis.py
 python throughput_analysis.py
 ```
 
-**检查点：** 理解不同平台在读长、准确性、产出量方面的差异。---
+**检查点：** 理解不同平台在读长、准确性、产出量方面的差异。
 
-###
- 步骤4：测序成本分析
+---
+
+### 步骤4：测序成本分析
 
 #### 4.1 成本计算模型
 
@@ -284,10 +295,11 @@ python multi_criteria_decision.py
 cat results/platform_recommendation.txt
 ```
 
-**检查点：** 学会根据具体需求选择合适的测序平台。---
+**检查点：** 学会根据具体需求选择合适的测序平台。
 
-### 步
-骤6：结果分析和解读
+---
+
+### 步骤6：结果分析和解读
 
 #### 6.1 结果文件说明
 | 文件名 | 位置 | 内容说明 | 重要性 |
@@ -309,7 +321,7 @@ cat results/platform_recommendation.txt
 ```bash
 # 生成综合分析报告
 python generate_report.py
-```python
+```
 
 ## 预期结果
 
@@ -347,7 +359,7 @@ python generate_report.py
 ```bash
 # 安装缺少的包
 pip install pandas matplotlib seaborn biopython
-```bash
+```
 
 ### 常见问题2：数据文件无法下载
 **症状：** wget: command not found 或下载失败
@@ -365,7 +377,7 @@ cp /shared/data/lesson01/* data/
 ```bash
 # 添加执行权限
 chmod +x scripts/*.py
-```python
+```
 
 ### 获取帮助
 如果遇到其他问题：

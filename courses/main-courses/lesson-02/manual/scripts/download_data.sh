@@ -164,7 +164,7 @@ download_sra_data() {
     echo "从SRA数据库下载真实测序数据..."
     
     # 使用一个较小的公共数据集进行演示
-    SRR_ID="SRR1234567"  # 这是一个示例ID，实际使用时需要替换为真实的SRR ID
+    SRR_ID="SRR35544398"  # 这是一个示例ID，实际使用时需要替换为真实的SRR ID
     
     echo "下载SRA数据：$SRR_ID"
     
