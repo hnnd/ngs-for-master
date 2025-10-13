@@ -41,12 +41,19 @@
 - **网络**：稳定的互联网连接（用于下载参考数据）
 
 ### 数据准备
-| 数据文件 | 大小 | 下载链接/位置 | 说明 |
-|---------|------|-------------|------|
-| sample.bam | ~2GB | /data/ngs/lesson04/ | 已比对的测序数据 |
-| reference.fa | ~3GB | /data/reference/hg38/ | 人类参考基因组 |
-| dbsnp.vcf | ~1GB | /data/reference/dbsnp/ | 已知变异数据库 |
-| hapmap.vcf | ~500MB | /data/reference/hapmap/ | 高质量SNP集合 |
+本次实验数据通过自动化脚本准备，包括：
+
+| 数据文件 | 大小 | 来源 | 说明 |
+|---------|------|------|------|
+| chr22_fragment.fa | ~5MB | Ensembl/UCSC | 人类22号染色体5Mb片段 |
+| sample.bam | ~50-100MB | 模拟生成或lesson-03 | 已比对的测序数据(~10万reads) |
+| dbsnp.vcf | ~50KB | 模拟生成 | 已知变异数据库(~1000个位点) |
+| hapmap.vcf | ~25KB | 模拟生成 | 高质量SNP集合(~500个位点) |
+
+**数据获取方式：**
+- 运行 `bash scripts/download_data.sh` 自动下载/生成所有数据
+- 数据将保存在 `~/ngs-analysis/lesson-04/data/` 目录
+- 参考[DATA_SOURCES.md](../DATA_SOURCES.md)了解数据详细说明
 
 ## 操作步骤
 
@@ -86,19 +93,39 @@ VEP version 104
 ```
 
 #### 1.3 下载和准备数据
+
+**自动化数据准备（推荐）：**
 ```bash
-# 复制实验数据到工作目录
-cp /data/ngs/lesson04/sample.bam data/
-cp /data/ngs/lesson04/sample.bam.bai data/
-cp /data/reference/hg38/reference.fa* data/
-cp /data/reference/dbsnp/dbsnp.vcf* data/
-cp /data/reference/hapmap/hapmap.vcf* data/
+# 运行数据准备脚本
+bash scripts/download_data.sh
+
+# 该脚本将自动完成:
+# 1. 下载人类22号染色体片段作为参考基因组
+# 2. 生成模拟测序数据或使用lesson-03的结果
+# 3. 创建变异资源文件(dbSNP和HapMap)
+# 4. 建立必要的索引文件
+```
+
+**手动数据链接（如果数据已准备好）：**
+```bash
+# 如果已有准备好的数据，创建符号链接
+ln -s ~/ngs-analysis/lesson-04/data/* data/
 
 # 验证数据完整性
 ls -lh data/
 ```
 
-**检查点：** 确认所有数据文件已正确下载并位于 `data/` 目录中。
+**预期文件列表：**
+```
+chr22_fragment.fa       参考基因组
+chr22_fragment.fa.fai   参考基因组索引
+sample.bam              比对数据
+sample.bam.bai          BAM索引
+dbsnp.vcf               dbSNP数据库
+hapmap.vcf              HapMap数据
+```
+
+**检查点：** 运行 `ls -lh ~/ngs-analysis/lesson-04/data/` 确认所有数据文件已生成。
 
 ---
 
@@ -113,7 +140,7 @@ ls -lh data/
 ```bash
 # 标记重复序列
 gatk MarkDuplicates \
-    -I data/sample.bam \
+    -I ~/ngs-analysis/lesson-04/data/sample.bam \
     -O results/sample.marked.bam \
     -M results/duplicate_metrics.txt \
     --CREATE_INDEX true
@@ -128,11 +155,16 @@ cat results/duplicate_metrics.txt | head -10
 - `-M`：重复序列统计报告
 - `--CREATE_INDEX`：自动创建索引文件
 
-**预期输出：**
+**预期输出示例：**
 ```
-LIBRARY	UNPAIRED_READS_EXAMINED	READ_PAIRS_EXAMINED	SECONDARY_OR_SUPPLEMENTARY_RDS	UNMAPPED_READS	UNPAIRED_READ_DUPLICATES	READ_PAIR_DUPLICATES	READ_PAIR_OPTICAL_DUPLICATES	PERCENT_DUPLICATION	ESTIMATED_LIBRARY_SIZE
-sample	0	15234567	0	234567	0	1523456	12345	0.098765	156789012
+LIBRARY	UNPAIRED_READS_EXAMINED	READ_PAIRS_EXAMINED	UNMAPPED_READS	PERCENT_DUPLICATION
+sample	0	100000	5234	0.02-0.05
 ```
+
+**说明：**
+- READ_PAIRS_EXAMINED: ~100,000 (与生成的数据量一致)
+- UNMAPPED_READS: ~5% (正常范围)
+- PERCENT_DUPLICATION: 2-5% (低重复率,因为是模拟数据)
 
 **结果验证：**
 ```bash
@@ -150,22 +182,22 @@ BQSR通过已知变异位点校正系统性的测序错误，提高变异检测�
 # 第一步：生成校正表
 gatk BaseRecalibrator \
     -I results/sample.marked.bam \
-    -R data/reference.fa \
-    --known-sites data/dbsnp.vcf \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
+    --known-sites ~/ngs-analysis/lesson-04/data/dbsnp.vcf \
     -O results/recal_data.table
 
 # 第二步：应用校正
 gatk ApplyBQSR \
     -I results/sample.marked.bam \
-    -R data/reference.fa \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
     --bqsr-recal-file results/recal_data.table \
     -O results/sample.recal.bam
 
 # 生成校正后的统计表（可选）
 gatk BaseRecalibrator \
     -I results/sample.recal.bam \
-    -R data/reference.fa \
-    --known-sites data/dbsnp.vcf \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
+    --known-sites ~/ngs-analysis/lesson-04/data/dbsnp.vcf \
     -O results/post_recal_data.table
 ```
 
@@ -193,14 +225,14 @@ HaplotypeCaller是GATK的核心变异检测工具，基于单倍型重组装算�
 # 变异检测 - 生成GVCF文件
 gatk HaplotypeCaller \
     -I results/sample.recal.bam \
-    -R data/reference.fa \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
     -O results/sample.g.vcf \
     -ERC GVCF \
     --native-pair-hmm-threads 4
 
 # 基因分型 - 从GVCF生成最终VCF
 gatk GenotypeGVCFs \
-    -R data/reference.fa \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
     -V results/sample.g.vcf \
     -O results/sample.vcf
 ```
@@ -238,7 +270,12 @@ bcftools view -v snps results/sample.vcf | bcftools stats | grep "number of reco
 bcftools view -v indels results/sample.vcf | bcftools stats | grep "number of records"
 ```
 
-**检查点：** 确认检测到合理数量的SNP（~4-5万）和InDel（~5千）变异。
+**检查点：** 对于5Mb基因组区域,期望检测到约500-1000个SNP和50-100个InDel变异。
+
+**注意：** 变异数量取决于:
+- 参考基因组区域大小 (本实验使用5Mb片段)
+- 样本类型 (模拟数据的变异密度可能与真实数据不同)
+- 测序深度 (~30X)
 
 ---
 
@@ -253,7 +290,7 @@ bcftools view -v indels results/sample.vcf | bcftools stats | grep "number of re
 ```bash
 # SNP硬过滤
 gatk VariantFiltration \
-    -R data/reference.fa \
+    -R ~/ngs-analysis/lesson-04/data/chr22_fragment.fa \
     -V results/sample.vcf \
     --filter-expression "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" \
     --filter-name "SNP_filter" \
@@ -277,11 +314,17 @@ bcftools view results/sample.pass.vcf | grep -v "^#" | wc -l
 - `MQRankSum < -12.5`：比对质量偏倚
 - `ReadPosRankSum < -8.0`：reads位置偏倚
 
-**预期输出：**
+**预期输出示例：**
 ```
-原始变异数量: 45678
-通过过滤的变异数量: 42134
+原始变异数量: 800-1200
+通过过滤的变异数量: 600-900
+过滤通过率: ~75-85%
 ```
+
+**说明：**
+- 本实验使用5Mb参考区域,变异数量远少于全基因组
+- 过滤通过率应在75-85%之间
+- 如果通过率过低(<60%),可能需要检查数据质量
 
 #### 4.2 质量控制评估
 
@@ -291,12 +334,16 @@ bcftools view results/sample.pass.vcf | grep -v "^#" | wc -l
 python3 scripts/calculate_titv.py results/sample.pass.vcf
 
 # 计算dbSNP重叠率
-bcftools isec -p results/dbsnp_overlap results/sample.pass.vcf data/dbsnp.vcf
+bcftools isec -p results/dbsnp_overlap results/sample.pass.vcf ~/ngs-analysis/lesson-04/data/dbsnp.vcf
 echo "dbSNP重叠率:"
 wc -l results/dbsnp_overlap/0002.vcf results/sample.pass.vcf
 ```
 
-**检查点：** Ti/Tv比值应在2.0-2.1之间，dbSNP重叠率应>95%。
+**检查点：**
+- Ti/Tv比值: 应在1.8-2.2之间 (全基因组约2.0-2.1)
+- dbSNP重叠率: 模拟数据约30-50% (真实数据应>95%)
+
+**注意：** 由于使用模拟的dbSNP数据,重叠率会较低。真实项目中使用官方dbSNP数据库,重叠率应>95%。
 
 ---
 
@@ -419,18 +466,27 @@ python3 scripts/plot_variant_density.py results/sample.pass.vcf plots/
    - 用途：质量控制和结果展示
 
 ### 关键结果指标
-- **变异数量**：SNP ~40,000-50,000个，InDel ~4,000-6,000个
-- **Ti/Tv比值**：应该在 2.0-2.1 之间
-- **dbSNP重叠率**：应该 >95%
-- **过滤通过率**：应该 >90%
+**本实验数据 (5Mb区域)：**
+- **变异数量**：SNP ~500-1000个，InDel ~50-100个
+- **Ti/Tv比值**：应该在 1.8-2.2 之间
+- **dbSNP重叠率**：模拟数据 ~30-50% (真实数据应>95%)
+- **过滤通过率**：应该 >75%
+- **平均覆盖深度**：~30X
+
+**全基因组规模 (参考)：**
+- **变异数量**：SNP ~4-5百万个，InDel ~40-60万个
+- **Ti/Tv比值**：~2.0-2.1
+- **dbSNP重叠率**：>95%
+- **过滤通过率**：>90%
 
 ### 成功标准
+- [ ] 数据准备脚本成功运行,生成所有必需文件
 - [ ] 所有GATK命令执行无错误
-- [ ] 生成了预期数量的变异
-- [ ] Ti/Tv比值在正常范围内
-- [ ] dbSNP重叠率达标
-- [ ] 注释成功完成
-- [ ] 可视化图表正常生成
+- [ ] 检测到预期数量的变异 (500-1000个SNP)
+- [ ] Ti/Tv比值在正常范围内 (1.8-2.2)
+- [ ] 变异过滤通过率达标 (>75%)
+- [ ] (可选) 注释成功完成
+- [ ] (可选) 可视化图表正常生成
 
 ## 故障排除
 
@@ -451,8 +507,9 @@ gatk --java-options "-Xmx8g" HaplotypeCaller ...
 **解决方案：**
 ```bash
 # 创建参考基因组索引
-samtools faidx data/reference.fa
-gatk CreateSequenceDictionary -R data/reference.fa
+cd ~/ngs-analysis/lesson-04/data
+samtools faidx chr22_fragment.fa
+gatk CreateSequenceDictionary -R chr22_fragment.fa
 ```
 
 ### 常见问题3：VEP缓存数据缺失
@@ -468,9 +525,25 @@ vep_install -a cf -s homo_sapiens -y GRCh38 -c ~/.vep
 **症状：** 检测到的变异数量过多或过少
 **原因：** 数据质量问题或参数设置不当
 **解决方案：**
-1. 检查原始数据质量
-2. 调整过滤参数
-3. 验证参考基因组版本匹配
+```bash
+# 1. 检查BAM文件质量
+samtools flagstat ~/ngs-analysis/lesson-04/data/sample.bam
+
+# 2. 检查覆盖深度
+samtools depth ~/ngs-analysis/lesson-04/data/sample.bam | \
+    awk '{sum+=$3; count++} END {print "平均覆盖度:", sum/count}'
+
+# 3. 验证参考基因组
+head ~/ngs-analysis/lesson-04/data/chr22_fragment.fa
+
+# 4. 检查VCF文件内容
+bcftools view -H results/sample.vcf | head
+```
+
+**预期范围：**
+- 5Mb区域: 500-1000个SNP
+- 如果<100个: 可能覆盖度太低或数据有问题
+- 如果>2000个: 可能样本质量差或有污染
 
 ### 获取帮助
 如果遇到其他问题：

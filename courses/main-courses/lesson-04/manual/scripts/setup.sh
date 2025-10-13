@@ -54,42 +54,29 @@ echo "GATK_JAVA_OPTIONS=$GATK_JAVA_OPTIONS"
 
 # 检查数据文件
 echo "检查数据文件..."
-DATA_SOURCES=(
-    "/data/ngs/lesson04/sample.bam"
-    "/data/reference/hg38/reference.fa"
-    "/data/reference/dbsnp/dbsnp.vcf"
-    "/data/reference/hapmap/hapmap.vcf"
+DATA_DIR="$WORK_DIR/data"
+DATA_FILES=(
+    "$DATA_DIR/chr22_fragment.fa"
+    "$DATA_DIR/sample.bam"
+    "$DATA_DIR/dbsnp.vcf"
+    "$DATA_DIR/hapmap.vcf"
 )
 
-for file in "${DATA_SOURCES[@]}"; do
+MISSING_FILES=0
+for file in "${DATA_FILES[@]}"; do
     if [[ -f "$file" ]]; then
-        echo "✓ 找到数据文件: $file"
+        echo "✓ 找到数据文件: $(basename $file)"
     else
-        echo "✗ 缺少数据文件: $file"
-        echo "  请联系管理员准备数据文件"
+        echo "✗ 缺少数据文件: $(basename $file)"
+        MISSING_FILES=$((MISSING_FILES + 1))
     fi
 done
 
-# 创建符号链接（如果数据文件存在）
-echo "创建数据文件链接..."
-if [[ -f "/data/ngs/lesson04/sample.bam" ]]; then
-    ln -sf /data/ngs/lesson04/sample.bam* data/
-    echo "✓ 链接测序数据文件"
-fi
-
-if [[ -f "/data/reference/hg38/reference.fa" ]]; then
-    ln -sf /data/reference/hg38/reference.fa* data/
-    echo "✓ 链接参考基因组文件"
-fi
-
-if [[ -f "/data/reference/dbsnp/dbsnp.vcf" ]]; then
-    ln -sf /data/reference/dbsnp/dbsnp.vcf* data/
-    echo "✓ 链接dbSNP数据库"
-fi
-
-if [[ -f "/data/reference/hapmap/hapmap.vcf" ]]; then
-    ln -sf /data/reference/hapmap/hapmap.vcf* data/
-    echo "✓ 链接HapMap数据库"
+if [[ $MISSING_FILES -gt 0 ]]; then
+    echo ""
+    echo "检测到缺少 $MISSING_FILES 个数据文件"
+    echo "请运行数据准备脚本: bash scripts/download_data.sh"
+    echo ""
 fi
 
 # 创建日志文件
@@ -105,10 +92,10 @@ echo "可用空间: $AVAILABLE_SPACE"
 cat > config.txt << EOF
 # 第4次课配置文件
 WORK_DIR=$WORK_DIR
-REFERENCE=data/reference.fa
-DBSNP=data/dbsnp.vcf
-HAPMAP=data/hapmap.vcf
-INPUT_BAM=data/sample.bam
+REFERENCE=$DATA_DIR/chr22_fragment.fa
+DBSNP=$DATA_DIR/dbsnp.vcf
+HAPMAP=$DATA_DIR/hapmap.vcf
+INPUT_BAM=$DATA_DIR/sample.bam
 THREADS=4
 MEMORY=8g
 EOF
