@@ -45,11 +45,39 @@
 - **网络**：稳定的互联网连接（用于下载数据）
 
 ### 数据准备
-| 数据文件 | 大小 | 下载链接/位置 | 说明 |
-|---------|------|-------------|------|
-| 参考基因组 | ~3GB | Ensembl FTP | 人类基因组GRCh38 |
-| 基因注释文件 | ~50MB | Ensembl FTP | GTF格式注释 |
-| RNA-seq测试数据 | ~2GB | 课程服务器 | 6个样本的双端测序数据 |
+
+#### 📥 推荐方式：使用自动化脚本
+
+```bash
+# 进入manual目录
+cd lesson-05/manual
+
+# 自动准备所有数据
+bash scripts/download_data.sh
+
+# 该脚本将自动完成：
+# 1. 检查软件依赖
+# 2. 下载/生成参考基因组
+# 3. 准备测序数据（可选择下载或生成）
+# 4. 验证数据完整性
+```
+
+#### 📊 数据选项
+
+| 数据类型 | 大小 | 准备时间 | 说明 |
+|---------|------|---------|------|
+| 演示数据 | ~300MB | 5-10分钟 | 快速学习，推荐初学者 |
+| 模拟数据 | ~2GB | 20-30分钟 | 完整分析，使用wgsim生成 |
+| 真实数据 | ~10-20GB | 1-2小时 | NCBI SRA数据集 |
+
+#### ℹ️ 更多详细信息
+
+- **自动化脚本选项**: 查看脚本帮助
+  ```bash
+  bash scripts/download_data.sh --help
+  ```
+
+- **完整数据准备指南**: 参考 [../DATA_SOURCES.md](../DATA_SOURCES.md)
 
 ## 操作步骤
 
@@ -89,27 +117,41 @@ featureCounts v2.0.1
 R version 4.1.0
 ```
 
-#### 1.3 下载和准备数据
+#### 1.3 使用脚本自动准备数据（推荐）
+
 ```bash
-# 下载参考基因组（如果未下载）
-cd reference
-wget ftp://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
-wget ftp://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/Homo_sapiens.GRCh38.104.gtf.gz
+# 进入manual目录
+cd ~/ngs-analysis/lesson-05
 
-# 解压文件
-gunzip *.gz
+# 运行自动化数据准备脚本
+bash manual/scripts/download_data.sh --all
 
-# 下载测试数据（从课程服务器）
-cd ../data
-# 这里假设数据已经准备在服务器上
-cp /shared/course_data/rnaseq/*.fastq.gz .
-
-# 验证数据完整性
-ls -lh *.fastq.gz
-md5sum *.fastq.gz > checksums.md5
+# 脚本将自动：
+# ✓ 检查必需的软件工具
+# ✓ 下载/生成参考基因组（多个选项可选）
+# ✓ 生成/下载测序数据
+# ✓ 验证数据的完整性
+# ✓ 生成样本信息表
 ```
 
-**检查点：** 确认所有数据文件已正确下载并位于相应目录中。
+**检查点：** 查看日志文件确认数据准备成功
+
+```bash
+cat ../logs/data_summary.txt
+ls -lh manual/reference/
+ls -lh manual/data/
+```
+
+#### 1.4 手动准备数据（可选）
+
+如果自动脚本无法运行或需要特定数据，可参考详细指南：
+
+- **完整操作步骤**: 见 [../DATA_SOURCES.md](../DATA_SOURCES.md)
+- **参考基因组下载**: 选择Ensembl或UCSC源
+- **测序数据获取**:
+  - 直接下载NCBI SRA数据
+  - 使用wgsim生成模拟数据
+  - 使用课程服务器的预置数据
 
 ---
 
