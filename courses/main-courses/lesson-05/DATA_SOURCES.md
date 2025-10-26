@@ -151,18 +151,6 @@ gzip *.fastq
 - `-R 0.15`: 插入/缺失率15%
 - `-X 0.3`: 外源DNA污染率30%
 
-**选项C：使用学校/课程服务器提供的数据（如可用）**
-
-```bash
-cd data
-
-# 如果课程提供了本地数据服务器，使用以下方式下载
-# 下载速度会更快，因为是本地网络
-wget http://[course-server-ip]/rnaseq-data/sample1_R1.fastq.gz
-wget http://[course-server-ip]/rnaseq-data/sample1_R2.fastq.gz
-# 依次下载其他样本...
-```
-
 ## 数据详细说明
 
 ### 参考基因组
